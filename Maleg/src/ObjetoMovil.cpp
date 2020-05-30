@@ -6,7 +6,9 @@ void ObjetoMovil::Mueve(float t)
 	posicion.y = posicion.y + velocidad.y * t + 0.5f * aceleracion.y * t * t;
 	velocidad.x = velocidad.x + aceleracion.x * t;
 	velocidad.y = velocidad.y + aceleracion.y * t; 
-
+	///////////////fefdesf
+	//////////////////sefefsf
+	///efesfesfe
 	/*posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
 	velocidad = velocidad + aceleracion * t;*/
 
