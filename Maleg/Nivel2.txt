@@ -1,0 +1,32 @@
+X1_Y1_X2_Y2_GROSOR_ROJO_VERDE_AZUL
+Plataforma
+-10.0 0.0 20.0 0.0 0.5 155.0 155.0 155.0       //Plataforma_base_inicial
+ 10.0 10.5 14.0 10.5 0.5 155.0 155.0 155.0     //Primera_plataforma_flotante
+ 10.0 18.5 14.0 18.5 0.5 155.0 155.0 155.0     //Segunda_plataforma_flotante
+ 20.0 0.0 20.0 20.0 0.5 155.0 155.0 155.0      //Primer_pared_vertical
+ 20.0 20.0 25.0 20.0 0.5 155.0 155.0 155.0     //Continuación_después_de_los_saltos
+ 25.0 20.0 32.0 20.0 0.5 0.0 255.0 127.0       //Cavidad_en_el_suelo_(Hoyo)
+ 27.5 23.0 32.5 23.0 0.5 155.0 155.0 155.0     //Plataforma_flotante
+ 52.0 29.0 57.0 29.0 0.5 155.0 155.0 155.0     //Zona_de_"descanso"_después_de_los_saltos
+ 53.0 25.0 60.0 25.0 0.5 0.0 255.0 127.0       //Hoyo_debajo_de_la_plataforma
+ 60.0 25.0 73.0 25.0 0.5 155.0 155.0 155.0     //Plataforma 
+ 77.0 25.0 77.0 37.0 0.5 155.0 155.0 155.0     //Cierre_de_las_escaleras_(Vertical)
+ 85.0 25.0 88.0 25.0 0.5 0.0 255.0 127.0       //Hoyo_a_continuación_del_rectángulo
+ 88.0 25.0 93.0 25.0 0.5 155.0 155.0 155.0     //Plataforma_horizontal
+ 95.0 28.0 100.0 28.0 0.5 155.0 155.0 155.0    //Plataforma_flotante
+ 102.0 26.0 106.0 26.0 0.5 155.0 155.0 155.0   //Plataforma_flotante2
+ 102.0 30.0 106.0 30.0 0.5 155.0 155.0 155.0   //Plataforma_flotante3
+Bloque
+ 17.0 5.0 17.0 8.0 3.0 155.0 155.0 155.0       //Primer_bloque_en_la_primera_pared_vertical
+ 17.0 13.0 17.0 16.0 3.0 155.0 155.0 155.0     //Segundo_bloque_pared_vertical
+ 35.0 25.0 35.0 27.0 3.0 155.0 155.0 155.0     //Bloque_flotante_1
+ 41.0 29.0 41.0 31.0 3.0 155.0 155.0 155.0     //Bloque_flotante_2
+ 47.0 25.0 47.0 27.0 3.0 155.0 155.0 155.0     //Bloque_flotante_3
+ 65.0 25.0 65.0 27.0 2.0 155.0 155.0 155.0     //Peldaño_1_escalera
+ 67.0 27.0 67.0 29.0 2.0 155.0 155.0 155.0     //Peldaño_2_escalera
+ 69.0 29.0 69.0 31.0 2.0 155.0 155.0 155.0     //Peldaño_3_escalera
+ 71.0 31.0 71.0 33.0 2.0 155.0 155.0 155.0     //Peldaño_4_escalera
+ 73.0 33.0 73.0 35.0 2.0 155.0 155.0 155.0     //Peldaño_5_escalera
+ 75.0 35.0 75.0 37.0 2.0 155.0 155.0 155.0     //Peldaño_6_escalera
+ 81.0 25.0 81.0 40.0 4.0 155.0 155.0 155.0     //Rectángulo_grande
+ 108.0 27.0 108.0 29.0 2.0 155.0 155.0 155.0   //Último_bloque
