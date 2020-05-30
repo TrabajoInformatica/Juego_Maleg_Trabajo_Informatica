@@ -8,7 +8,9 @@ void ObjetoMovil::Mueve(float t)
 	velocidad.y = velocidad.y + aceleracion.y * t; 
 
 	// JAJAJAJAJ luis chavalito
-
+// sdflkhasfñasdkf jklshdds 
+	// el bromas
+	// jaja xd
 	/*posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
 	velocidad = velocidad + aceleracion * t;*/
 
