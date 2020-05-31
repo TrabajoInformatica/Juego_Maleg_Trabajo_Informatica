@@ -3,22 +3,19 @@
 #include "glut.h"
 
 
-CoordinadorPang::CoordinadorPang()
-{
+CoordinadorPang::CoordinadorPang(){
 	estado = INICIO;
-
 }
 
 
-CoordinadorPang::~CoordinadorPang()
-{
+CoordinadorPang::~CoordinadorPang(){
 }
 
 void CoordinadorPang::TeclaEspecial(unsigned char key) {
 	if (estado == JUEGO)
 		mundo.TeclaEspecial(key);
-
 }
+
 void CoordinadorPang::Tecla(unsigned char key) {
 	if (estado == INICIO)
 	{

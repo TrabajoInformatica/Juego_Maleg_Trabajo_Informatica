@@ -97,16 +97,14 @@ void ListaPlataformas::Colision(Personaje* pers) {
 		}
 	}
 	
-	
 	for (int i = 0;i < numerop; i++) {
 		if (Interaccion::ColisionSup(pers, *(Listap[i]))) {
 			pers->SetVel(pers->GetVel().x, 0.0f);
-			pers->SetAce(0.0f, 0.0f);
+			pers->SetAce(pers->GetAce().x, 0.0f);
 			break;
 		}
 		else
-			pers->SetAce(0.0f, -9.8f);
-		
+			pers->SetAce(pers->GetAce().x, -9.8f);
 	}
 
 	for (int i = 0;i < numerop;i++) {

@@ -60,7 +60,7 @@ void Mundo::TeclaEspecial(unsigned char key){
 }
 
 void Mundo::Mover(){
-	nivel1.mueve(0.025f);
+	nivel1.Mueve();
 	//nivel2.mueve(0.025f);
 }
 

@@ -55,24 +55,23 @@ void Nivel1::Dibuja() {
 	marcador.Dibuja(&heroe);
 	///////////////////////////////////Enemigos
 }
-void Nivel1::mueve(float t) {
-
-
-	monedas.Mueve(0.020f);
+void Nivel1::Mueve() {
+	monedas.Mueve(0.025f);
 	sirena.Mueve(0.025f);
-	heroe.Mueve(0.025f);
+	heroe.Mueve(0.05f);
 	plataformas.Colision(&heroe);
 	monedas.Colision(&heroe);
 }
 
 void Nivel1::Tecla(unsigned char key) {
-	if (key == 'd')
-		heroe.SetVel(8.0f, heroe.GetVel().y);
-	if (key == 'a')
-		heroe.SetVel(-8.0f, heroe.GetVel().y);
-	if (key == 'w') {
+	if (key == 'w')
 		heroe.SetVel(heroe.GetVel().x, 10.0f);
-	}
+	if (key == 'a')
+		heroe.SetVel(-3.0f, heroe.GetVel().y);
+	if (key == 's')
+		heroe.SetVel(0.0f, 0.0f);
+	if (key == 'd')
+		heroe.SetVel(3.0f, heroe.GetVel().y);
 }
 
 

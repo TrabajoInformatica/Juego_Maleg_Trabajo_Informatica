@@ -28,7 +28,7 @@ public:
 
 	void Inicializa();
 	void Dibuja();
-	void mueve(float t);
+	void Mueve();
 
 	void Tecla(unsigned char);
 
