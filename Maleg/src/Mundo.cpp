@@ -37,7 +37,6 @@ void Mundo::Dibuja() {
 	//ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 	//ETSIDI::printxy("Bienvenido al pang. ", -5, 8);
 	nivel1.Dibuja();
-	suelo.Dibuja();
 	//nivel2.Dibuja();
 	
 

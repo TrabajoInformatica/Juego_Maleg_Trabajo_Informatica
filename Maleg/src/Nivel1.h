@@ -7,10 +7,10 @@
 #include "Interaccion.h"
 #include "Enemigo.h"
 #include "Marcador.h"
-
+#define MAX_SIZE
 
 using namespace std;
-#define MAX_SIZE
+
 class Nivel1 {
 private:
 	Personaje persona;

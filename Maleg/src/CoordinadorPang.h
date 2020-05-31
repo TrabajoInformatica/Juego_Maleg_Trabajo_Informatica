@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Mundo.h"
-#include "Fondo.h"
-
 
 class CoordinadorPang
 {
@@ -15,7 +13,6 @@ public:
 	void Dibuja();
 
 protected:
-	Fondo pantalla;
 	Mundo mundo;
 	enum Estado { INICIO, INTRO, CARGA, JUEGO, GAMEOVER, FIN, PAUSA }; //Fin el cuando se acaba el juego, GameOver cuando el jugador ha perdido
 	Estado estado;

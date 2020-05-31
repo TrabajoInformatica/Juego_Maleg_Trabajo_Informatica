@@ -148,7 +148,6 @@
     <ClCompile Include="src\Bloque.cpp" />
     <ClCompile Include="src\CoordinadorPang.cpp" />
     <ClCompile Include="src\Enemigo.cpp" />
-    <ClCompile Include="src\fondo.cpp" />
     <ClCompile Include="src\Heroe.cpp" />
     <ClCompile Include="src\Interaccion.cpp" />
     <ClCompile Include="src\ListaMonedas.cpp" />
@@ -168,7 +167,6 @@
     <ClInclude Include="src\Bloque.h" />
     <ClInclude Include="src\CoordinadorPang.h" />
     <ClInclude Include="src\Enemigo.h" />
-    <ClInclude Include="src\Fondo.h" />
     <ClInclude Include="src\Heroe.h" />
     <ClInclude Include="src\Interaccion.h" />
     <ClInclude Include="src\ListaMonedas.h" />
