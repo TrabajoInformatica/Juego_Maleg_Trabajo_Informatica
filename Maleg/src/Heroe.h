@@ -5,7 +5,6 @@ class Heroe: public Personaje
 {
 protected:
 	float vida;
-	unsigned char rojo, verde, azul;
 	
 public:
 	Heroe();

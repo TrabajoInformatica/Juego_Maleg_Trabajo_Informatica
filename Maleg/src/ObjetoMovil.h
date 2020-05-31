@@ -10,11 +10,15 @@ protected:
 
 public:
 	void Mueve(float t);
-	void SetAce(float ax, float ay);
+
+	// METODOS SET
 	void SetPos(float x, float y);
 	void SetVel(float vx, float vy);
+	void SetAce(float ax, float ay);
 
-	Vector2D GetVel();
+	// METODOS GET
 	Vector2D GetPos();
+	Vector2D GetVel();
+	Vector2D GetAce();
 };
 
