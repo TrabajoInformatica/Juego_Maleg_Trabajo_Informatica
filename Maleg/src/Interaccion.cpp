@@ -52,10 +52,10 @@ bool Interaccion::ColisionInf(Personaje* pers, Plataforma pl) {
 }
 bool Interaccion::ColisionMoneda(Personaje* pers, Moneda m) {
     Vector2D posicion = pers->GetPos();
+    float altura = pers->GetAltura() / 2;
     Vector2D posicionm = m.GetPos();
-    float distancia = (posicionm - posicion).modulo();
-    if (distancia < m.GetRadio()) {
-        cout << "moneda";
+    float distanciar = posicionm.x - m.GetRadio();
+    if ((posicion.x + altura >= distanciar) && ( (posicion.y + altura >= posicionm.y - m.GetRadio()) || (posicion.y-altura<=posicionm.y+m.GetRadio()))  ) {
         return true;
     }
     return false;
