@@ -15,8 +15,9 @@ void Mundo::Inicializa() {
 	x_ojo = 0;
 	y_ojo = 7.5;
 //	z_ojo = 30;
-	nivel = 0;
-//	CargarNivel();
+	//nivel = 0;
+	//CargarNivel();
+
 	nivel1.Inicializa();
 }
 
@@ -68,3 +69,4 @@ void Mundo::Tecla(unsigned char key)
 {
 	nivel1.Tecla(key);
 }
+

@@ -1,8 +1,12 @@
 #include "Mundo.h"
 #include "glut.h"
+#include "CoordinadorPang.h"
 
-Mundo mundo;
-Nivel1 nivel;
+CoordinadorPang juego;
+
+//Mundo mundo;
+//Nivel1 nivel;
+
 //////scfivesfbsdcbfucbs
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos//////////////////////////////////////////////////////////////////
@@ -37,7 +41,7 @@ int main(int argc, char* argv[]) {
 	glutSpecialFunc(onSpecialKeyboardDown); //gestion de los cursores
 	
 	//Aqui iria mundo
-	mundo.Inicializa();
+	//mundo.Inicializa();
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
 
@@ -50,21 +54,24 @@ void OnDraw(void) {
 	//Para definir el punto de vista
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	mundo.Dibuja();
+	juego.Dibuja();
+	//mundo.Dibuja();
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
 }
 
 void OnKeyboardDown(unsigned char key, int x_t, int y_t) {
 	
-	mundo.Tecla(key);
+	juego.Tecla(key);
+	//mundo.Tecla(key);
 	//poner aqui el código de teclado
 	glutPostRedisplay();
 }
 
 void OnTimer(int value) {
 	//poner aqui el código de animacion
-	mundo.Mover();
+	juego.Mueve();
+	//mundo.Mover();
 	//no borrar estas lineas
 	glutTimerFunc(25, OnTimer, 0);
 	glutPostRedisplay();
@@ -72,7 +79,8 @@ void OnTimer(int value) {
 
 void onSpecialKeyboardDown(int key, int x, int y)
 {
-	mundo.TeclaEspecial(key);
+	juego.TeclaEspecial(key);
+//	mundo.TeclaEspecial(key);
 }
 /////as djacbjbdhscbsdcjn
 ///////Hola mundvrcwecwawecxec

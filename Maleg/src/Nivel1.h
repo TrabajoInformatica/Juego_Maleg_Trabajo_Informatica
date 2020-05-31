@@ -7,9 +7,10 @@
 #include "Heroe.h"
 #include "Enemigo.h"
 #include "Interaccion.h"
+#define MAX_SIZE
 
 using namespace std;
-#define MAX_SIZE
+
 class Nivel1 {
 private:
 	Heroe heroe;
