@@ -1,19 +1,18 @@
 #pragma once
 #include "ListaPlataformas.h"
+#include "ListaMonedas.h"
+#include "Marcador.h"
 #include "Moneda.h"
 #include <string>
-#include "ListaMonedas.h"
-#include "Personaje.h"
-#include "Interaccion.h"
+#include "Heroe.h"
 #include "Enemigo.h"
-#include "Marcador.h"
-
+#include "Interaccion.h"
 
 using namespace std;
 #define MAX_SIZE
 class Nivel1 {
 private:
-	Personaje persona;
+	Heroe heroe;
 	ListaPlataformas plataformas;        ///Objeto contiene todas las plataformas Nivel1
 	string Fichero = "Nivel1.txt";
 	ListaMonedas monedas;
