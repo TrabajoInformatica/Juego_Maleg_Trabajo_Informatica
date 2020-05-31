@@ -62,7 +62,7 @@ bool Interaccion::ColisionMoneda(Personaje* pers, Moneda m) {
     float distanciapyinf = posicion.y - altura;
     float distanciamsup = posicionm.y + m.GetRadio();
     float distanciaminf = posicionm.y - m.GetRadio();
-    if ((distanciarxi <= distanciapxd) && ((distanciapysup >= distanciamsup) && (distanciapyinf <= distanciaminf))) {
+    if ((distanciarxi <= distanciapxd)&&(distanciarxd>=distanciapxi) && ((distanciapysup >= distanciaminf) && (distanciapyinf <= distanciamsup))) {
 
         return true;
     }

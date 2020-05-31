@@ -29,7 +29,9 @@ void Mundo::CargarNivel() {
 	//	nivel1.Inicializa();
 		//nivel1.Dibuja();
 	}
-	//nivel2.Inicializa();
+	if (nivel == 2) {
+		//nivel2.Inicializa();
+	}
 	
 }
 
