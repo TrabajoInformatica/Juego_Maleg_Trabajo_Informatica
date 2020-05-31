@@ -5,7 +5,7 @@
 #include "Moneda.h"
 #include <string>
 #include "Heroe.h"
-#include "Enemigo.h"
+#include "Sirena.h"
 #include "Interaccion.h"
 
 using namespace std;
@@ -16,7 +16,8 @@ private:
 	ListaPlataformas plataformas;        ///Objeto contiene todas las plataformas Nivel1
 	string Fichero = "Nivel1.txt";
 	ListaMonedas monedas;
-	Enemigo sirena;
+	//Enemigo sirena;
+	Sirena sirena;
 	//Personaje persona;
 	Marcador marcador;
 	

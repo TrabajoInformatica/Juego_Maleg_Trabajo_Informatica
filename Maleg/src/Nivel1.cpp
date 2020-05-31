@@ -13,9 +13,9 @@ void Nivel1::Inicializa() {
 	/////////////////////////////////////Personaje
 	//persona.setpos(0.0f, 0.0f);
 	//persona.setvel(1.0f, 0.0f);
-	sirena.SetAltura(2.0f);
+	//sirena.SetAltura(2.0f);
 	sirena.SetPos(27.5f, 2.0f);
-	sirena.SetVel(0.0f, 2.0f);
+	sirena.SetVel(0.0f, 3.0f);
 	////////////////////////////////////Plataformas
 
 	plataformas.LecturaFichero(Fichero);
