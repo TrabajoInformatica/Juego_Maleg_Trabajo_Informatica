@@ -15,9 +15,10 @@ void Mundo::Inicializa() {
 	x_ojo = 0;
 	y_ojo = 7.5;
 //	z_ojo = 30;
-	nivel = 0;
-//	CargarNivel();
-	nivel1.Inicializa();
+	//nivel = 0;
+	//CargarNivel();
+
+//nivel1.Inicializa();
 }
 
 
@@ -36,6 +37,7 @@ void Mundo::Dibuja() {
 	//ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 	//ETSIDI::printxy("Bienvenido al pang. ", -5, 8);
 	nivel1.Dibuja();
+	suelo.Dibuja();
 	//nivel2.Dibuja();
 	
 
@@ -68,3 +70,4 @@ void Mundo::Tecla(unsigned char key)
 {
 	nivel1.Tecla(key);
 }
+
