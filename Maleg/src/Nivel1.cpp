@@ -3,6 +3,8 @@
 
 Nivel1::Nivel1() {
 
+	salto_max = (0, 8.0f);
+	salto_min = (0, 2.0f);
 }
 
 Nivel1::~Nivel1() {

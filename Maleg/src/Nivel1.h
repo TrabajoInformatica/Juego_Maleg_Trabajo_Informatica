@@ -20,7 +20,8 @@ private:
 	Sirena sirena;
 	//Personaje persona;
 	Marcador marcador;
-	
+	Vector2D salto_max;
+	Vector2D salto_min;
 
 public:
 	Moneda moneda1;

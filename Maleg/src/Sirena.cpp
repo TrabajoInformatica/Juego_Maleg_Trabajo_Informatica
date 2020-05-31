@@ -19,15 +19,15 @@ void Sirena::Salto(Sirena &s) {
 	if (s.posicion.y < salto_min) {
 
 		s.posicion.y = salto_min;
-		s.SetVel(0, 2.0f);
-		s.SetAce(0, 0.5f);
+		s.velocidad.y = 2.0f;
+		s.aceleracion.y = 0.5f;
 	}
 
 	else if (s.posicion.y > salto_max) {
 
 		s.posicion.y = salto_max;
-		s.SetVel(0, -2.0f);
-		s.SetAce(0, -0.5f);
+		s.velocidad.y = -2.0f;
+		s.aceleracion.y = 0.5f;
 	}
 
 }
