@@ -18,7 +18,7 @@ void Mundo::Inicializa() {
 	//nivel = 0;
 	//CargarNivel();
 
-//nivel1.Inicializa();
+	nivel1.Inicializa();
 }
 
 
