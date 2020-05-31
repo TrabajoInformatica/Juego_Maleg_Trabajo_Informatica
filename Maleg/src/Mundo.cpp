@@ -19,16 +19,18 @@ void Mundo::Inicializa() {
 	//CargarNivel();
 
 	nivel1.Inicializa();
+	//nivel2.Inicializa();
 }
 
 
 void Mundo::CargarNivel() {
 	nivel++;
 	if (nivel == 1) {
-		nivel1.Inicializa();
-		nivel1.Dibuja();
+	//	nivel1.Inicializa();
+		//nivel1.Dibuja();
 	}
 	//nivel2.Inicializa();
+	
 }
 
 
@@ -62,11 +64,12 @@ void Mundo::TeclaEspecial(unsigned char key){
 
 void Mundo::Mover(){
 	nivel1.Mueve();
-	//nivel2.mueve(0.025f);
+	//nivel2.Mueve();
 }
 
 void Mundo::Tecla(unsigned char key)
 {
 	nivel1.Tecla(key);
+	//nivel2.Tecla(key);
 }
 
