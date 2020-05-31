@@ -1,8 +1,13 @@
 #include "Personaje.h"
 
 Personaje::Personaje(){
+	// Relativo a los atributos
 	altura = 3.0f;
 	rojo = verde = azul = 255;
+
+	// Relativo al movimiento
+	posicion.x = 0.0f;
+	posicion.y = 6.0f;
 }
 
 Personaje::~Personaje(){
@@ -16,8 +21,6 @@ void Personaje::SetAltura(float a){
 float Personaje::GetAltura(){
 	return altura;
 }
-
-
 
 void Personaje::Dibuja(){
 
