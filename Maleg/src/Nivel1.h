@@ -2,7 +2,6 @@
 #include "ListaPlataformas.h"
 #include "ListaMonedas.h"
 #include "Marcador.h"
-#include "Moneda.h"
 #include <string>
 #include "Heroe.h"
 #include "Enemigo.h"
