@@ -5,7 +5,7 @@ Personaje::Personaje(){
 	rojo = verde = azul = 255;
 	posicion.x = 0.0f;
 	posicion.y = 6.0f;
-	aceleracion.y = -9.8;
+	aceleracion.y = -20.f;
 }
 
 Personaje::~Personaje(){
@@ -31,7 +31,7 @@ void Personaje::Dibuja(){
 	
 }
 
-void Personaje::Destruircontenido(){
+void Personaje::DestruirContenido(){
 
 }
 

@@ -1,5 +1,6 @@
 #include "ObjetoMovil.h"
 
+// prueba github
 void ObjetoMovil::Mueve(float t)
 {
 	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
