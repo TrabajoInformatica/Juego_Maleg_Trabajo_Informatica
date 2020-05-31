@@ -1,6 +1,7 @@
 #pragma once
 #include "ListaPlataformas.h"
 #include "ListaMonedas.h"
+#include "ListaEnemigos.h"
 #include "Marcador.h"
 #include <string>
 #include "Heroe.h"
@@ -16,12 +17,13 @@ private:
 	ListaPlataformas plataformas;        ///Objeto contiene todas las plataformas Nivel1
 	string Fichero = "Nivel1.txt";
 	ListaMonedas monedas;
-	//Enemigo sirena;
+	ListaEnemigos sirenas;
+	ListaEnemigos pajaros;
 	Sirena sirena;
+	Pajaro pajaro;
 	//Personaje persona;
 	Marcador marcador;
-	Vector2D salto_max;
-	Vector2D salto_min;
+	
 
 public:
 	Moneda moneda1;

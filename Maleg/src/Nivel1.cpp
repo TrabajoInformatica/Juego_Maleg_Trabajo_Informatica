@@ -3,8 +3,7 @@
 
 Nivel1::Nivel1() {
 
-	salto_max = (0, 8.0f);
-	salto_min = (0, 2.0f);
+
 }
 
 Nivel1::~Nivel1() {
@@ -16,8 +15,8 @@ void Nivel1::Inicializa() {
 	//persona.setpos(0.0f, 0.0f);
 	//persona.setvel(1.0f, 0.0f);
 	//sirena.SetAltura(2.0f);
-	sirena.SetPos(27.5f, 2.0f);
-	sirena.SetVel(0.0f, 3.0f);
+	//sirena.SetPos(27.5f, 2.0f);
+	//sirena.SetVel(0.0f, 3.0f);
 	////////////////////////////////////Plataformas
 
 	plataformas.LecturaFichero(Fichero);
@@ -41,6 +40,26 @@ void Nivel1::Inicializa() {
 	Moneda* aux3 = new Moneda();
 	aux3->SetPos(125.0, 16.5);
 	monedas.agregar(aux3);
+
+	//os lo dejo comentado porque error de sintaxis no hay pero peta si se incluye
+
+	/*Sirena* sx0 = new Sirena();
+	sx0->SetPos(27.5, 3);
+	sirenas.Agregar(sx0);
+	Sirena* sx1 = new Sirena();
+	sx1->SetPos(37.5, 3);
+	sirenas.Agregar(sx1);
+	Sirena* sx2 = new Sirena();
+	sx2->SetPos(42.5, 3);
+	sirenas.Agregar(sx2);
+
+	Pajaro* px0 = new Pajaro();
+	px0->SetPos(58.0, 60.0);
+	pajaros.Agregar(px0);
+	Pajaro* px1 = new Pajaro();
+	px0->SetPos(61.0, 60.0);
+	pajaros.Agregar(px1);*/
+
 }
 
 void Nivel1::Dibuja() {
@@ -50,7 +69,9 @@ void Nivel1::Dibuja() {
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 	/////////////////////////////////////Personaje
 	heroe.Dibuja();
-	sirena.Dibuja();
+	//sirena.Dibuja();
+	sirenas.Dibuja();
+	//pajaros.Dibuja();
 	////////////////////////////////////Plataformas
 	plataformas.Dibuja();
 	monedas.Dibuja();
@@ -59,7 +80,9 @@ void Nivel1::Dibuja() {
 }
 void Nivel1::Mueve() {
 	monedas.Mueve(0.025f);
-	sirena.Mueve(0.025f);
+	//sirena.Mueve(0.025f);
+	sirenas.Mueve(0.025f);
+	//pajaros.Mueve(0.025f);
 	heroe.Mueve(0.05f);
 	plataformas.Colision(&heroe);
 	Moneda* aux = monedas.Colision(&heroe);

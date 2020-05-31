@@ -16,7 +16,7 @@ public:
 	void SetAltura(float a);
 	float GetAltura();
 
-	void Dibuja();
+	virtual void Dibuja();
 	void DestruirContenido();
 };
 

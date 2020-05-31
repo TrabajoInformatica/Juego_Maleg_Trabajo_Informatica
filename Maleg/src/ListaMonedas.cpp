@@ -2,6 +2,7 @@
 #include "ListaMonedas.h"
 
 using namespace std;
+
 ListaMonedas::ListaMonedas() {
 	numero = 0;//numero inicial de monedas
 	for (int i = 0;i < MAX_MON;i++) {

@@ -1,6 +1,6 @@
 #pragma once
 #include "Enemigo.h"
-#define MAX_ENEM 5
+#define MAX_SIRENA 5
 
 class Sirena: public Enemigo
 {
@@ -10,7 +10,7 @@ private:
 public:
 	Sirena();
 	~Sirena();
-
-	void Salto(Sirena &s);
+	Sirena(float px, float py);//para inicializarlas
+	void Salto(Sirena &s); //intento de mov hacia arriba y abajo en bucle
 };
 

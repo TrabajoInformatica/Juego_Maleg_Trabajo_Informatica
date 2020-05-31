@@ -5,12 +5,19 @@ Sirena::Sirena() {
 	verde = 255;
 	rojo = 0;
 	azul = 100;
-	altura = 2.0f;
+	altura = 1.0f;
 	salto_max = 8.0f;
 	salto_min = 2.0f;
 }
 
 Sirena::~Sirena() {
+
+}
+
+
+Sirena::Sirena(float px, float py) {
+
+	posicion = (px,py);
 
 }
 

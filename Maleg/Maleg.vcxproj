@@ -151,6 +151,7 @@
     <ClCompile Include="src\Guerreros.cpp" />
     <ClCompile Include="src\Heroe.cpp" />
     <ClCompile Include="src\Interaccion.cpp" />
+    <ClCompile Include="src\ListaEnemigos.cpp" />
     <ClCompile Include="src\ListaMonedas.cpp" />
     <ClCompile Include="src\ListaPlataformas.cpp" />
     <ClCompile Include="src\Maleg.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="src\Nivel1.cpp" />
     <ClCompile Include="src\Nivel2.cpp" />
     <ClCompile Include="src\ObjetoMovil.cpp" />
+    <ClCompile Include="src\Pajaro.cpp" />
     <ClCompile Include="src\Personaje.cpp" />
     <ClCompile Include="src\Plataforma.cpp" />
     <ClCompile Include="src\Sirena.cpp" />
@@ -172,6 +174,7 @@
     <ClInclude Include="src\Guerreros.h" />
     <ClInclude Include="src\Heroe.h" />
     <ClInclude Include="src\Interaccion.h" />
+    <ClInclude Include="src\ListaEnemigos.h" />
     <ClInclude Include="src\ListaMonedas.h" />
     <ClInclude Include="src\ListaPlataformas.h" />
     <ClInclude Include="src\Marcador.h" />
@@ -180,6 +183,7 @@
     <ClInclude Include="src\Nivel1.h" />
     <ClInclude Include="src\Nivel2.h" />
     <ClInclude Include="src\ObjetoMovil.h" />
+    <ClInclude Include="src\Pajaro.h" />
     <ClInclude Include="src\Personaje.h" />
     <ClInclude Include="src\Plataforma.h" />
     <ClInclude Include="src\Sirena.h" />
