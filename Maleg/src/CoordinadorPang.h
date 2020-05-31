@@ -2,7 +2,6 @@
 
 #include "Mundo.h"
 
-
 class CoordinadorPang
 {
 public:
@@ -12,8 +11,9 @@ public:
 	void Tecla(unsigned char key);
 	void Mueve();
 	void Dibuja();
+
 protected:
 	Mundo mundo;
-	enum Estado { INICIO, JUEGO, GAMEOVER, FIN, PAUSA };
+	enum Estado { INICIO, INTRO, CARGA, JUEGO, GAMEOVER, FIN, PAUSA }; //Fin el cuando se acaba el juego, GameOver cuando el jugador ha perdido
 	Estado estado;
 };

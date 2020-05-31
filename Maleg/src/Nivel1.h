@@ -2,14 +2,14 @@
 #include "ListaPlataformas.h"
 #include "ListaMonedas.h"
 #include "Marcador.h"
-#include "Moneda.h"
 #include <string>
 #include "Heroe.h"
 #include "Sirena.h"
 #include "Interaccion.h"
+#define MAX_SIZE
 
 using namespace std;
-#define MAX_SIZE
+
 class Nivel1 {
 private:
 	Heroe heroe;

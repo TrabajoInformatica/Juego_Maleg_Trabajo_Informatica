@@ -9,7 +9,7 @@ private:
 	float radio_max;
 	float pulso;
 
-	Vector2D posicion;
+	
 	unsigned char rojo;
 	unsigned char verde;
 	unsigned char azul;
@@ -20,7 +20,7 @@ public:
 	float GetRadio();
 	void SetRadio(float r);
 	void SetColor(unsigned char r, unsigned char v, unsigned char a);
-	void SetPos(float posx, float posy);
+
 	void Dibuja();
 	void Mueve(float t);
 };

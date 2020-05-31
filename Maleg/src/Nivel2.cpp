@@ -39,6 +39,7 @@ void Nivel2::Dibuja() {
 	/////////////////////////////////////Personaje
 
 ////////////////////////////////////Plataformas
+	heroe.Dibuja();
 	plataformas.Dibuja();
 	monedas2.Dibuja();
 
@@ -46,7 +47,27 @@ void Nivel2::Dibuja() {
 
 	///////////////////////////////////Enemigos
 }
+void Nivel2::Mueve() {
+	monedas2.Mueve(0.025f);
+	//sirena.Mueve(0.025f);
+	heroe.Mueve(0.05f);
+	plataformas.Colision(&heroe);
+	Moneda* aux = monedas2.Colision(&heroe);
+	if (aux != 0)//si alguna esfera ha chocado con el hombre
+		monedas2.Eliminar(aux);
 
+}
+
+void Nivel2::Tecla(unsigned char key) {
+	if (key == 'w')
+		heroe.SetVel(heroe.GetVel().x, 10.0f);
+	if (key == 'a')
+		heroe.SetVel(-3.0f, heroe.GetVel().y);
+	if (key == 's')
+		heroe.SetVel(0.0f, 0.0f);
+	if (key == 'd')
+		heroe.SetVel(3.0f, heroe.GetVel().y);
+}
 /*
 /////////////////////////////////////Personaje
 
@@ -142,8 +163,3 @@ blo7.SetColor(155.0, 155.0, 155.0);
 	flot6.Dibuja();
 	blo7.Dibuja();
 	*/
-void Nivel2::mueve(float t) {
-
-
-	monedas2.Mueve(0.020f);
-}

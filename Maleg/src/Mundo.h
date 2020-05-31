@@ -6,7 +6,8 @@
 #include "Personaje.h"
 
 class Mundo {
-public:
+	public:
+	
 	Nivel1 nivel1;
 	//Nivel2 nivel2;
 	float x_ojo;
@@ -21,9 +22,11 @@ void Dibuja();
 void TeclaEspecial(unsigned char key);
 void Mover();
 //void RotarOjo();
-void CargarNivel();
 
+void CargarNivel();
+void resetNiv() { nivel = 0; }
 
 void Tecla(unsigned char key);
+
 
 };

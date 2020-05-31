@@ -60,7 +60,10 @@ void Nivel1::Mueve() {
 	sirena.Mueve(0.025f);
 	heroe.Mueve(0.05f);
 	plataformas.Colision(&heroe);
-	monedas.Colision(&heroe);
+	Moneda* aux = monedas.Colision(&heroe);
+	if (aux != 0)//si alguna esfera ha chocado con el hombre
+		monedas.Eliminar(aux);
+	
 }
 
 void Nivel1::Tecla(unsigned char key) {

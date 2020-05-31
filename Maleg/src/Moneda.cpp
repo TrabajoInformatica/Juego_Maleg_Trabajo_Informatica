@@ -28,10 +28,7 @@ void Moneda::SetRadio(float r) {
 float Moneda::GetRadio() {
 	return radio;
 }
-void Moneda::SetPos(float posx, float posy) {
-	posicion.x = posx;
-	posicion.y = posy;
-}
+
 
 void Moneda::Dibuja() {
 	glColor3ub(rojo, verde, azul);
