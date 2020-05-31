@@ -32,6 +32,9 @@ void Moneda::SetPos(float posx, float posy) {
 	posicion.x = posx;
 	posicion.y = posy;
 }
+Vector2D Moneda::GetPos() {
+	return posicion;
+}
 
 void Moneda::Dibuja() {
 	glColor3ub(rojo, verde, azul);

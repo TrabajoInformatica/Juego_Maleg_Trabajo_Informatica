@@ -1,7 +1,7 @@
 #pragma once
 #include "Vector2D.h"
 #include "ObjetoMovil.h"
-class Moneda:public ObjetoMovil
+class Moneda
 {
 private:
 	float radio;
@@ -21,6 +21,7 @@ public:
 	void SetRadio(float r);
 	void SetColor(unsigned char r, unsigned char v, unsigned char a);
 	void SetPos(float posx, float posy);
+	Vector2D GetPos();
 	void Dibuja();
 	void Mueve(float t);
 };
