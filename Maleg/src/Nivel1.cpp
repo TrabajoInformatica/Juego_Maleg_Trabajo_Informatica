@@ -43,36 +43,38 @@ void Nivel1::Inicializa() {
 
 void Nivel1::Dibuja() {
 	//////////////////////////////////////Vista
-	gluLookAt(persona.GetPos().x,persona.GetPos().y+ 1, 3,  // posicion del ojo						//NUNCA MODIFICAR LA Z	No hace fala
-		persona.GetPos().x, persona.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
+	gluLookAt(heroe.GetPos().x,heroe.GetPos().y+ 1, 3,  // posicion del ojo						//NUNCA MODIFICAR LA Z	No hace fala
+		heroe.GetPos().x, heroe.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 	/////////////////////////////////////Personaje
-	persona.Dibuja();
+	heroe.Dibuja();
 	sirena.Dibuja();
 	////////////////////////////////////Plataformas
 	plataformas.Dibuja();
 	monedas.Dibuja();
-	marcador.Dibuja(&persona);
+	marcador.Dibuja(&heroe);
 	///////////////////////////////////Enemigos
 }
-void Nivel1::mueve(float t) {
-
-
-	monedas.Mueve(0.020f);
+void Nivel1::Mueve() {
+	monedas.Mueve(0.025f);
 	sirena.Mueve(0.025f);
-	persona.Mueve(0.025f);
-	plataformas.Colision(&persona);
-	monedas.Colision(&persona);
+	heroe.Mueve(0.05f);
+	plataformas.Colision(&heroe);
+	Moneda* aux = monedas.Colision(&heroe);
+	if (aux != 0)//si alguna esfera ha chocado con el hombre
+		monedas.Eliminar(aux);
+	
 }
 
 void Nivel1::Tecla(unsigned char key) {
-	if (key == 'd')
-		persona.SetVel(6.0f, persona.GetVel().y);
+	if (key == 'w')
+		heroe.SetVel(heroe.GetVel().x, 10.0f);
 	if (key == 'a')
-		persona.SetVel(-6.0f, persona.GetVel().y);
-	if (key == 'w') {
-		persona.SetVel(persona.GetVel().x, 12.0f);
-	}
+		heroe.SetVel(-3.0f, heroe.GetVel().y);
+	if (key == 's')
+		heroe.SetVel(0.0f, 0.0f);
+	if (key == 'd')
+		heroe.SetVel(3.0f, heroe.GetVel().y);
 }
 
 

@@ -5,10 +5,16 @@ class Heroe: public Personaje
 {
 protected:
 	float vida;
-
+	
 public:
 	Heroe();
 	virtual ~Heroe();
-
+	
+	//METODOS SET
+	
+	//METODOS GET
+	
+	//FUNCIONES
+	
 
 };

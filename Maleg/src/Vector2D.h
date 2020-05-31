@@ -15,6 +15,6 @@ public:
 
 	float operator * (Vector2D&);		// (5) producto escalar
 	Vector2D operator * (float);		// (6) producto por un escalar
-	Vector2D operator - (Vector2D&);	// (7) resta de vectores
-	Vector2D operator + (Vector2D&);	// (8) suma de vectores
+	Vector2D operator - (const Vector2D&);	// (7) resta de vectores
+	Vector2D operator + (const Vector2D&);	// (8) suma de vectores
 };

@@ -13,7 +13,7 @@ bool Interaccion::ColisionSup(Personaje* pers, Plataforma pl) {
     Vector2D posicion = pers->GetPos();
     float altura = (pers->GetAltura()) / 2;
     float diferencia = posicion.y - pl.Getlimite1().y;
-    if ((diferencia>=altura-0.5f) && (diferencia <=altura) && (pl.Getlimite1().x < posicion.x + altura) && (posicion.x - altura < pl.Getlimite2().x)) {
+    if ((diferencia>=altura-1.0f) && (diferencia <=altura) && (pl.Getlimite1().x < posicion.x + altura) && (posicion.x - altura < pl.Getlimite2().x)) {
         pers->SetPos(pers->GetPos().x,pl.Getlimite1().y+altura);
         return true;
     }
@@ -54,9 +54,27 @@ bool Interaccion::ColisionMoneda(Personaje* pers, Moneda m) {
     Vector2D posicion = pers->GetPos();
     float altura = pers->GetAltura() / 2;
     Vector2D posicionm = m.GetPos();
-    float distanciar = posicionm.x - m.GetRadio();
-    if ((posicion.x + altura >= distanciar) && ( (posicion.y + altura >= posicionm.y - m.GetRadio()) || (posicion.y-altura<=posicionm.y+m.GetRadio()))  ) {
+
+    float distanciarxi = posicionm.x - m.GetRadio();
+    float distanciarxd = posicionm.x + m.GetRadio();
+    float distanciapxd = posicion.x + altura;
+    float distanciapxi = posicion.x - altura;
+    float distanciapysup = posicion.y + altura;
+    float distanciapyinf = posicion.y - altura;
+    float distanciamsup = posicionm.y + m.GetRadio();
+    float distanciaminf = posicionm.y - m.GetRadio();
+    if ((distanciarxi <= distanciapxd) && ((distanciapysup >= distanciamsup) && (distanciapyinf <= distanciaminf))) {
+
         return true;
     }
+ 
+
     return false;
+}
+ bool Interaccion::ColisionEnemigo(Personaje* pers, Enemigo e) {
+     Vector2D posicion = pers->GetPos();
+     float altura = pers->GetAltura() / 2;
+     Vector2D posicione = e.GetPos();
+     return false;
+
 }

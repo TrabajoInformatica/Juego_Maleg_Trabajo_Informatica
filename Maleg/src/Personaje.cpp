@@ -1,11 +1,13 @@
 #include "Personaje.h"
 
 Personaje::Personaje(){
+	// Relativo a los atributos
 	altura = 3.0f;
 	rojo = verde = azul = 255;
+
+	// Relativo al movimiento
 	posicion.x = 0.0f;
 	posicion.y = 6.0f;
-	aceleracion.y = -9.8;
 }
 
 Personaje::~Personaje(){
@@ -20,8 +22,6 @@ float Personaje::GetAltura(){
 	return altura;
 }
 
-
-
 void Personaje::Dibuja(){
 
 	glColor3ub(rojo, verde, azul);
@@ -31,7 +31,7 @@ void Personaje::Dibuja(){
 	
 }
 
-void Personaje::Destruircontenido(){
+void Personaje::DestruirContenido(){
 
 }
 

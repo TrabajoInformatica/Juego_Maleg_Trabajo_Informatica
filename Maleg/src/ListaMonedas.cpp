@@ -18,7 +18,7 @@ bool ListaMonedas::agregar(Moneda* m) {
 		lista[numero] = m;
 
 		numero++;
-		cout << numero;
+	
 	}
 	else return false;
 	
@@ -39,10 +39,30 @@ void ListaMonedas::Mueve(float t) {
 		lista[i]->Mueve(t);
 	}
 }
-void ListaMonedas::Colision(Personaje* p){
+
+Moneda* ListaMonedas::Colision(Personaje* p){
 	for (int i = 0; i < numero;i++) {
 		if (Interaccion::ColisionMoneda(p, *(lista[i])))
-			delete lista[i];
+				return lista[i];
+			
+	}
+}
+void ListaMonedas::Eliminar(Moneda* e) {//borrar esfera según su dirección de memoria
+	for (int i = 0;i < numero;i++) {
+		if (lista[i] == e) {
+			Eliminar(i);
+			return;
+		}
+	}
+}
+void ListaMonedas::Eliminar(int index) {//borrar una esfera segun su indice
+	if ((index < 0) || (index >= numero)) {//si el indice esta fuera de rango
+		return;
+	}
+	delete lista[index];
+	numero--;
+	for (int i = index;i < numero;i++) {
+		lista[i] = lista[1 + i];
 	}
 }
 
