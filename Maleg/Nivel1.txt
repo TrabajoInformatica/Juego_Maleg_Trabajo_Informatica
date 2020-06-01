@@ -12,7 +12,6 @@ Plataforma
  35.0 11.0 45.0 11.0 0.5 128.0 64.0 0.0			//Suelo_elevada_encima_de_las_dos_sirenas
  45.0 6.0 55.0 6.0 0.5 128.0 64.0 0.0			//Suelo_despues_de_las_2_sirenas
  55.0 19.0 70.0 19.0 0.5 128.0 64.0 0.0			//Plataforma_despues_de_los_cuadrados_de_salto_con_pajaro_encima_y_agua_debajo
- 58.0 6.0 112.0 6.0 0.5 112.0 100.0 235.0		//Agua_debajo_de_plataforma_de_pajaros
  73.0 15.0 76.0 15.0 0.5 128.0 64.0 0.0			//Salto1_encima_del_agua_despues_de_plataforma_pajaros
  77.0 11.0 80.0 11.0 0.5 128.0 64.0 0.0			//Salto2
  84.0 14.0 86.0 14.0 0.5 128.0 64.0 0.0			//Salto3

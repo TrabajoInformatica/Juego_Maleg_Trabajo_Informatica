@@ -1,4 +1,5 @@
 #include "Plataforma.h"
+#include "ETSIDI.h"
 #include "glut.h"
 
 Plataforma::Plataforma() {
@@ -47,7 +48,7 @@ float Plataforma::GetGrosor() {
 }
 
 void Plataforma::Dibuja() {
-    glDisable(GL_LIGHTING);
+   /* glDisable(GL_LIGHTING);
     glColor3ub(rojo,verde,azul);
     glBegin(GL_POLYGON);
     glVertex3d(limite1.x, limite1.y, 0);       
@@ -55,7 +56,42 @@ void Plataforma::Dibuja() {
     glVertex3d(limite2.x, limite2.y - grosor, 0);
     glVertex3d(limite1.x, limite1.y - grosor, 0);
     glEnd();
-    glEnable(GL_LIGHTING);
+    */
+    if (grosor <= 1) {
+        glEnable(GL_LIGHTING);
+        glEnable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/Plataformas2.png").id);
+        glDisable(GL_LIGHTING);
+        glBegin(GL_POLYGON);
+
+        glColor3f(1, 1, 1);
+        glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
+        glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
+        glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
+        glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+        glEnd();
+
+        glEnable(GL_LIGHTING);
+        glDisable(GL_TEXTURE_2D);
+    }
+    else {
+        glEnable(GL_LIGHTING);
+        glEnable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/Plataformas1.png").id);
+        glDisable(GL_LIGHTING);
+        glBegin(GL_POLYGON);
+
+        glColor3f(1, 1, 1);
+        glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
+        glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
+        glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
+        glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+        glEnd();
+
+        glEnable(GL_LIGHTING);
+        glDisable(GL_TEXTURE_2D);
+    }
+
 }
 
 float Plataforma::distancia(Vector2D punto, Vector2D* direccion){
