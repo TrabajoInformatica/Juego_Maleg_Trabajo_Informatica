@@ -23,6 +23,7 @@ private:
 	Pajaro pajaro;
 	//Personaje persona;
 	Marcador marcador;
+	float vidaHeroe;
 	
 
 public:

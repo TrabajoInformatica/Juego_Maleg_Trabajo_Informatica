@@ -87,21 +87,27 @@ void ListaEnemigos::Mueve(float t) {
 	}
 }
 
-Enemigo* ListaEnemigos::Colision(Personaje* p) {
+bool ListaEnemigos::Colision(Personaje* p) {
 	for (int i = 0; i < nums;i++) {
 		if (Interaccion::ColisionEnemigo(p, *(lista_s[i]))) {
 			cout << "impactosirena"<<endl;
-			return lista_s[i];
+			p->SetPos(0.0f,3.0f);
+			p->SetVel(0.0f, 0.0f);
+			return true;
+			
 		}
 
 	}
 	for (int i = 0; i < nump;i++) {
 		if (Interaccion::ColisionEnemigo(p, *(lista_p[i]))) {
 			cout << "impactopajaro"<<endl;
-			return lista_p[i];
+			p->SetPos(0.0f, 3.0f);
+			p->SetVel(0.0f, 0.0f);
+			return true;
 		}
-
+	
 	}
+	return false;
 }
 void ListaEnemigos::Eliminar(Enemigo* e) {
 
