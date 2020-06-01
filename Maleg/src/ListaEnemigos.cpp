@@ -1,9 +1,13 @@
+#include <iostream>
 #include "ListaEnemigos.h"
+using namespace std;
 
 
 ListaEnemigos::ListaEnemigos(){
 
-	num = 0;
+	numg = 0;
+	nums = 0;
+	nump = 0;
 	for (int i = 0; i < MAX_ENEM; i++) {
 		lista_s[i] = 0;
 		lista_p[i] = 0;
@@ -17,35 +21,34 @@ ListaEnemigos::~ListaEnemigos() {
 
 }
 
-bool ListaEnemigos::Agregar(Sirena* s) {
+bool ListaEnemigos::AgregarSire(Sirena* s) {
 
-	if (num < MAX_SIRENA) {
-		lista_s[num] = s;
+	if (nums < MAX_SIRENA) {
+		lista_s[nums] = s;
 
-		num++;
-
+		nums++;
 	}
 	else return false;
 }
 
-bool ListaEnemigos::Agregar(Pajaro* p) {
+bool ListaEnemigos::AgregarPaja(Pajaro* p) {
 
-	if (num < MAX_PAJARO) {
-		lista_p[num] = p;
+	if (nump < MAX_PAJARO) {
+		lista_p[nump] = p;
 
-		num++;
+		nump++;
 
 	}
 	else return false;
 
 }
 
-bool ListaEnemigos::Agregar(Guerreros* g) {
+bool ListaEnemigos::AgregarGue(Guerreros* g) {
 
-	if (num < MAX_GUERR) {
-		lista_g[num] = g;
+	if (numg < MAX_GUERR) {
+		lista_g[numg] = g;
 
-		num++;
+		numg++;
 
 	}
 	else return false;
@@ -58,23 +61,48 @@ void ListaEnemigos::DestruirContenido() {
 
 void ListaEnemigos::Dibuja() {
 
-	for (int i = 0;i < num;i++) {
+	for (int i = 0;i < nums;i++) {
+		
 		lista_s[i]->Dibuja();
-		lista_p[i]->Dibuja();
-		lista_g[i]->Dibuja();
 	}
+		for (int i = 0;i < nump;i++) {
+		lista_p[i]->Dibuja();}
+		for (int i = 0;i < numg;i++) {
+		lista_g[i]->Dibuja();}
+	
 
 }
 
 void ListaEnemigos::Mueve(float t) {
 
-	for (int i = 0;i < num;i++) {
+	for (int i = 0;i < nums;i++) {
 		lista_s[i]->Mueve(t);
+		lista_s[i]->Salto();
+	}
+	for (int i = 0;i < nump;i++) {
 		lista_p[i]->Mueve(t);
+	}
+	for (int i = 0;i < numg;i++) {
 		lista_g[i]->Mueve(t);
 	}
 }
 
+Enemigo* ListaEnemigos::Colision(Personaje* p) {
+	for (int i = 0; i < nums;i++) {
+		if (Interaccion::ColisionEnemigo(p, *(lista_s[i]))) {
+			cout << "impactosirena"<<endl;
+			return lista_s[i];
+		}
+
+	}
+	for (int i = 0; i < nump;i++) {
+		if (Interaccion::ColisionEnemigo(p, *(lista_p[i]))) {
+			cout << "impactopajaro"<<endl;
+			return lista_p[i];
+		}
+
+	}
+}
 void ListaEnemigos::Eliminar(Enemigo* e) {
 
 

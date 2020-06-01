@@ -6,6 +6,7 @@ class Pajaro: public Enemigo{
 
 public:
 	Pajaro();
+	Pajaro(float px, float py);
 	~Pajaro();
 };
 

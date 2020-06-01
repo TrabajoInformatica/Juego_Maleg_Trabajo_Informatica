@@ -17,6 +17,9 @@ Enemigo::Enemigo(float x, float y)
 	posicion.x = x;
 	posicion.y = y;
 }
+float Enemigo::GetRadio() {
+	return altura;
+}
 
 void Enemigo::Dibuja() {
 

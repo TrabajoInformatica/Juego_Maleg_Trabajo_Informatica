@@ -8,6 +8,7 @@ public:
 	Enemigo();
 	virtual ~Enemigo();
 	Enemigo(float x, float y); //??
+	float GetRadio();
 	void Dibuja();
 };
 

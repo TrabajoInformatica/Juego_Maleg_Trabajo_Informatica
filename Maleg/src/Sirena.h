@@ -11,6 +11,6 @@ public:
 	Sirena();
 	~Sirena();
 	Sirena(float px, float py);//para inicializarlas
-	void Salto(Sirena &s); //intento de mov hacia arriba y abajo en bucle
+	void Salto(); //intento de mov hacia arriba y abajo en bucle
 };
 

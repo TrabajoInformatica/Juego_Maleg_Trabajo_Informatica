@@ -1,4 +1,7 @@
+
 #include "Sirena.h"
+
+
 
 Sirena::Sirena() {
 
@@ -7,7 +10,8 @@ Sirena::Sirena() {
 	azul = 100;
 	altura = 1.0f;
 	salto_max = 8.0f;
-	salto_min = 2.0f;
+	salto_min = 3.0f;
+	velocidad.y = 2.0;
 }
 
 Sirena::~Sirena() {
@@ -21,20 +25,20 @@ Sirena::Sirena(float px, float py) {
 
 }
 
-void Sirena::Salto(Sirena &s) {
+void Sirena::Salto() {
 
-	if (s.posicion.y < salto_min) {
+	if (posicion.y < salto_min) {
 
-		s.posicion.y = salto_min;
-		s.velocidad.y = 2.0f;
-		s.aceleracion.y = 0.5f;
+		posicion.y = salto_min;
+		velocidad.y = 2.0f;
+		aceleracion.y = 0.5f;
 	}
 
-	else if (s.posicion.y > salto_max) {
+	else if (posicion.y > salto_max) {
 
-		s.posicion.y = salto_max;
-		s.velocidad.y = -2.0f;
-		s.aceleracion.y = 0.5f;
+		posicion.y = salto_max;
+		velocidad.y = -2.0f;
+		aceleracion.y = 0.5f;
 	}
 
 }

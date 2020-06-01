@@ -1,5 +1,7 @@
 #include "Nivel1.h"
+#include <iostream>
 #include "glut.h"
+using namespace std;
 
 Nivel1::Nivel1() {
 
@@ -43,22 +45,22 @@ void Nivel1::Inicializa() {
 
 	//os lo dejo comentado porque error de sintaxis no hay pero peta si se incluye
 
-	/*Sirena* sx0 = new Sirena();
+	Sirena* sx0 = new Sirena();
 	sx0->SetPos(27.5, 3);
-	sirenas.Agregar(sx0);
+	sirenas.AgregarSire(sx0);
 	Sirena* sx1 = new Sirena();
 	sx1->SetPos(37.5, 3);
-	sirenas.Agregar(sx1);
+	sirenas.AgregarSire(sx1);
 	Sirena* sx2 = new Sirena();
 	sx2->SetPos(42.5, 3);
-	sirenas.Agregar(sx2);
-
+	sirenas.AgregarSire(sx2);
+	
 	Pajaro* px0 = new Pajaro();
-	px0->SetPos(58.0, 60.0);
-	pajaros.Agregar(px0);
+	px0->SetPos(30.0, 10.0);
+	pajaros.AgregarPaja(px0);
 	Pajaro* px1 = new Pajaro();
-	px0->SetPos(61.0, 60.0);
-	pajaros.Agregar(px1);*/
+	px0->SetPos(61.0, 10.0);
+	pajaros.AgregarPaja(px1);
 
 }
 
@@ -69,9 +71,9 @@ void Nivel1::Dibuja() {
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 	/////////////////////////////////////Personaje
 	heroe.Dibuja();
-	//sirena.Dibuja();
+
 	sirenas.Dibuja();
-	//pajaros.Dibuja();
+	pajaros.Dibuja();
 	////////////////////////////////////Plataformas
 	plataformas.Dibuja();
 	monedas.Dibuja();
@@ -82,12 +84,20 @@ void Nivel1::Mueve() {
 	monedas.Mueve(0.025f);
 	//sirena.Mueve(0.025f);
 	sirenas.Mueve(0.025f);
-	//pajaros.Mueve(0.025f);
+	pajaros.Mueve(0.025f);
 	heroe.Mueve(0.05f);
 	plataformas.Colision(&heroe);
 	Moneda* aux = monedas.Colision(&heroe);
 	if (aux != 0)//si alguna esfera ha chocado con el hombre
 		monedas.Eliminar(aux);
+
+	/////////Provisional
+	Enemigo* auxe = sirenas.Colision(&heroe);
+	if (auxe != 0)//si alguna sirena ha chocado con el hombre
+		int j = 0;/////para que deje compilar
+	Enemigo* auxp = pajaros.Colision(&heroe);
+	if (auxp != 0)//si algun pajaro ha chocado con el hombre
+		int j = 0;/////para que deje compilar
 	
 }
 
