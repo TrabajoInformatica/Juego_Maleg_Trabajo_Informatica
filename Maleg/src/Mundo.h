@@ -10,9 +10,6 @@ class Mundo {
 	
 	Nivel1 nivel1;
 	//Nivel2 nivel2;
-	float x_ojo;
-	float y_ojo;
-	float z_ojo;
 	int nivel;
 		Mundo();
 virtual ~Mundo();
@@ -27,6 +24,8 @@ void CargarNivel();
 void resetNiv() { nivel = 0; }
 
 void Tecla(unsigned char key);
+
+bool Muerte();
 
 
 };

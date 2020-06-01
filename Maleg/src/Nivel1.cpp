@@ -1,4 +1,5 @@
 #include "Nivel1.h"
+#include <iostream>
 #include "glut.h"
 
 Nivel1::Nivel1() {
@@ -76,6 +77,13 @@ void Nivel1::Tecla(unsigned char key) {
 		heroe.SetVel(0.0f, 0.0f);
 	if (key == 'd')
 		heroe.SetVel(3.0f, heroe.GetVel().y);
+}
+
+bool Nivel1::MuerteHeroe() {
+	if (heroe.Muerte()) 
+		return true;
+	else
+		return false;
 }
 
 

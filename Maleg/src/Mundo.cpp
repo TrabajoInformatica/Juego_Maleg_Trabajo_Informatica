@@ -1,6 +1,7 @@
 #include "Mundo.h"
 #include "Personaje.h"
 #include "ETSIDI.h"
+#include <iostream>
 #include "glut.h"
 
 Mundo::Mundo() {
@@ -12,9 +13,6 @@ Mundo::~Mundo() {
 
 
 void Mundo::Inicializa() {
-	x_ojo = 0;
-	y_ojo = 7.5;
-//	z_ojo = 30;
 	//nivel = 0;
 	//CargarNivel();
 
@@ -24,7 +22,7 @@ void Mundo::Inicializa() {
 
 
 void Mundo::CargarNivel() {
-	nivel++;
+	nivel+=1;
 	if (nivel == 1) {
 	//	nivel1.Inicializa();
 		//nivel1.Dibuja();
@@ -32,7 +30,6 @@ void Mundo::CargarNivel() {
 	if (nivel == 2) {
 		//nivel2.Inicializa();
 	}
-	
 }
 
 
@@ -42,8 +39,6 @@ void Mundo::Dibuja() {
 	//ETSIDI::printxy("Bienvenido al pang. ", -5, 8);
 	nivel1.Dibuja();
 	//nivel2.Dibuja();
-	
-
 }
 
 void Mundo::TeclaEspecial(unsigned char key){
@@ -75,3 +70,21 @@ void Mundo::Tecla(unsigned char key)
 	//nivel2.Tecla(key);
 }
 
+bool Mundo::Muerte() {
+	if (nivel == 1) {
+		if (nivel1.MuerteHeroe()) {
+			return true;
+		}else if(!nivel1.MuerteHeroe()) {
+			return false;
+		}
+	}
+	/*else if (nivel == 2) {
+		if (Aqui iria nivel2.Muerteheroe abria que definirla todavia para otro momento cuando se empieze a editar nivel 2) {
+			return true;
+		}
+		else if () {
+			return false;
+		}
+	}
+	*/	
+}

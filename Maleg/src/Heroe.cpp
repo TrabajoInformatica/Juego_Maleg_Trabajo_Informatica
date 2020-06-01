@@ -18,7 +18,7 @@ void Heroe::SetAlturaMuerte(float am) {
 }
 
 bool Heroe::Muerte() {
-	if (alturamuerte <= posicion.y) {
+	if (alturamuerte >= posicion.y) {
 		return true;
 	}
 	else if (vida == 0) {

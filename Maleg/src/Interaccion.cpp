@@ -26,11 +26,11 @@ bool Interaccion::ColisionLat(Personaje* pers, Plataforma pl) {
     float altura = pers->GetAltura() / 2;
      float diferencia1 = pl.Getlimite1().x - posicion.x;
      float diferencia2 = posicion.x - pl.Getlimite2().x;
-        if ((diferencia1 <= altura)&& (diferencia1>altura-0.5f) && (((pl.Getlimite1().y - pl.GetGrosor() < pers->GetPos().y + altura) &&(pers->GetPos().y + altura < pl.Getlimite1().y)) || ((pl.Getlimite1().y - pl.GetGrosor() < pers->GetPos().y - altura)&&(pers->GetPos().y - altura < pl.Getlimite1().y)) || ((pl.Getlimite1().y < pers->GetPos().y + altura) && (pers->GetPos().y - altura < pl.Getlimite1().y-pl.GetGrosor())))) {
+        if ((pers->GetVel().x>=0)&&(diferencia1 <= altura)&& (diferencia1>altura-0.5f) && (((pl.Getlimite1().y - pl.GetGrosor() < pers->GetPos().y + altura) &&(pers->GetPos().y + altura < pl.Getlimite1().y)) || ((pl.Getlimite1().y - pl.GetGrosor() < pers->GetPos().y - altura)&&(pers->GetPos().y - altura < pl.Getlimite1().y)) || ((pl.Getlimite1().y < pers->GetPos().y + altura) && (pers->GetPos().y - altura < pl.Getlimite1().y-pl.GetGrosor())))) {
             pers->SetPos(pl.Getlimite1().x - altura, pers->GetPos().y);
             return true;
         }
-        if ((diferencia2 <= altura) && (diferencia2 >altura-0.5f) && (((pl.Getlimite1().y - pl.GetGrosor() < pers->GetPos().y + altura) && (pers->GetPos().y + altura < pl.Getlimite1().y)) || ((pl.Getlimite1().y - pl.GetGrosor() < pers->GetPos().y - altura) && (pers->GetPos().y - altura < pl.Getlimite1().y)) || ((pl.Getlimite1().y < pers->GetPos().y + altura) && (pers->GetPos().y - altura < pl.Getlimite1().y -pl.GetGrosor())))) {
+        if ((pers->GetVel().x <= 0)&&(diferencia2 <= altura) && (diferencia2 >altura-0.5f) && (((pl.Getlimite1().y - pl.GetGrosor() < pers->GetPos().y + altura) && (pers->GetPos().y + altura < pl.Getlimite1().y)) || ((pl.Getlimite1().y - pl.GetGrosor() < pers->GetPos().y - altura) && (pers->GetPos().y - altura < pl.Getlimite1().y)) || ((pl.Getlimite1().y < pers->GetPos().y + altura) && (pers->GetPos().y - altura < pl.Getlimite1().y -pl.GetGrosor())))) {
             pers->SetPos(pl.Getlimite2().x + altura, pers->GetPos().y);
             return true;
         }

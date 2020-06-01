@@ -26,11 +26,14 @@ public:
 	Nivel1();
 	virtual~Nivel1();
 
+	/////Funciones
 	void Inicializa();
 	void Dibuja();
 	void Mueve();
-
 	void Tecla(unsigned char);
+
+	bool MuerteHeroe();
+
 
 };
 /*
