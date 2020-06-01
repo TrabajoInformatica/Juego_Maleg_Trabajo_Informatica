@@ -14,11 +14,13 @@ Nivel1::~Nivel1() {
 
 void Nivel1::Inicializa() {
 	/////////////////////////////////////Personaje
-	//persona.setpos(0.0f, 0.0f);
-	//persona.setvel(1.0f, 0.0f);
-	//sirena.SetAltura(2.0f);
-	//sirena.SetPos(27.5f, 2.0f);
-	//sirena.SetVel(0.0f, 3.0f);
+
+	heroe.SetAlturaMuerte(-15.0f);
+	heroe.SetPos(0.0f, 3.0f);
+	heroe.SetVel(0.0f, 0.0f);
+	sirena.SetAltura(2.0f);
+	sirena.SetPos(27.5f, 2.0f);
+	sirena.SetVel(0.0f, 2.0f);
 	////////////////////////////////////Plataformas
 
 	plataformas.LecturaFichero(Fichero);
@@ -110,6 +112,13 @@ void Nivel1::Tecla(unsigned char key) {
 		heroe.SetVel(0.0f, 0.0f);
 	if (key == 'd')
 		heroe.SetVel(3.0f, heroe.GetVel().y);
+}
+
+bool Nivel1::MuerteHeroe() {
+	if (heroe.Muerte()) 
+		return true;
+	else
+		return false;
 }
 
 

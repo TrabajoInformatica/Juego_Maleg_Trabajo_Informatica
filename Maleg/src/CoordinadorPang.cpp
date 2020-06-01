@@ -36,6 +36,7 @@ void CoordinadorPang::Tecla(unsigned char key)
 		if (key == ' ') 
 		{
 			estado = CARGA;
+			mundo.CargarNivel();
 			cout << "CARGA" << endl;
 		}
 	}
