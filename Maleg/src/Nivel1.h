@@ -24,7 +24,6 @@ private:
 	//Personaje persona;
 	Marcador marcador;
 	
-
 public:
 	Moneda moneda1;
 	Nivel1();
@@ -35,6 +34,7 @@ public:
 	void Dibuja();
 	void Mueve();
 	void Tecla(unsigned char);
+	int salto = 3;
 
 	bool MuerteHeroe();
 

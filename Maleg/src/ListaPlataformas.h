@@ -16,7 +16,10 @@ public:
 	bool AgregarP(Plataforma* p);
 	void LecturaFichero(string Fichero);
 	void DestruirContenido();
-	
+
+	Plataforma GetListaPlat(int num);
+	int GetNumPlat();
+
 	void Colision(Personaje* p);
 
 };

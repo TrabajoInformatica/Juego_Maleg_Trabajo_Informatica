@@ -104,8 +104,11 @@ void Nivel1::Mueve() {
 }
 
 void Nivel1::Tecla(unsigned char key) {
-	if (key == 'w')
-		heroe.SetVel(heroe.GetVel().x, 10.0f);
+	if (key == 'w') {
+		for (int i = 0; i < plataformas.GetNumPlat(); i++)
+			if (Interaccion::ColisionSup(&heroe, plataformas.GetListaPlat(i)))
+			heroe.SetVel(heroe.GetVel().x, 10.0f);
+	}
 	if (key == 'a')
 		heroe.SetVel(-3.0f, heroe.GetVel().y);
 	if (key == 's')
