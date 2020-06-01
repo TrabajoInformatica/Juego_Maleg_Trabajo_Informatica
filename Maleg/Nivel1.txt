@@ -4,9 +4,11 @@ Plataforma
  10.0 3.0 15.0 3.0 3.5 128.0 64.0 0.0			//Escalera1_Peldano1
  15.0 6.0 18.0 6.0 3.5 128.0 64.0 0.0			//Escalera1_Peldano2
  15.0 6.0 25.0 6.0 0.5 128.0 64.0 0.0			//Fin_de_la_escalera_comienzo_camino
- 25.0 6.0 30.0 6.0 0.5 85.0 100.0 235.0			//Primera_sirena
+ 24.5 5.5 25.0 5.5 20.0 128.0 64.0 0.0			//Muro1_Agujero1
+ 30.0 5.5 30.5 5.5 20.0 128.0 64.0 0.0			//Muro2_Agujero1
  30.0 6.0 35.0 6.0 0.5 128.0 64.0 0.0			//Suelo_de_tierra_entre_las_sirenas
- 35.0 6.0 45.0 6.0 0.5 85.0 100.0 235.0			//Suelo_donde_se_encuentran_las_dos_sirenas
+ 34.5 5.5 35.0 5.5 20.0 128.0 64.0 0.0			//Muro1_Agujero2
+ 45.0 5.5 45.5 5.5 20.0 128.0 64.0 0.0			//Muro2_Agujero2
  35.0 11.0 45.0 11.0 0.5 128.0 64.0 0.0			//Suelo_elevada_encima_de_las_dos_sirenas
  45.0 6.0 55.0 6.0 0.5 128.0 64.0 0.0			//Suelo_despues_de_las_2_sirenas
  55.0 18.0 70.0 18.0 0.5 128.0 64.0 0.0			//Plataforma_despues_de_los_cuadrados_de_salto_con_pajaro_encima_y_agua_debajo
@@ -22,5 +24,3 @@ Plataforma
  55.0 9.0 58.0 9.0 3.5 128.0 64.0 0.0			//SaltosCuadrados1_cuadrado1
  50.0 15.0 53.0 15.0 3.0 128.0 64.0 0.0			//SaltosCuadrados1_cuadrado2
  110.0 11.0 113.0 11.0 5.5 128.0 64.0 0.0		//Pared_vertical_despues_de_plataforma3
-
- 
