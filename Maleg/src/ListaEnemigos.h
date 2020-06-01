@@ -15,7 +15,7 @@ public:
 	void DestruirContenido();
 	void Dibuja();
 	void Mueve(float t);
-	Enemigo* Colision(Personaje* p);
+	bool Colision(Personaje* p);
 	void Eliminar(Enemigo* e);
 	void Eliminar(int index);
 

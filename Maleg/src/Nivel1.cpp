@@ -18,6 +18,7 @@ void Nivel1::Inicializa() {
 	heroe.SetAlturaMuerte(-15.0f);
 	heroe.SetPos(0.0f, 3.0f);
 	heroe.SetVel(0.0f, 0.0f);
+	vidaHeroe = 100.0;
 	sirena.SetAltura(2.0f);
 	sirena.SetPos(27.5f, 2.0f);
 	sirena.SetVel(0.0f, 2.0f);
@@ -58,7 +59,7 @@ void Nivel1::Inicializa() {
 	sirenas.AgregarSire(sx2);
 	
 	Pajaro* px0 = new Pajaro();
-	px0->SetPos(30.0, 10.0);
+	px0->SetPos(40.0, 10.0);
 	pajaros.AgregarPaja(px0);
 	Pajaro* px1 = new Pajaro();
 	px0->SetPos(61.0, 10.0);
@@ -80,6 +81,7 @@ void Nivel1::Dibuja() {
 	plataformas.Dibuja();
 	monedas.Dibuja();
 	marcador.Dibuja(&heroe);
+	heroe.SetVida(vidaHeroe);
 	///////////////////////////////////Enemigos
 }
 void Nivel1::Mueve() {
@@ -94,13 +96,13 @@ void Nivel1::Mueve() {
 		monedas.Eliminar(aux);
 
 	/////////Provisional
-	Enemigo* auxe = sirenas.Colision(&heroe);
-	if (auxe != 0)//si alguna sirena ha chocado con el hombre
-		int j = 0;/////para que deje compilar
-	Enemigo* auxp = pajaros.Colision(&heroe);
-	if (auxp != 0)//si algun pajaro ha chocado con el hombre
-		int j = 0;/////para que deje compilar
-	
+	if (sirenas.Colision(&heroe)){
+		vidaHeroe -= 10.0;
+}
+	if (pajaros.Colision(&heroe)) {
+		vidaHeroe -= 10.0;
+	}
+
 }
 
 void Nivel1::Tecla(unsigned char key) {
@@ -115,8 +117,10 @@ void Nivel1::Tecla(unsigned char key) {
 }
 
 bool Nivel1::MuerteHeroe() {
-	if (heroe.Muerte()) 
+	if (heroe.Muerte()) {
+		cout << "Muerto" << endl;
 		return true;
+	}
 	else
 		return false;
 }

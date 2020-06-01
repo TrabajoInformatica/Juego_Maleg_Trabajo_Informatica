@@ -139,6 +139,7 @@ void CoordinadorPang::Dibuja()
 	if (estado == JUEGO)
 	{
 		mundo.Dibuja();
+		mundo.Muerte();///Para comprobar si la colision mataba al personaje
 	}
 	
 }
