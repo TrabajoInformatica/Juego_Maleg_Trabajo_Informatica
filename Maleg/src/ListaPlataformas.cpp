@@ -23,6 +23,14 @@ void ListaPlataformas::DestruirContenido() {
 	}
 }
 
+Plataforma ListaPlataformas::GetListaPlat(int num){
+	return *(Listap[num]);
+}
+
+int ListaPlataformas::GetNumPlat(){
+	return numerop;
+}
+
 void ListaPlataformas::Dibuja() {
 	for (int i = 0;i < numerop;i++)
 		Listap[i]->Dibuja();
