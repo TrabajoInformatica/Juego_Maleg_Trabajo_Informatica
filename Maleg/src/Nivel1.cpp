@@ -10,6 +10,7 @@ Nivel1::Nivel1() {
 
 Nivel1::~Nivel1() {
 	plataformas.DestruirContenido();
+	enemigos.DestruirEnemigos();
 }
 
 void Nivel1::Inicializa() {
@@ -18,16 +19,9 @@ void Nivel1::Inicializa() {
 	heroe.SetAlturaMuerte(-15.0f);
 	heroe.SetPos(0.0f, 3.0f);
 	heroe.SetVel(0.0f, 0.0f);
-	vidaHeroe = 100.0;
-	//sirena.SetPos(27.5f, 2.0f);
-	//sirena.SetVel(0.0f, 2.0f);
 	////////////////////////////////////Plataformas
 
 	plataformas.LecturaFichero(Fichero);
-	//moneda1.SetPos(12.5, 5.0);//Inicializacion por fichero de objetos plataforma y bloque 
-	//moneda2.SetPos(15.0, 6.0);
-	//moneda3.SetPos(65.0, -5.0);
-	//moneda4.SetPos(12.5, 8.0);
 	///////////////////////////////////Enemigos
 	Moneda* aux0 = new Moneda();
 	aux0->SetPos(12.5, 5.0);//es la segunda
@@ -53,29 +47,11 @@ void Nivel1::Inicializa() {
 	enemigos.Agregar(s1);
 	Sirena* s2 = new Sirena(42.5f, 3.0f);
 	enemigos.Agregar(s2);
-	/*
-	Sirena* sx0 = new Sirena();
-	sx0->SetPos(27.5, 3);
-	sirenas.AgregarSire(sx0);
-	Sirena* sx1 = new Sirena();
-	sx1->SetPos(37.5, 3);
-	sirenas.AgregarSire(sx1);
-	Sirena* sx2 = new Sirena();
-	sx2->SetPos(42.5, 3);
-	sirenas.AgregarSire(sx2);
-	*/
+	
 	Pajaro* p0 = new Pajaro(0.0f, 6.0f);
 	enemigos.Agregar(p0);
 	Pajaro* p1 = new Pajaro(61.0f, 10.0f);
 	enemigos.Agregar(p1);
-	/*
-	Pajaro* px0 = new Pajaro();
-	px0->SetPos(40.0, 10.0);
-	pajaros.AgregarPaja(px0);
-	Pajaro* px1 = new Pajaro();
-	px0->SetPos(61.0, 10.0);
-	pajaros.AgregarPaja(px1);
-	*/
 }
 
 void Nivel1::Dibuja() {
@@ -87,21 +63,18 @@ void Nivel1::Dibuja() {
 	heroe.Dibuja();
 
 	enemigos.Dibuja();
-	//sirenas.Dibuja();
-	//pajaros.Dibuja();
 	////////////////////////////////////Plataformas
 	plataformas.Dibuja();
 	monedas.Dibuja();
 	marcador.Dibuja(&heroe);
-	heroe.SetVida(vidaHeroe);
+	heroe.SetVida(100);
 	///////////////////////////////////Enemigos
 }
 void Nivel1::Mueve() {
 	monedas.Mueve(0.025f);
-	//sirena.Mueve(0.025f);
+
 	enemigos.Mueve(0.025f);
-	//sirenas.Mueve(0.025f);
-	//pajaros.Mueve(0.025f);
+
 	heroe.Mueve(0.05f);
 	plataformas.Colision(&heroe);
 	Moneda* aux = monedas.Colision(&heroe);
@@ -109,16 +82,7 @@ void Nivel1::Mueve() {
 		monedas.Eliminar(aux);
 
 	enemigos.Colision(&heroe);
-	/////////Provisional
-	/*if (sirenas.Colision(&heroe)){
-		vidaHeroe -= 10.0;
 }
-	if (pajaros.Colision(&heroe)) {
-		vidaHeroe -= 10.0;
-	}
-	*/
-}
-
 void Nivel1::Tecla(unsigned char key) {
 	if (key == 'w') {
 		for (int i = 0; i < plataformas.GetNumPlat(); i++)

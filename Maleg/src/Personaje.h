@@ -13,6 +13,7 @@ public:
 	Personaje();
 	virtual~Personaje();
 	
+
 	void SetAltura(float a);
 	float GetAltura();
 

@@ -7,27 +7,20 @@
 #include "Heroe.h"
 #include "Sirena.h"
 #include "Interaccion.h"
-#define MAX_SIZE
 
 using namespace std;
 
 class Nivel1 {
 private:
 	Heroe heroe;
-	ListaPlataformas plataformas;        ///Objeto contiene todas las plataformas Nivel1
-	string Fichero = "Nivel1.txt";
-	ListaMonedas monedas;
-	//ListaEnemigos sirenas;
-	//ListaEnemigos pajaros;
-	ListaEnemigos enemigos;
-	//Sirena sirena;
-	//Pajaro pajaro;
-	//Personaje persona;
-	Marcador marcador;
-	float vidaHeroe;
 	
+	ListaPlataformas plataformas;        ///Objeto contiene todas las plataformas Nivel1
+	ListaMonedas monedas;
+	ListaEnemigos enemigos;
+	
+	string Fichero = "Nivel1.txt";
+	Marcador marcador;
 public:
-	Moneda moneda1;
 	Nivel1();
 	virtual~Nivel1();
 

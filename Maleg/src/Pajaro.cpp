@@ -7,10 +7,6 @@ Pajaro::Pajaro(){
 	altura = 0.5f;
 }
 
-Pajaro::~Pajaro() {
-
-
-}
 Pajaro::Pajaro(float px, float py) {
 
 	verde = 255;
@@ -22,6 +18,11 @@ Pajaro::Pajaro(float px, float py) {
 
 }
 
-void Pajaro::Mueve() {
+Pajaro::~Pajaro() {
 
+
+}
+
+void Pajaro::Mueve(float t) {
+	ObjetoMovil::Mueve(t);
 }

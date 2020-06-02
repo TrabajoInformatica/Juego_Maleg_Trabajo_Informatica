@@ -6,8 +6,9 @@ class Pajaro: public Enemigo{
 
 public:
 	Pajaro();
-	~Pajaro();
 	Pajaro(float px, float py);
-	void Mueve();
+	~Pajaro();
+
+	void Mueve(float t);
 };
 

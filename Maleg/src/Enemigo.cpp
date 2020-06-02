@@ -12,16 +12,6 @@ Enemigo::~Enemigo()
 
 }
 
-/*Enemigo::Enemigo(float x, float y)
-{
-	posicion.x = x;
-	posicion.y = y;
-}
-float Enemigo::GetRadio() {
-	return altura;
-}
-*/
-
 void Enemigo::Dibuja() {
 
 	glColor3ub(rojo, verde, azul);

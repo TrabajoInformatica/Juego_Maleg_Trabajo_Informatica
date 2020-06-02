@@ -8,6 +8,7 @@ protected:
 public: 
 	Enemigo();
 	virtual ~Enemigo();
+
 	void Dibuja();
 	virtual void Mueve(float t) {}
 };
