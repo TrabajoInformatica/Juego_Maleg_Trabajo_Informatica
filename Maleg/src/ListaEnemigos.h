@@ -14,6 +14,7 @@ public:
 	~ListaEnemigos();
 
 	void DestruirEnemigos();
+	void Eliminar(int i);
 	void Dibuja();
 	void Mueve(float t);
 	bool Agregar(Enemigo* e);
