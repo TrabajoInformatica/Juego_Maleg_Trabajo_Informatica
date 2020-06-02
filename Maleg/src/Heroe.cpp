@@ -2,7 +2,7 @@
 #include "Heroe.h"
 using namespace std;
 
-Heroe::Heroe() :sprite("imagenes/correr.png", 4, 3) {
+Heroe::Heroe() :sprite("imagenes/correr_escudo.png", 4, 3) {
 	// Relativo a los atributos
 	sprite.setCenter(1,1);
 	sprite.setSize(3, 3);
