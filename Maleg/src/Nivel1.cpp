@@ -19,9 +19,8 @@ void Nivel1::Inicializa() {
 	heroe.SetPos(0.0f, 3.0f);
 	heroe.SetVel(0.0f, 0.0f);
 	vidaHeroe = 100.0;
-	sirena.SetAltura(2.0f);
-	sirena.SetPos(27.5f, 2.0f);
-	sirena.SetVel(0.0f, 2.0f);
+	//sirena.SetPos(27.5f, 2.0f);
+	//sirena.SetVel(0.0f, 2.0f);
 	////////////////////////////////////Plataformas
 
 	plataformas.LecturaFichero(Fichero);
@@ -48,6 +47,13 @@ void Nivel1::Inicializa() {
 
 	//os lo dejo comentado porque error de sintaxis no hay pero peta si se incluye
 
+	Sirena* s0 = new Sirena(27.5f, 3.0f);
+	enemigos.Agregar(s0);
+	Sirena* s1 = new Sirena(37.5f, 3.0f);
+	enemigos.Agregar(s1);
+	Sirena* s2 = new Sirena(42.5f, 3.0f);
+	enemigos.Agregar(s2);
+	/*
 	Sirena* sx0 = new Sirena();
 	sx0->SetPos(27.5, 3);
 	sirenas.AgregarSire(sx0);
@@ -57,14 +63,19 @@ void Nivel1::Inicializa() {
 	Sirena* sx2 = new Sirena();
 	sx2->SetPos(42.5, 3);
 	sirenas.AgregarSire(sx2);
-	
+	*/
+	Pajaro* p0 = new Pajaro(0.0f, 6.0f);
+	enemigos.Agregar(p0);
+	Pajaro* p1 = new Pajaro(61.0f, 10.0f);
+	enemigos.Agregar(p1);
+	/*
 	Pajaro* px0 = new Pajaro();
 	px0->SetPos(40.0, 10.0);
 	pajaros.AgregarPaja(px0);
 	Pajaro* px1 = new Pajaro();
 	px0->SetPos(61.0, 10.0);
 	pajaros.AgregarPaja(px1);
-
+	*/
 }
 
 void Nivel1::Dibuja() {
@@ -75,8 +86,9 @@ void Nivel1::Dibuja() {
 	/////////////////////////////////////Personaje
 	heroe.Dibuja();
 
-	sirenas.Dibuja();
-	pajaros.Dibuja();
+	enemigos.Dibuja();
+	//sirenas.Dibuja();
+	//pajaros.Dibuja();
 	////////////////////////////////////Plataformas
 	plataformas.Dibuja();
 	monedas.Dibuja();
@@ -87,22 +99,24 @@ void Nivel1::Dibuja() {
 void Nivel1::Mueve() {
 	monedas.Mueve(0.025f);
 	//sirena.Mueve(0.025f);
-	sirenas.Mueve(0.025f);
-	pajaros.Mueve(0.025f);
+	enemigos.Mueve(0.025f);
+	//sirenas.Mueve(0.025f);
+	//pajaros.Mueve(0.025f);
 	heroe.Mueve(0.05f);
 	plataformas.Colision(&heroe);
 	Moneda* aux = monedas.Colision(&heroe);
 	if (aux != 0)//si alguna esfera ha chocado con el hombre
 		monedas.Eliminar(aux);
 
+	enemigos.Colision(&heroe);
 	/////////Provisional
-	if (sirenas.Colision(&heroe)){
+	/*if (sirenas.Colision(&heroe)){
 		vidaHeroe -= 10.0;
 }
 	if (pajaros.Colision(&heroe)) {
 		vidaHeroe -= 10.0;
 	}
-
+	*/
 }
 
 void Nivel1::Tecla(unsigned char key) {

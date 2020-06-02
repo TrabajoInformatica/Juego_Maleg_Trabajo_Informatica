@@ -71,18 +71,19 @@ bool Interaccion::ColisionMoneda(Personaje* pers, Moneda m) {
 
     return false;
 }
- bool Interaccion::ColisionEnemigo(Personaje* pers, Enemigo e) {
+
+ bool Interaccion::ColisionEnemigo(Heroe* pers, Enemigo e) {
      Vector2D posicion = pers->GetPos();
      float altura = pers->GetAltura() / 2;
      Vector2D posicione = e.GetPos();
-     float distanciaexi = posicione.x - e.GetRadio();
-     float distanciaexd = posicione.x + e.GetRadio();
+     float distanciaexi = posicione.x - e.GetAltura();
+     float distanciaexd = posicione.x + e.GetAltura();
      float distanciapxd = posicion.x + altura;
      float distanciapxi = posicion.x - altura;
      float distanciapysup = posicion.y + altura;
      float distanciapyinf = posicion.y - altura;
-     float distanciaesup = posicione.y + e.GetRadio();
-     float distanciaeinf = posicione.y - e.GetRadio();
+     float distanciaesup = posicione.y + e.GetAltura();
+     float distanciaeinf = posicione.y - e.GetAltura();
      if ((distanciaexi <= distanciapxd) && (distanciaexd >= distanciapxi) && ((distanciapysup >= distanciaeinf) && (distanciapyinf <= distanciaesup))) {
 
          return true;

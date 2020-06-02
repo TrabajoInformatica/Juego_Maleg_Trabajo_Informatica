@@ -9,8 +9,9 @@ private:
 	float salto_min;
 public:
 	Sirena();
+	Sirena(float x,float y);
 	~Sirena();
-	Sirena(float px, float py);//para inicializarlas
 	void Salto(); //intento de mov hacia arriba y abajo en bucle
+	void Mueve(float t);
 };
 

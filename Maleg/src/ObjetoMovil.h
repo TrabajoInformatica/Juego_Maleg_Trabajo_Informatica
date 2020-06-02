@@ -9,7 +9,7 @@ protected:
 	Vector2D aceleracion;
 
 public:
-	virtual void Mueve(float t);
+	void Mueve(float t);
 
 	// METODOS SET
 	void SetPos(float x, float y);

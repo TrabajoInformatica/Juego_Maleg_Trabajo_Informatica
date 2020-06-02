@@ -1,4 +1,5 @@
 #pragma once
+#include "Heroe.h"
 #include "Personaje.h"
 #include "Enemigo.h"
 #include "Plataforma.h"
@@ -15,6 +16,6 @@ public:
 	static bool ColisionLat(Personaje* pers, Plataforma pl);
 	static bool ColisionInf(Personaje* pers, Plataforma pl);
 	static bool ColisionMoneda(Personaje* pers, Moneda m);
-	static bool ColisionEnemigo(Personaje* pers, Enemigo e);
+	static bool ColisionEnemigo(Heroe* pers, Enemigo e);
 };
 

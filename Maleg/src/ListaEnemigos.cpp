@@ -4,7 +4,7 @@ using namespace std;
 
 
 ListaEnemigos::ListaEnemigos(){
-
+	/*
 	numg = 0;
 	nums = 0;
 	nump = 0;
@@ -13,19 +13,65 @@ ListaEnemigos::ListaEnemigos(){
 		lista_p[i] = 0;
 		lista_g[i] = 0;
 	}
+	*/
 
+	numeroe = 0;
+	for (int i = 0;i < MAX_SIZE;i++) {
+		Listae[i] = 0;
+	}
 }
 
 ListaEnemigos::~ListaEnemigos() {
 
-
 }
+
+bool ListaEnemigos::Agregar(Enemigo* e) {
+	for (int i = 0;i < numeroe;i++) {
+		if ((Listae[i]) == e)
+			return false;
+	}
+	if (numeroe < MAX_SIZE)
+		Listae[numeroe++] = e;
+	else
+		return false;
+	return true;
+}
+
+void ListaEnemigos::DestruirEnemigos() {
+	for (int i = 0;i < numeroe;i++) {
+		delete Listae[i];
+		numeroe = 0;
+	}
+}
+
+void ListaEnemigos::Dibuja() {
+	for (int i = 0;i < numeroe;i++)
+		Listae[i]->Dibuja();
+}
+
+void ListaEnemigos::Mueve(float t) {
+	for (int i = 0;i < numeroe;i++)
+		Listae[i]->Mueve(t);
+}
+
+void ListaEnemigos::Colision(Heroe *p) {
+	for (int i = 0;i < numeroe;i++) {
+		if (Interaccion::ColisionEnemigo(p, *(Listae[i]))) {
+			p->SetPos(0.0f, 0.0f + p->GetAltura());
+			break;
+		}
+	}
+}
+
+
+
+
 
 bool ListaEnemigos::AgregarSire(Sirena* s) {
 
 	if (nums < MAX_SIRENA) {
 		lista_s[nums] = s;
-
+		return true;
 		nums++;
 	}
 	else return false;
@@ -58,7 +104,7 @@ void ListaEnemigos::DestruirContenido() {
 
 
 }
-
+/*
 void ListaEnemigos::Dibuja() {
 
 	for (int i = 0;i < nums;i++) {
@@ -72,7 +118,8 @@ void ListaEnemigos::Dibuja() {
 	
 
 }
-
+*/
+/*
 void ListaEnemigos::Mueve(float t) {
 
 	for (int i = 0;i < nums;i++) {
@@ -86,7 +133,8 @@ void ListaEnemigos::Mueve(float t) {
 		lista_g[i]->Mueve(t);
 	}
 }
-
+*/
+/*
 bool ListaEnemigos::Colision(Personaje* p) {
 	for (int i = 0; i < nums;i++) {
 		if (Interaccion::ColisionEnemigo(p, *(lista_s[i]))) {
@@ -109,6 +157,7 @@ bool ListaEnemigos::Colision(Personaje* p) {
 	}
 	return false;
 }
+*/
 void ListaEnemigos::Eliminar(Enemigo* e) {
 
 
