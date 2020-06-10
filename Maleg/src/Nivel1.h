@@ -23,13 +23,15 @@ private:
 	Pajaro pajaro;
 	//Personaje persona;
 	Marcador marcador;
-	float vidaHeroe;
+	
 	
 public:
 	Moneda moneda1;
 	Nivel1();
 	virtual~Nivel1();
-
+	int vida;
+	int getVidaHeroe();
+	void SetVidaHeroe(int vidas);
 	/////Funciones
 	void Inicializa();
 	void Dibuja();
@@ -38,7 +40,7 @@ public:
 	int salto = 3;
 
 	bool MuerteHeroe();
-
+	friend class Mundo;
 
 };
 /*

@@ -30,14 +30,14 @@ void Sirena::Salto() {
 	if (posicion.y < salto_min) {
 
 		posicion.y = salto_min;
-		velocidad.y = 10.0f;
+		velocidad.y = 5.0f;
 		aceleracion.y = 0.5f;
 	}
 
 	else if (posicion.y > salto_max) {
 
 		posicion.y = salto_max;
-		velocidad.y = -10.0f;
+		velocidad.y = -5.0f;
 		aceleracion.y = 0.5f;
 	}
 

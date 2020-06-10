@@ -1,9 +1,13 @@
 #pragma once
+#include <ETSIDI.h>
 #include "Personaje.h"
 #include "Vector2D.h"
-class Marcador
+#include "ObjetoMovil.h"
+//using ETSIDI::SpriteSequence;
+class Marcador: public ObjetoMovil
 {
 	char* vida;
+//	SpriteSequence sprite;
 
 public:
 	Marcador();

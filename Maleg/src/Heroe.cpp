@@ -24,7 +24,7 @@ void Heroe::SetAlturaMuerte(float am) {
 
 void Heroe::SetVida(float v) {
 	vida = v;
-	cout << vida << endl;
+	//cout << vida << endl;
 	
 
 

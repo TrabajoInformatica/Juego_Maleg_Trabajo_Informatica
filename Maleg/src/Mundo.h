@@ -7,7 +7,7 @@
 
 class Mundo {
 	public:
-	
+		int vidaHeroe;
 	Nivel1 nivel1;
 	//Nivel2 nivel2;
 	int nivel;
@@ -18,7 +18,9 @@ void Inicializa();
 void Dibuja();
 void TeclaEspecial(unsigned char key);
 void Mover();
-//void RotarOjo();
+int getVidaHeroe();
+void SetVidaHeroe(int vida);
+bool MuerteHeroe();
 
 void CargarNivel();
 void resetNiv() { nivel = 0; }

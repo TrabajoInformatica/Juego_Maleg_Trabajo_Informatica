@@ -11,6 +11,14 @@ Nivel1::Nivel1() {
 Nivel1::~Nivel1() {
 	plataformas.DestruirContenido();
 }
+int Nivel1::getVidaHeroe() {
+	return vida;
+}
+void Nivel1::SetVidaHeroe(int vidas) {
+	vida = vidas;
+
+}
+
 
 void Nivel1::Inicializa() {
 	/////////////////////////////////////Personaje
@@ -18,7 +26,7 @@ void Nivel1::Inicializa() {
 	heroe.SetAlturaMuerte(-15.0f);
 	heroe.SetPos(0.0f, 3.0f);
 	heroe.SetVel(0.0f, 0.0f);
-	vidaHeroe = 100.0;
+	
 	sirena.SetAltura(2.0f);
 	sirena.SetPos(27.5f, 2.0f);
 	sirena.SetVel(0.0f, 2.0f);
@@ -81,7 +89,7 @@ void Nivel1::Dibuja() {
 	plataformas.Dibuja();
 	monedas.Dibuja();
 	marcador.Dibuja(&heroe);
-	heroe.SetVida(vidaHeroe);
+	heroe.SetVida(vida);
 	///////////////////////////////////Enemigos
 }
 void Nivel1::Mueve() {
@@ -97,10 +105,11 @@ void Nivel1::Mueve() {
 
 	/////////Provisional
 	if (sirenas.Colision(&heroe)){
-		vidaHeroe -= 10.0;
+		vida -= 1;
+		
 }
 	if (pajaros.Colision(&heroe)) {
-		vidaHeroe -= 10.0;
+		vida -= 1;
 	}
 
 }

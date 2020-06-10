@@ -5,7 +5,9 @@
 #include "glut.h"
 
 Mundo::Mundo() {
+	vidaHeroe = 4;
 }
+
 
 Mundo::~Mundo() {
 	
@@ -18,6 +20,7 @@ void Mundo::Inicializa() {
 
 	nivel1.Inicializa();
 	//nivel2.Inicializa();
+	nivel1.SetVidaHeroe(vidaHeroe);
 }
 
 
@@ -38,6 +41,8 @@ void Mundo::Dibuja() {
 	//ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 	//ETSIDI::printxy("Bienvenido al pang. ", -5, 8);
 	nivel1.Dibuja();
+	vidaHeroe=nivel1.getVidaHeroe();
+	cout << vidaHeroe << endl;
 	//nivel2.Dibuja();
 }
 
