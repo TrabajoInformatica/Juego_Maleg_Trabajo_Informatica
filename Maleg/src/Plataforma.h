@@ -21,7 +21,7 @@ Vector2D Getlimite1();
 Vector2D Getlimite2();
 float GetGrosor();
 
-virtual void Dibuja();
+	    void Dibuja();
 virtual void Mueve(float t);
 
 virtual void Reaccion(Heroe* pers);
