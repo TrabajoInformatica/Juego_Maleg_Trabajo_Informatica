@@ -21,6 +21,7 @@ Vector2D Getlimite2();
 float GetGrosor();
 
 virtual void Dibuja();
+virtual void Mueve(float t);
 
 float distancia(Vector2D punto, Vector2D* direccion);
 };

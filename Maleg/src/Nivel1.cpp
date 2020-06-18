@@ -24,7 +24,7 @@ void Nivel1::Inicializa() {
 	/////////////////////////////////////Personaje
 
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(0.0f, 3.0f);
+	heroe.SetPos(130.0f, 14.0f);
 	heroe.SetVel(0.0f, 0.0f);
 	
 	sirena.SetAltura(2.0f);
@@ -51,7 +51,7 @@ void Nivel1::Inicializa() {
 	aux2->SetPos(53.0, 8.0);
 	monedas.agregar(aux2);
 	Moneda* aux3 = new Moneda();
-	aux3->SetPos(125.0, 16.5);
+	aux3->SetPos(132.0, 16.5);
 	monedas.agregar(aux3);
 
 	//os lo dejo comentado porque error de sintaxis no hay pero peta si se incluye
@@ -98,6 +98,7 @@ void Nivel1::Mueve() {
 	sirenas.Mueve(0.025f);
 	pajaros.Mueve(0.025f);
 	heroe.Mueve(0.05f);
+	plataformas.Mueve(0.025f);
 	plataformas.Colision(&heroe);
 	Moneda* aux = monedas.Colision(&heroe);
 	if (aux != 0)//si alguna esfera ha chocado con el hombre

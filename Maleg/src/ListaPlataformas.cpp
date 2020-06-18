@@ -123,3 +123,9 @@ void ListaPlataformas::Colision(Personaje* pers) {
 	}
 
 } 
+
+void ListaPlataformas::Mueve(float t) {
+	for (int i = 0;i < numerop;i++) {
+		Listap[i]->Mueve(t);
+	}
+}

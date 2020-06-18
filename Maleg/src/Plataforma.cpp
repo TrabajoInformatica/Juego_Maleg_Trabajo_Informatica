@@ -74,7 +74,7 @@ void Plataforma::Dibuja() {
         glEnable(GL_LIGHTING);
         glDisable(GL_TEXTURE_2D);
     }
-    else {
+    else  {
         glEnable(GL_LIGHTING);
         glEnable(GL_TEXTURE_2D);
         glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/Plataformas1.png").id);
@@ -114,4 +114,8 @@ float Plataforma::distancia(Vector2D punto, Vector2D* direccion){
     if (direccion != 0) //si nos dan un vector…
         *direccion = dir.unitario();
     return distancia;
+}
+
+void Plataforma::Mueve(float t) {
+
 }

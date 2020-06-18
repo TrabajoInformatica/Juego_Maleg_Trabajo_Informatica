@@ -13,6 +13,7 @@ public:
 	ListaPlataformas();
 	virtual ~ListaPlataformas();
 	void Dibuja();
+	void Mueve(float t);
 	bool AgregarP(Plataforma* p);
 	void LecturaFichero(string Fichero);
 	void DestruirContenido();
