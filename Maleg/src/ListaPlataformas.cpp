@@ -97,7 +97,7 @@ void ListaPlataformas::LecturaFichero(string Fichero) {
 	archivo.close();
 }
 
-void ListaPlataformas::Colision(Personaje* pers) {
+void ListaPlataformas::Colision(Heroe* pers) {
 	for (int i = 0;i < numerop;i++) {
 		if (Interaccion::ColisionLat(pers, *(Listap[i]))) {
 			pers->SetVel(0.0f, pers->GetVel().y);
@@ -107,8 +107,6 @@ void ListaPlataformas::Colision(Personaje* pers) {
 	
 	for (int i = 0;i < numerop; i++) {
 		if (Interaccion::ColisionSup(pers, *(Listap[i]))) {
-			pers->SetVel(pers->GetVel().x, 0.0f);
-			pers->SetAce(pers->GetAce().x, 0.0f);
 			break;
 		}
 		else

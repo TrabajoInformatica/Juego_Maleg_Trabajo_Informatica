@@ -12,7 +12,7 @@ public:
 	void destruirContenido();
 	void Dibuja();
 	void Mueve(float t);
-	Moneda* Colision(Personaje* p);
+	Moneda* Colision(Heroe* p);
 	void Eliminar(Moneda* e);
 	void Eliminar(int index);
 

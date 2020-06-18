@@ -1,7 +1,7 @@
 #pragma once
 #include "Vector2D.h"
 #include "Plataforma.h"
-#include "ObjetoMovil.h"
+#include "Heroe.h"
 class Bloque : public Plataforma{
 private:
 	int contador;
@@ -12,4 +12,5 @@ public:
 	virtual ~Bloque();
 	void Mueve(float t);
 	void Dibuja();
+	void Reaccion(Heroe *pers);
 };

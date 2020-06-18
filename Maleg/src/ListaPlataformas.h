@@ -2,7 +2,7 @@
 #include "Plataforma.h"
 #include "Bloque.h"
 #include <string>
-#include "Personaje.h"
+#include "Heroe.h"
 using namespace std;
 #define MAX_SIZE 100
 class ListaPlataformas {
@@ -21,6 +21,6 @@ public:
 	Plataforma GetListaPlat(int num);
 	int GetNumPlat();
 
-	void Colision(Personaje* p);
+	void Colision(Heroe* p);
 
 };

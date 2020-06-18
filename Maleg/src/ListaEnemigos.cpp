@@ -87,7 +87,7 @@ void ListaEnemigos::Mueve(float t) {
 	}
 }
 
-bool ListaEnemigos::Colision(Personaje* p) {
+bool ListaEnemigos::Colision(Heroe* p) {
 	for (int i = 0; i < nums;i++) {
 		if (Interaccion::ColisionEnemigo(p, *(lista_s[i]))) {
 			cout << "impactosirena"<<endl;

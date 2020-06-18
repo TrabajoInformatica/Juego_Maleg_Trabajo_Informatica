@@ -9,7 +9,7 @@ Interaccion::~Interaccion() {
 
 }
 
-bool Interaccion::ColisionSup(Personaje* pers, Plataforma pl) {
+bool Interaccion::ColisionSup(Heroe* pers, Plataforma pl) {
     Vector2D posicion = pers->GetPos();
     float altura = (pers->GetAltura()) / 2;
     float diferencia = posicion.y - pl.Getlimite1().y;
@@ -21,7 +21,7 @@ bool Interaccion::ColisionSup(Personaje* pers, Plataforma pl) {
         return false;
 }
 
-bool Interaccion::ColisionLat(Personaje* pers, Plataforma pl) {
+bool Interaccion::ColisionLat(Heroe* pers, Plataforma pl) {
     Vector2D posicion = pers->GetPos();
     float altura = pers->GetAltura() / 2;
      float diferencia1 = pl.Getlimite1().x - posicion.x;
@@ -38,7 +38,7 @@ bool Interaccion::ColisionLat(Personaje* pers, Plataforma pl) {
         return false;
 }
 
-bool Interaccion::ColisionInf(Personaje* pers, Plataforma pl) {
+bool Interaccion::ColisionInf(Heroe* pers, Plataforma pl) {
    Vector2D posicion = pers->GetPos();
    float altura = pers->GetAltura() / 2;
    float diferencia = pl.Getlimite1().y-pl.GetGrosor() - posicion.y;
@@ -50,7 +50,7 @@ bool Interaccion::ColisionInf(Personaje* pers, Plataforma pl) {
        return false;
 
 }
-bool Interaccion::ColisionMoneda(Personaje* pers, Moneda m) {
+bool Interaccion::ColisionMoneda(Heroe* pers, Moneda m) {
     Vector2D posicion = pers->GetPos();
     float altura = pers->GetAltura() / 2;
     Vector2D posicionm = m.GetPos();
@@ -71,7 +71,7 @@ bool Interaccion::ColisionMoneda(Personaje* pers, Moneda m) {
 
     return false;
 }
- bool Interaccion::ColisionEnemigo(Personaje* pers, Enemigo e) {
+ bool Interaccion::ColisionEnemigo(Heroe* pers, Enemigo e) {
      Vector2D posicion = pers->GetPos();
      float altura = pers->GetAltura() / 2;
      Vector2D posicione = e.GetPos();

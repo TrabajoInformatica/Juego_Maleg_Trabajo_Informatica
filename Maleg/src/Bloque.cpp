@@ -15,7 +15,7 @@ Bloque::Bloque(float x1, float y1, float x2, float y2, float gr, unsigned char r
 	rojo = r;
 	verde = v;
 	azul = a;
-	velocidad.x = 1.0f;
+	velocidad.y = 1.0f;
 	contador = 0;
 }
 
@@ -47,4 +47,9 @@ void Bloque::Mueve(float t) {
 		velocidad.y = -velocidad.y;
 	}
 	contador++;
+}
+
+void Bloque::Reaccion(Heroe* pers) {
+	pers->SetVel(pers->GetVel().x, velocidad.y);
+	pers->SetAce(pers->GetAce().x, 0.0f);
 }

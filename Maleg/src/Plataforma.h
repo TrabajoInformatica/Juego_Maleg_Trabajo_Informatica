@@ -1,5 +1,6 @@
 #pragma once
 #include "Vector2D.h"
+#include "Heroe.h"
 class Plataforma {
 protected:
 	Vector2D limite1;
@@ -22,6 +23,8 @@ float GetGrosor();
 
 virtual void Dibuja();
 virtual void Mueve(float t);
+
+virtual void Reaccion(Heroe* pers);
 
 float distancia(Vector2D punto, Vector2D* direccion);
 };

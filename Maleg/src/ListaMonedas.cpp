@@ -41,7 +41,7 @@ void ListaMonedas::Mueve(float t) {
 	}
 }
 
-Moneda* ListaMonedas::Colision(Personaje* p){
+Moneda* ListaMonedas::Colision(Heroe* p){
 	for (int i = 0; i < numero;i++) {
 		if (Interaccion::ColisionMoneda(p, *(lista[i])))
 				return lista[i];

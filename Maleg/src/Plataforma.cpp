@@ -119,3 +119,8 @@ float Plataforma::distancia(Vector2D punto, Vector2D* direccion){
 void Plataforma::Mueve(float t) {
 
 }
+
+void Plataforma::Reaccion(Heroe* pers) {
+    pers->SetVel(pers->GetVel().x, 0.0f);
+    pers->SetAce(pers->GetAce().x, 0.0f);
+}
