@@ -24,7 +24,7 @@ void Nivel1::Inicializa() {
 	/////////////////////////////////////Personaje
 
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(130.0f, 14.0f);
+	heroe.SetPos(0.0f,0.0f);
 	heroe.SetVel(0.0f, 0.0f);
 	
 	sirena.SetAltura(2.0f);

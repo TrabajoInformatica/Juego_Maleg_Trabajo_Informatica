@@ -1,6 +1,6 @@
 #pragma once
 #include "Plataforma.h"
-#include "Bloque.h"
+#include "PlataformaMovil.h"
 #include <string>
 #include "Heroe.h"
 using namespace std;

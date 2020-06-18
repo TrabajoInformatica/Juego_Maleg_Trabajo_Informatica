@@ -50,8 +50,8 @@ bool ListaPlataformas::AgregarP(Plataforma* p) {
 
 void ListaPlataformas::LecturaFichero(string Fichero) {
 	float x1 = 0, x2 = 0, y1 = 0, y2 = 0, gr = 0;
-	float r = 0, v = 0, a = 0;
-	int b = 0, i = 1, longitud = 0, pos = 0;
+	float r = 0, v = 0, a = 0, vx = 0, vy = 0;
+	int b = 0, i = 1, longitud = 0, pos = 0,p;
 	int opcion = 5;
 	string tipo;
 	string introduccion = { "X1_Y1_X2_Y2_GROSOR_ROJO_VERDE_AZUL" };
@@ -78,8 +78,8 @@ void ListaPlataformas::LecturaFichero(string Fichero) {
 			AgregarP(aux);
 		}
 		if (opcion == 2) {
-			archivo >> x1 >> y1 >> x2 >> y2 >> gr >> r >> v >> a >> comentario;
-			Bloque* aux = new Bloque(x1, y1, x2, y2, gr, (unsigned char)r, (unsigned char)v, (unsigned char)a);	///////Creacion Bloques
+			archivo >> x1 >> y1 >> x2 >> y2 >> gr >>p>> vx>>vy>> r >> v >> a >> comentario;
+			PlataformaMovil* aux = new PlataformaMovil(x1, y1, x2, y2, gr,p,vx,vy, (unsigned char)r, (unsigned char)v, (unsigned char)a);	///////Creacion Bloques
 			AgregarP(aux);
 		}
 		archivo >> tipo;

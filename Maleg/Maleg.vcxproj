@@ -145,7 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Bloque.cpp" />
+    <ClCompile Include="src\PlataformaMovil.cpp" />
     <ClCompile Include="src\CoordinadorPang.cpp" />
     <ClCompile Include="src\Enemigo.cpp" />
     <ClCompile Include="src\Guerreros.cpp" />
@@ -168,7 +168,7 @@
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Bloque.h" />
+    <ClInclude Include="src\PlataformaMovil.h" />
     <ClInclude Include="src\CoordinadorPang.h" />
     <ClInclude Include="src\Enemigo.h" />
     <ClInclude Include="src\Guerreros.h" />

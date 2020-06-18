@@ -24,13 +24,9 @@ Plataforma
  123.0 13.0 124.0 13.0 0.5 128.0 64.0 0.0		//Plataforma_dificil
  130.0 13.0 136.0 13.0 0.5 128.0 64.0 0.0		//Plataforma_despues_de_dificil
  123.0 6.0 136.0 6.0 0.5 128.0 64.0 0.0			//Plataforma_debajo_de_dificiles
- 138.0 7.0 141.0 7.0 0.5 128.0 64.0 0.0			//Plataforma_1_despues_recuperacion_dificil
- 143.0 10.0 145.5 10.0 0.5 128.0 64.0 0.0 		//Plataforma_2_despues_recuperacion_dificil
- 147.0 8.2  151.0 8.2  0.5 128.0 64.0 0.0		//Plataforma_2_despues_recuperacion_dificil
- 153.0 0.0  155.0 0.0  0.5 128.0 64.0 0.0		//Plataforma_InicioFinal1
- 157.0 2.0 160.0 2.0   0.5 128.0 64.0 0.0		//Plataforma_InicioFinal2
- 160.0 4.5 163.0 4.5   3.0 128.0 64.0 0.0		//Plataforma_InicioFinal3
+ 157.0 2.0 160.0 2.0   0.5 128.0 64.0 0.0		//Plataforma_InicioFinal1
+ 160.0 4.5 163.0 4.5   3.0 128.0 64.0 0.0		//Plataforma_InicioFinal2
  163.0 6.5 167.0 6.5   2.5 128.0 64.0 0.0 		//Plataforma_InicioFinal3
  167.0 8.0 175.0 8.0   0.5 128.0 64.0 0.0		//PLATAFORMA_FINALNIVEL
 Plataforma_movil
- 130.0 16.0 137.0 16.0 1.5 128.0 64.0 0.0 		//Plataforma_movil
+ 137.0 5.0 142.0 5.0 0.5 300 2.0 -0.5 128.0 64.0 0.0 		//Plataforma_movil

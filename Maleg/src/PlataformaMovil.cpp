@@ -1,12 +1,12 @@
-#include "Bloque.h"
+#include "PlataformaMovil.h"
 #include <iostream>
 #include "glut.h"
 using namespace std;
-Bloque::Bloque() {
+PlataformaMovil::PlataformaMovil() {
 
 }
 
-Bloque::Bloque(float x1, float y1, float x2, float y2, float gr, unsigned char r, unsigned char v, unsigned char a) {
+PlataformaMovil::PlataformaMovil(float x1, float y1, float x2, float y2, float gr, float p, float vx, float vy, unsigned char r, unsigned char v, unsigned char a) {
 	limite1.x = x1;
 	limite1.y = y1;
 	limite2.x = x2;
@@ -15,15 +15,16 @@ Bloque::Bloque(float x1, float y1, float x2, float y2, float gr, unsigned char r
 	rojo = r;
 	verde = v;
 	azul = a;
-	velocidad.x = 1.0f;
-	velocidad.y = 1.0f;
+	velocidad.x = vx;
+	velocidad.y = vy;
 	contador = 0;
+	paso = p;
 }
 
-Bloque::~Bloque() {
+PlataformaMovil::~PlataformaMovil() {
 
 }
-void Bloque::Dibuja() {
+void PlataformaMovil::Dibuja() {
 	glDisable(GL_LIGHTING);
 	glColor3ub(rojo, verde, azul);
 	glBegin(GL_POLYGON);
@@ -36,8 +37,8 @@ void Bloque::Dibuja() {
 }
 
 
-void Bloque::Mueve(float t) {
-	if (contador < 300) {
+void PlataformaMovil::Mueve(float t) {
+	if (contador < paso) {
 		if (velocidad.x != 0) {
 			limite1.x = limite1.x + velocidad.x * t;
 			limite2.x = limite2.x + velocidad.x * t;
@@ -45,7 +46,7 @@ void Bloque::Mueve(float t) {
 		if (velocidad.y != 0) 
 			limite2.y = limite1.y = limite1.y + velocidad.y * t;
 	}
-	else if (contador >= 300) {
+	else if (contador >= paso) {
 		contador = 0;
 		velocidad.x = -velocidad.x;
 		velocidad.y = -velocidad.y;
@@ -53,7 +54,7 @@ void Bloque::Mueve(float t) {
 	contador++;
 }
 
-void Bloque::Reaccion(Heroe* pers) {
+void PlataformaMovil::Reaccion(Heroe* pers) {
 	if (velocidad.y < 0) {
 		pers->SetVel(pers->GetVel().x, velocidad.y);
 		pers->SetAce(pers->GetAce().x, 0.0f);
