@@ -15,6 +15,7 @@ Bloque::Bloque(float x1, float y1, float x2, float y2, float gr, unsigned char r
 	rojo = r;
 	verde = v;
 	azul = a;
+	velocidad.x = 1.0f;
 	velocidad.y = 1.0f;
 	contador = 0;
 }
@@ -31,13 +32,16 @@ void Bloque::Dibuja() {
 	glVertex3d(limite2.x, limite2.y - grosor, 0);
 	glVertex3d(limite1.x, limite1.y - grosor, 0);
 	glEnd();
+	glEnable(GL_LIGHTING);
 }
 
 
 void Bloque::Mueve(float t) {
 	if (contador < 300) {
-		if (velocidad.x != 0)
-			limite2.x = limite1.x = limite1.x + velocidad.x * t;
+		if (velocidad.x != 0) {
+			limite1.x = limite1.x + velocidad.x * t;
+			limite2.x = limite2.x + velocidad.x * t;
+		}
 		if (velocidad.y != 0) 
 			limite2.y = limite1.y = limite1.y + velocidad.y * t;
 	}
@@ -50,6 +54,12 @@ void Bloque::Mueve(float t) {
 }
 
 void Bloque::Reaccion(Heroe* pers) {
-	pers->SetVel(pers->GetVel().x, velocidad.y);
-	pers->SetAce(pers->GetAce().x, 0.0f);
+	if (velocidad.y < 0) {
+		pers->SetVel(pers->GetVel().x, velocidad.y);
+		pers->SetAce(pers->GetAce().x, 0.0f);
+	}
+	else{
+		pers->SetVel(pers->GetVel().x, 0.0f);
+		pers->SetAce(pers->GetAce().x, 0.0f);
+	}
 }

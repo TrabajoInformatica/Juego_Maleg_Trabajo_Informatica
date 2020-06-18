@@ -85,9 +85,9 @@ void ListaPlataformas::LecturaFichero(string Fichero) {
 		archivo >> tipo;
 		if (tipo == "Plataforma")									//Con esto detecto si estoy en el espacio plataformas o bloques
 			opcion = 1;												//1 Leo una linea y lo guardo en un string
-		if (tipo == "Bloque")										//2 Comparo si es Plataforma o bloque y se queda fijado en el estado que sea
+		if (tipo == "Plataforma_movil")										//2 Comparo si es Plataforma o bloque y se queda fijado en el estado que sea
 			opcion = 2;												// hasta nueva orden 
-		if (tipo != "Plataforma" && tipo != "Bloque" && !archivo.eof() && tipo != introduccion) {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
+		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion) {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
 			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
@@ -104,9 +104,10 @@ void ListaPlataformas::Colision(Heroe* pers) {
 			break;
 		}
 	}
-	
+
 	for (int i = 0;i < numerop; i++) {
 		if (Interaccion::ColisionSup(pers, *(Listap[i]))) {
+			Listap[i]->Reaccion(pers);
 			break;
 		}
 		else
@@ -115,13 +116,13 @@ void ListaPlataformas::Colision(Heroe* pers) {
 
 	for (int i = 0;i < numerop;i++) {
 		if (Interaccion::ColisionInf(pers, *(Listap[i]))) {
-			pers->SetVel(pers->GetVel().x, 0.0f);
-			break;
+			if (pers->GetVel().y > 0) {
+				pers->SetVel(pers->GetVel().x, 0.0f);
+				break;
+			}
 		}
 	}
-
-} 
-
+}
 void ListaPlataformas::Mueve(float t) {
 	for (int i = 0;i < numerop;i++) {
 		Listap[i]->Mueve(t);
