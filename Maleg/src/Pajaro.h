@@ -1,6 +1,8 @@
 #pragma once
+#include <ETSIDI.h>
 #include "Enemigo.h"
-#define MAX_PAJARO 5
+
+using ETSIDI::SpriteSequence;
 
 class Pajaro: public Enemigo{
 
@@ -10,8 +12,10 @@ private:
 	float lim_yi;
 	float lim_yd;
 
-
 public:
+
+	SpriteSequence sprite;
+
 	Pajaro();
 	Pajaro(float px, float py);
 	~Pajaro();

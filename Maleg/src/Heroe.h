@@ -10,7 +10,7 @@ protected:
 	float vida;
 	float alturamuerte;
 
-	SpriteSequence sprite, salto;
+	SpriteSequence run, jumpUP, jumpDOWN;
 
 public:
 	Heroe();
@@ -26,9 +26,8 @@ public:
 
 	//ANIMACIONES
 	void AnimationRun();
-	void AnimationJump();
+	void AnimationJumpUp();
+	void AnimationJumpDown();
 	//FUNCIONES
-
-	void Tecla(unsigned char key);
 	bool Muerte();
 };
