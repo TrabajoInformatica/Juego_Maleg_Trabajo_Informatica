@@ -2,7 +2,7 @@
 #include "Heroe.h"
 using namespace std;
 
-Heroe::Heroe() :sprite("imagenes/correr_escudo.png", 4, 3) , salto("imagenes/salto.png", 1, 1){
+Heroe::Heroe() :sprite("imagenes/spartanRUN.png", 4, 2) , salto("imagenes/spartanJUMPup.png", 4, 2){
 	// Relativo a los atributos
 	vida = 100;
 	altura = 2.0f;
@@ -23,7 +23,7 @@ void Heroe::Dibuja() {
 // ANIMACIONES
 void Heroe::AnimationRun() {
 	//Dimensiones del sprite
-	sprite.setCenter(1.0, 1.0);
+	sprite.setCenter(1.2, 1.2);
 	sprite.setSize(3, 3);
 	//Dibujo
 	glPushMatrix();
@@ -42,9 +42,11 @@ void Heroe::AnimationRun() {
 }
 void Heroe::AnimationJump(){
 	//Dimensiones del sprite
-	salto.setCenter(1.0, 1.0);
+	//salto.setCenter(1.0, 1.0);
+	//salto.setSize(3, 3);
+	salto.setCenter(1.2, 1.2);
 	salto.setSize(3, 3);
-	//Dibujo
+//Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
 	glColor3f(1.0f, 1.0f, 1.0f);
@@ -58,12 +60,6 @@ void Heroe::AnimationJump(){
 	salto.loop();
 	glPopMatrix();
 }
-
-void Heroe::Tecla(unsigned char key)
-{
-	if (key == 'w');
-}
-
 
 void Heroe::SetAlturaMuerte(float am) {
 	alturamuerte = am;

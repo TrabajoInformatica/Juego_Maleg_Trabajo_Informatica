@@ -28,7 +28,5 @@ public:
 	void AnimationRun();
 	void AnimationJump();
 	//FUNCIONES
-
-	void Tecla(unsigned char key);
 	bool Muerte();
 };
