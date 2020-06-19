@@ -88,27 +88,45 @@ void Nivel1::Inicializa() {
 }
 
 void Nivel1::Dibuja() {
-	//////////////////////////////////////Vista
+	// Vista
 	gluLookAt(heroe.GetPos().x,heroe.GetPos().y+ 1, 3,  // posicion del ojo						//NUNCA MODIFICAR LA Z	No hace fala
 		heroe.GetPos().x, heroe.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
-		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
-	/////////////////////////////////////Personaje
-	heroe.Dibuja();
+		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)  
 
+	// Enemigos
 	enemigos.Dibuja();
-	////////////////////////////////////Plataformas
+	sirenas.Dibuja();
+	pajaros.Dibuja();
+
+	// Heroe
+	heroe.SetVida(vida);
+	for (int i = 0; i < plataformas.GetNumPlat(); i++) {
+		if (Interaccion::ColisionSup(&heroe, plataformas.GetListaPlat(i)))
+			heroe.AnimationRun();
+		else if (heroe.GetVel().y != 0.0f)
+			heroe.AnimationJump();
+	}
+
+    //Plataformas, Monedas y otros.
 	plataformas.Dibuja();
 	monedas.Dibuja();
 	marcador.Dibuja(&heroe);
-	heroe.SetVida(vida);
-	///////////////////////////////////Enemigos
 }
+
 void Nivel1::Mueve() {
-	monedas.Mueve(0.025f);
+	// Enemigos
 	enemigos.Mueve(0.025f);	
-	heroe.Mueve(0.05f);
+	sirenas.Mueve(0.025f);
+	pajaros.Mueve(0.025f);
+
+	// Heroe
+	heroe.Mueve(0.09f);
+
+	// Plataforma, Monedas y otros.
 	plataformas.Mueve(0.025f);
 	plataformas.Colision(&heroe);
+
+	monedas.Mueve(0.025f);
 	Moneda* aux = monedas.Colision(&heroe);
 	if (aux != 0)//si alguna esfera ha chocado con el hombre
 		monedas.Eliminar(aux);
@@ -122,10 +140,8 @@ void Nivel1::Mueve() {
 
 }
 
-
 void Nivel1::Tecla(unsigned char key) {
 	if (key == 'w') {
-
 		for (int i = 0; i < plataformas.GetNumPlat(); i++) {
 			if (Interaccion::ColisionSup(&heroe, plataformas.GetListaPlat(i))) {
 				heroe.SetVel(heroe.GetVel().x, 10.0f);
@@ -134,14 +150,13 @@ void Nivel1::Tecla(unsigned char key) {
 				heroe.SetVel(heroe.GetVel().x, heroe.GetVel().y);
 			}
 		}
-		
 	}
 	if (key == 'a')
 		heroe.SetVel(-3.0f, heroe.GetVel().y);
-
 	if (key == 'd')
 		heroe.SetVel(3.0f, heroe.GetVel().y);
 }
+
 void Nivel1::TeclaUp(unsigned char key) {
 
 	if (key == 'a')

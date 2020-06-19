@@ -13,7 +13,7 @@ bool Interaccion::ColisionSup(Heroe* pers, Plataforma pl) {
     Vector2D posicion = pers->GetPos();
     float altura = (pers->GetAltura()) / 2;
     float diferencia = posicion.y - pl.Getlimite1().y;
-    if ((diferencia>=altura-1.0f) && (diferencia <=altura) && (pl.Getlimite1().x < posicion.x + altura) && (posicion.x - altura < pl.Getlimite2().x)) {
+    if ((diferencia>=altura-1.5f) && (diferencia <=altura) && (pl.Getlimite1().x < posicion.x + altura) && (posicion.x - altura < pl.Getlimite2().x)) {
         pers->SetPos(pers->GetPos().x,pl.Getlimite1().y+altura);
         return true;
     }
