@@ -2,7 +2,9 @@
 #include "Heroe.h"
 using namespace std;
 
-Heroe::Heroe() :sprite("imagenes/spartanRUN.png", 4, 2) , salto("imagenes/spartanJUMPup.png", 4, 2){
+Heroe::Heroe() :run("imagenes/spartanRUN.png", 4, 2) , 
+				jumpUP("imagenes/spartanJUMPup.png", 4, 2),
+				jumpDOWN("imagenes/spartanJUMPdown.png", 4, 3) {
 	// Relativo a los atributos
 	vida = 100;
 	altura = 2.0f;
@@ -23,41 +25,62 @@ void Heroe::Dibuja() {
 // ANIMACIONES
 void Heroe::AnimationRun() {
 	//Dimensiones del sprite
-	sprite.setCenter(1.2, 1.2);
-	sprite.setSize(3, 3);
+	run.setCenter(1, 1);
+	run.setSize(3, 3);
 	//Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
 	glColor3f(1.0f, 1.0f, 1.0f);
-	if (velocidad.x > 0.01)sprite.flip(false, false);
-	if (velocidad.x < -0.01)sprite.flip(true, false);
+	if (velocidad.x > 0.01)run.flip(false, false);
+	if (velocidad.x < -0.01)run.flip(true, false);
 	if ((velocidad.x < 0.01) && (velocidad.x > -0.01))
-		sprite.setState(0);
-	else if (sprite.getState() == 0)
-		sprite.setState(1, false);
-	sprite.draw();
-	sprite.loop();
+		run.setState(0);
+	else if (run.getState() == 0)
+		run.setState(1, false);
+	run.draw();
+	run.loop();
 	glPopMatrix();
 
 }
-void Heroe::AnimationJump(){
+void Heroe::AnimationJumpUp(){
 	//Dimensiones del sprite
 	//salto.setCenter(1.0, 1.0);
 	//salto.setSize(3, 3);
-	salto.setCenter(1.2, 1.2);
-	salto.setSize(3, 3);
+	jumpUP.setCenter(1, 1);
+	jumpUP.setSize(3, 3);
 //Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
 	glColor3f(1.0f, 1.0f, 1.0f);
-	if (velocidad.x > 0.01)salto.flip(false, false);
-	if (velocidad.x < -0.01)salto.flip(true, false);
+	if (velocidad.x > 0.01)jumpUP.flip(false, false);
+	if (velocidad.x < -0.01)jumpUP.flip(true, false);
 	if ((velocidad.x < 0.01) && (velocidad.x > -0.01))
-		salto.setState(0);
-	else if (salto.getState() == 0)
-		salto.setState(1, false);
-	salto.draw();
-	salto.loop();
+		jumpUP.setState(0);
+	else if (jumpUP.getState() == 0)
+		jumpUP.setState(1, false);
+	jumpUP.draw();
+	jumpUP.loop();
+	glPopMatrix();
+}
+
+void Heroe::AnimationJumpDown() {
+	//Dimensiones del sprite
+	//salto.setCenter(1.0, 1.0);
+	//salto.setSize(3, 3);
+	jumpDOWN.setCenter(1, 1);
+	jumpDOWN.setSize(3, 3);
+	//Dibujo
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 0.5);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	if (velocidad.x > 0.01)jumpDOWN.flip(false, false);
+	if (velocidad.x < -0.01)jumpDOWN.flip(true, false);
+	if ((velocidad.x < 0.01) && (velocidad.x > -0.01))
+		jumpDOWN.setState(0);
+	else if (jumpDOWN.getState() == 0)
+		jumpDOWN.setState(1, false);
+	jumpDOWN.draw();
+	jumpDOWN.loop();
 	glPopMatrix();
 }
 
