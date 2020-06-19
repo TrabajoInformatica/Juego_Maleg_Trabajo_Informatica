@@ -49,7 +49,7 @@ void PlataformaMovil::Reaccion(Heroe* pers) {
 		pers->SetAce(pers->GetAce().x, 0.0f);
 	}
 	if (pers->GetVel().x == 0 ) {
-		pers->SetPos(pers->GetPos().x+velocidad.x*tiempo, pers->GetPos().y);
+		pers->SetPos(pers->GetPos().x + velocidad.x * tiempo, pers->GetPos().y);
 		pers->SetAce(pers->GetAce().x, 0.0f);
 	}
 	else{

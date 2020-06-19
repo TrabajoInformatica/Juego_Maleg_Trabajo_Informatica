@@ -9,7 +9,7 @@ class ListaEnemigos{
 public:
 	ListaEnemigos();
 	~ListaEnemigos();
-	bool Agregar(Enemigo* e);
+	bool AgregarE(Enemigo* e);
 	void DestruirContenido();
 	void Dibuja();
     void Mueve(float t);
