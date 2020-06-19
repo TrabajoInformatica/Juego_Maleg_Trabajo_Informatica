@@ -40,6 +40,8 @@ public:
 	bool MuerteHeroe();
 	friend class Mundo;
 
+	void LecturaFichero(string Fichero);
+
 };
 /*
 Plataforma horiz1;				//Horizontal1 Principio

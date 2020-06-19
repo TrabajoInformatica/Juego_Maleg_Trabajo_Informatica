@@ -14,9 +14,9 @@ void Nivel2::Inicializa() {
 
 	////////////////////////////////////Plataformas
 
-	plataformas.LecturaFichero(Fichero);							//Inicializacion por fichero de objetos plataforma y bloque 
 
 	///////////////////////////////////Enemigos
+	/*
 	Moneda* aux0 = new Moneda();
 	aux0->SetPos(12.0, 20.0);//es la segunda
 	monedas2.agregar(aux0);
@@ -32,7 +32,7 @@ void Nivel2::Inicializa() {
 	Moneda* aux3 = new Moneda();
 	aux3->SetPos(19.0, 3.5);
 	monedas2.agregar(aux3);
-
+	*/
 }
 
 void Nivel2::Dibuja() {

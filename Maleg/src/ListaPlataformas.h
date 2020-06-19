@@ -15,7 +15,6 @@ public:
 	void Dibuja();
 	void Mueve(float t);
 	bool AgregarP(Plataforma* p);
-	void LecturaFichero(string Fichero);
 	void DestruirContenido();
 
 	Plataforma GetListaPlat(int num);

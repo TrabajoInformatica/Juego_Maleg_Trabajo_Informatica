@@ -1,5 +1,7 @@
 #include <iostream>
 #include "ListaMonedas.h"
+#include <fstream>
+
 
 using namespace std;
 
@@ -14,7 +16,7 @@ ListaMonedas::~ListaMonedas() {
 
 }//destructor
 
-bool ListaMonedas::agregar(Moneda* m) {
+bool ListaMonedas::AgregarM(Moneda* m) {
 	if (numero < MAX_MON) {
 		lista[numero] = m;
 
@@ -66,4 +68,3 @@ void ListaMonedas::Eliminar(int index) {//borrar una esfera segun su indice
 		lista[i] = lista[1 + i];
 	}
 }
-

@@ -15,7 +15,7 @@ private:
 	unsigned char azul;
 public:
 	Moneda();
-	Moneda(float px, float py);//para inicializarlas
+	Moneda(float px, float py,float radio,unsigned char r,unsigned char v,unsigned char a);//para inicializarlas
 	~Moneda();
 	float GetRadio();
 	void SetRadio(float r);

@@ -9,9 +9,16 @@ Moneda::Moneda() {
 	radio_min = 0.35f;
 	pulso = 0.5f;
 }
-Moneda::Moneda(float px, float py) {
+Moneda::Moneda(float px, float py, float rad, unsigned char r, unsigned char v, unsigned char a) {
 	posicion.x = px;
 	posicion.y = py;
+	rojo = r;
+	verde = v;
+	azul = a;
+	radio = rad;
+	radio_max = 0.5f;
+	radio_min = 0.35f;
+	pulso = 0.5f;
 }
 
 Moneda::~Moneda() {

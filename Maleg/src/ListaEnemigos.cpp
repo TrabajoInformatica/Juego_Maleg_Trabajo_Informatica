@@ -17,7 +17,7 @@ ListaEnemigos::~ListaEnemigos() {
 
 }
 
-bool ListaEnemigos::Agregar(Enemigo* e) {
+bool ListaEnemigos::AgregarE(Enemigo* e) {
 
 	if (nume < MAX_ENEM) {
 		Lista_e[nume] = e;
