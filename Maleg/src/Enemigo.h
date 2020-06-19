@@ -5,14 +5,13 @@
 class Enemigo: public Personaje{
 
 private:
-	float salto_max;
-	float salto_min;
+
 public: 
 	Enemigo();
 	virtual ~Enemigo();
-	Enemigo(float x, float y); //??
 	float GetRadio();
-	void Dibuja();
+	virtual void Dibuja();
+	virtual void  Mueve(float t);
 	
 };
 
