@@ -9,6 +9,7 @@ public:
 	virtual ~CoordinadorPang();
 	void TeclaEspecial(unsigned char key);
 	void Tecla(unsigned char key);
+	void TeclaUp(unsigned char key);
 	void Mueve();
 	void Dibuja();
 

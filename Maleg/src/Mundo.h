@@ -26,6 +26,7 @@ void CargarNivel();
 void resetNiv() { nivel = 0; }
 
 void Tecla(unsigned char key);
+void TeclaUp(unsigned char key);
 
 bool Muerte();
 

@@ -7,7 +7,6 @@ CoordinadorPang juego;
 //Mundo mundo;
 //Nivel1 nivel;
 
-//////scfivesfbsdcbfucbs
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos//////////////////////////////////////////////////////////////////
 //NO HACE FALTA LLAMARLAS EXPLICITAMENTE
@@ -16,6 +15,8 @@ void OnDraw(void); //esta funcion sera llamada para dibujar
 void OnTimer(int value); //esta funcion sera llamada cuando transcurra una temporizacion
 void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla	
 void onSpecialKeyboardDown(int key, int x, int y);
+void OnKeyboardUp(unsigned char key, int x, int y);
+
 
 int main(int argc, char* argv[]) {
 	//Inicializar el gestor de ventanas GLUT
@@ -38,6 +39,7 @@ int main(int argc, char* argv[]) {
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	glutKeyboardFunc(OnKeyboardDown);
+	glutKeyboardUpFunc(OnKeyboardUp);
 	glutSpecialFunc(onSpecialKeyboardDown); //gestion de los cursores
 	
 	//Aqui iria mundo
@@ -67,6 +69,9 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t) {
 	//poner aqui el código de teclado
 	glutPostRedisplay();
 }
+void OnKeyboardUp(unsigned char key, int x, int y) {
+	juego.TeclaUp(key);
+}
 
 void OnTimer(int value) {
 	//poner aqui el código de animacion
@@ -82,6 +87,3 @@ void onSpecialKeyboardDown(int key, int x, int y)
 	juego.TeclaEspecial(key);
 //	mundo.TeclaEspecial(key);
 }
-/////as djacbjbdhscbsdcjn
-///////Hola mundvrcwecwawecxec
-///sencsvecfnsc

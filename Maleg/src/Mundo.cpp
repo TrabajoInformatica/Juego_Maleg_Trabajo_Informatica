@@ -74,6 +74,9 @@ void Mundo::Tecla(unsigned char key)
 	nivel1.Tecla(key);
 	//nivel2.Tecla(key);
 }
+void Mundo::TeclaUp(unsigned char key) {
+	nivel1.TeclaUp(key);
+}
 
 bool Mundo::Muerte() {
 	if (nivel == 1) {

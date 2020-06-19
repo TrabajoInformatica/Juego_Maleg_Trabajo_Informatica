@@ -52,6 +52,7 @@ void CoordinadorPang::Tecla(unsigned char key)
 	else if (estado == JUEGO)
 	{
 		mundo.Tecla(key);
+		
 		if (key == 'p' || key == 'P')
 			estado = PAUSA;
 	}
@@ -92,6 +93,11 @@ void CoordinadorPang::Tecla(unsigned char key)
 
 
 		}
+	}
+}
+void CoordinadorPang::TeclaUp(unsigned char key) {
+	if (estado == JUEGO) {
+		mundo.TeclaUp(key);
 	}
 }
 void CoordinadorPang::Mueve() 

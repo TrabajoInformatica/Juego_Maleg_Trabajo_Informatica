@@ -37,6 +37,7 @@ public:
 	void Dibuja();
 	void Mueve();
 	void Tecla(unsigned char);
+	void TeclaUp(unsigned char);
 	int salto = 3;
 
 	bool MuerteHeroe();

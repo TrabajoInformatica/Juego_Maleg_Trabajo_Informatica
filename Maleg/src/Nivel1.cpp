@@ -115,18 +115,38 @@ void Nivel1::Mueve() {
 
 }
 
+
 void Nivel1::Tecla(unsigned char key) {
 	if (key == 'w') {
-		for (int i = 0; i < plataformas.GetNumPlat(); i++)
-			if (Interaccion::ColisionSup(&heroe, plataformas.GetListaPlat(i)))
-			heroe.SetVel(heroe.GetVel().x, 10.0f);
+
+		for (int i = 0; i < plataformas.GetNumPlat(); i++) {
+			if (Interaccion::ColisionSup(&heroe, plataformas.GetListaPlat(i))) {
+				heroe.SetVel(heroe.GetVel().x, 10.0f);
+			}
+			else {
+				heroe.SetVel(heroe.GetVel().x, 10.0f);
+
+			}
+		}
+		
 	}
+	
 	if (key == 'a')
 		heroe.SetVel(-3.0f, heroe.GetVel().y);
-	if (key == 's')
-		heroe.SetVel(0.0f, 0.0f);
+
 	if (key == 'd')
 		heroe.SetVel(3.0f, heroe.GetVel().y);
+}
+void Nivel1::TeclaUp(unsigned char key) {
+
+	if (key == 'a')
+		heroe.SetVel(0.0f, 0.0f);
+	if (key == 'w')
+		heroe.SetVel(heroe.GetVel().x, heroe.GetVel().y);
+	
+	
+	if (key == 'd')
+		heroe.SetVel(0.0f, 0.0f);
 }
 
 bool Nivel1::MuerteHeroe() {
