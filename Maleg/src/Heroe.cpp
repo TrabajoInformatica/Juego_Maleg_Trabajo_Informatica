@@ -2,34 +2,76 @@
 #include "Heroe.h"
 using namespace std;
 
-Heroe::Heroe() :sprite("imagenes/correr_escudo.png", 4, 3) {
+Heroe::Heroe() :sprite("imagenes/correr_escudo.png", 4, 3) , salto("imagenes/salto.png", 1, 1){
 	// Relativo a los atributos
-	sprite.setCenter(1,1);
-	sprite.setSize(3, 3);
 	vida = 100;
 	altura = 2.0f;
 	rojo = verde = azul = 255;
-
-	// Relativo al movimiento
 }
 Heroe::~Heroe(){
 
 }
+void Heroe::Mueve(float t) {
+	ObjetoMovil::Mueve(t);
+}
+
+void Heroe::Dibuja() {
+	//AnimationJump();
+	//AnimationMove();
+}
+
+// ANIMACIONES
+void Heroe::AnimationRun() {
+	//Dimensiones del sprite
+	sprite.setCenter(1.0, 1.0);
+	sprite.setSize(3, 3);
+	//Dibujo
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 0.5);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	if (velocidad.x > 0.01)sprite.flip(false, false);
+	if (velocidad.x < -0.01)sprite.flip(true, false);
+	if ((velocidad.x < 0.01) && (velocidad.x > -0.01))
+		sprite.setState(0);
+	else if (sprite.getState() == 0)
+		sprite.setState(1, false);
+	sprite.draw();
+	sprite.loop();
+	glPopMatrix();
+
+}
+void Heroe::AnimationJump(){
+	//Dimensiones del sprite
+	salto.setCenter(1.0, 1.0);
+	salto.setSize(3, 3);
+	//Dibujo
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 0.5);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	if (velocidad.x > 0.01)salto.flip(false, false);
+	if (velocidad.x < -0.01)salto.flip(true, false);
+	if ((velocidad.x < 0.01) && (velocidad.x > -0.01))
+		salto.setState(0);
+	else if (salto.getState() == 0)
+		salto.setState(1, false);
+	salto.draw();
+	salto.loop();
+	glPopMatrix();
+}
+
+void Heroe::Tecla(unsigned char key)
+{
+	if (key == 'w');
+}
+
 
 void Heroe::SetAlturaMuerte(float am) {
 	alturamuerte = am;
 }
-
 void Heroe::SetVida(float v) {
 	vida = v;
 	//cout << vida << endl;
 }
-
-void Heroe::Mueve(float t) {
-	ObjetoMovil::Mueve(t);
-	sprite.loop();
-}
-
 bool Heroe::Muerte() {
 	
 	if (alturamuerte >= posicion.y) {
@@ -46,18 +88,3 @@ bool Heroe::Muerte() {
 	
 }
 
-void Heroe::Dibuja() {
-	{
-		glPushMatrix();
-		glTranslatef(posicion.x, posicion.y, 0.5);
-		glColor3f(1.0f, 1.0f, 1.0f);
-		if (velocidad.x > 0.01)sprite.flip(false, false);
-		if (velocidad.x < -0.01)sprite.flip(true, false);
-		if ((velocidad.x < 0.01) && (velocidad.x > -0.01))
-			sprite.setState(0);
-		else if (sprite.getState() == 0)
-			sprite.setState(1, false);
-		sprite.draw();
-		glPopMatrix();
-	}
-}

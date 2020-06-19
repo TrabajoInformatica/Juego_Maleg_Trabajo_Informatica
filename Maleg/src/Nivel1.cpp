@@ -81,23 +81,30 @@ void Nivel1::Dibuja() {
 		heroe.GetPos().x, heroe.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 	/////////////////////////////////////Personaje
-	heroe.Dibuja();
+		//heroe.Dibuja();
+	for (int i = 0; i < plataformas.GetNumPlat(); i++) {
+		if (Interaccion::ColisionSup(&heroe, plataformas.GetListaPlat(i)))
+			heroe.AnimationRun();
+		else if (heroe.GetVel().y != 0.0f)
+			heroe.AnimationJump();
+	}
 
-	sirenas.Dibuja();
-	pajaros.Dibuja();
 	////////////////////////////////////Plataformas
 	plataformas.Dibuja();
 	monedas.Dibuja();
 	marcador.Dibuja(&heroe);
 	heroe.SetVida(vida);
 	///////////////////////////////////Enemigos
+	sirenas.Dibuja();
+	pajaros.Dibuja();
 }
+
 void Nivel1::Mueve() {
 	monedas.Mueve(0.025f);
 	//sirena.Mueve(0.025f);
 	sirenas.Mueve(0.025f);
 	pajaros.Mueve(0.025f);
-	heroe.Mueve(0.07f);
+	heroe.Mueve(0.09f);
 	plataformas.Mueve(0.025f);
 	plataformas.Colision(&heroe);
 	Moneda* aux = monedas.Colision(&heroe);
@@ -115,10 +122,8 @@ void Nivel1::Mueve() {
 
 }
 
-
 void Nivel1::Tecla(unsigned char key) {
 	if (key == 'w') {
-
 		for (int i = 0; i < plataformas.GetNumPlat(); i++) {
 			if (Interaccion::ColisionSup(&heroe, plataformas.GetListaPlat(i))) {
 				heroe.SetVel(heroe.GetVel().x, 10.0f);
@@ -127,14 +132,13 @@ void Nivel1::Tecla(unsigned char key) {
 				heroe.SetVel(heroe.GetVel().x, heroe.GetVel().y);
 			}
 		}
-		
 	}
 	if (key == 'a')
 		heroe.SetVel(-3.0f, heroe.GetVel().y);
-
 	if (key == 'd')
 		heroe.SetVel(3.0f, heroe.GetVel().y);
 }
+
 void Nivel1::TeclaUp(unsigned char key) {
 
 	if (key == 'a')
