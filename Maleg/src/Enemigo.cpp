@@ -29,3 +29,4 @@ void Enemigo::Dibuja() {
 	glutSolidSphere(altura, 10, 10);
 	glTranslatef(-posicion.x, -posicion.y, 0);
 }
+

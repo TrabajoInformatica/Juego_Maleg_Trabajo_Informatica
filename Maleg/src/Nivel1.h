@@ -17,10 +17,7 @@ private:
 	ListaPlataformas plataformas;        ///Objeto contiene todas las plataformas Nivel1
 	string Fichero = "Nivel1.txt";
 	ListaMonedas monedas;
-	ListaEnemigos sirenas;
-	ListaEnemigos pajaros;
-	Sirena sirena;
-	Pajaro pajaro;
+	ListaEnemigos enemigos;
 	//Personaje persona;
 	Marcador marcador;
 	
