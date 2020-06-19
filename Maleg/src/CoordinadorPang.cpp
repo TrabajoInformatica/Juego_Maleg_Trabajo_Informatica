@@ -119,21 +119,21 @@ void CoordinadorPang::TeclaUp(unsigned char key)
 		mundo.TeclaUp(key);
 	}
 }
-void CoordinadorPang::Mueve() 
+void CoordinadorPang::Mueve() //Falta destruir mundo cuando le damos a continuar en Game Over ya que si no, se duplica
 {
 	if (estado == JUEGO)
 	{
 		mundo.Mover();
-	}
-	if (mundo.Muerte() == true)
+		/*if (mundo.Muerte() == true)
+		{
+			estado = GAMEOVER;
 
-	{
-		estado = GAMEOVER;
-		
-		ETSIDI::stopMusica();
-		ETSIDI::playMusica("sonidos/GameOver.wav"); //No se reproduce
+			ETSIDI::stopMusica();
+			ETSIDI::playMusica("sonidos/GameOver.wav");
+		}*/
 	}
 }
+	
 
 void CoordinadorPang::Dibuja() 
 {
@@ -239,7 +239,7 @@ void CoordinadorPang::Dibuja()
 		ETSIDI::printxy("PRESS  E  T0 EXIT", -10, -5);
 	}
 
-	else if (estado == CARGA) //TERMINAR DE REVISAR
+	else if (estado == CARGA) 
 	{
 		gluLookAt(0, 7.5, 3, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
