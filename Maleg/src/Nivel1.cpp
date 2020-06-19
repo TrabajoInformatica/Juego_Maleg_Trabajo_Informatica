@@ -27,9 +27,7 @@ void Nivel1::Inicializa() {
 	heroe.SetPos(0.0f,1.0f);
 	heroe.SetVel(0.0f, 0.0f);
 	
-	sirena.SetAltura(2.0f);
-	sirena.SetPos(27.5f, 2.0f);
-	sirena.SetVel(0.0f, 2.0f);
+
 	////////////////////////////////////Plataformas
 
 	plataformas.LecturaFichero(Fichero);
@@ -57,22 +55,36 @@ void Nivel1::Inicializa() {
 	//os lo dejo comentado porque error de sintaxis no hay pero peta si se incluye
 
 	Sirena* sx0 = new Sirena();
-	sx0->SetPos(27.5, 3);
-	sirenas.AgregarSire(sx0);
+	sx0->SetPos(27.5, 10);
+	enemigos.AgregarEnem(sx0);
 	Sirena* sx1 = new Sirena();
 	sx1->SetPos(37.5, 3);
-	sirenas.AgregarSire(sx1);
+	enemigos.AgregarEnem(sx1);
 	Sirena* sx2 = new Sirena();
-	sx2->SetPos(42.5, 3);
-	sirenas.AgregarSire(sx2);
+	sx2->SetPos(42.5, 12);
+	enemigos.AgregarEnem(sx2);
+	Sirena* sx3 = new Sirena();
+	sx3->SetPos(76, 6);
+	enemigos.AgregarEnem(sx3);
+	Sirena* sx4 = new Sirena();
+	sx4->SetPos(145, 0);
+	enemigos.AgregarEnem(sx4);
+	Sirena* sx5 = new Sirena();
+	sx5->SetPos(100, 12);
+	enemigos.AgregarEnem(sx5);
 	
 	Pajaro* px0 = new Pajaro();
-	px0->SetPos(40.0, 10.0);
-	pajaros.AgregarPaja(px0);
+	px0->SetPos(60.0, 22.0);
+	enemigos.AgregarEnem(px0);
 	Pajaro* px1 = new Pajaro();
-	px0->SetPos(61.0, 10.0);
-	pajaros.AgregarPaja(px1);
-
+	px1->SetPos(92.0, 22.0);
+	enemigos.AgregarEnem(px1);
+	Pajaro* px2 = new Pajaro();
+	px2->SetPos(109.0, 15.0);
+	enemigos.AgregarEnem(px2);
+	Pajaro* px3 = new Pajaro();
+	px3->SetPos(128.0, 10.0);
+	enemigos.AgregarEnem(px3);
 }
 
 void Nivel1::Dibuja() {
@@ -83,8 +95,7 @@ void Nivel1::Dibuja() {
 	/////////////////////////////////////Personaje
 	heroe.Dibuja();
 
-	sirenas.Dibuja();
-	pajaros.Dibuja();
+	enemigos.Dibuja();
 	////////////////////////////////////Plataformas
 	plataformas.Dibuja();
 	monedas.Dibuja();
@@ -94,10 +105,14 @@ void Nivel1::Dibuja() {
 }
 void Nivel1::Mueve() {
 	monedas.Mueve(0.025f);
-	//sirena.Mueve(0.025f);
-	sirenas.Mueve(0.025f);
-	pajaros.Mueve(0.025f);
+
+
 	heroe.Mueve(0.07f);
+
+	enemigos.Mueve(0.025f);
+	
+	heroe.Mueve(0.05f);
+
 	plataformas.Mueve(0.025f);
 	plataformas.Colision(&heroe);
 	Moneda* aux = monedas.Colision(&heroe);
@@ -105,13 +120,11 @@ void Nivel1::Mueve() {
 		monedas.Eliminar(aux);
 
 	/////////Provisional
-	if (sirenas.Colision(&heroe)){
+	if (enemigos.Colision(&heroe)){
 		vida -= 1;
 		
 }
-	if (pajaros.Colision(&heroe)) {
-		vida -= 1;
-	}
+	
 
 }
 

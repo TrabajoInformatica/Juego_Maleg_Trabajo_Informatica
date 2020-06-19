@@ -9,22 +9,16 @@ class ListaEnemigos{
 public:
 	ListaEnemigos();
 	~ListaEnemigos();
-	bool AgregarSire(Sirena* s);
-	bool AgregarPaja(Pajaro* p);
-	bool AgregarGue(Guerreros* g);
+	bool AgregarEnem(Enemigo* e);
 	void DestruirContenido();
 	void Dibuja();
-	void Mueve(float t);
+	virtual void Mueve(float t);
 	bool Colision(Heroe* p);
 	void Eliminar(Enemigo* e);
 	void Eliminar(int index);
 
 private:
-	Sirena* lista_s[MAX_SIRENA];
-	Pajaro* lista_p[MAX_PAJARO];
-	Guerreros* lista_g[MAX_GUERR];
-	int nums;
-	int numg;
-	int nump;
+	Enemigo* lista_e[MAX_ENEM];
+	int nume;
 };
 
