@@ -1,16 +1,6 @@
 #include "Pajaro.h"
 
 Pajaro::Pajaro(){
-	
-	verde = 255;
-	azul = 0;
-	rojo = 0;
-	altura = 0.5f;
-	velocidad.x = 1.0f;
-	lim_xi = posicion.x -10.0f;
-	lim_yi = posicion.y + 7.0f;
-	lim_xd = posicion.x + 10.0f;
-	lim_yd = posicion.y - 7.0f;
 }
 
 Pajaro::~Pajaro() {
@@ -34,12 +24,11 @@ Pajaro::Pajaro(float px, float py) {
 
 }
 
-/*void Pajaro::Mueve(float t) {
+void Pajaro::Mueve(float t) {
 
-	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
-	velocidad = velocidad + aceleracion * t;
+	ObjetoMovil::Mueve(t);
 	Movimiento();
-}*/
+}
 
 void Pajaro::Movimiento() {
 
@@ -56,3 +45,12 @@ void Pajaro::Movimiento() {
 
 }
 
+void Pajaro::Dibuja() {
+	glPushMatrix();
+	glColor3ub(rojo, verde, azul);
+	glTranslatef(posicion.x, posicion.y, 0);
+	glColor3f(rojo, verde, azul);
+	glutSolidSphere(altura, 10, 10);
+	glTranslatef(-posicion.x, -posicion.y, 0);
+	glPopMatrix();
+}

@@ -15,6 +15,8 @@ public:
 	Pajaro();
 	Pajaro(float px, float py);
 	~Pajaro();
+	void Dibuja();
+	void Mueve(float t);
 	void Movimiento();
 	//virtual void Mueve(float t);
 };

@@ -13,6 +13,7 @@ public:
 	~Sirena();
 	Sirena(float px, float py);
 	void Salto(); 
-	virtual void Mueve(float t);
+	void Dibuja();
+    void Mueve(float t);
 };
 

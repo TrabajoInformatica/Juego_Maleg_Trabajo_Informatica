@@ -54,36 +54,26 @@ void Nivel1::Inicializa() {
 
 	//os lo dejo comentado porque error de sintaxis no hay pero peta si se incluye
 
-	Sirena* sx0 = new Sirena();
-	sx0->SetPos(27.5, 10);
+	Sirena* sx0 = new Sirena(27.5f,10.0f);
 	enemigos.Agregar(sx0);
-	Sirena* sx1 = new Sirena();
-	sx1->SetPos(37.5, 3);
+	Sirena* sx1 = new Sirena(37.5f,3.0f);
 	enemigos.Agregar(sx1);
-	Sirena* sx2 = new Sirena();
-	sx2->SetPos(42.5, 12);
+	Sirena* sx2 = new Sirena(42.5f,12.0f);
 	enemigos.Agregar(sx2);
-	Sirena* sx3 = new Sirena();
-	sx3->SetPos(76, 6);
+	Sirena* sx3 = new Sirena(76.0f,6.0f);
 	enemigos.Agregar(sx3);
-	Sirena* sx4 = new Sirena();
-	sx4->SetPos(145, 0);
+	Sirena* sx4 = new Sirena(145.0f,0.0f);
 	enemigos.Agregar(sx4);
-	Sirena* sx5 = new Sirena();
-	sx5->SetPos(100, 12);
+	Sirena* sx5 = new Sirena(100.0f,12.0f);
 	enemigos.Agregar(sx5);
 	
-	Pajaro* px0 = new Pajaro();
-	px0->SetPos(60.0, 22.0);
+	Pajaro* px0 = new Pajaro(60.0f,22.0f);
 	enemigos.Agregar(px0);
-	Pajaro* px1 = new Pajaro();
-	px1->SetPos(92.0, 22.0);
+	Pajaro* px1 = new Pajaro(92.0f,22.0f);
 	enemigos.Agregar(px1);
-	Pajaro* px2 = new Pajaro();
-	px2->SetPos(109.0, 15.0);
+	Pajaro* px2 = new Pajaro(0.0f,15.0f);
 	enemigos.Agregar(px2);
-	Pajaro* px3 = new Pajaro();
-	px3->SetPos(128.0, 10.0);
+	Pajaro* px3 = new Pajaro(128.0f,10.0f);
 	enemigos.Agregar(px3);
 }
 
@@ -128,12 +118,7 @@ void Nivel1::Mueve() {
 		monedas.Eliminar(aux);
 
 	/////////Provisional
-	if (enemigos.Colision(&heroe)){
-		vida -= 1;
-		
-}
-	
-
+	enemigos.Colision(&heroe);
 }
 
 void Nivel1::Tecla(unsigned char key) {

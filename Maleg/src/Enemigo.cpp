@@ -11,22 +11,15 @@ Enemigo::~Enemigo()
 {
 
 }
-
-Enemigo::Enemigo(float x, float y)
-{
-	posicion.x = x;
-	posicion.y = y;
-}
 float Enemigo::GetRadio() {
 	return altura;
 }
 
 void Enemigo::Dibuja() {
 
-	glColor3ub(rojo, verde, azul);
-	glTranslatef(posicion.x, posicion.y, 0);
-	glColor3f(rojo, verde, azul);
-	glutSolidSphere(altura, 10, 10);
-	glTranslatef(-posicion.x, -posicion.y, 0);
+}
+
+void Enemigo::Mueve(float t) {
+
 }
 
