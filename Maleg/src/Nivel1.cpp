@@ -95,8 +95,6 @@ void Nivel1::Dibuja() {
 
 	// Enemigos
 	enemigos.Dibuja();
-	sirenas.Dibuja();
-	pajaros.Dibuja();
 
 	// Heroe
 	heroe.SetVida(vida);
@@ -116,8 +114,6 @@ void Nivel1::Dibuja() {
 void Nivel1::Mueve() {
 	// Enemigos
 	enemigos.Mueve(0.025f);	
-	sirenas.Mueve(0.025f);
-	pajaros.Mueve(0.025f);
 
 	// Heroe
 	heroe.Mueve(0.09f);
