@@ -1,7 +1,4 @@
-
 #include "Sirena.h"
-
-
 
 Sirena::Sirena() {
 
@@ -33,6 +30,7 @@ void Sirena::Salto() {
 		velocidad.y = 5.0f;
 		aceleracion.y = 0.5f;
 	}
+
 
 	else if (posicion.y > salto_max) {
 

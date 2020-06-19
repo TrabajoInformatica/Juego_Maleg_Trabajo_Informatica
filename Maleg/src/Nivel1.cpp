@@ -97,7 +97,7 @@ void Nivel1::Mueve() {
 	//sirena.Mueve(0.025f);
 	sirenas.Mueve(0.025f);
 	pajaros.Mueve(0.025f);
-	heroe.Mueve(0.05f);
+	heroe.Mueve(0.07f);
 	plataformas.Mueve(0.025f);
 	plataformas.Colision(&heroe);
 	Moneda* aux = monedas.Colision(&heroe);
@@ -124,13 +124,11 @@ void Nivel1::Tecla(unsigned char key) {
 				heroe.SetVel(heroe.GetVel().x, 10.0f);
 			}
 			else {
-				heroe.SetVel(heroe.GetVel().x, 10.0f);
-
+				heroe.SetVel(heroe.GetVel().x, heroe.GetVel().y);
 			}
 		}
 		
 	}
-	
 	if (key == 'a')
 		heroe.SetVel(-3.0f, heroe.GetVel().y);
 
@@ -140,13 +138,11 @@ void Nivel1::Tecla(unsigned char key) {
 void Nivel1::TeclaUp(unsigned char key) {
 
 	if (key == 'a')
-		heroe.SetVel(0.0f, 0.0f);
+		heroe.SetVel(0.0f, heroe.GetVel().y);
 	if (key == 'w')
 		heroe.SetVel(heroe.GetVel().x, heroe.GetVel().y);
-	
-	
 	if (key == 'd')
-		heroe.SetVel(0.0f, 0.0f);
+		heroe.SetVel(0.0f, heroe.GetVel().y);
 }
 
 bool Nivel1::MuerteHeroe() {

@@ -2,6 +2,7 @@
 #include <ETSIDI.h>
 #include "Personaje.h"
 #include "Enemigo.h"
+
 using ETSIDI::SpriteSequence;
 class Heroe: public Personaje{
 protected:
@@ -22,5 +23,4 @@ public:
 	virtual void Dibuja();
 	//FUNCIONES
 	bool Muerte();
-
 };

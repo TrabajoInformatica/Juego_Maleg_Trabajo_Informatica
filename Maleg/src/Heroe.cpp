@@ -10,10 +10,8 @@ Heroe::Heroe() :sprite("imagenes/correr_escudo.png", 4, 3) {
 	altura = 2.0f;
 	rojo = verde = azul = 255;
 
-
 	// Relativo al movimiento
 }
-
 Heroe::~Heroe(){
 
 }
@@ -25,9 +23,11 @@ void Heroe::SetAlturaMuerte(float am) {
 void Heroe::SetVida(float v) {
 	vida = v;
 	//cout << vida << endl;
-	
+}
 
-
+void Heroe::Mueve(float t) {
+	ObjetoMovil::Mueve(t);
+	sprite.loop();
 }
 
 bool Heroe::Muerte() {
@@ -61,9 +61,3 @@ void Heroe::Dibuja() {
 		glPopMatrix();
 	}
 }
-
-void Heroe::Mueve(float t) {
-	ObjetoMovil::Mueve(t);
-	sprite.loop();
-}
-
