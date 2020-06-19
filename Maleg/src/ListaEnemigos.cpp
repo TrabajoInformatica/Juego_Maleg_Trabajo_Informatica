@@ -8,9 +8,8 @@ ListaEnemigos::ListaEnemigos(){
 	nume = 0;
 	
 	for (int i = 0; i < MAX_ENEM; i++) {
-		lista_e[i] = 0;
+		Lista_e[i] = 0;
 	}
-
 }
 
 ListaEnemigos::~ListaEnemigos() {
@@ -18,10 +17,10 @@ ListaEnemigos::~ListaEnemigos() {
 
 }
 
-bool ListaEnemigos::AgregarEnem(Enemigo* e) {
+bool ListaEnemigos::Agregar(Enemigo* e) {
 
 	if (nume < MAX_ENEM) {
-		lista_e[nume] = e;
+		Lista_e[nume] = e;
 		nume++;
 		return true;
 	}
@@ -38,7 +37,7 @@ void ListaEnemigos::DestruirContenido() {
 void ListaEnemigos::Dibuja() {
 
 	for (int i = 0; i < nume; i++) {
-			lista_e[i]->Dibuja();
+			Lista_e[i]->Dibuja();
 	}
 
 }
@@ -46,7 +45,7 @@ void ListaEnemigos::Dibuja() {
 void ListaEnemigos::Mueve(float t) {
 
 	for (int i = 0;i < nume;i++) {
-		lista_e[i]->Mueve(t);
+		Lista_e[i]->Mueve(t);
 		//lista_e[i]->Bucle();
 	}
 }
@@ -54,7 +53,7 @@ void ListaEnemigos::Mueve(float t) {
 bool ListaEnemigos::Colision(Heroe* p) {
 	
 	for (int i = 0; i < nume;i++) {
-		if (Interaccion::ColisionEnemigo(p, *(lista_e[i]))) {
+		if (Interaccion::ColisionEnemigo(p, *(Lista_e[i]))) {
 			cout << "impacto" << endl;
 			p->SetPos(0.0f, 3.0f);
 			p->SetVel(0.0f, 0.0f);

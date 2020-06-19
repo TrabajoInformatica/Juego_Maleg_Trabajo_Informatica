@@ -9,16 +9,16 @@ class ListaEnemigos{
 public:
 	ListaEnemigos();
 	~ListaEnemigos();
-	bool AgregarEnem(Enemigo* e);
+	bool Agregar(Enemigo* e);
 	void DestruirContenido();
 	void Dibuja();
-	virtual void Mueve(float t);
+    void Mueve(float t);
 	bool Colision(Heroe* p);
 	void Eliminar(Enemigo* e);
 	void Eliminar(int index);
 
 private:
-	Enemigo* lista_e[MAX_ENEM];
+	Enemigo* Lista_e[MAX_ENEM];
 	int nume;
 };
 

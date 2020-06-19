@@ -56,35 +56,35 @@ void Nivel1::Inicializa() {
 
 	Sirena* sx0 = new Sirena();
 	sx0->SetPos(27.5, 10);
-	enemigos.AgregarEnem(sx0);
+	enemigos.Agregar(sx0);
 	Sirena* sx1 = new Sirena();
 	sx1->SetPos(37.5, 3);
-	enemigos.AgregarEnem(sx1);
+	enemigos.Agregar(sx1);
 	Sirena* sx2 = new Sirena();
 	sx2->SetPos(42.5, 12);
-	enemigos.AgregarEnem(sx2);
+	enemigos.Agregar(sx2);
 	Sirena* sx3 = new Sirena();
 	sx3->SetPos(76, 6);
-	enemigos.AgregarEnem(sx3);
+	enemigos.Agregar(sx3);
 	Sirena* sx4 = new Sirena();
 	sx4->SetPos(145, 0);
-	enemigos.AgregarEnem(sx4);
+	enemigos.Agregar(sx4);
 	Sirena* sx5 = new Sirena();
 	sx5->SetPos(100, 12);
-	enemigos.AgregarEnem(sx5);
+	enemigos.Agregar(sx5);
 	
 	Pajaro* px0 = new Pajaro();
 	px0->SetPos(60.0, 22.0);
-	enemigos.AgregarEnem(px0);
+	enemigos.Agregar(px0);
 	Pajaro* px1 = new Pajaro();
 	px1->SetPos(92.0, 22.0);
-	enemigos.AgregarEnem(px1);
+	enemigos.Agregar(px1);
 	Pajaro* px2 = new Pajaro();
 	px2->SetPos(109.0, 15.0);
-	enemigos.AgregarEnem(px2);
+	enemigos.Agregar(px2);
 	Pajaro* px3 = new Pajaro();
 	px3->SetPos(128.0, 10.0);
-	enemigos.AgregarEnem(px3);
+	enemigos.Agregar(px3);
 }
 
 void Nivel1::Dibuja() {
@@ -105,14 +105,8 @@ void Nivel1::Dibuja() {
 }
 void Nivel1::Mueve() {
 	monedas.Mueve(0.025f);
-
-
-	heroe.Mueve(0.07f);
-
-	enemigos.Mueve(0.025f);
-	
+	enemigos.Mueve(0.025f);	
 	heroe.Mueve(0.05f);
-
 	plataformas.Mueve(0.025f);
 	plataformas.Colision(&heroe);
 	Moneda* aux = monedas.Colision(&heroe);
