@@ -88,14 +88,15 @@ void Nivel1::Dibuja() {
 
 	// Heroe
 	heroe.SetVida(vida);
-	for (int i = 0; i < plataformas.GetNumPlat(); i++) {
+	/*for (int i = 0; i < plataformas.GetNumPlat(); i++) {
 		if (Interaccion::ColisionSup(&heroe, plataformas.GetListaPlat(i)))
 			heroe.AnimationRun();
 		else if (heroe.GetVel().y > 0.01f)
 			heroe.AnimationJumpUp();
 		else if (heroe.GetVel().y < -0.01f)
 			heroe.AnimationJumpDown();
-	}
+	}*/
+	heroe.Dibuja();
 
     //Plataformas, Monedas y otros.
 	plataformas.Dibuja();

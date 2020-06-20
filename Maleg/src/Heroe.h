@@ -25,9 +25,8 @@ public:
 	void SetVida( float v);
 
 	//ANIMACIONES
-	void AnimationRun();
-	void AnimationJumpUp();
-	void AnimationJumpDown();
+	virtual void Dibuja();
+
 	//FUNCIONES
 	bool Muerte();
 };
