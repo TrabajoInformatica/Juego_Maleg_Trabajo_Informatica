@@ -59,6 +59,7 @@ void ListaPlataformas::Colision(Heroe* pers) {
 	for (int i = 0;i < numerop; i++) {
 		if (Interaccion::ColisionSup(pers, *(Listap[i]))) {
 			Listap[i]->Reaccion(pers);
+
 			break;
 		}
 		else

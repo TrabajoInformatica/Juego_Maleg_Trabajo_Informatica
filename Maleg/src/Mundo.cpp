@@ -42,7 +42,6 @@ void Mundo::Dibuja() {
 	//ETSIDI::printxy("Bienvenido al pang. ", -5, 8);
 	nivel1.Dibuja();
 	vidaHeroe=nivel1.getVidaHeroe();
-	cout << vidaHeroe << endl;
 	//nivel2.Dibuja();
 }
 

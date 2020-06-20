@@ -90,11 +90,9 @@ void Heroe::SetVida(float v) {
 bool Heroe::Muerte() {
 	
 	if (alturamuerte >= posicion.y) {
-		cout << "te has caido" << endl;
 		return true;
 	}
 	 if (vida==0) {
-		cout << "muerto por colision" << endl;
 	
 		return true;
 	}
