@@ -1,6 +1,7 @@
 #include "Sirena.h"
 
-Sirena::Sirena() {
+Sirena::Sirena(): mermaidUP("imagenes/mermaid.png", 1, 1),
+				  mermaidDOWN("imagenes/mermaidDOWN.png", 7, 5){
 
 }
 
@@ -8,8 +9,8 @@ Sirena::~Sirena() {
 
 }
 
-
-Sirena::Sirena(float px, float py) {
+Sirena::Sirena(float px, float py): mermaidUP("imagenes/mermaid.png", 1, 1),
+									mermaidDOWN("imagenes/mermaidDOWN.png", 7, 5) {
 	verde = 255;
 	rojo = 0;
 	azul = 100;
@@ -19,7 +20,6 @@ Sirena::Sirena(float px, float py) {
 	velocidad.y = 5.0;
 	posicion.x = px;
 	posicion.y = py;
-	
 }
 
 void Sirena::Mueve(float t) {
@@ -43,11 +43,25 @@ void Sirena::Salto() {
 }
 
 void Sirena::Dibuja() {
+	
+//Dimensiones del sprite
+	mermaidUP.setCenter(1.8, 1.8);
+	mermaidUP.setSize(2.5, 2.5);
+
+	mermaidDOWN.setCenter(1.8, 1.8);
+	mermaidDOWN.setSize(3.5, 3.5);
+//Dibujo
 	glPushMatrix();
-	glColor3ub(rojo, verde, azul);
-	glTranslatef(posicion.x, posicion.y, 0);
-	glColor3f(rojo, verde, azul);
-	glutSolidSphere(altura, 10, 10);
-	glTranslatef(-posicion.x, -posicion.y, 0);
+	glTranslatef(posicion.x, posicion.y, 0.5);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	if (velocidad.y > 0.01f) {
+		mermaidUP.flip(true, false);
+		mermaidUP.draw();
+		mermaidUP.loop();
+	}
+	else if (velocidad.y < 0.01f) {
+		mermaidDOWN.draw();
+		mermaidDOWN.loop();
+	}
 	glPopMatrix();
 }

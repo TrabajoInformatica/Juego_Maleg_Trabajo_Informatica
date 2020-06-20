@@ -48,9 +48,9 @@ void Nivel1::Dibuja() {
 	for (int i = 0; i < plataformas.GetNumPlat(); i++) {
 		if (Interaccion::ColisionSup(&heroe, plataformas.GetListaPlat(i)))
 			heroe.AnimationRun();
-		else if (heroe.GetVel().y > 0.0f)
+		else if (heroe.GetVel().y > 0.01f)
 			heroe.AnimationJumpUp();
-		else if (heroe.GetVel().y < 0.0f)
+		else if (heroe.GetVel().y < -0.01f)
 			heroe.AnimationJumpDown();
 	}
 
