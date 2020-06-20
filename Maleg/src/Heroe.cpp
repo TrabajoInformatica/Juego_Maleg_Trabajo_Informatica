@@ -2,7 +2,7 @@
 #include "Heroe.h"
 using namespace std;
 
-Heroe::Heroe() : run("imagenes/spartanRUN4.png", 4, 3) , 
+Heroe::Heroe() : run("imagenes/spartanRUN.png", 4, 3) , 
 				 jumpUP("imagenes/spartanJUMPup.png", 4, 2) ,
 				 jumpDOWN("imagenes/spartanJUMPdown.png", 4, 3) {
 	// Relativo a los atributos
