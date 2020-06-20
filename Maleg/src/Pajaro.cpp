@@ -12,6 +12,7 @@ Pajaro::Pajaro(float px, float py): sprite("imagenes/Parrot.png", 3, 3) {
 
 	posicion.x = px;
 	posicion.y = py;
+	aceleracion.x = 2.0;
 	verde = 255;
 	azul = 0;
 	rojo = 0;
@@ -34,12 +35,12 @@ void Pajaro::Movimiento() {
 
 	if (posicion.x > lim_xd) {
 		posicion.x = lim_xd;
-		velocidad.x = -2.0f;
+		velocidad.x = -2.5f;
 		aceleracion.x = -2.0f;
 	}
 	else if (posicion.x < lim_xi) {
 		posicion.x = lim_xi;
-		velocidad.x = 2.0f;
+		velocidad.x = 2.5f;
 		aceleracion.x = 2.0f;
 	}
 

@@ -2,7 +2,7 @@
 #include "Heroe.h"
 using namespace std;
 
-Heroe::Heroe() : run("imagenes/spartanRUN.png", 4, 2) , 
+Heroe::Heroe() : run("imagenes/spartanRUN4.png", 4, 3) , 
 				 jumpUP("imagenes/spartanJUMPup.png", 4, 2) ,
 				 jumpDOWN("imagenes/spartanJUMPdown.png", 4, 3) {
 	// Relativo a los atributos
@@ -19,7 +19,7 @@ void Heroe::Mueve(float t) {
 
 void Heroe::Dibuja() {
 //Dimensiones del sprite
-	run.setCenter(1.8, 1);
+	run.setCenter(1.8, 1.1);
 	run.setSize(3, 3);
 
 	jumpUP.setCenter(1.8, 1);

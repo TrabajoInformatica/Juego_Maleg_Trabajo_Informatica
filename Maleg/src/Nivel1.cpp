@@ -28,7 +28,7 @@ void Nivel1::Inicializa() {
 	heroe.SetAlturaMuerte(-15.0f);
 	heroe.SetPos(0.0f,0.0f);
 	heroe.SetVel(0.0f, 0.0f);
-	heroe.SetVida(vida);
+
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero);
@@ -45,6 +45,7 @@ void Nivel1::Dibuja() {
 	enemigos.Dibuja();
 
 	// Heroe
+	heroe.SetVida(vida);
 	heroe.Dibuja();
 
     //Plataformas, Monedas y otros.
@@ -58,7 +59,7 @@ void Nivel1::Mueve() {
 	enemigos.Mueve(0.025f);	
 
 	// Heroe
-	heroe.Mueve(0.09f);
+	heroe.Mueve(0.1f);
 	// Plataforma, Monedas y otros.
 	plataformas.Mueve(0.025f);
 	plataformas.Colision(&heroe);
