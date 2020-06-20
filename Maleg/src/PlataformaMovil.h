@@ -6,7 +6,6 @@ class PlataformaMovil : public Plataforma{
 private:
 	int contador;
 	int paso;
-	float distancia = 0;
 	float tiempo;
 	Vector2D velocidad;
 public:

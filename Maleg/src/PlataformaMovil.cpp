@@ -45,13 +45,9 @@ void PlataformaMovil::Mueve(float t) {
 
 void PlataformaMovil::Reaccion(Heroe* pers) {
 	pers->SetAce(pers->GetAce().x, 0.0f);
-	if (velocidad.y < 0 ) {
-		pers->SetPos(pers->GetPos().x,pers->GetPos().y + velocidad.y * tiempo);
+	pers->SetVel(pers->GetVel().x, 0.0f);
+	if (pers->GetVel().x == 0) {
+		pers->SetPos(pers->GetPos().x + velocidad.x * tiempo, pers->GetPos().y);
+		pers->SetPos(pers->GetPos().x, limite2.y + pers->GetAltura() / 2 + velocidad.y * tiempo);
 	}
-	if (pers->GetVel().x == 0 ) {
-		pers->SetPos(pers->GetPos().x + velocidad.x * tiempo,( pers->GetPos().y));
-		pers->SetAce(pers->GetAce().x, 0.0f);
-	}
-	//cout << "lmi" << limite1.y << endl;
-	//cout << "velcidad"<<pers->GetVel().y << endl;
 }

@@ -29,7 +29,7 @@ Plataforma
  163.0 6.5 167.0 6.5   2.5 128.0 64.0 0.0 		//Plataforma_InicioFinal3
  167.0 8.0 175.0 8.0   0.5 128.0 64.0 0.0		//PLATAFORMA_FINALNIVEL
 Plataforma_movil
- 137.0 5.0 142.0 5.0 0.5 300 2.0 -0.5 128.0 64.0 0.0 		//Plataforma_movil
+ 137.0 2.0 142.0 2.0 0.5 300 2.0 0.0 128.0 64.0 0.0 		//Plataforma_movil
 Monedas
  12.5 5.0 0.5 255.0 255.0 0.0				//Moneda1
  40.0 14.0 0.5 255.0 255.0 0.0				//Moneda2
