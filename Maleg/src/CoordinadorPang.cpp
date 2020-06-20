@@ -137,7 +137,7 @@ void CoordinadorPang::Mueve() //Falta destruir mundo cuando le damos a continuar
 	if (estado == FIN)
 	{
 		ETSIDI::stopMusica();
-		ETSIDI::playMusica("sonidos/Victoria.wav");
+		ETSIDI::playMusica("sonidos/victory.wav");
 	}
 }
 	
@@ -211,7 +211,7 @@ void CoordinadorPang::Dibuja()
 		ETSIDI::printxy("Ulises luchara por escapar y sobrevivir, ¿estas list@ para luchar? ", -19, 21);
 
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 15);
-		ETSIDI::printxy("PRESS SPACE TO CONINUE ", -6, -12);
+		ETSIDI::printxy("PRESS SPACE TO CONINUE ", -7, -12);
 	
 	}
 	else if (estado == JUEGO)
@@ -254,26 +254,26 @@ void CoordinadorPang::Dibuja()
 			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
 
 		glEnable(GL_TEXTURE_2D);
-		//glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/Loading.png").id);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/loading.png").id);
 		glDisable(GL_LIGHTING);
 		glBegin(GL_POLYGON);
 		glColor3f(1, 1, 1);
 		//Ajuste imagen 
-		glTexCoord2d(0, 1); glVertex3f(-20, -3, 0);
-		glTexCoord2d(1, 1); glVertex3f(20, -3, 0);
-		glTexCoord2d(1, 0); glVertex3f(20, 28, 0);
-		glTexCoord2d(0, 0); glVertex3f(-20, 28, 0);
+		glTexCoord2d(0, 1); glVertex3f(-10, -3, 0);
+		glTexCoord2d(1, 1); glVertex3f(10, -3, 0);
+		glTexCoord2d(1, 0); glVertex3f(10, 20, 0);
+		glTexCoord2d(0, 0); glVertex3f(-10, 20, 0);
 		glEnd();
 		glEnable(GL_LIGHTING);
 		glDisable(GL_TEXTURE_2D);
 
 		ETSIDI::setTextColor(255.0f, 255.0f, 255.0f); //r g b
-		ETSIDI::setFont("fuentes/War.ttf", 30);
-		ETSIDI::printxy("PRESS  C  T0 C0NTINUE", -10, 0);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 25);
+		ETSIDI::printxy("PRESS  C  T0 C0NTINUE", -11, -4);
 
 	}
 
-	else if (estado == GAMEOVER) //NO SE ESCRIBEN LOS DOS COMANDOS
+	else if (estado == GAMEOVER) 
 	{
 		gluLookAt(0, 7.5, 3, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
@@ -285,19 +285,18 @@ void CoordinadorPang::Dibuja()
 		glBegin(GL_POLYGON);
 		glColor3f(1, 1, 1);
 		//Ajuste imagen 
-		glTexCoord2d(0, 1); glVertex3f(-20, -3, 0);
-		glTexCoord2d(1, 1); glVertex3f(20, -3, 0); 
-		glTexCoord2d(1, 0); glVertex3f(20, 28, 0);
-		glTexCoord2d(0, 0); glVertex3f(-20, 28, 0);
+		glTexCoord2d(0, 1); glVertex3f(-22, -3, 0);
+		glTexCoord2d(1, 1); glVertex3f(18, -3, 0); 
+		glTexCoord2d(1, 0); glVertex3f(18, 28, 0);
+		glTexCoord2d(0, 0); glVertex3f(-22, 28, 0);
 		glEnd();
 		glEnable(GL_LIGHTING);
 		glDisable(GL_TEXTURE_2D);
 
-		//NO SE DIBUJA :(
 		ETSIDI::setTextColor(255.0f, 255.0f, 255.0f);
-		ETSIDI::setFont("fuentes/Bitwise.ttf", 30);
-		ETSIDI::printxy("PRESS C TO START A NEW GAME", -10, 0);
-		ETSIDI::printxy("PRESS E TO EXIT", -10, -5);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 25);
+		ETSIDI::printxy("PRESS C TO START A NEW GAME", -16, -3);
+		ETSIDI::printxy("PRESS E TO EXIT", -8, -6);
 	}
 
 	else if (estado == FIN)
