@@ -19,8 +19,8 @@ ListaPlataformas::~ListaPlataformas() {
 void ListaPlataformas::DestruirContenido() {
 	for (int i = 0;i < numerop;i++) {
 		delete Listap[i];
-		numerop = 0;
 	}
+	numerop = 0;
 }
 
 Plataforma ListaPlataformas::GetListaPlat(int num){

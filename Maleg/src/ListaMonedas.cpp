@@ -29,7 +29,10 @@ bool ListaMonedas::AgregarM(Moneda* m) {
 
 }
 void ListaMonedas::destruirContenido() {
-
+	for (int i = 0;i < numero;i++) {
+		delete lista[i];
+	}
+	numero = 0;
 }
 
 void ListaMonedas::Dibuja() {

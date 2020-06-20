@@ -52,6 +52,6 @@ void PlataformaMovil::Reaccion(Heroe* pers) {
 		pers->SetPos(pers->GetPos().x + velocidad.x * tiempo,( pers->GetPos().y));
 		pers->SetAce(pers->GetAce().x, 0.0f);
 	}
-	cout << "lmi" << limite1.y << endl;
-	cout << "velcidad"<<pers->GetVel().y << endl;
+	//cout << "lmi" << limite1.y << endl;
+	//cout << "velcidad"<<pers->GetVel().y << endl;
 }

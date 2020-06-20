@@ -30,7 +30,10 @@ bool ListaEnemigos::AgregarE(Enemigo* e) {
 
 
 void ListaEnemigos::DestruirContenido() {
-
+	for (int i = 0;i < nume;i++) {
+		delete Lista_e[i];
+	}
+	nume = 0;
 
 }
 

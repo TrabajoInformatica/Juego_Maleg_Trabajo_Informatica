@@ -8,6 +8,7 @@
 #include "Heroe.h"
 #include "Sirena.h"
 #include "Lanza.h"
+#include "Puerta.h"
 #include "Interaccion.h"
 #define MAX_SIZE
 
@@ -21,7 +22,7 @@ private:
 	ListaMonedas monedas;
 	ListaEnemigos enemigos;
 	ListaArmas armas;
-	//Personaje persona;
+	Puerta puerta;
 	Marcador marcador;
 	
 	
@@ -30,9 +31,11 @@ public:
 	Nivel1();
 	virtual~Nivel1();
 	int vida;
+	bool fin;
 	int getVidaHeroe();
 	/////Funciones
 	void Inicializa(int vidas);
+	bool FinNivel1();
 	void Dibuja();
 	void Mueve();
 	void Tecla(unsigned char);
@@ -40,6 +43,7 @@ public:
 	int salto = 3;
 
 	bool MuerteHeroe();
+	void DestruirContenido();
 	friend class Mundo;
 
 	void LecturaFichero(string Fichero);

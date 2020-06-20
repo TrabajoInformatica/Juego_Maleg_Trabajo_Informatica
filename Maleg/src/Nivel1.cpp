@@ -5,14 +5,18 @@
 using namespace std;
 
 Nivel1::Nivel1() {
-
+	fin = false;
 
 }
 
 Nivel1::~Nivel1() {
 
 }
-
+void Nivel1::DestruirContenido() {
+	monedas.destruirContenido();
+	enemigos.DestruirContenido();
+	plataformas.DestruirContenido();
+}
 int Nivel1::getVidaHeroe() {
 	return heroe.GetVida();
 }
@@ -23,6 +27,8 @@ void Nivel1::Inicializa(int vidas) {
 	heroe.SetAlturaMuerte(-15.0f);
 	heroe.SetPos(0.0f,0.0f);
 	heroe.SetVel(0.0f, 0.0f);
+	puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
+	puerta.SetColor(255, 0, 0);
 
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
@@ -49,6 +55,8 @@ void Nivel1::Dibuja() {
 	monedas.Dibuja();
 	marcador.Dibuja(&heroe);
 	armas.Dibuja();
+
+	puerta.Dibuja();
 }
 
 void Nivel1::Mueve() {
@@ -67,7 +75,28 @@ void Nivel1::Mueve() {
 		monedas.Eliminar(aux);
 
 	/////////Provisional
-	enemigos.Colision(&heroe);
+	vida = heroe.GetVida();
+	if (enemigos.Colision(&heroe) == true) {
+		vida = vida - 1;
+		cout << vida << endl;
+		heroe.SetVida(vida);
+	}
+	
+	if (Interaccion::ColisionLat(&heroe, puerta) == true) {
+		cout << "puerta" << endl;
+		fin = true;
+	}
+	else
+		fin = false;
+}
+bool Nivel1::FinNivel1() {
+	if (fin == true) {
+		return true;
+		cout << "ha pasado" << endl;
+	}
+	
+	else
+		return false;
 }
 
 void Nivel1::Tecla(unsigned char key) {
@@ -97,7 +126,7 @@ void Nivel1::TeclaUp(unsigned char key) {
 bool Nivel1::MuerteHeroe() {
 	if (heroe.Muerte()) {
 		cout << "Muerto" << endl;
-		heroe.SetPos(0.0f, 3.0f);
+	heroe.SetPos(0.0f, 3.0f);
 		heroe.SetVel(0.0f, 0.0f);
 		return true;
 	}else

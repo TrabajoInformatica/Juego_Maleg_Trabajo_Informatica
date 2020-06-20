@@ -6,6 +6,7 @@
 
 Mundo::Mundo() {
 	vidaHeroe = 4;
+	nivel = 1;
 }
 
 
@@ -15,23 +16,33 @@ Mundo::~Mundo() {
 
 
 void Mundo::Inicializa() {
-	//nivel = 0;
-	//CargarNivel();
+	//x_ojo = 0;
+	//y_ojo = 7.5;
+	//z_ojo = 30;
+	nivel = 0;
+	CargarNivel();
+	cout << "inicializa" << endl;
 
-	nivel1.Inicializa(vidaHeroe);
+	//nivel1.Inicializa(vidaHeroe);
 	//nivel2.Inicializa();
 }
 
 
 void Mundo::CargarNivel() {
-	nivel+=1;
+	nivel++;
+	//nivel1.DestruirContenido();
+	
 	if (nivel == 1) 
 	{
-		//nivel1.Inicializa();
-		//nivel1.Dibuja();
+		cout << "nivel1" << endl;
+		nivel1.Inicializa(vidaHeroe);
+		
+		
 	}
-	if (nivel == 2) {
+	else if (nivel == 2) {
 		//nivel2.Inicializa();
+		nivel1.DestruirContenido();
+		cout << "nivel2" << endl;
 	}
 }
 
@@ -40,9 +51,10 @@ void Mundo::Dibuja() {
 	////////////////////////////////Dibujar aqui
 	//ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 	//ETSIDI::printxy("Bienvenido al pang. ", -5, 8);
-	nivel1.Dibuja();
-
-	vidaHeroe=nivel1.getVidaHeroe();
+	
+		nivel1.Dibuja();
+		vidaHeroe = nivel1.getVidaHeroe();
+	
 	//nivel2.Dibuja();
 }
 
@@ -65,6 +77,11 @@ void Mundo::TeclaEspecial(unsigned char key){
 }
 
 void Mundo::Mover(){
+	if (nivel1.FinNivel1() == true) {
+		cout << "ha acabado el nivel 1" << endl;
+		CargarNivel();
+
+	}
 	nivel1.Mueve();
 	//nivel2.Mueve();
 }

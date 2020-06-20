@@ -42,7 +42,7 @@ void CoordinadorPang::Tecla(unsigned char key)
 		if (key == ' ')
 		{
 			estado = CARGA;
-			mundo.CargarNivel();
+		
 			cout << "CARGA" << endl;
 		}
 	}
@@ -51,6 +51,7 @@ void CoordinadorPang::Tecla(unsigned char key)
 		if (key == 'c' || key == 'C')
 		{
 			mundo.Inicializa();
+		
 			estado = JUEGO;
 			cout << "JUEGO" << endl;
 			ETSIDI::stopMusica();
@@ -61,6 +62,7 @@ void CoordinadorPang::Tecla(unsigned char key)
 	}
 	else if (estado == JUEGO)
 	{
+		
 		mundo.Tecla(key);
 		
 		if (key == 'p' || key == 'P')
