@@ -25,7 +25,7 @@ void Heroe::Dibuja() {
 // ANIMACIONES
 void Heroe::AnimationRun() {
 	//Dimensiones del sprite
-	run.setCenter(1, 1);
+	run.setCenter(1.8, 1);
 	run.setSize(3, 3);
 	//Dibujo
 	glPushMatrix();
@@ -43,10 +43,8 @@ void Heroe::AnimationRun() {
 
 }
 void Heroe::AnimationJumpUp(){
-	//Dimensiones del sprite
-	//salto.setCenter(1.0, 1.0);
-	//salto.setSize(3, 3);
-	jumpUP.setCenter(1, 1);
+//Dimensiones del sprite
+	jumpUP.setCenter(1.8, 1);
 	jumpUP.setSize(3, 3);
 //Dibujo
 	glPushMatrix();
@@ -64,12 +62,10 @@ void Heroe::AnimationJumpUp(){
 }
 
 void Heroe::AnimationJumpDown() {
-	//Dimensiones del sprite
-	//salto.setCenter(1.0, 1.0);
-	//salto.setSize(3, 3);
-	jumpDOWN.setCenter(1, 1);
+//Dimensiones del sprite
+	jumpDOWN.setCenter(1.8, 1);
 	jumpDOWN.setSize(3, 3);
-	//Dibujo
+//Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
 	glColor3f(1.0f, 1.0f, 1.0f);
