@@ -28,7 +28,8 @@ void Nivel1::Inicializa() {
 	heroe.SetAlturaMuerte(-15.0f);
 	heroe.SetPos(0.0f,0.0f);
 	heroe.SetVel(0.0f, 0.0f);
-	
+	heroe.SetVida(vida);
+
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero);
 
@@ -44,15 +45,7 @@ void Nivel1::Dibuja() {
 	enemigos.Dibuja();
 
 	// Heroe
-	heroe.SetVida(vida);
-	for (int i = 0; i < plataformas.GetNumPlat(); i++) {
-		if (Interaccion::ColisionSup(&heroe, plataformas.GetListaPlat(i))&&heroe.GetVel().y==0)
-			heroe.AnimationRun();
-		else if (heroe.GetVel().y > 0.01f)
-			heroe.AnimationJumpUp();
-		else if (heroe.GetVel().y < -0.01f)
-			heroe.AnimationJumpDown();
-	}
+	heroe.Dibuja();
 
     //Plataformas, Monedas y otros.
 	plataformas.Dibuja();
