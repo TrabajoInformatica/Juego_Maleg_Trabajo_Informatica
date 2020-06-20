@@ -33,6 +33,8 @@ void Nivel1::Inicializa() {
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero);
 
+	Lanza* aux = new Lanza(1.0f, 3.0f);
+	armas.AgregarA(aux);
 }
 
 void Nivel1::Dibuja() {
@@ -52,6 +54,7 @@ void Nivel1::Dibuja() {
 	plataformas.Dibuja();
 	monedas.Dibuja();
 	marcador.Dibuja(&heroe);
+	armas.Dibuja();
 }
 
 void Nivel1::Mueve() {

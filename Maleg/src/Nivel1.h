@@ -2,10 +2,12 @@
 #include "ListaPlataformas.h"
 #include "ListaMonedas.h"
 #include "ListaEnemigos.h"
+#include "ListaArmas.h"
 #include "Marcador.h"
 #include <string>
 #include "Heroe.h"
 #include "Sirena.h"
+#include "Lanza.h"
 #include "Interaccion.h"
 #define MAX_SIZE
 
@@ -18,6 +20,7 @@ private:
 	string Fichero = "Nivel1.txt";
 	ListaMonedas monedas;
 	ListaEnemigos enemigos;
+	ListaArmas armas;
 	//Personaje persona;
 	Marcador marcador;
 	

@@ -145,6 +145,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Arma.cpp" />
+    <ClCompile Include="src\Lanza.cpp" />
+    <ClCompile Include="src\ListasArmas.cpp" />
     <ClCompile Include="src\PlataformaMovil.cpp" />
     <ClCompile Include="src\CoordinadorPang.cpp" />
     <ClCompile Include="src\Enemigo.cpp" />
@@ -168,6 +171,9 @@
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Arma.h" />
+    <ClInclude Include="src\Lanza.h" />
+    <ClInclude Include="src\ListaArmas.h" />
     <ClInclude Include="src\PlataformaMovil.h" />
     <ClInclude Include="src\CoordinadorPang.h" />
     <ClInclude Include="src\Enemigo.h" />
