@@ -18,7 +18,6 @@ public:
 
 	//METODOS GET
 	virtual void Mueve(float t);
-	virtual void Dibuja();
 
 	//METODOS SET
 	void SetAlturaMuerte(float am);
