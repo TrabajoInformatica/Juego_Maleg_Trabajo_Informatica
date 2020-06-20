@@ -18,9 +18,8 @@ void Mundo::Inicializa() {
 	//nivel = 0;
 	//CargarNivel();
 
-	nivel1.Inicializa();
+	nivel1.Inicializa(vidaHeroe);
 	//nivel2.Inicializa();
-	nivel1.SetVidaHeroe(vidaHeroe);
 }
 
 

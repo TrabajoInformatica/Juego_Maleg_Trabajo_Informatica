@@ -31,9 +31,8 @@ public:
 	virtual~Nivel1();
 	int vida;
 	int getVidaHeroe();
-	void SetVidaHeroe(int vidas);
 	/////Funciones
-	void Inicializa();
+	void Inicializa(int vidas);
 	void Dibuja();
 	void Mueve();
 	void Tecla(unsigned char);

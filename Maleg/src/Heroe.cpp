@@ -6,7 +6,6 @@ Heroe::Heroe() : run("imagenes/spartanRUN.png", 4, 3) ,
 				 jumpUP("imagenes/spartanJUMPup.png", 4, 2) ,
 				 jumpDOWN("imagenes/spartanJUMPdown.png", 4, 3) {
 	// Relativo a los atributos
-	vida = 100;
 	altura = 2.0f;
 	rojo = verde = azul = 255;
 }
@@ -77,11 +76,15 @@ bool Heroe::Muerte() {
 		return true;
 	}
 	 if (vida==0) {
-	
+		 cout << vida << endl;
 		return true;
 	}
 	else
 		return false;
 	
+}
+
+int Heroe::GetVida() {
+	return vida;
 }
 

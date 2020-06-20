@@ -14,17 +14,12 @@ Nivel1::~Nivel1() {
 }
 
 int Nivel1::getVidaHeroe() {
-	return vida;
-}
-void Nivel1::SetVidaHeroe(int vidas) {
-	vida = vidas;
-
+	return heroe.GetVida();
 }
 
-
-void Nivel1::Inicializa() {
+void Nivel1::Inicializa(int vidas) {
 	/////////////////////////////////////Personaje
-	
+	heroe.SetVida(vidas);
 	heroe.SetAlturaMuerte(-15.0f);
 	heroe.SetPos(0.0f,0.0f);
 	heroe.SetVel(0.0f, 0.0f);
@@ -47,7 +42,6 @@ void Nivel1::Dibuja() {
 	enemigos.Dibuja();
 
 	// Heroe
-	heroe.SetVida(vida);
 	heroe.Dibuja();
 
     //Plataformas, Monedas y otros.

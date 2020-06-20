@@ -6,6 +6,7 @@ Lanza::Lanza(float x,float y) {
 	rojo = 255;
 	verde = 45;
 	azul = 100;
+	lado = 0.5;
 }
 
 Lanza::~Lanza() {
@@ -15,7 +16,7 @@ Lanza::~Lanza() {
 void Lanza::Dibuja() {
 	glColor3ub(rojo, verde, azul);
 	glTranslatef(posicion.x, posicion.y, 0);
-	glutSolidSphere(radio, 20, 20);
+	glutSolidCube(lado);
 	glTranslatef(-posicion.x, -posicion.y, 0);
 }
 

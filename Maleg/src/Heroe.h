@@ -17,7 +17,7 @@ public:
 	virtual ~Heroe();
 
 	//METODOS GET
-	virtual void Mueve(float t);
+	int GetVida();
 
 	//METODOS SET
 	void SetAlturaMuerte(float am);
@@ -25,6 +25,7 @@ public:
 
 	//ANIMACIONES
 	virtual void Dibuja();
+	virtual void Mueve(float t);
 
 	//FUNCIONES
 	bool Muerte();

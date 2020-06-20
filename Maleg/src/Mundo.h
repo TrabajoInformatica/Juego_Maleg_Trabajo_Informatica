@@ -18,9 +18,6 @@ void Inicializa();
 void Dibuja();
 void TeclaEspecial(unsigned char key);
 void Mover();
-int getVidaHeroe();
-void SetVidaHeroe(int vida);
-bool MuerteHeroe();
 
 void CargarNivel();
 void resetNiv() { nivel = 0; }
