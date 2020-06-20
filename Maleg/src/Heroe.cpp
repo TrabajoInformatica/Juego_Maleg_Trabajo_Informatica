@@ -2,9 +2,9 @@
 #include "Heroe.h"
 using namespace std;
 
-Heroe::Heroe() :run("imagenes/spartanRUN.png", 4, 2) , 
-				jumpUP("imagenes/spartanJUMPup.png", 4, 2),
-				jumpDOWN("imagenes/spartanJUMPdown.png", 4, 3) {
+Heroe::Heroe() : run("imagenes/spartanRUN.png", 4, 2) , 
+				 jumpUP("imagenes/spartanJUMPup.png", 4, 2) ,
+				 jumpDOWN("imagenes/spartanJUMPdown.png", 4, 3) {
 	// Relativo a los atributos
 	vida = 100;
 	altura = 2.0f;
@@ -24,10 +24,10 @@ void Heroe::Dibuja() {
 
 // ANIMACIONES
 void Heroe::AnimationRun() {
-	//Dimensiones del sprite
+//Dimensiones del sprite
 	run.setCenter(1.8, 1);
 	run.setSize(3, 3);
-	//Dibujo
+//Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
 	glColor3f(1.0f, 1.0f, 1.0f);
@@ -40,8 +40,8 @@ void Heroe::AnimationRun() {
 	run.draw();
 	run.loop();
 	glPopMatrix();
-
 }
+
 void Heroe::AnimationJumpUp(){
 //Dimensiones del sprite
 	jumpUP.setCenter(1.8, 1);

@@ -1,6 +1,8 @@
 #pragma once
+#include <ETSIDI.h>
 #include "Enemigo.h"
-#define MAX_SIRENA 5
+
+using ETSIDI::SpriteSequence;
 
 class Sirena: public Enemigo
 {
@@ -9,6 +11,9 @@ private:
 	float salto_min;
 	
 public:
+
+	SpriteSequence mermaidUP, mermaidDOWN;
+
 	Sirena();
 	~Sirena();
 	Sirena(float px, float py);

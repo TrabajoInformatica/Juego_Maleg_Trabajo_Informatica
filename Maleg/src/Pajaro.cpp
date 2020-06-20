@@ -47,10 +47,10 @@ void Pajaro::Movimiento() {
 
 void Pajaro::Dibuja() {
 
-	//Dimensiones del sprite
+//Dimensiones del sprite
 	sprite.setCenter(1, 1);
 	sprite.setSize(2, 2);
-	//Dibujo
+//Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
 	glColor3f(1.0f, 1.0f, 1.0f);
