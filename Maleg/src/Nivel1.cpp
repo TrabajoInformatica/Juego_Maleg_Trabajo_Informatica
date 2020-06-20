@@ -26,7 +26,7 @@ void Nivel1::Inicializa() {
 	/////////////////////////////////////Personaje
 	
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(134.0f,14.0f);
+	heroe.SetPos(0.0f,0.0f);
 	heroe.SetVel(0.0f, 0.0f);
 	
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
@@ -106,6 +106,8 @@ void Nivel1::TeclaUp(unsigned char key) {
 bool Nivel1::MuerteHeroe() {
 	if (heroe.Muerte()) {
 		cout << "Muerto" << endl;
+		heroe.SetPos(0.0f, 3.0f);
+		heroe.SetVel(0.0f, 0.0f);
 		return true;
 	}else
 		return false;
