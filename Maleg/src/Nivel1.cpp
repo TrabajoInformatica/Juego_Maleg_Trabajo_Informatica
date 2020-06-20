@@ -98,7 +98,6 @@ void Nivel1::Tecla(unsigned char key) {
 }
 
 void Nivel1::TeclaUp(unsigned char key) {
-
 	if (key == 'a')
 		heroe.SetVel(0.0f, heroe.GetVel().y);
 	if (key == 'w')
@@ -111,8 +110,7 @@ bool Nivel1::MuerteHeroe() {
 	if (heroe.Muerte()) {
 		cout << "Muerto" << endl;
 		return true;
-	}
-	else
+	}else
 		return false;
 }
 
@@ -130,7 +128,6 @@ void Nivel1::LecturaFichero(string Fichero) {
 		cout << "No se pudo abrir archivo";
 		exit(1);
 	}
-	cout << "JADADAWDAWD" << endl;
 	while (!archivo.eof()) {
 		if (opcion == 1) {
 			archivo >> x1 >> y1 >> x2 >> y2 >> gr >> r >> v >> a >> comentario;
