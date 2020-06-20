@@ -34,6 +34,8 @@ void CoordinadorPang::Tecla(unsigned char key)
 		}
 		else if (key == 'e' || key == 'E') 
 			exit(0);
+		else if (key == '1')
+			estado = FIN;
 	}
 	else if (estado == INTRO) 
 	{
@@ -132,6 +134,11 @@ void CoordinadorPang::Mueve() //Falta destruir mundo cuando le damos a continuar
 			ETSIDI::playMusica("sonidos/GameOver.wav");
 		}*/
 	}
+	if (estado == FIN)
+	{
+		ETSIDI::stopMusica();
+		ETSIDI::playMusica("sonidos/Victoria.wav");
+	}
 }
 	
 
@@ -173,7 +180,7 @@ void CoordinadorPang::Dibuja()
 		ETSIDI::printxy("Adrian Sanchez Atienza", -18, -8);
 		ETSIDI::printxy("Luis Waucquez Jimenez", -18, -10);
 	}
-	if (estado == INTRO)
+	else if (estado == INTRO)
 	{
 		gluLookAt(0, 7.5, 3, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
@@ -207,7 +214,7 @@ void CoordinadorPang::Dibuja()
 		ETSIDI::printxy("PRESS SPACE TO CONINUE ", -6, -12);
 	
 	}
-	if (estado == JUEGO)
+	else if (estado == JUEGO)
 	{
 		mundo.Dibuja();
 		mundo.Muerte();///Para comprobar si la colision mataba al personaje
@@ -229,6 +236,8 @@ void CoordinadorPang::Dibuja()
 		glTexCoord2d(1, 0); glVertex3f(0.5, 0.5, 0);
 		glTexCoord2d(0, 0); glVertex3f(-0.5, 0.5, 0);
 		glEnd();
+		glEnable(GL_LIGHTING);
+		glDisable(GL_TEXTURE_2D);
 
 		//Código de dibujo de la pantalla PAUSA
 		ETSIDI::setTextColor(255.0f, 255.0f, 255.0f); //r g b
@@ -238,8 +247,7 @@ void CoordinadorPang::Dibuja()
 		ETSIDI::printxy("PRESS  C  T0 C0NTINUE", -10, 0);
 		ETSIDI::printxy("PRESS  E  T0 EXIT", -10, -5);
 	}
-
-	else if (estado == CARGA) 
+	else if (estado == CARGA)
 	{
 		gluLookAt(0, 7.5, 3, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
@@ -256,15 +264,16 @@ void CoordinadorPang::Dibuja()
 		glTexCoord2d(1, 0); glVertex3f(20, 28, 0);
 		glTexCoord2d(0, 0); glVertex3f(-20, 28, 0);
 		glEnd();
+		glEnable(GL_LIGHTING);
+		glDisable(GL_TEXTURE_2D);
 
-		//Código de dibujo de la pantalla PAUSA
 		ETSIDI::setTextColor(255.0f, 255.0f, 255.0f); //r g b
 		ETSIDI::setFont("fuentes/War.ttf", 30);
 		ETSIDI::printxy("PRESS  C  T0 C0NTINUE", -10, 0);
 
 	}
 
-	if (estado == GAMEOVER) //NO SE ESCRIBEN LOS DOS COMANDOS
+	else if (estado == GAMEOVER) //NO SE ESCRIBEN LOS DOS COMANDOS
 	{
 		gluLookAt(0, 7.5, 3, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
@@ -281,11 +290,39 @@ void CoordinadorPang::Dibuja()
 		glTexCoord2d(1, 0); glVertex3f(20, 28, 0);
 		glTexCoord2d(0, 0); glVertex3f(-20, 28, 0);
 		glEnd();
+		glEnable(GL_LIGHTING);
+		glDisable(GL_TEXTURE_2D);
 
 		//NO SE DIBUJA :(
 		ETSIDI::setTextColor(255.0f, 255.0f, 255.0f);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 30);
 		ETSIDI::printxy("PRESS C TO START A NEW GAME", -10, 0);
 		ETSIDI::printxy("PRESS E TO EXIT", -10, -5);
+	}
+
+	else if (estado == FIN)
+	{
+		gluLookAt(0, 7.5, 3, // posicion del ojo
+			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
+			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
+		//Ponemos fondo a la pantalla de incicio
+
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/victoria.png").id);
+		glDisable(GL_LIGHTING);
+		glBegin(GL_POLYGON);
+		glColor3f(1, 1, 1);
+		glTexCoord2d(0, 1); glVertex3f(-20, -3, 0);
+		glTexCoord2d(1, 1); glVertex3f(20, -3, 0); //se elige donde poner la imagen de fondo. ponemos -0.1 en z para que esté de fondo
+		glTexCoord2d(1, 0); glVertex3f(20, 28, 0);
+		glTexCoord2d(0, 0); glVertex3f(-20, 28, 0);
+		glEnd();
+		glEnable(GL_LIGHTING);
+		glDisable(GL_TEXTURE_2D);
+
+		ETSIDI::setTextColor(255.0f, 255.0f, 255.0f);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 25);
+		ETSIDI::printxy("PRESS C TO START A NEW GAME", -15, -3);
+		ETSIDI::printxy("PRESS E TO EXIT", -8, -6);
 	}
 }

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "ListaMonedas.h"
 #include <fstream>
+#include "ETSIDI.h"
 
 
 using namespace std;
@@ -46,7 +47,10 @@ void ListaMonedas::Mueve(float t) {
 Moneda* ListaMonedas::Colision(Heroe* p){
 	for (int i = 0; i < numero;i++) {
 		if (Interaccion::ColisionMoneda(p, *(lista[i])))
-				return lista[i];
+		{
+			ETSIDI::play("sonidos/monedas.wav");
+			return lista[i];
+		}
 			
 	}
 }
