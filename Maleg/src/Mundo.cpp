@@ -25,7 +25,8 @@ void Mundo::Inicializa() {
 
 void Mundo::CargarNivel() {
 	nivel+=1;
-	if (nivel == 1) {
+	if (nivel == 1) 
+	{
 		//nivel1.Inicializa();
 		//nivel1.Dibuja();
 	}
@@ -40,6 +41,7 @@ void Mundo::Dibuja() {
 	//ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 	//ETSIDI::printxy("Bienvenido al pang. ", -5, 8);
 	nivel1.Dibuja();
+
 	vidaHeroe=nivel1.getVidaHeroe();
 	//nivel2.Dibuja();
 }
