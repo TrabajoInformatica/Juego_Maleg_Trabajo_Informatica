@@ -26,7 +26,7 @@ void Nivel1::Inicializa(int vidas) {
 	/////////////////////////////////////Personaje
 	heroe.SetVida(vidas);
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(0.0f,14.0f);
+	heroe.SetPos(0.0f,0.0f);
 	heroe.SetVel(0.0f, 0.0f);
 	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
 	//puerta.SetColor(255, 0, 0);
@@ -157,8 +157,8 @@ bool Nivel1::MuerteHeroe() {
 void Nivel1::LecturaFichero(string Fichero) {
 	float x1 = 0, x2 = 0, y1 = 0, y2 = 0, gr = 0;
 	float r = 0, v = 0, a = 0, vx = 0, vy = 0;
-	int b = 0, i = 1, longitud = 0, pos = 0, p;
-	int opcion = 0;
+	int b = 0, i = 1, longitud = 0, pos = 0, p, suma = 0;
+	int opcion = 999;
 	string tipo;
 	string introduccion = { "X1_Y1_X2_Y2_GROSOR_ROJO_VERDE_AZUL" };
 	string comentario;
@@ -169,6 +169,7 @@ void Nivel1::LecturaFichero(string Fichero) {
 		exit(1);
 	}
 	while (!archivo.eof()) {
+		cout << suma << endl;
 		if (opcion == 1) {
 			archivo >> x1 >> y1 >> x2 >> y2 >> gr >> r >> v >> a >> comentario;
 			Plataforma* aux = new Plataforma(x1, y1, x2, y2, gr, (unsigned char)r, (unsigned char)v, (unsigned char)a);///////Creacion Plataformas
@@ -221,6 +222,7 @@ void Nivel1::LecturaFichero(string Fichero) {
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
 			archivo.seekg(pos);
 		}
+		suma++;
 	}
 	archivo.close();
 }

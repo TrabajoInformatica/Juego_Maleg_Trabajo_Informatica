@@ -17,7 +17,7 @@ void Nivel2::Inicializa(int vidas) {
 	LecturaFichero(Fichero);
 	/////////////////////////////////////Personaje
 	heroe2.SetVida(vidas); //si se hace con el mismo heroe no 
-	heroe2.SetPos(.0f, 2.0f);
+	heroe2.SetPos(0.0f, 0.0f);
 	heroe2.SetVel(0.0f, 0.0f);
 	//heroe2.SetAlturaMuerte(-15.0f);
 	////////////////////////////////////Plataformas
@@ -95,7 +95,7 @@ void Nivel2::TeclaUp(unsigned char key) {
 bool Nivel2::MuerteHeroe() {
 	if (heroe2.Muerte()) {
 		cout << "Muerto" << endl;
-		heroe2.SetPos(0.0f, 3.0f);
+		heroe2.SetPos(134.0f, 14.0f);
 		heroe2.SetVel(0.0f, 0.0f);
 		return true;
 	}
@@ -156,7 +156,8 @@ void Nivel2::LecturaFichero(string Fichero) {
 			opcion = 4;
 		if (tipo == "Pajaro")
 			opcion = 5;
-		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" && tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
+		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() &&
+			tipo != introduccion && tipo != "Monedas" && tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
 			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
