@@ -1,16 +1,27 @@
 #pragma once
 #include "ListaPlataformas.h"
 #include "ListaMonedas.h"
+#include "ListaPlataformas.h"
+#include "ListaMonedas.h"
+#include "ListaEnemigos.h"
+#include "ListaArmas.h"
+#include "Marcador.h"
+#include <string>
 #include "Heroe.h"
+#include "Sirena.h"
+#include "Lanza.h"
+#include "Puerta.h"
+#include "Interaccion.h"
 #include <string>
 using namespace std;
 
 class Nivel2 {
 private:
 	Heroe heroe2;
-	ListaPlataformas plataformas;        //Objeto contiene todas las plataformas Nivel1
+	ListaPlataformas plataformas2;        //Objeto contiene todas las plataformas Nivel1
 	string Fichero = "Nivel2.txt";
 	ListaMonedas monedas2;
+	ListaEnemigos enemigos2;
 public:
 	Nivel2();
 	virtual ~Nivel2();
@@ -23,6 +34,7 @@ public:
 
 	bool MuerteHeroe();
 
+	void LecturaFichero(string Fichero);
 
 	
 	/*Plataforma hor1; //Plataforma base inicial

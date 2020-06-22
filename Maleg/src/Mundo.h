@@ -8,7 +8,7 @@
 class Mundo {
 	public:
 		int vidaHeroe;
-	Nivel1 nivel1;
+		Nivel1* nivel1 = new Nivel1();
 	Nivel2 nivel2;
 	int nivel;
 		Mundo();

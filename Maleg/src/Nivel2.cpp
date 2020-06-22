@@ -1,5 +1,6 @@
 #include "Nivel2.h"
 #include <iostream>
+#include <fstream>
 #include "glut.h"
 using namespace std;
 
@@ -8,14 +9,15 @@ Nivel2::Nivel2() {
 }
 
 Nivel2::~Nivel2() {
-	plataformas.DestruirContenido();
+	plataformas2.DestruirContenido();
 }
 
 void Nivel2::Inicializa(int vidas) {
-	
+	cout << "AQuinINcializo" << endl;
+	LecturaFichero(Fichero);
 	/////////////////////////////////////Personaje
 	heroe2.SetVida(vidas); //si se hace con el mismo heroe no 
-	heroe2.SetPos(0.0f, 0.0f);
+	heroe2.SetPos(.0f, 2.0f);
 	heroe2.SetVel(0.0f, 0.0f);
 	//heroe2.SetAlturaMuerte(-15.0f);
 	////////////////////////////////////Plataformas
@@ -49,7 +51,7 @@ void Nivel2::Dibuja() {
 	cout << "estoy dibujado nivel 2" << endl;
 ////////////////////////////////////Plataformas
 	heroe2.Dibuja();
-	plataformas.Dibuja();
+	plataformas2.Dibuja();
 	monedas2.Dibuja();
 
 
@@ -60,7 +62,7 @@ void Nivel2::Mueve() {
 	monedas2.Mueve(0.025f);
 	//sirena.Mueve(0.025f);
 	heroe2.Mueve(0.05f);
-	plataformas.Colision(&heroe2);
+	plataformas2.Colision(&heroe2);
 	Moneda* aux = monedas2.Colision(&heroe2);
 	if (aux != 0)//si alguna esfera ha chocado con el hombre
 		monedas2.Eliminar(aux);
@@ -69,8 +71,8 @@ void Nivel2::Mueve() {
 
 void Nivel2::Tecla(unsigned char key) {
 	if (key == 'w') {
-		for (int i = 0; i < plataformas.GetNumPlat(); i++) {
-			if (Interaccion::ColisionSup(&heroe2, plataformas.GetListaPlat(i))) {
+		for (int i = 0; i < plataformas2.GetNumPlat(); i++) {
+			if (Interaccion::ColisionSup(&heroe2, plataformas2.GetListaPlat(i))) {
 				heroe2.SetVel(heroe2.GetVel().x, 10.0f);
 			}
 			else {
@@ -99,6 +101,69 @@ bool Nivel2::MuerteHeroe() {
 	}
 	else
 		return false;
+}
+
+void Nivel2::LecturaFichero(string Fichero) {
+	float x1 = 0, x2 = 0, y1 = 0, y2 = 0, gr = 0;
+	float r = 0, v = 0, a = 0, vx = 0, vy = 0;
+	int b = 0, i = 1, longitud = 0, pos = 0, p;
+	int opcion = 0;
+	string tipo;
+	string introduccion = { "X1_Y1_X2_Y2_GROSOR_ROJO_VERDE_AZUL" };
+	string comentario;
+	fstream archivo;
+	archivo.open(Fichero, ios::in);	//Abriendo archivo modo lectura
+	if (archivo.fail()) {
+		cout << "No se pudo abrir archivo";
+		exit(1);
+	}
+	while (!archivo.eof()) {
+		if (opcion == 1) {
+			archivo >> x1 >> y1 >> x2 >> y2 >> gr >> r >> v >> a >> comentario;
+			Plataforma* aux = new Plataforma(x1, y1, x2, y2, gr, (unsigned char)r, (unsigned char)v, (unsigned char)a);///////Creacion Plataformas
+			plataformas2.AgregarP(aux);
+		}
+		if (opcion == 2) {
+			archivo >> x1 >> y1 >> x2 >> y2 >> gr >> p >> vx >> vy >> r >> v >> a >> comentario;
+			PlataformaMovil* aux = new PlataformaMovil(x1, y1, x2, y2, gr, p, vx, vy, (unsigned char)r, (unsigned char)v, (unsigned char)a);	///////Creacion Plataforma Movil
+			plataformas2.AgregarP(aux);
+		}
+		if (opcion == 3) {
+			archivo >> x1 >> y1 >> gr >> r >> v >> a >> comentario;
+			Moneda* aux = new Moneda(x1, y1, gr, r, v, a);///////Creacion Monedas
+			monedas2.AgregarM(aux);
+		}
+		if (opcion == 4) {
+			archivo >> x1 >> y1 >> comentario;
+			Sirena* aux = new Sirena(x1, y1);
+			enemigos2.AgregarE(aux);
+		}
+		if (opcion == 5) {
+			archivo >> x1 >> y1 >> comentario;
+			Pajaro* aux = new Pajaro(x1, y1);
+			enemigos2.AgregarE(aux);
+		}
+		archivo >> tipo;
+		if (tipo == "Plataforma")
+			opcion = 1;
+		if (tipo == "Plataforma_movil")
+			opcion = 2;
+		if (tipo == "Monedas")
+			opcion = 3;
+		if (tipo == "Enemigos")
+			opcion = 300;
+		if (tipo == "Sirena")
+			opcion = 4;
+		if (tipo == "Pajaro")
+			opcion = 5;
+		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" && tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
+			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
+			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
+			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
+			archivo.seekg(pos);
+		}
+	}
+	archivo.close();
 }
 /*
 /////////////////////////////////////Personaje
