@@ -30,18 +30,27 @@ void Mundo::Inicializa() {
 
 void Mundo::CargarNivel() {
 	nivel++;
-	//nivel1.DestruirContenido();
+	
+	
+	gluLookAt(0, 7.5, 3, // posicion del ojo
+		0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
+		0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
 	
 	if (nivel == 1) 
 	{
 		cout << "nivel1" << endl;
+		nivel1.Dibuja();
+		
 		nivel1.Inicializa(vidaHeroe);
+		
 		
 		
 	}
 	else if (nivel == 2) {
-		//nivel2.Inicializa();
+		nivel2.Inicializa(vidaHeroe);
 		nivel1.DestruirContenido();
+		
+		nivel2.Dibuja();
 		cout << "nivel2" << endl;
 	}
 }
@@ -51,11 +60,21 @@ void Mundo::Dibuja() {
 	////////////////////////////////Dibujar aqui
 	//ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 	//ETSIDI::printxy("Bienvenido al pang. ", -5, 8);
-	
+	if (nivel == 1)
+	{
+		cout << "nivel1 dibujando" << endl;
 		nivel1.Dibuja();
+
+	}
+	else if (nivel == 2) {
+		nivel2.Dibuja();
+		cout << "nivel2 dibujando" << endl;
+	}
+	
+
 		vidaHeroe = nivel1.getVidaHeroe();
 	
-	//nivel2.Dibuja();
+	
 }
 
 void Mundo::TeclaEspecial(unsigned char key){
@@ -83,16 +102,18 @@ void Mundo::Mover(){
 
 	}
 	nivel1.Mueve();
-	//nivel2.Mueve();
+	nivel2.Mueve();
 }
 
 void Mundo::Tecla(unsigned char key)
 {
 	nivel1.Tecla(key);
-	//nivel2.Tecla(key);
+	
+	nivel2.Tecla(key);
 }
 void Mundo::TeclaUp(unsigned char key) {
 	nivel1.TeclaUp(key);
+	nivel2.TeclaUp(key);
 }
 
 bool Mundo::Muerte() {
@@ -103,13 +124,13 @@ bool Mundo::Muerte() {
 			return false;
 		}
 	}
-	/*else if (nivel == 2) {
-		if (Aqui iria nivel2.Muerteheroe abria que definirla todavia para otro momento cuando se empieze a editar nivel 2) {
+	else if (nivel == 2) {
+		if (nivel1.MuerteHeroe()) {
 			return true;
 		}
-		else if () {
+		else if (!nivel1.MuerteHeroe()) {
 			return false;
 		}
 	}
-	*/	
+	
 }

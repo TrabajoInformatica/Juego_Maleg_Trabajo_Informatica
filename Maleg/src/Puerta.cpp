@@ -1,13 +1,30 @@
 #include "Puerta.h"
 #include "glut.h"
 Puerta::Puerta() {
-
-}
-Puerta::~Puerta() {
     rojo = 255;
     azul = 0;
     verde = 0;
+    num = 0;
+}
+Puerta::~Puerta() {
 
+}
+bool Puerta::AgregarP(Puerta* p) {
+    if (num < 2) {
+        lista[num] = p;
+
+        num++;
+
+    }
+    else return false;
+
+
+}
+void Puerta::DestruirContenido() {
+    for (int i = 0;i < 1;i++) {
+
+        delete lista[i];
+    }
 }
 Puerta::Puerta(float x1, float y1, float x2, float y2, float gr, unsigned char r, unsigned char v, unsigned char a) {
     limite1.x = x1;
@@ -29,4 +46,20 @@ void Puerta::Dibuja() {
     glVertex3d(limite2.x, limite2.y - grosor, 0);
     glVertex3d(limite1.x, limite1.y - grosor, 0);
     glEnd();
+}
+void Puerta::DibujaP() {
+    for (int i = 0;i < num;i++) {
+        lista[i]->Dibuja();//direccion de memoria del elemento(moneda)
+    }                       //recorre una a una la lista de monedas que tenemos y las dibuja
+}
+bool Puerta::Colision(Heroe* p) {
+    for (int i = 0; i < num;i++) {
+        if (Interaccion::ColisionLat(p, *(lista[i])))
+        {
+            return true;
+        }
+        else
+            return false;
+
+    }
 }

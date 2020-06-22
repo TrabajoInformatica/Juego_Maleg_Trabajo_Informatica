@@ -1,5 +1,7 @@
 #include "Nivel2.h"
+#include <iostream>
 #include "glut.h"
+using namespace std;
 
 Nivel2::Nivel2() {
 
@@ -9,37 +11,44 @@ Nivel2::~Nivel2() {
 	plataformas.DestruirContenido();
 }
 
-void Nivel2::Inicializa() {
+void Nivel2::Inicializa(int vidas) {
+	
 	/////////////////////////////////////Personaje
-
+	heroe2.SetVida(vidas); //si se hace con el mismo heroe no 
+	heroe2.SetPos(0.0f, 0.0f);
+	heroe2.SetVel(0.0f, 0.0f);
+	//heroe2.SetAlturaMuerte(-15.0f);
 	////////////////////////////////////Plataformas
 
 
 	///////////////////////////////////Enemigos
-	/*
+	
 	Moneda* aux0 = new Moneda();
 	aux0->SetPos(12.0, 20.0);//es la segunda
-	monedas2.agregar(aux0);
+	monedas2.AgregarM(aux0);
 	Moneda* aux = new Moneda();
 	aux->SetPos(39.0, 30.0);//es la segunda
-	monedas2.agregar(aux);
+	monedas2.AgregarM(aux);
 	Moneda* aux1 = new Moneda();
 	aux1->SetPos(87.0, 35.5);
-	monedas2.agregar(aux1);
+	monedas2.AgregarM(aux1);
 	Moneda* aux2 = new Moneda();
 	aux2->SetPos(104.0, 27.0);
-	monedas2.agregar(aux2);
+	monedas2.AgregarM(aux2);
 	Moneda* aux3 = new Moneda();
 	aux3->SetPos(19.0, 3.5);
-	monedas2.agregar(aux3);
-	*/
+	monedas2.AgregarM(aux3);
+	
 }
 
 void Nivel2::Dibuja() {
+	gluLookAt(heroe2.GetPos().x, heroe2.GetPos().y + 1, 3,  // posicion del ojo						//NUNCA MODIFICAR LA Z	No hace fala
+		heroe2.GetPos().x, heroe2.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
+		0.0, 1.0, 0.0);
 	/////////////////////////////////////Personaje
-
+	cout << "estoy dibujado nivel 2" << endl;
 ////////////////////////////////////Plataformas
-	heroe.Dibuja();
+	heroe2.Dibuja();
 	plataformas.Dibuja();
 	monedas2.Dibuja();
 
@@ -50,23 +59,46 @@ void Nivel2::Dibuja() {
 void Nivel2::Mueve() {
 	monedas2.Mueve(0.025f);
 	//sirena.Mueve(0.025f);
-	heroe.Mueve(0.05f);
-	plataformas.Colision(&heroe);
-	Moneda* aux = monedas2.Colision(&heroe);
+	heroe2.Mueve(0.05f);
+	plataformas.Colision(&heroe2);
+	Moneda* aux = monedas2.Colision(&heroe2);
 	if (aux != 0)//si alguna esfera ha chocado con el hombre
 		monedas2.Eliminar(aux);
 
 }
 
 void Nivel2::Tecla(unsigned char key) {
-	if (key == 'w')
-		heroe.SetVel(heroe.GetVel().x, 10.0f);
+	if (key == 'w') {
+		for (int i = 0; i < plataformas.GetNumPlat(); i++) {
+			if (Interaccion::ColisionSup(&heroe2, plataformas.GetListaPlat(i))) {
+				heroe2.SetVel(heroe2.GetVel().x, 10.0f);
+			}
+			else {
+				heroe2.SetVel(heroe2.GetVel().x, heroe2.GetVel().y);
+			}
+		}
+	}
 	if (key == 'a')
-		heroe.SetVel(-3.0f, heroe.GetVel().y);
-	if (key == 's')
-		heroe.SetVel(0.0f, 0.0f);
+		heroe2.SetVel(-3.0f, heroe2.GetVel().y);
+
 	if (key == 'd')
-		heroe.SetVel(3.0f, heroe.GetVel().y);
+		heroe2.SetVel(3.0f, heroe2.GetVel().y);
+}
+void Nivel2::TeclaUp(unsigned char key) {
+	if (key == 'a')
+		heroe2.SetVel(0.0f, heroe2.GetVel().y);
+	if (key == 'd')
+		heroe2.SetVel(0.0f, heroe2.GetVel().y);
+}
+bool Nivel2::MuerteHeroe() {
+	if (heroe2.Muerte()) {
+		cout << "Muerto" << endl;
+		heroe2.SetPos(0.0f, 3.0f);
+		heroe2.SetVel(0.0f, 0.0f);
+		return true;
+	}
+	else
+		return false;
 }
 /*
 /////////////////////////////////////Personaje

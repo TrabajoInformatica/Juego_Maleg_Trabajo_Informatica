@@ -7,7 +7,7 @@ using namespace std;
 
 class Nivel2 {
 private:
-	Heroe heroe;
+	Heroe heroe2;
 	ListaPlataformas plataformas;        //Objeto contiene todas las plataformas Nivel1
 	string Fichero = "Nivel2.txt";
 	ListaMonedas monedas2;
@@ -15,10 +15,13 @@ public:
 	Nivel2();
 	virtual ~Nivel2();
 	void Mueve();
-	void Inicializa();
+	void Inicializa(int vidas);
 	void Dibuja();
 
 	void Tecla(unsigned char);
+	void TeclaUp(unsigned char key);
+
+	bool MuerteHeroe();
 
 
 	
