@@ -77,3 +77,9 @@ void ListaEnemigos::Eliminar(int index) {
 
 
 }
+
+void ListaEnemigos::ShowHitbox(bool e) {
+	for (int i = 0;i < nume;i++) {
+		Lista_e[i]->ShowHitbox(e);
+	}
+}

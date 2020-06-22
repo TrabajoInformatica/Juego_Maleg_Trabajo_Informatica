@@ -24,7 +24,8 @@ private:
 	ListaArmas armas;
 	Puerta puerta;
 	Marcador marcador;
-	
+	enum Estado { ShowHitbox,HideHitbox};
+	Estado estado = HideHitbox;
 	
 public:
 	Moneda moneda1;

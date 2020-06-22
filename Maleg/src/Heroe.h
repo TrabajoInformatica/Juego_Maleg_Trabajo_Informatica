@@ -9,6 +9,8 @@ class Heroe: public Personaje{
 protected:
 	float vida;
 	float alturamuerte;
+	enum Estado { Show, Hide };
+	Estado estado = Hide;
 
 	SpriteSequence run, jumpUP, jumpDOWN;
 
@@ -29,4 +31,5 @@ public:
 
 	//FUNCIONES
 	bool Muerte();
+	void ShowHitbox(bool e);
 };

@@ -15,11 +15,4 @@ float Enemigo::GetRadio() {
 	return altura;
 }
 
-void Enemigo::Dibuja() {
-
-}
-
-void Enemigo::Mueve(float t) {
-
-}
 

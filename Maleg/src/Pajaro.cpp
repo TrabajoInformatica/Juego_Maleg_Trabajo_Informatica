@@ -13,9 +13,9 @@ Pajaro::Pajaro(float px, float py): sprite("imagenes/Parrot.png", 3, 3) {
 	posicion.x = px;
 	posicion.y = py;
 	aceleracion.x = 2.0;
-	verde = 255;
+	verde = 0;
 	azul = 0;
-	rojo = 0;
+	rojo = 255;
 	altura = 0.5f;
 	velocidad.x = 1.0f;
 	lim_xi = posicion.x - 10.0f;
@@ -65,13 +65,22 @@ void Pajaro::Dibuja() {
 	sprite.loop();
 	glPopMatrix();
 
-	/*
-	glPushMatrix();
-	glColor3ub(rojo, verde, azul);
-	glTranslatef(posicion.x, posicion.y, 0);
-	glColor3f(rojo, verde, azul);
-	glutSolidSphere(altura, 10, 10);
-	glTranslatef(-posicion.x, -posicion.y, 0);
-	glPopMatrix();
-	*/
+	//////////Dibuja el Hitbox de pajaro
+	if (estado == Show) {
+		glPushMatrix();
+		glColor3ub(rojo, verde, azul);
+		glTranslatef(posicion.x, posicion.y, 0);
+		glColor3f(rojo, verde, azul);
+		glutWireSphere(altura, 10, 10);
+		glTranslatef(-posicion.x, -posicion.y, 0);
+		glPopMatrix();
+	}
+	
+}
+
+void Pajaro::ShowHitbox(bool e) {
+	if (e == true)
+		estado = Show;
+	else
+		estado = Hide;
 }

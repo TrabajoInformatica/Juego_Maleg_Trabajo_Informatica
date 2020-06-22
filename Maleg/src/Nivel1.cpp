@@ -117,6 +117,21 @@ void Nivel1::Tecla(unsigned char key) {
 		heroe.SetVel(-3.0f, heroe.GetVel().y);
 	if (key == 'd')
 		heroe.SetVel(3.0f, heroe.GetVel().y);
+	
+	if (key == '1' && estado == ShowHitbox) {
+		estado = HideHitbox;
+	}
+	else if (key == '1' && estado == HideHitbox) {
+		estado = ShowHitbox;
+	}
+
+	if (estado == ShowHitbox) {
+		heroe.ShowHitbox(true);
+		enemigos.ShowHitbox(true);
+	}else {
+		heroe.ShowHitbox(false);
+		enemigos.ShowHitbox(false);
+	}
 }
 
 void Nivel1::TeclaUp(unsigned char key) {

@@ -11,9 +11,9 @@ Sirena::~Sirena() {
 
 Sirena::Sirena(float px, float py): mermaidUP("imagenes/mermaid.png", 1, 1),
 									mermaidDOWN("imagenes/mermaidDOWN.png", 7, 5) {
-	verde = 255;
-	rojo = 0;
-	azul = 100;
+	verde = 0;
+	rojo = 255;
+	azul = 0;
 	altura = 1.0f;
 	salto_max = 20.0f;
 	salto_min = 3.0f;
@@ -64,4 +64,22 @@ void Sirena::Dibuja() {
 		mermaidDOWN.loop();
 	}
 	glPopMatrix();
+
+	//////////Dibuja el Hitbox de sirena
+	if (estado == Show) {
+		glPushMatrix();
+		glColor3ub(rojo, verde, azul);
+		glTranslatef(posicion.x, posicion.y, 0);
+		glColor3f(rojo, verde, azul);
+		glutWireSphere(altura, 10, 10);
+		glTranslatef(-posicion.x, -posicion.y, 0);
+		glPopMatrix();
+	}
+}
+
+void Sirena::ShowHitbox(bool e) {
+	if (e == true)
+		estado = Show;
+	else
+		estado = Hide;
 }

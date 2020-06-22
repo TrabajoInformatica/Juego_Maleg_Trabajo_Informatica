@@ -11,6 +11,8 @@ private:
 	float lim_xd;
 	float lim_yi;
 	float lim_yd;
+	enum Estado { Show, Hide };
+	Estado estado = Hide;
 
 public:
 
@@ -22,6 +24,7 @@ public:
 	void Dibuja();
 	void Mueve(float t);
 	void Movimiento();
-	//virtual void Mueve(float t);
+
+	void ShowHitbox(bool e);
 };
 

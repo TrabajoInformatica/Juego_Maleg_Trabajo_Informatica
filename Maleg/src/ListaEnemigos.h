@@ -17,6 +17,8 @@ public:
 	void Eliminar(Enemigo* e);
 	void Eliminar(int index);
 
+	void ShowHitbox(bool e);
+
 private:
 	Enemigo* Lista_e[MAX_ENEM];
 	int nume;

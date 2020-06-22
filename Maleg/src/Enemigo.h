@@ -10,8 +10,8 @@ public:
 	Enemigo();
 	virtual ~Enemigo();
 	float GetRadio();
-	virtual void Dibuja();
-	virtual void  Mueve(float t);
-	
+	virtual void Dibuja(){}
+	virtual void  Mueve(float t){}
+	virtual void ShowHitbox(bool e){}
 };
 

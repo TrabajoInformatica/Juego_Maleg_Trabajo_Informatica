@@ -7,7 +7,8 @@ Heroe::Heroe() : run("imagenes/spartanRUN.png", 4, 3) ,
 				 jumpDOWN("imagenes/spartanJUMPdown.png", 4, 3) {
 	// Relativo a los atributos
 	altura = 2.0f;
-	rojo = verde = azul = 255;
+	rojo  = azul = 0;
+	verde = 255;
 }
 Heroe::~Heroe(){
 
@@ -61,6 +62,17 @@ void Heroe::Dibuja() {
 		jumpDOWN.loop();
 	}
 	glPopMatrix();
+
+	if (estado == Show) {
+		//////////Dibuja el Hitbox de pajaro
+		glPushMatrix();
+		glColor3ub(rojo, verde, azul);
+		glTranslatef(posicion.x, posicion.y, 0);
+		glColor3f(rojo, verde, azul);
+		glutWireCube(altura);
+		glTranslatef(-posicion.x, -posicion.y, 0);
+		glPopMatrix();
+	}
 }
 
 void Heroe::SetAlturaMuerte(float am) {
@@ -88,3 +100,9 @@ int Heroe::GetVida() {
 	return vida;
 }
 
+void Heroe::ShowHitbox(bool e) {
+	if (e == true)
+		estado = Show;
+	else
+		estado = Hide;
+}

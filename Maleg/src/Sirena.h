@@ -9,6 +9,8 @@ class Sirena: public Enemigo
 private:
 	float salto_max;
 	float salto_min;
+	enum Estado { Show, Hide };
+	Estado estado = Hide;
 	
 public:
 
@@ -20,5 +22,7 @@ public:
 	void Salto(); 
 	void Dibuja();
     void Mueve(float t);
+
+	void ShowHitbox(bool e);
 };
 
