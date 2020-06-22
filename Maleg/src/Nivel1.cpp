@@ -26,7 +26,7 @@ void Nivel1::Inicializa(int vidas) {
 	/////////////////////////////////////Personaje
 	heroe.SetVida(vidas);
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(160.0f,14.0f);
+	heroe.SetPos(0.0f,14.0f);
 	heroe.SetVel(0.0f, 0.0f);
 	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
 	//puerta.SetColor(255, 0, 0);
@@ -60,6 +60,9 @@ void Nivel1::Dibuja() {
 	armas.Dibuja();
 
 	puerta.DibujaP();
+
+	cout << "X" << heroe.GetPos().x << endl;
+	cout << "Y" << heroe.GetPos().y << endl;
 }
 
 void Nivel1::Mueve() {
@@ -191,6 +194,11 @@ void Nivel1::LecturaFichero(string Fichero) {
 			Pajaro* aux = new Pajaro(x1, y1);
 			enemigos.AgregarE(aux);
 		}
+		if (opcion == 6) {
+			archivo >> x1 >> y1 >> comentario;
+			Vector2D* aux = new Vector2D(x1, y1);
+			heroe.AgregarPuntosR(aux);
+		}
 		archivo >> tipo;
 		if (tipo == "Plataforma")
 			opcion = 1;
@@ -198,13 +206,16 @@ void Nivel1::LecturaFichero(string Fichero) {
 			opcion = 2;
 		if (tipo == "Monedas")
 			opcion = 3;
-		if (tipo == "Enemigos")
+		if (tipo == "Enemigos" || tipo=="Heroe")
 			opcion = 300;
 		if (tipo == "Sirena")
 			opcion = 4;
 		if (tipo == "Pajaro")
 			opcion = 5;
-		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&tipo!="Enemigos" &&tipo !="Sirena" && tipo !="Pajaro") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
+		if (tipo == "PuntosReaparicion")
+			opcion = 6;
+		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&
+			tipo!="Enemigos" &&tipo !="Sirena" && tipo !="Pajaro" && tipo!="PuntosReaparicion" && tipo!="Heroe") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
 			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro

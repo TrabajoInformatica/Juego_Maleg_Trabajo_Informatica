@@ -14,6 +14,8 @@ Heroe::~Heroe(){
 
 }
 void Heroe::Mueve(float t) {
+	if (velocidad.y > 10)
+		velocidad.y = 10;
 	ObjetoMovil::Mueve(t);
 }
 
@@ -80,12 +82,18 @@ void Heroe::SetAlturaMuerte(float am) {
 }
 void Heroe::SetVida(float v) {
 	vida = v;
-	//cout << vida << endl;
 }
 bool Heroe::Muerte() {
 	
-	if (alturamuerte >= posicion.y) {
-		return true;
+	if (alturamuerte >= posicion.y) {	
+		vida -= 1;
+		if(vida==0)
+			return true;
+		else {
+			velocidad.y = 0;
+			PuntoReaparicion();
+			return false;
+		}
 	}
 	 if (vida==0) {
 		 cout << vida << endl;
@@ -105,4 +113,38 @@ void Heroe::ShowHitbox(bool e) {
 		estado = Show;
 	else
 		estado = Hide;
+}
+
+void Heroe::PuntoReaparicion() {
+	for (int i = 0;i < numeroRP;i++) {
+		if (posicion.x < 0.0f){
+		posicion.x = 0.0f;
+		posicion.y = 0.0f;
+		break;
+		}
+		else if (posicion.x < puntosR[i]->x) {
+			Vector2D p = *(puntosR[i-=1]);
+			posicion = p;
+			break;
+		}
+	}
+}
+
+bool Heroe::AgregarPuntosR(Vector2D *p) {
+	for (int i = 0;i < numeroRP;i++) {
+		if ((puntosR[i]) == p)
+			return false;
+	}
+	if (numeroRP < Max_Size)
+		puntosR[numeroRP++] = p;
+	else
+		return false;
+	return true;
+}
+
+void Heroe::DestruirContenido() {
+	for (int i = 0;i < numeroRP;i++) {
+		delete puntosR[i];
+	}
+	numeroRP = 0;
 }
