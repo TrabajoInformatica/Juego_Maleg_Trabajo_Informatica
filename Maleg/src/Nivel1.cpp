@@ -55,6 +55,7 @@ void Nivel1::Dibuja() {
     //Plataformas, Monedas y otros.
 	plataformas.Dibuja();
 	monedas.Dibuja();
+	marcador.Dibuja(&heroe);
 	armas.Dibuja();
 
 	puerta.DibujaP();
@@ -66,7 +67,7 @@ void Nivel1::Mueve() {
 	// Enemigos
 	enemigos.Mueve(0.025f);	
 	monedas.Mueve(0.025f);
-	armas.Mueve(0.04f);
+	armas.Mueve(0.025f);
 	// Heroe
 	heroe.Mueve(0.1f);
 
