@@ -19,6 +19,7 @@ Heroe::Heroe() :
 	rojo = azul = 0;
 	verde = 255;
 	monedas = 0;
+	numeroRP = 0;
 	estado = Hide;
 	sentido = Derecha;
 }
@@ -176,24 +177,26 @@ void Heroe::PuntoReaparicion() {
 		break;
 		}
 		else if (posicion.x < puntosR[i]->x) {
-			Vector2D p = *(puntosR[i-1]);
-			posicion = p;
+			posicion = (*(puntosR[i-1]));
 			break;
 		}
 		
 	}
 }
 
-bool Heroe::AgregarPuntosR(Vector2D *p) {
+bool Heroe::AgregarPuntosR(Vector2D *e) {
 	for (int i = 0;i < numeroRP;i++) {
-		if ((puntosR[i]) == p)
+		if ((puntosR[i]) == e)
 			return false;
 	}
-	if (numeroRP < Max_Size)
-		puntosR[numeroRP++] = p;
-	else
+	if (numeroRP < Max_Size) {
+		puntosR[numeroRP++] = e;
+		
+	}
+	else {
 		return false;
-	return true;
+	}
+		return true;
 }
 
 void Heroe::DestruirContenido() {

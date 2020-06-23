@@ -5,7 +5,6 @@
 #include "ListaMonedas.h"
 #include "ListaEnemigos.h"
 #include "ListaArmas.h"
-#include "Marcador.h"
 #include <string>
 #include "Heroe.h"
 #include "Sirena.h"

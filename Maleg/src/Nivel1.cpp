@@ -55,7 +55,6 @@ void Nivel1::Dibuja() {
     //Plataformas, Monedas y otros.
 	plataformas.Dibuja();
 	monedas.Dibuja();
-	marcador.Dibuja(&heroe);
 	armas.Dibuja();
 
 	puerta.DibujaP();

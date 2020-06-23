@@ -3,14 +3,12 @@
 #include "ListaMonedas.h"
 #include "ListaEnemigos.h"
 #include "ListaArmas.h"
-#include "Marcador.h"
 #include <string>
 #include "Heroe.h"
 #include "Sirena.h"
 #include "Lanza.h"
 #include "Puerta.h"
 #include "Interaccion.h"
-#define MAX_SIZE
 
 using namespace std;
 
@@ -23,11 +21,11 @@ private:
 	ListaEnemigos enemigos;
 	ListaArmas armas;
 	Puerta puerta;
-	Marcador marcador;
 	enum Estado { ShowHitbox,HideHitbox};
 	Estado estado = HideHitbox;
 	
 public:
+	//char* JAJAJAJAJAJAJ;
 	Moneda moneda1;
 	Nivel1();
 	virtual~Nivel1();
@@ -41,11 +39,9 @@ public:
 	void Mueve();
 	void Tecla(unsigned char);
 	void TeclaUp(unsigned char);
-	int salto = 3;
 
 	bool MuerteHeroe();
 	void DestruirContenido();
-	friend class Mundo;
 
 	void LecturaFichero(string Fichero);
 
