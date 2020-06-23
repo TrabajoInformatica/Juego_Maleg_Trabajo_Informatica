@@ -3,7 +3,7 @@
 #include "ListaMonedas.h"
 #include "ListaEnemigos.h"
 #include "ListaArmas.h"
-#include "Marcador.h"
+#include "Vector2D.h"
 #include <string>
 #include "Heroe.h"
 #include "Sirena.h"
@@ -23,7 +23,6 @@ private:
 	ListaEnemigos enemigos;
 	ListaArmas armas;
 	Puerta puerta;
-	Marcador marcador;
 	enum Estado { ShowHitbox,HideHitbox};
 	Estado estado = HideHitbox;
 	
@@ -52,8 +51,8 @@ public:
 };
 /*
 Plataforma horiz1;				//Horizontal1 Principio
-Bloque esc1_p1;					//Escalera1 Peldaño1
-Bloque esc1_p2;					//Escalera1 Peldaño2
+Bloque esc1_p1;					//Escalera1 PeldaÃ±o1
+Bloque esc1_p2;					//Escalera1 PeldaÃ±o2
 Plataforma horiz2;				//Fin de la escalera, comienzo camino
 Plataforma charco;				//Primera sirena
 Plataforma horiz3;				//Suelo de tierra entre las sirenas
