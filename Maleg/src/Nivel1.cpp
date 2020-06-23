@@ -26,7 +26,7 @@ void Nivel1::Inicializa(int vidas) {
 	/////////////////////////////////////Personaje
 	heroe.SetVida(vidas);
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(0.0f,0.0f);
+	heroe.SetPos(165.0f,14.0f);
 	heroe.SetVel(0.0f, 0.0f);
 	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
 	//puerta.SetColor(255, 0, 0);
@@ -58,8 +58,8 @@ void Nivel1::Dibuja() {
 	armas.Dibuja();
 
 	puerta.DibujaP();
-	
-	cout << "Vida" << heroe.GetVida() << endl;
+	cout << "X" << heroe.GetPos().x << endl;
+	cout << "Y" << heroe.GetPos().y << endl;
 }
 
 void Nivel1::Mueve() {
@@ -67,21 +67,15 @@ void Nivel1::Mueve() {
 	enemigos.Mueve(0.025f);	
 	monedas.Mueve(0.025f);
 	armas.Mueve(0.025f);
+	plataformas.Mueve(0.025f);
 	// Heroe
 	heroe.Mueve(0.1f);
 
 	// Plataforma, Monedas y otros.
-	plataformas.Mueve(0.025f);
 	plataformas.Colision(&heroe);
 	monedas.Colision(&heroe);
-
+	enemigos.Colision(&heroe);
 	/////////Provisional
-	vida = heroe.GetVida();
-	if (enemigos.Colision(&heroe) == true) {
-		vida = vida - 1;
-		cout << vida << endl;
-		heroe.SetVida(vida);
-	}
 	
 	if (puerta.Colision(&heroe) == true) {
 		cout << "puerta" << endl;

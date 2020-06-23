@@ -33,3 +33,14 @@ Plataforma
 Plataforma_movil
  119.0 24.0 124.0 24.0 0.5 300 2.0 0.0 155.0 155.0 155.0	//Plataforma_movil
  129.0 26.0 134.0 26.0 0.5 300 2.0 0.0 155.0 155.0 155.0	//Plataforma_movil_2
+Monedas
+ 12.0 20.0 0.5 255.0 255.0 0.0		//Moneda1
+ 39.0 30.0 0.5 255.0 255.0 0.0		//Moneda2
+ 87.0 35.5 0.5 255.0 255.0 0.0		//Moneda3
+ 104.0 27.0 0.5 255.0 255.0 0.0		//moneda4
+ 19.0 3.5 0.5 255.0 255.0 0.0		//Moneda5
+PuntosReaparicion
+ 0.0 0.0 				//Reaparicion
+ 20.0 20.0				//Punto2
+ 115.0 32.0				//PuntoInfinito
+ 200.0 200.0				//PuntoInfinito

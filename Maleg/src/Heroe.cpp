@@ -143,7 +143,6 @@ bool Heroe::Muerte() {
 		}
 	}
 	 if (vida==0) {
-		 cout << vida << endl;
 		return true;
 	}
 	else
