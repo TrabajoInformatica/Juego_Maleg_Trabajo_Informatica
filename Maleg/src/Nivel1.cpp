@@ -147,12 +147,12 @@ void Nivel1::Tecla(unsigned char key) {
 		if (heroe.ValidarDisparo()) {
 			ETSIDI::play("sonidos/DisparoFlecha.mp3");
 			if (heroe.Disparo()) {
-				Lanza* aux = new Lanza(heroe.GetPos().x, heroe.GetPos().y, 10);
+				Lanza* aux = new Lanza(heroe.GetPos().x+heroe.GetAltura(), heroe.GetPos().y, 10);
 				armas.AgregarA(aux);
 				heroe.SumarMonedas(false);
 			}
 			else if (!heroe.Disparo()) {
-				Lanza* aux = new Lanza(heroe.GetPos().x, heroe.GetPos().y, -10);
+				Lanza* aux = new Lanza(heroe.GetPos().x - heroe.GetAltura(), heroe.GetPos().y, -10);
 				armas.AgregarA(aux);
 				heroe.SumarMonedas(false);
 			}
