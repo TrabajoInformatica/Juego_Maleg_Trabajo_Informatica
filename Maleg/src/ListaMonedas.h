@@ -14,7 +14,7 @@ public:
 	void destruirContenido();
 	void Dibuja();
 	void Mueve(float t);
-	Moneda* Colision(Heroe* p);
+	void Colision(Heroe* p);
 	void Eliminar(Moneda* e);
 	void Eliminar(int index);
 

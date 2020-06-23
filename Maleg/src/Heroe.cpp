@@ -9,6 +9,7 @@ Heroe::Heroe() : run("imagenes/spartanRUN.png", 4, 3) ,
 	altura = 2.0f;
 	rojo  = azul = 0;
 	verde = 255;
+	monedas = 0;
 	estado = Hide;
 	sentido = Derecha;
 }
@@ -115,6 +116,13 @@ int Heroe::GetVida() {
 	return vida;
 }
 
+void Heroe::SumarMonedas(bool m) {
+	if(m == true)
+		monedas ++;
+	if (m == false)
+		monedas--;
+}
+
 void Heroe::ShowHitbox(bool e) {
 	if (e == true)
 		estado = Show;
@@ -161,4 +169,11 @@ bool Heroe::Disparo() {
 		return false;
 	if (sentido == Derecha)
 		return true;
+}
+
+bool Heroe::ValidarDisparo() {
+	if (monedas > 0)
+		return true;
+	else if(monedas ==0)
+		return false;
 }
