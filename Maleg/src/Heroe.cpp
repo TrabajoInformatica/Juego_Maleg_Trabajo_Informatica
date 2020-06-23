@@ -34,7 +34,7 @@ void Heroe::Mueve(float t) {
 
 void Heroe::Dibuja() {
 	//Dimensiones del sprite
-	run.setCenter(1.8, 1.1);
+	run.setCenter(1.4, 1.1);
 	run.setSize(3, 3);
 
 	jumpUP.setCenter(1.8, 1);
@@ -55,7 +55,6 @@ void Heroe::Dibuja() {
 	//Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
-	//glColor3f(1.0f, 1.0f, 1.0f);
 
 	//tratamiento AnimationRUN
 	if (velocidad.x > 0.01)run.flip(false, false);
