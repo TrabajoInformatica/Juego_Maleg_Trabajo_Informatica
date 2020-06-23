@@ -67,19 +67,15 @@ void Nivel1::Dibuja() {
 void Nivel1::Mueve() {
 	// Enemigos
 	enemigos.Mueve(0.025f);	
-
+	monedas.Mueve(0.025f);
+	armas.Mueve(0.025f);
 	// Heroe
 	heroe.Mueve(0.1f);
+
 	// Plataforma, Monedas y otros.
 	plataformas.Mueve(0.025f);
 	plataformas.Colision(&heroe);
-
-	monedas.Mueve(0.025f);
-	Moneda* aux = monedas.Colision(&heroe);
-	if (aux != 0)//si alguna esfera ha chocado con el hombre
-		monedas.Eliminar(aux);
-
-	armas.Mueve(0.025f);
+	monedas.Colision(&heroe);
 
 	/////////Provisional
 	vida = heroe.GetVida();
@@ -149,13 +145,18 @@ void Nivel1::Tecla(unsigned char key) {
 	}
 
 	if (key == ' ') {
-		if (heroe.Disparo()) {
-			Lanza* aux = new Lanza(heroe.GetPos().x, heroe.GetPos().y, 10);
-			armas.AgregarA(aux);
-		}
-		else if(!heroe.Disparo()){
-			Lanza* aux = new Lanza(heroe.GetPos().x, heroe.GetPos().y, -10);
-			armas.AgregarA(aux);
+		if (heroe.ValidarDisparo()) {
+			ETSIDI::play("sonidos/DisparoFlecha.mp3");
+			if (heroe.Disparo()) {
+				Lanza* aux = new Lanza(heroe.GetPos().x+heroe.GetAltura(), heroe.GetPos().y, 10);
+				armas.AgregarA(aux);
+				heroe.SumarMonedas(false);
+			}
+			else if (!heroe.Disparo()) {
+				Lanza* aux = new Lanza(heroe.GetPos().x - heroe.GetAltura(), heroe.GetPos().y, -10);
+				armas.AgregarA(aux);
+				heroe.SumarMonedas(false);
+			}
 		}
 	}
 }

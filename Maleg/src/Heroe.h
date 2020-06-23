@@ -12,6 +12,9 @@ protected:
 	float vida;
 	float alturamuerte;
 
+
+	/////Monedas= NumroDisparos
+	int monedas;
 	////Puntosreaparicion;
 	int numeroRP;
 	Vector2D *puntosR[Max_Size];
@@ -41,9 +44,11 @@ public:
 	//FUNCIONES
 	bool Muerte();
 	void ShowHitbox(bool e);
+	void SumarMonedas(bool m);
 	void PuntoReaparicion();
 	bool AgregarPuntosR(Vector2D* p);
 	void DestruirContenido();
 
 	bool Disparo();
+	bool ValidarDisparo();
 };

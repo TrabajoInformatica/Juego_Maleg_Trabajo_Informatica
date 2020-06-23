@@ -65,10 +65,7 @@ void Nivel2::Mueve() {
 	//sirena.Mueve(0.025f);
 	heroe2.Mueve(0.05f);
 	plataformas2.Colision(&heroe2);
-	Moneda* aux = monedas2.Colision(&heroe2);
-	if (aux != 0)//si alguna esfera ha chocado con el hombre
-		monedas2.Eliminar(aux);
-
+	monedas2.Colision(&heroe2);
 }
 
 void Nivel2::Tecla(unsigned char key) {

@@ -57,9 +57,8 @@ bool ListaEnemigos::Colision(Heroe* p) {
 	
 	for (int i = 0; i < nume;i++) {
 		if (Interaccion::ColisionEnemigo(p, *(Lista_e[i]))) {
-			cout << "impacto" << endl;
-		//	p->SetPos(0.0f, 3.0f);
-		//	p->SetVel(0.0f, 0.0f);
+			p->SetVel(0.0f, 0.0f);
+			p->PuntoReaparicion();
 			return true;
 
 		}
