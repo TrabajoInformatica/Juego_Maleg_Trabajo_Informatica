@@ -32,21 +32,11 @@ void Araña::Mueve(float t) {
 
 void Araña::Movimiento() {
 
-	/*if (posicion.x > lim_xd ) {
-		posicion.x = lim_xd;
-		velocidad.x = -2.5f;
-		aceleracion.x = -2.0f;
-	}
-	else if (posicion.x < lim_xi) {
-		posicion.x = lim_xi;
-		velocidad.x = 2.5f;
-		aceleracion.x = 2.0f;
-	}*/
 	if (posicion.x > lim_xd) {
 		posicion.x = lim_xd;
 		velocidad.y = 0.5f;
 		aceleracion.y = 0.05f;
-
+	}
 		if (posicion.y > lim_ya) {
 			posicion.y = lim_ya;
 			velocidad.x = -0.5f;
@@ -55,12 +45,7 @@ void Araña::Movimiento() {
 			aceleracion.y = 0;
 
 		}
-	}
-	/*else if (posicion.y > lim_ya) {
-		posicion.y = lim_ya;
-		velocidad.x = -2.5f;
-		aceleracion.x = -2.0f;
-	}*/
+	
 	else if (posicion.x < lim_xi) {
 		posicion.x = lim_xi;
 		velocidad.y = -0.5f;
@@ -77,12 +62,6 @@ void Araña::Movimiento() {
 		aceleracion.y = 0;
 		}
 	
-	/*else if (posicion.y < lim_yb) {
-		posicion.y = lim_yb;
-		velocidad.x = 2.5f;
-		aceleracion.x = 2.0f;
-	}*/
-
 }
 
 void Araña::Dibuja() {

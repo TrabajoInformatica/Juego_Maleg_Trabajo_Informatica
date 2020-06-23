@@ -78,11 +78,11 @@ void Nivel1::Mueve() {
 
 	/////////Provisional
 	vida = heroe.GetVida();
-	/*if (enemigos.Colision(&heroe) == true) {
+	if (enemigos.Colision(&heroe) == true) {
 		vida = vida - 1;
 		cout << vida << endl;
 		heroe.SetVida(vida);
-	}*/
+	}
 	
 	if (puerta.Colision(&heroe) == true) {
 		cout << "puerta" << endl;
