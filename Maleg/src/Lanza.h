@@ -5,7 +5,7 @@ class Lanza : public Arma {
 protected:
 
 public:
-	Lanza(float x,float y);
+	Lanza(float x,float y,float v);
 	virtual ~Lanza();
 
 	void Dibuja();

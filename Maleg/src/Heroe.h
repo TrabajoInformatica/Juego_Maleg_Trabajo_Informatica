@@ -17,8 +17,9 @@ protected:
 	Vector2D *puntosR[Max_Size];
 	////Hitbox 
 	enum Estado { Show, Hide };
-	Estado estado = Hide;
-
+	enum Sentido {Izquierda,Derecha};
+	Estado estado;
+	Sentido sentido;
 	////Grafico
 	SpriteSequence run, jumpUP, jumpDOWN;
 
@@ -43,4 +44,6 @@ public:
 	void PuntoReaparicion();
 	bool AgregarPuntosR(Vector2D* p);
 	void DestruirContenido();
+
+	bool Disparo();
 };

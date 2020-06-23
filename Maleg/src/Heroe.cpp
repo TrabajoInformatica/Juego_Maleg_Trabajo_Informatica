@@ -9,6 +9,8 @@ Heroe::Heroe() : run("imagenes/spartanRUN.png", 4, 3) ,
 	altura = 2.0f;
 	rojo  = azul = 0;
 	verde = 255;
+	estado = Hide;
+	sentido = Derecha;
 }
 Heroe::~Heroe(){
 
@@ -16,6 +18,11 @@ Heroe::~Heroe(){
 void Heroe::Mueve(float t) {
 	if (velocidad.y > 10)
 		velocidad.y = 10;
+	
+	if (velocidad.x < 0)
+		sentido = Izquierda;
+	else if (velocidad.x > 0)
+		sentido = Derecha;
 	ObjetoMovil::Mueve(t);
 }
 
@@ -147,4 +154,11 @@ void Heroe::DestruirContenido() {
 		delete puntosR[i];
 	}
 	numeroRP = 0;
+}
+
+bool Heroe::Disparo() {
+	if (sentido == Izquierda)
+		return false;
+	if (sentido == Derecha)
+		return true;
 }

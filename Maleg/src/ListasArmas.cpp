@@ -53,3 +53,22 @@ void ListaArmas::Mueve(float t) {
 		ListaA[i]->Mueve(t);
 	}
 }
+
+void ListaArmas::Eliminar(Arma* a) {//borrar esfera según su dirección de memoria
+	for (int i = 0;i < numeroA;i++) {
+		if (ListaA[i] == a) {
+			Eliminar(i);
+			return;
+		}
+	}
+}
+void ListaArmas::Eliminar(int index) {//borrar una esfera segun su indice
+	if ((index < 0) || (index >= numeroA)) {//si el indice esta fuera de rango
+		return;
+	}
+	delete ListaA[index];
+	numeroA--;
+	for (int i = index;i < numeroA;i++) {
+		ListaA[i] = ListaA[1 + i];
+	}
+}

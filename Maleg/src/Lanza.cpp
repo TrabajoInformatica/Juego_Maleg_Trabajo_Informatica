@@ -1,8 +1,10 @@
 #include "Lanza.h"
 #include "glut.h"
-Lanza::Lanza(float x,float y) {
+Lanza::Lanza(float x,float y,float v) {
 	posicion.x = x;
 	posicion.y = y;
+	velocidad.x = v;
+	aceleracion.y = 0.0;
 	rojo = 255;
 	verde = 45;
 	azul = 100;
@@ -16,7 +18,7 @@ Lanza::~Lanza() {
 void Lanza::Dibuja() {
 	glColor3ub(rojo, verde, azul);
 	glTranslatef(posicion.x, posicion.y, 0);
-	glutSolidCube(lado);
+	glutWireCube(lado);
 	glTranslatef(-posicion.x, -posicion.y, 0);
 }
 

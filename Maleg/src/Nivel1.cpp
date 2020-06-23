@@ -37,8 +37,6 @@ void Nivel1::Inicializa(int vidas) {
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero);
 
-	Lanza* aux = new Lanza(-2.0f, 3.0f);
-	armas.AgregarA(aux);
 }
 
 void Nivel1::Dibuja() {
@@ -80,6 +78,8 @@ void Nivel1::Mueve() {
 	if (aux != 0)//si alguna esfera ha chocado con el hombre
 		monedas.Eliminar(aux);
 
+	armas.Mueve(0.025f);
+
 	/////////Provisional
 	vida = heroe.GetVida();
 	if (enemigos.Colision(&heroe) == true) {
@@ -94,7 +94,17 @@ void Nivel1::Mueve() {
 	}
 	else
 		fin = false;
+
+	for (int i = 0;i < enemigos.GetNumeroE();i++) {
+		for (int j = 0;j < armas.GetNum();j++) {
+			if (Interaccion::ColisionEnemigo(armas.GetLista(j), enemigos.GetListaEnem(i))) {
+				armas.Eliminar(j);
+				enemigos.Eliminar(i);
+			}
+		}
+	}
 }
+
 bool Nivel1::FinNivel1() {
 	if (fin == true) {
 		return true;
@@ -120,20 +130,32 @@ void Nivel1::Tecla(unsigned char key) {
 		heroe.SetVel(-3.0f, heroe.GetVel().y);
 	if (key == 'd')
 		heroe.SetVel(3.0f, heroe.GetVel().y);
-	
+
+	////////Hitbox
 	if (key == '1' && estado == ShowHitbox) {
 		estado = HideHitbox;
 	}
 	else if (key == '1' && estado == HideHitbox) {
 		estado = ShowHitbox;
 	}
-
 	if (estado == ShowHitbox) {
 		heroe.ShowHitbox(true);
 		enemigos.ShowHitbox(true);
-	}else {
+	}
+	else {
 		heroe.ShowHitbox(false);
 		enemigos.ShowHitbox(false);
+	}
+
+	if (key == ' ') {
+		if (heroe.Disparo()) {
+			Lanza* aux = new Lanza(heroe.GetPos().x, heroe.GetPos().y, 10);
+			armas.AgregarA(aux);
+		}
+		else if(!heroe.Disparo()){
+			Lanza* aux = new Lanza(heroe.GetPos().x, heroe.GetPos().y, -10);
+			armas.AgregarA(aux);
+		}
 	}
 }
 

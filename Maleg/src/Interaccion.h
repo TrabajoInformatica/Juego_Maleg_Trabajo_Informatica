@@ -3,6 +3,7 @@
 #include "Enemigo.h"
 #include "Plataforma.h"
 #include "Moneda.h"
+#include "Arma.h"
 class Interaccion
 {
 private:
@@ -16,5 +17,6 @@ public:
 	static bool ColisionInf(Heroe* pers, Plataforma pl);
 	static bool ColisionMoneda(Heroe* pers, Moneda m);
 	static bool ColisionEnemigo(Heroe* pers, Enemigo e);
+	static bool ColisionEnemigo(Arma a, Enemigo e);
 };
 
