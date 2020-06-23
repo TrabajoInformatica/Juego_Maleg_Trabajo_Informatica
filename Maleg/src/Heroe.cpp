@@ -2,19 +2,27 @@
 #include "Heroe.h"
 using namespace std;
 
-Heroe::Heroe() : run("imagenes/spartanRUN.png", 4, 3) , 
-				 jumpUP("imagenes/spartanJUMPup.png", 4, 2) ,
-				 jumpDOWN("imagenes/spartanJUMPdown.png", 4, 3) {
+Heroe::Heroe() :
+	run("imagenes/spartanRUN.png", 4, 3),
+	jumpUP("imagenes/spartanJUMPup.png", 4, 2),
+	jumpDOWN("imagenes/spartanJUMPdown.png", 4, 3),
+
+	vida1("imagenes/VIDA1.png", 1, 1),
+	vida2("imagenes/VIDA2.png", 1, 1),
+	vida3("imagenes/VIDA3.png", 1, 1),
+
+	spearavailable("imagenes/lanza.png", 1, 1) 
+
+{
 	// Relativo a los atributos
 	altura = 2.0f;
-	rojo  = azul = 0;
+	rojo = azul = 0;
 	verde = 255;
 	monedas = 0;
 	estado = Hide;
 	sentido = Derecha;
 }
 Heroe::~Heroe(){
-
 }
 void Heroe::Mueve(float t) {
 	if (velocidad.y > 10)
@@ -28,20 +36,31 @@ void Heroe::Mueve(float t) {
 }
 
 void Heroe::Dibuja() {
-//Dimensiones del sprite
-	run.setCenter(1.8, 1.1);
-	run.setSize(3, 3);
+	//Dimensiones del sprite
+	run.setCenter(1.5, 1.1);
+	run.setSize(3.0, 3.0);
 
-	jumpUP.setCenter(1.8, 1);
-	jumpUP.setSize(3, 3);
+	jumpUP.setCenter(1.8f, 1.0f);
+	jumpUP.setSize(3.0f, 3.0f);
 
-	jumpDOWN.setCenter(1.8, 1);
-	jumpDOWN.setSize(3, 3);
+	jumpDOWN.setCenter(1.8f, 1.0f);
+	jumpDOWN.setSize(3.0f, 3.0f);
 
-//Dibujo
+	vida1.setCenter(-17.0f, -19.0f);
+	vida1.setSize(3.0f, 2.0f);
+
+	vida2.setCenter(-17.0f, -19.0f);
+	vida2.setSize(3, 2);
+
+	vida3.setCenter(-17, -19);
+	vida3.setSize(3.0f, 2.0f);
+
+	spearavailable.setCenter(-17.0f, -18.0f);
+	spearavailable.setSize(2.0f, 1.0f);
+
+	//Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
-	glColor3f(1.0f, 1.0f, 1.0f);
 
 	//tratamiento AnimationRUN
 	if (velocidad.x > 0.01)run.flip(false, false);
@@ -58,7 +77,7 @@ void Heroe::Dibuja() {
 	if (velocidad.x > 0.01)jumpDOWN.flip(false, false);
 	if (velocidad.x < -0.01)jumpDOWN.flip(true, false);
 
-	// OPERANDI DIBUJO
+	// OPERANDI DIBUJO HEROE
 	if (velocidad.y == 0) {
 		run.draw();
 		run.loop();
@@ -73,6 +92,7 @@ void Heroe::Dibuja() {
 	}
 	glPopMatrix();
 
+	// DIBUJO HITBOX
 	if (estado == Show) {
 		//////////Dibuja el Hitbox de pajaro
 		glPushMatrix();
@@ -83,6 +103,24 @@ void Heroe::Dibuja() {
 		glTranslatef(-posicion.x, -posicion.y, 0);
 		glPopMatrix();
 	}
+
+	// DIBUJO VIDA
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 0.5);
+	if (vida == 3)
+		vida3.draw();
+	else if (vida == 2)
+		vida2.draw();
+	else if (vida == 1)
+		vida1.draw();
+	glPopMatrix();
+
+	// DIBUJO LANZA DISPONIBLE
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 0.5);
+	if (monedas > 0)
+		spearavailable.draw();
+	glPopMatrix();
 }
 
 void Heroe::SetAlturaMuerte(float am) {

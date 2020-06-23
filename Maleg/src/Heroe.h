@@ -24,7 +24,10 @@ protected:
 	Estado estado;
 	Sentido sentido;
 	////Grafico
-	SpriteSequence run, jumpUP, jumpDOWN;
+	SpriteSequence 
+		run, jumpUP, jumpDOWN,
+		vida1, vida2, vida3,
+		spearavailable;
 
 public:
 	Heroe();

@@ -36,7 +36,8 @@ void Nivel1::Inicializa(int vidas) {
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero);
-
+	/*Araña* ax0 = new Araña(10.0f,10.0f);
+	enemigos.AgregarE(ax0);*/
 }
 
 void Nivel1::Dibuja() {
@@ -54,6 +55,7 @@ void Nivel1::Dibuja() {
     //Plataformas, Monedas y otros.
 	plataformas.Dibuja();
 	monedas.Dibuja();
+	marcador.Dibuja(&heroe);
 	armas.Dibuja();
 
 	puerta.DibujaP();
