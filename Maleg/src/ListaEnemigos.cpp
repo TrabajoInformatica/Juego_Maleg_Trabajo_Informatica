@@ -57,6 +57,7 @@ bool ListaEnemigos::Colision(Heroe* p) {
 	
 	for (int i = 0; i < nume;i++) {
 		if (Interaccion::ColisionEnemigo(p, *(Lista_e[i]))) {
+			p->SetVida(p->GetVida() - 1);
 			p->SetVel(0.0f, 0.0f);
 			p->PuntoReaparicion();
 			return true;
