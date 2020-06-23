@@ -41,8 +41,12 @@ void Nivel2::Inicializa(int vidas) {
 	aux3->SetPos(19.0, 3.5);
 	monedas2.AgregarM(aux3);
 	
-	Araña* ax0 = new Araña(10.0f, 10.0f);
+	Araña* ax0 = new Araña(30.0f, 22.8f);
 	enemigos2.AgregarE(ax0);
+	Araña* ax1 = new Araña(54.5f, 28.8f);
+	enemigos2.AgregarE(ax1);
+	Araña* ax2 = new Araña(97.5f, 27.8f);
+	enemigos2.AgregarE(ax2);
 }
 
 void Nivel2::Dibuja() {
@@ -59,13 +63,16 @@ void Nivel2::Dibuja() {
 
 
 	///////////////////////////////////Enemigos
+	enemigos2.Dibuja();
 }
 void Nivel2::Mueve() {
 	monedas2.Mueve(0.025f);
 	//sirena.Mueve(0.025f);
 	heroe2.Mueve(0.1f);
+	enemigos2.Mueve(0.25f);
 	plataformas2.Colision(&heroe2);
 	monedas2.Colision(&heroe2);
+	
 }
 
 void Nivel2::Tecla(unsigned char key) {

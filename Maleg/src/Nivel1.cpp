@@ -36,8 +36,8 @@ void Nivel1::Inicializa(int vidas) {
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero);
-	Araña* ax0 = new Araña(10.0f,10.0f);
-	enemigos.AgregarE(ax0);
+	/*Araña* ax0 = new Araña(10.0f,10.0f);
+	enemigos.AgregarE(ax0);*/
 }
 
 void Nivel1::Dibuja() {
@@ -78,11 +78,11 @@ void Nivel1::Mueve() {
 
 	/////////Provisional
 	vida = heroe.GetVida();
-	if (enemigos.Colision(&heroe) == true) {
+	/*if (enemigos.Colision(&heroe) == true) {
 		vida = vida - 1;
 		cout << vida << endl;
 		heroe.SetVida(vida);
-	}
+	}*/
 	
 	if (puerta.Colision(&heroe) == true) {
 		cout << "puerta" << endl;

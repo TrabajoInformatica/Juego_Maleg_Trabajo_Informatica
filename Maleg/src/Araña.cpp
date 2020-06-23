@@ -12,12 +12,12 @@ Araña::Araña(float px, float py) {
 	verde = 0;
 	azul = 0;
 	rojo = 255;
-	altura = 0.7f;
+	altura = 0.4f;
 	velocidad.x = 1.0f;
-	lim_xi = posicion.x - 10.0f;
-	lim_ya = posicion.y + 2.0f;
-	lim_xd = posicion.x + 10.0f;
-	lim_yb = posicion.y - 7.0f;
+	lim_xi = posicion.x - 3.0f;
+	lim_ya = posicion.y + 0.75f;
+	lim_xd = posicion.x + 3.0f;
+	lim_yb = posicion.y - 0.75f;
 }
 
 Araña::~Araña() {
@@ -44,24 +44,44 @@ void Araña::Movimiento() {
 	}*/
 	if (posicion.x > lim_xd) {
 		posicion.x = lim_xd;
-		velocidad.y = 2.5f;
-		aceleracion.y = 2.0f;
+		velocidad.y = 0.5f;
+		aceleracion.y = 0.05f;
+
+		if (posicion.y > lim_ya) {
+			posicion.y = lim_ya;
+			velocidad.x = -0.5f;
+			aceleracion.x = -0.05f;
+			velocidad.y = 0;
+			aceleracion.y = 0;
+
+		}
 	}
-	else if (posicion.y > lim_ya) {
+	/*else if (posicion.y > lim_ya) {
 		posicion.y = lim_ya;
 		velocidad.x = -2.5f;
 		aceleracion.x = -2.0f;
-	}
+	}*/
 	else if (posicion.x < lim_xi) {
 		posicion.x = lim_xi;
-		velocidad.y = -2.5f;
-		aceleracion.y = -2.0f;
-	}
+		velocidad.y = -0.5f;
+		aceleracion.y = -0.05f;
+		velocidad.x = 0;
+		aceleracion.x = 0;
+		}
+
 	else if (posicion.y < lim_yb) {
+		posicion.y = lim_yb;
+		velocidad.x = 0.5f;
+		aceleracion.x = 0.05f;
+		velocidad.y = 0;
+		aceleracion.y = 0;
+		}
+	
+	/*else if (posicion.y < lim_yb) {
 		posicion.y = lim_yb;
 		velocidad.x = 2.5f;
 		aceleracion.x = 2.0f;
-	}
+	}*/
 
 }
 
