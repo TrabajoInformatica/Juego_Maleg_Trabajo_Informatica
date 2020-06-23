@@ -138,10 +138,11 @@ void Heroe::PuntoReaparicion() {
 		break;
 		}
 		else if (posicion.x < puntosR[i]->x) {
-			Vector2D p = *(puntosR[i-=1]);
+			Vector2D p = *(puntosR[i-1]);
 			posicion = p;
 			break;
 		}
+		
 	}
 }
 
