@@ -14,7 +14,7 @@ Mundo::~Mundo() {
 
 
 void Mundo::Inicializa() {
-	vidaHeroe = 4;
+	vidaHeroe = 3;
 	nivel =1;
 	CargarNivel();
 	cout << "inicializa" << endl;

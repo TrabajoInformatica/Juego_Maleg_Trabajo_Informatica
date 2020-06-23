@@ -59,9 +59,8 @@ void Nivel1::Dibuja() {
 	armas.Dibuja();
 
 	puerta.DibujaP();
-
-	cout << "X" << heroe.GetPos().x << endl;
-	cout << "Y" << heroe.GetPos().y << endl;
+	
+	cout << "Vida" << heroe.GetVida() << endl;
 }
 
 void Nivel1::Mueve() {

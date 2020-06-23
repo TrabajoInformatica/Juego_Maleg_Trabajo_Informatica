@@ -2,12 +2,17 @@
 #include "Heroe.h"
 using namespace std;
 
-Heroe::Heroe() : run("imagenes/spartanRUN.png", 4, 3) , 
-				 jumpUP("imagenes/spartanJUMPup.png", 4, 2) ,
-				 jumpDOWN("imagenes/spartanJUMPdown.png", 4, 3) {
+Heroe::Heroe() :
+	run("imagenes/spartanRUN.png", 4, 3),
+	jumpUP("imagenes/spartanJUMPup.png", 4, 2),
+	jumpDOWN("imagenes/spartanJUMPdown.png", 4, 3),
+
+	vida1("imagenes/VIDA1.png", 1, 1),
+	vida2("imagenes/VIDA2.png", 1, 1),
+	vida3("imagenes/VIDA3.png", 1, 1) {
 	// Relativo a los atributos
 	altura = 2.0f;
-	rojo  = azul = 0;
+	rojo = azul = 0;
 	verde = 255;
 	monedas = 0;
 	estado = Hide;
@@ -28,7 +33,7 @@ void Heroe::Mueve(float t) {
 }
 
 void Heroe::Dibuja() {
-//Dimensiones del sprite
+	//Dimensiones del sprite
 	run.setCenter(1.8, 1.1);
 	run.setSize(3, 3);
 
@@ -38,10 +43,19 @@ void Heroe::Dibuja() {
 	jumpDOWN.setCenter(1.8, 1);
 	jumpDOWN.setSize(3, 3);
 
-//Dibujo
+	vida1.setCenter(-17, -19);
+	vida1.setSize(3, 2);
+
+	vida2.setCenter(-17, -19);
+	vida2.setSize(3, 2);
+
+	vida3.setCenter(-17, -19);
+	vida3.setSize(3, 2);
+
+	//Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
-	glColor3f(1.0f, 1.0f, 1.0f);
+	//glColor3f(1.0f, 1.0f, 1.0f);
 
 	//tratamiento AnimationRUN
 	if (velocidad.x > 0.01)run.flip(false, false);
@@ -58,7 +72,7 @@ void Heroe::Dibuja() {
 	if (velocidad.x > 0.01)jumpDOWN.flip(false, false);
 	if (velocidad.x < -0.01)jumpDOWN.flip(true, false);
 
-	// OPERANDI DIBUJO
+	// OPERANDI DIBUJO HEROE
 	if (velocidad.y == 0) {
 		run.draw();
 		run.loop();
@@ -73,6 +87,7 @@ void Heroe::Dibuja() {
 	}
 	glPopMatrix();
 
+	// DIBUJO HITBOX
 	if (estado == Show) {
 		//////////Dibuja el Hitbox de pajaro
 		glPushMatrix();
@@ -83,6 +98,17 @@ void Heroe::Dibuja() {
 		glTranslatef(-posicion.x, -posicion.y, 0);
 		glPopMatrix();
 	}
+
+	// DIBUJO VIDA
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 0.5);
+	if (vida == 3)
+		vida3.draw();
+	else if (vida == 2)
+		vida2.draw();
+	else if (vida == 1)
+		vida1.draw();
+	glPopMatrix();
 }
 
 void Heroe::SetAlturaMuerte(float am) {

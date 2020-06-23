@@ -63,7 +63,7 @@ void Nivel2::Dibuja() {
 void Nivel2::Mueve() {
 	monedas2.Mueve(0.025f);
 	//sirena.Mueve(0.025f);
-	heroe2.Mueve(0.05f);
+	heroe2.Mueve(0.1f);
 	plataformas2.Colision(&heroe2);
 	monedas2.Colision(&heroe2);
 }
