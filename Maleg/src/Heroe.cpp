@@ -9,7 +9,11 @@ Heroe::Heroe() :
 
 	vida1("imagenes/VIDA1.png", 1, 1),
 	vida2("imagenes/VIDA2.png", 1, 1),
-	vida3("imagenes/VIDA3.png", 1, 1) {
+	vida3("imagenes/VIDA3.png", 1, 1),
+
+	spearavailable("imagenes/lanza.png", 1, 1) 
+
+{
 	// Relativo a los atributos
 	altura = 2.0f;
 	rojo = azul = 0;
@@ -19,7 +23,6 @@ Heroe::Heroe() :
 	sentido = Derecha;
 }
 Heroe::~Heroe(){
-
 }
 void Heroe::Mueve(float t) {
 	if (velocidad.y > 10)
@@ -34,23 +37,26 @@ void Heroe::Mueve(float t) {
 
 void Heroe::Dibuja() {
 	//Dimensiones del sprite
-	run.setCenter(1.4, 1.1);
-	run.setSize(3, 3);
+	run.setCenter(1.5, 1.1);
+	run.setSize(3.0, 3.0);
 
-	jumpUP.setCenter(1.8, 1);
-	jumpUP.setSize(3, 3);
+	jumpUP.setCenter(1.8f, 1.0f);
+	jumpUP.setSize(3.0f, 3.0f);
 
-	jumpDOWN.setCenter(1.8, 1);
-	jumpDOWN.setSize(3, 3);
+	jumpDOWN.setCenter(1.8f, 1.0f);
+	jumpDOWN.setSize(3.0f, 3.0f);
 
-	vida1.setCenter(-17, -19);
-	vida1.setSize(3, 2);
+	vida1.setCenter(-17.0f, -19.0f);
+	vida1.setSize(3.0f, 2.0f);
 
-	vida2.setCenter(-17, -19);
+	vida2.setCenter(-17.0f, -19.0f);
 	vida2.setSize(3, 2);
 
 	vida3.setCenter(-17, -19);
-	vida3.setSize(3, 2);
+	vida3.setSize(3.0f, 2.0f);
+
+	spearavailable.setCenter(-17.0f, -18.0f);
+	spearavailable.setSize(2.0f, 1.0f);
 
 	//Dibujo
 	glPushMatrix();
@@ -107,6 +113,13 @@ void Heroe::Dibuja() {
 		vida2.draw();
 	else if (vida == 1)
 		vida1.draw();
+	glPopMatrix();
+
+	// DIBUJO LANZA DISPONIBLE
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 0.5);
+	if (monedas > 0)
+		spearavailable.draw();
 	glPopMatrix();
 }
 
