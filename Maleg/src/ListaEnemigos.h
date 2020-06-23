@@ -2,6 +2,7 @@
 #include "Sirena.h"
 #include "Pajaro.h"
 #include "Guerreros.h"
+#include "Araña.h"
 #include "Enemigo.h"
 #include "Interaccion.h"
 class ListaEnemigos{

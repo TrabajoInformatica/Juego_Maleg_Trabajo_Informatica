@@ -19,9 +19,9 @@ Pajaro::Pajaro(float px, float py): sprite("imagenes/Parrot.png", 3, 3) {
 	altura = 0.5f;
 	velocidad.x = 1.0f;
 	lim_xi = posicion.x - 10.0f;
-	lim_yi = posicion.y + 7.0f;
+	//lim_yi = posicion.y + 7.0f;
 	lim_xd = posicion.x + 10.0f;
-	lim_yd = posicion.y - 7.0f;
+	//lim_yd = posicion.y - 7.0f;
 
 }
 
@@ -43,7 +43,6 @@ void Pajaro::Movimiento() {
 		velocidad.x = 2.5f;
 		aceleracion.x = 2.0f;
 	}
-
 }
 
 void Pajaro::Dibuja() {

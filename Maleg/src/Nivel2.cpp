@@ -41,6 +41,8 @@ void Nivel2::Inicializa(int vidas) {
 	aux3->SetPos(19.0, 3.5);
 	monedas2.AgregarM(aux3);
 	
+	Araña* ax0 = new Araña(10.0f, 10.0f);
+	enemigos2.AgregarE(ax0);
 }
 
 void Nivel2::Dibuja() {
