@@ -25,7 +25,6 @@ private:
 	Estado estado = HideHitbox;
 	
 public:
-	//char* JAJAJAJAJAJAJ;
 	Moneda moneda1;
 	Nivel1();
 	virtual~Nivel1();
