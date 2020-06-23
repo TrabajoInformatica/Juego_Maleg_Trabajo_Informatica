@@ -159,7 +159,6 @@
     <ClCompile Include="src\ListaMonedas.cpp" />
     <ClCompile Include="src\ListaPlataformas.cpp" />
     <ClCompile Include="src\Maleg.cpp" />
-    <ClCompile Include="src\Marcador.cpp" />
     <ClCompile Include="src\Moneda.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Nivel1.cpp" />
@@ -186,7 +185,6 @@
     <ClInclude Include="src\ListaEnemigos.h" />
     <ClInclude Include="src\ListaMonedas.h" />
     <ClInclude Include="src\ListaPlataformas.h" />
-    <ClInclude Include="src\Marcador.h" />
     <ClInclude Include="src\Moneda.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Nivel1.h" />

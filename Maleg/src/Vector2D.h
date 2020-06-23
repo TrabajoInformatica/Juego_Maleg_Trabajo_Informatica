@@ -5,8 +5,7 @@ class Vector2D
 public:
 	float x;
 	float y;
-
-	Vector2D(float xv = 0.0f, float yv = 0.0f);
+	Vector2D(float xv=0, float yv=0);
 	virtual~Vector2D();
 
 	float modulo();						// (2) modulo del vector
