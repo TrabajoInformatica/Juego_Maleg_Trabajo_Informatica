@@ -66,7 +66,7 @@ void Nivel1::Mueve() {
 	// Enemigos
 	enemigos.Mueve(0.025f);	
 	monedas.Mueve(0.025f);
-	armas.Mueve(0.025f);
+	armas.Mueve(0.04f);
 	// Heroe
 	heroe.Mueve(0.1f);
 

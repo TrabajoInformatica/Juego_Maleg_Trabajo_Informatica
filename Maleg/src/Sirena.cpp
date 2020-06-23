@@ -45,7 +45,7 @@ void Sirena::Salto() {
 void Sirena::Dibuja() {
 	
 //Dimensiones del sprite
-	mermaidUP.setCenter(1.8, 1.8);
+	mermaidUP.setCenter(1.4, 1);
 	mermaidUP.setSize(2.5, 2.5);
 
 	mermaidDOWN.setCenter(1.8, 1.8);
@@ -53,7 +53,6 @@ void Sirena::Dibuja() {
 //Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
-	glColor3f(1.0f, 1.0f, 1.0f);
 	if (velocidad.y > 0.01f) {
 		mermaidUP.flip(true, false);
 		mermaidUP.draw();
