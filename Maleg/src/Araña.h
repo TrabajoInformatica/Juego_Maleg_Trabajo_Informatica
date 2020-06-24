@@ -1,6 +1,8 @@
 #pragma once
-
+#include <ETSIDI.h>
 #include "Enemigo.h"
+
+using ETSIDI::SpriteSequence;
 
 class Araña: public Enemigo{
 
@@ -11,6 +13,9 @@ private:
 	float lim_yb;
 
 public:
+
+	SpriteSequence spyder;
+
 	Araña();
 	Araña(float px, float py);
 	~Araña();
