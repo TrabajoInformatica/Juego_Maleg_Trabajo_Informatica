@@ -1,38 +1,38 @@
-#include "Nivel1.h"
+#include "Nivel3.h"
 #include <iostream>
 #include <fstream>
 #include "glut.h"
 using namespace std;
 
-Nivel1::Nivel1() {
+Nivel3::Nivel3() {
 	fin = false;
 
 }
 
-Nivel1::~Nivel1() {
+Nivel3::~Nivel3() {
 
 }
-void Nivel1::DestruirContenido() {
-	monedas.destruirContenido();
-	enemigos.DestruirContenido();
-	plataformas.DestruirContenido();
+void Nivel3::DestruirContenido() {
+	monedas3.destruirContenido();
+	enemigos3.DestruirContenido();
+	plataformas3.DestruirContenido();
 	puerta.DestruirContenido();
 }
-Heroe Nivel1::GetHeroe() {
-	heroe.DestruirContenido();
+Heroe Nivel3::GetHeroe() {
+	heroe3.DestruirContenido();
 	return heroe;
 }
 
-void Nivel1::Inicializa(Heroe h) {
-	heroe = h;
+void Nivel3::Inicializa(Heroe h) {
+	heroe3 = h;
 	/////////////////////////////////////Personaje
-	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(165.0f,14.0f);
-	heroe.SetVel(0.0f, 0.0f);
+	heroe3.SetAlturaMuerte(-15.0f);
+	heroe3.SetPos(165.0f, 14.0f);
+	heroe3.SetVel(0.0f, 0.0f);
 	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
 	//puerta.SetColor(255, 0, 0);
- Puerta* puer = new Puerta(174.0f, 8.0f, 175.0f, 8.0f, -8.0f, 255, 0, 0);
- puerta.AgregarP(puer);
+	Puerta* puer = new Puerta(174.0f, 8.0f, 175.0f, 8.0f, -8.0f, 255, 0, 0);
+	puerta.AgregarP(puer);
 
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
@@ -41,52 +41,52 @@ void Nivel1::Inicializa(Heroe h) {
 	enemigos.AgregarE(ax0);*/
 }
 
-void Nivel1::Dibuja() {
+void Nivel3::Dibuja() {
 	// Vista
-	gluLookAt(heroe.GetPos().x,heroe.GetPos().y+ 1, 3,  // posicion del ojo						//NUNCA MODIFICAR LA Z	No hace fala
-		heroe.GetPos().x, heroe.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
+	gluLookAt(heroe3.GetPos().x, heroe3.GetPos().y + 1, 3,  // posicion del ojo						//NUNCA MODIFICAR LA Z	No hace fala
+		heroe3.GetPos().x, heroe3.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)  
 
 	// Enemigos
-	enemigos.Dibuja();
+	enemigos3.Dibuja();
 
 	// Heroe
 	heroe.Dibuja();
 
-    //Plataformas, Monedas y otros.
-	plataformas.Dibuja();
-	monedas.Dibuja();
-	armas.Dibuja();
+	//Plataformas, Monedas y otros.
+	plataformas3.Dibuja();
+	monedas3.Dibuja();
+	armas3.Dibuja();
 
 	puerta.DibujaP();
 	cout << "X" << heroe.GetPos().x << endl;
 	cout << "Y" << heroe.GetPos().y << endl;
 }
 
-void Nivel1::Mueve() {
+void Nivel3::Mueve() {
 	// Enemigos
-	enemigos.Mueve(0.025f);	
-	monedas.Mueve(0.025f);
-	armas.Mueve(0.025f);
-	plataformas.Mueve(0.025f);
+	enemigos3.Mueve(0.025f);
+	monedas3.Mueve(0.025f);
+	armas3.Mueve(0.025f);
+	plataformas3.Mueve(0.025f);
 	// Heroe
-	heroe.Mueve(0.1f);
+	heroe3.Mueve(0.1f);
 
 	// Plataforma, Monedas y otros.
-	plataformas.Colision(&heroe);
-	monedas.Colision(&heroe);
-	enemigos.Colision(&heroe);
+	plataformas3.Colision(&heroe3);
+	monedas3.Colision(&heroe3);
+	enemigos3.Colision(&heroe3);
 	/////////Provisional
-	
-	if (puerta.Colision(&heroe) == true) {
+
+	if (puerta.Colision(&heroe3) == true) {
 		cout << "puerta" << endl;
 		fin = true;
 	}
 	else
 		fin = false;
 
-	for (int i = 0;i < enemigos.GetNumeroE();i++) {
-		for (int j = 0;j < armas.GetNum();j++) {
+	for (int i = 0;i < enemigos3.GetNumeroE();i++) {
+		for (int j = 0;j < armas3.GetNum();j++) {
 			if (Interaccion::ColisionEnemigo(armas.GetLista(j), enemigos.GetListaEnem(i))) {
 				armas.Eliminar(j);
 				enemigos.Eliminar(i);
@@ -95,7 +95,7 @@ void Nivel1::Mueve() {
 	}
 }
 
-bool Nivel1::FinNivel1() {
+bool Nivel3::FinNivel3() {
 	if (fin == true) {
 		return true;
 		cout << "ha pasado" << endl;
@@ -104,10 +104,10 @@ bool Nivel1::FinNivel1() {
 		return false;
 }
 
-void Nivel1::Tecla(unsigned char key) {
+void Nivel3::Tecla(unsigned char key) {
 	if (key == 'w') {
-		for (int i = 0; i < plataformas.GetNumPlat(); i++) {
-			if (Interaccion::ColisionSup(&heroe, plataformas.GetListaPlat(i))) {
+		for (int i = 0; i < plataformas3.GetNumPlat(); i++) {
+			if (Interaccion::ColisionSup(&heroe3, plataformas3.GetListaPlat(i))) {
 				heroe.SetVel(heroe.GetVel().x, 10.0f);
 			}
 			else {
@@ -140,7 +140,7 @@ void Nivel1::Tecla(unsigned char key) {
 		if (heroe.ValidarDisparo()) {
 			ETSIDI::play("sonidos/DisparoFlecha.mp3");
 			if (heroe.Disparo()) {
-				Lanza* aux = new Lanza(heroe.GetPos().x+heroe.GetAltura(), heroe.GetPos().y, 10);
+				Lanza* aux = new Lanza(heroe.GetPos().x + heroe.GetAltura(), heroe.GetPos().y, 10);
 				armas.AgregarA(aux);
 				heroe.SumarMonedas(false);
 			}
@@ -163,10 +163,11 @@ void Nivel1::TeclaUp(unsigned char key) {
 bool Nivel1::MuerteHeroe() {
 	if (heroe.Muerte()) {
 		cout << "Muerto" << endl;
-	//heroe.SetPos(0.0f, 3.0f);
-		//heroe.SetVel(0.0f, 0.0f);
+		//heroe.SetPos(0.0f, 3.0f);
+			//heroe.SetVel(0.0f, 0.0f);
 		return true;
-	}else
+	}
+	else
 		return false;
 }
 
@@ -223,7 +224,7 @@ void Nivel1::LecturaFichero(string Fichero) {
 			opcion = 2;
 		if (tipo == "Monedas")
 			opcion = 3;
-		if (tipo == "Enemigos" || tipo=="Heroe")
+		if (tipo == "Enemigos" || tipo == "Heroe")
 			opcion = 300;
 		if (tipo == "Sirena")
 			opcion = 4;
@@ -232,7 +233,7 @@ void Nivel1::LecturaFichero(string Fichero) {
 		if (tipo == "PuntosReaparicion")
 			opcion = 6;
 		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&
-			tipo!="Enemigos" &&tipo !="Sirena" && tipo !="Pajaro" && tipo!="PuntosReaparicion" && tipo!="Heroe") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
+			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
 			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
@@ -242,5 +243,3 @@ void Nivel1::LecturaFichero(string Fichero) {
 	}
 	archivo.close();
 }
-
-

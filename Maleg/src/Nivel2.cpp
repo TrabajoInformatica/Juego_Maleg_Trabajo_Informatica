@@ -9,19 +9,23 @@ Nivel2::Nivel2() {
 }
 
 Nivel2::~Nivel2() {
-	plataformas2.DestruirContenido();
+
 }
 
-void Nivel2::Inicializa(int vidas) {
-	LecturaFichero(Fichero);
+void Nivel2::DestruirContenido() {
+	plataformas2.DestruirContenido();
+	armas2.DestruirContenido();
+	monedas2.destruirContenido();
+
+}
+void Nivel2::Inicializa(Heroe h) {
+	heroe2= h;
 	/////////////////////////////////////Personaje
-	heroe2.SetAlturaMuerte(-10.0);
-	heroe2.SetVida(vidas); //si se hace con el mismo heroe no 
+	heroe2.SetAlturaMuerte(-15.0);
 	heroe2.SetPos(0.0f, 0.0f);
 	heroe2.SetVel(0.0f, 0.0f);
-	//heroe2.SetAlturaMuerte(-15.0f);
 	////////////////////////////////////Plataformas
-
+	LecturaFichero(Fichero);
 
 	///////////////////////////////////Enemigos
 
@@ -71,6 +75,20 @@ void Nivel2::Mueve() {
 			}
 		}
 	}
+}
+
+Heroe Nivel2::GetHeroe() {
+	heroe2.DestruirContenido();
+	return heroe2;
+}
+
+bool Nivel2::FinNivel2() {
+	if (fin == true) {
+		return true;
+		cout << "ha pasado" << endl;
+	}
+	else
+		return false;
 }
 
 void Nivel2::Tecla(unsigned char key) {
