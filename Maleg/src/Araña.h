@@ -12,6 +12,7 @@ private:
 	float lim_ya;
 	float lim_yb;
 
+
 public:
 
 	SpriteSequence spyder;
@@ -22,5 +23,6 @@ public:
 	void Mueve(float t);
 	void Movimiento();
 	void Dibuja();
+	void ShowHitbox(bool e);
 };
 

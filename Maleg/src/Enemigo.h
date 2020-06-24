@@ -4,8 +4,9 @@
 
 class Enemigo: public Personaje{
 
-private:
-
+protected:
+	enum Estado { Show, Hide };
+	Estado estado = Hide;
 public: 
 	Enemigo();
 	virtual ~Enemigo();

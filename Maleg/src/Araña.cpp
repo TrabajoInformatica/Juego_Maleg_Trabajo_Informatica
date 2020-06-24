@@ -78,11 +78,20 @@ void Araña::Dibuja() {
 	glPopMatrix(); 
 
 	//Hitbox
-	glPushMatrix();
-	glColor3ub(rojo, verde, azul);
-	glTranslatef(posicion.x, posicion.y, 0);
-	glColor3f(rojo, verde, azul);
-	glutWireSphere(altura, 10, 10);
-	glTranslatef(-posicion.x, -posicion.y, 0);
-	glPopMatrix();
+	if (estado == Show) {
+		glPushMatrix();
+		glColor3ub(rojo, verde, azul);
+		glTranslatef(posicion.x, posicion.y, 0);
+		glColor3f(rojo, verde, azul);
+		glutWireSphere(altura, 10, 10);
+		glTranslatef(-posicion.x, -posicion.y, 0);
+		glPopMatrix();
+	}
+}
+
+void Araña::ShowHitbox(bool e) {
+	if (e == true)
+		estado = Show;
+	else
+		estado = Hide;
 }
