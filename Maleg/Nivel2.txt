@@ -27,15 +27,19 @@ Plataforma
  110.0 27.5 123.0 27.5 0.5 155.0 155.0 155.0 	//plataforma_enemigo
  123.0 29.0 125.0 29.0 2.0 155.0 155.0 155.0 	//bloque2_plataforma_enemigo
  139.0 31.5 141.0 31.5 2.5 155.0 155.0 155.0	//bloque_entre_plataforma_movil
- 157.0 27.5 160.0 27.5 1.0 155.0 155.0 155.0	//miniescalon1_final
- 160.0 29.0 163.0 29.0 1.0 155.0 155.0 155.0	//miniescalon2_final
- 163.0 30.0 170.0 30.0 0.5 155.0 155.0 155.0	//plataforma_finale
+ 157.0 32.0 159.0 32.0 2.0 155.0 155.0 155.0   //Bloque_plataforma_enemigo
+ 159.0 30.5 169.0 30.5 0.5 155.0 155.0 155.0 	//plataforma_enemigo
+ 169.0 32.0 171.0 32.0 2.0 155.0 155.0 155.0 	//bloque2_plataforma_enemigo
+ 174.0 30.0 175.0 30.0 0.5 155.0 155.0 155.0 	//miniplataforma
+ 189.0 27.5 192.0 27.5 1.0 155.0 155.0 155.0	//miniescalon1_final
+ 192.0 29.0 195.0 29.0 1.0 155.0 155.0 155.0	//miniescalon2_final
+ 195.0 30.0 208.0 30.0 0.5 155.0 155.0 155.0	//plataforma_final
 Plataforma_movil
  8.0 17.0 11.0 17.0 0.5 70 3.5 0.0 155.0 155.0 155.0          //Segunda_plataforma_flotante
- 53.0 25.0 56.0 25.0 0.5 100 3.5 0.0 155.0 155.0 155.0       //Hoyo_debajo_de_la_plataforma
+ 53.0 24.5 56.0 24.5 0.5 100 3.5 0.0 155.0 155.0 155.0       //Hoyo_debajo_de_la_plataforma
  127.0 26.0 131.0 26.0 0.5 70 3.5 0.0 155.0 155.0 155.0 	//plataforma_movil_despues_enemigo
- 143.0 21.0 145.0 21.0 0.5 80 0.0 3.5 155.0 155.0 155.0 	//plataforma_movil
- 147.0 26.0 150.0 26.0 0.5 50 3.5 0.0 155.0 155.0 155.0		//plataforma_movil_final
+ 143.0 26.0 147.0 26.0 0.5 90 3.5 2.0 155.0 155.0 155.0		//plataforma_movil_diagonal
+ 177.0 30.0 180.0 30.0 0.5 90 3.5 -2.0 155.0 155.0 155.0 	//p_diagonal_final 
 Monedas
  12.0 20.0 0.5 255.0 255.0 0.0		//Moneda1
  39.0 30.0 0.5 255.0 255.0 0.0		//Moneda2
