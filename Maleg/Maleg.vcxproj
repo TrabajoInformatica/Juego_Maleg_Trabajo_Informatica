@@ -145,9 +145,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Araña.cpp" />
     <ClCompile Include="src\Arma.cpp" />
     <ClCompile Include="src\Lanza.cpp" />
     <ClCompile Include="src\ListasArmas.cpp" />
+    <ClCompile Include="src\Nivel3.cpp" />
     <ClCompile Include="src\PlataformaMovil.cpp" />
     <ClCompile Include="src\CoordinadorPang.cpp" />
     <ClCompile Include="src\Enemigo.cpp" />
@@ -158,7 +160,6 @@
     <ClCompile Include="src\ListaMonedas.cpp" />
     <ClCompile Include="src\ListaPlataformas.cpp" />
     <ClCompile Include="src\Maleg.cpp" />
-    <ClCompile Include="src\Marcador.cpp" />
     <ClCompile Include="src\Moneda.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Nivel1.cpp" />
@@ -172,9 +173,11 @@
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Araña.h" />
     <ClInclude Include="src\Arma.h" />
     <ClInclude Include="src\Lanza.h" />
     <ClInclude Include="src\ListaArmas.h" />
+    <ClInclude Include="src\Nivel3.h" />
     <ClInclude Include="src\PlataformaMovil.h" />
     <ClInclude Include="src\CoordinadorPang.h" />
     <ClInclude Include="src\Enemigo.h" />
@@ -184,7 +187,6 @@
     <ClInclude Include="src\ListaEnemigos.h" />
     <ClInclude Include="src\ListaMonedas.h" />
     <ClInclude Include="src\ListaPlataformas.h" />
-    <ClInclude Include="src\Marcador.h" />
     <ClInclude Include="src\Moneda.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Nivel1.h" />

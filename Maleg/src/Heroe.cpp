@@ -2,36 +2,66 @@
 #include "Heroe.h"
 using namespace std;
 
-Heroe::Heroe() : run("imagenes/spartanRUN.png", 4, 3) , 
-				 jumpUP("imagenes/spartanJUMPup.png", 4, 2) ,
-				 jumpDOWN("imagenes/spartanJUMPdown.png", 4, 3) {
+Heroe::Heroe() :
+	run("imagenes/spartanRUN.png", 4, 3),
+	jumpUP("imagenes/spartanJUMPup.png", 4, 2),
+	jumpDOWN("imagenes/spartanJUMPdown.png", 4, 3),
+
+	vida1("imagenes/VIDA1.png", 1, 1),
+	vida2("imagenes/VIDA2.png", 1, 1),
+	vida3("imagenes/VIDA3.png", 1, 1),
+
+	spearavailable("imagenes/lanza.png", 1, 1) 
+
+{
 	// Relativo a los atributos
 	altura = 2.0f;
-	rojo  = azul = 0;
+	rojo = azul = 0;
 	verde = 255;
+	monedas = 0;
+	numeroRP = 0;
+	estado = Hide;
+	sentido = Derecha;
 }
 Heroe::~Heroe(){
-
 }
 void Heroe::Mueve(float t) {
+	if (velocidad.y > 10)
+		velocidad.y = 10;
+	
+	if (velocidad.x < 0)
+		sentido = Izquierda;
+	else if (velocidad.x > 0)
+		sentido = Derecha;
 	ObjetoMovil::Mueve(t);
 }
 
 void Heroe::Dibuja() {
-//Dimensiones del sprite
-	run.setCenter(1.8, 1.1);
-	run.setSize(3, 3);
+	//Dimensiones del sprite
+	run.setCenter(1.5, 1.1);
+	run.setSize(3.0, 3.0);
 
-	jumpUP.setCenter(1.8, 1);
-	jumpUP.setSize(3, 3);
+	jumpUP.setCenter(1.8f, 1.0f);
+	jumpUP.setSize(3.0f, 3.0f);
 
-	jumpDOWN.setCenter(1.8, 1);
-	jumpDOWN.setSize(3, 3);
+	jumpDOWN.setCenter(1.8f, 1.0f);
+	jumpDOWN.setSize(3.0f, 3.0f);
 
-//Dibujo
+	vida1.setCenter(-17.0f, -19.0f);
+	vida1.setSize(3.0f, 2.0f);
+
+	vida2.setCenter(-17.0f, -19.0f);
+	vida2.setSize(3, 2);
+
+	vida3.setCenter(-17, -19);
+	vida3.setSize(3.0f, 2.0f);
+
+	spearavailable.setCenter(-17.0f, -18.0f);
+	spearavailable.setSize(2.0f, 1.0f);
+
+	//Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
-	glColor3f(1.0f, 1.0f, 1.0f);
 
 	//tratamiento AnimationRUN
 	if (velocidad.x > 0.01)run.flip(false, false);
@@ -48,7 +78,7 @@ void Heroe::Dibuja() {
 	if (velocidad.x > 0.01)jumpDOWN.flip(false, false);
 	if (velocidad.x < -0.01)jumpDOWN.flip(true, false);
 
-	// OPERANDI DIBUJO
+	// OPERANDI DIBUJO HEROE
 	if (velocidad.y == 0) {
 		run.draw();
 		run.loop();
@@ -63,16 +93,35 @@ void Heroe::Dibuja() {
 	}
 	glPopMatrix();
 
+	// DIBUJO HITBOX
 	if (estado == Show) {
 		//////////Dibuja el Hitbox de pajaro
 		glPushMatrix();
 		glColor3ub(rojo, verde, azul);
-		glTranslatef(posicion.x, posicion.y, 0);
+		glTranslatef(posicion.x, posicion.y, 1.0);
 		glColor3f(rojo, verde, azul);
 		glutWireCube(altura);
-		glTranslatef(-posicion.x, -posicion.y, 0);
+		glTranslatef(-posicion.x, -posicion.y, 1.0);
 		glPopMatrix();
 	}
+
+	// DIBUJO VIDA
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 0.5);
+	if (vida == 3)
+		vida3.draw();
+	else if (vida == 2)
+		vida2.draw();
+	else if (vida == 1)
+		vida1.draw();
+	glPopMatrix();
+
+	// DIBUJO LANZA DISPONIBLE
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 0.5);
+	if (monedas > 0)
+		spearavailable.draw();
+	glPopMatrix();
 }
 
 void Heroe::SetAlturaMuerte(float am) {
@@ -80,15 +129,20 @@ void Heroe::SetAlturaMuerte(float am) {
 }
 void Heroe::SetVida(float v) {
 	vida = v;
-	//cout << vida << endl;
 }
 bool Heroe::Muerte() {
 	
-	if (alturamuerte >= posicion.y) {
-		return true;
+	if (alturamuerte >= posicion.y) {	
+		vida -= 1;
+		if(vida==0)
+			return true;
+		else {
+			velocidad.y = 0;
+			PuntoReaparicion();
+			return false;
+		}
 	}
 	 if (vida==0) {
-		 cout << vida << endl;
 		return true;
 	}
 	else
@@ -100,9 +154,67 @@ int Heroe::GetVida() {
 	return vida;
 }
 
+void Heroe::SumarMonedas(bool m) {
+	if(m == true)
+		monedas ++;
+	if (m == false)
+		monedas--;
+}
+
 void Heroe::ShowHitbox(bool e) {
 	if (e == true)
 		estado = Show;
 	else
 		estado = Hide;
+}
+
+void Heroe::PuntoReaparicion() {
+	for (int i = 0;i < numeroRP;i++) {
+		if (posicion.x < 0.0f){
+		posicion.x = 0.0f;
+		posicion.y = 0.0f;
+		break;
+		}
+		else if (posicion.x < puntosR[i]->x) {
+			posicion = (*(puntosR[i-1]));
+			break;
+		}
+		
+	}
+}
+
+bool Heroe::AgregarPuntosR(Vector2D *e) {
+	for (int i = 0;i < numeroRP;i++) {
+		if ((puntosR[i]) == e)
+			return false;
+	}
+	if (numeroRP < Max_Size) {
+		puntosR[numeroRP++] = e;
+		
+	}
+	else {
+		return false;
+	}
+		return true;
+}
+
+void Heroe::DestruirContenido() {
+	for (int i = 0;i < numeroRP;i++) {
+		delete puntosR[i];
+	}
+	numeroRP = 0;
+}
+
+bool Heroe::Disparo() {
+	if (sentido == Izquierda)
+		return false;
+	if (sentido == Derecha)
+		return true;
+}
+
+bool Heroe::ValidarDisparo() {
+	if (monedas > 0)
+		return true;
+	else if(monedas ==0)
+		return false;
 }

@@ -47,12 +47,12 @@ void ListaMonedas::Mueve(float t) {
 	}
 }
 
-Moneda* ListaMonedas::Colision(Heroe* p){
+void ListaMonedas::Colision(Heroe* p){
 	for (int i = 0; i < numero;i++) {
-		if (Interaccion::ColisionMoneda(p, *(lista[i])))
-		{
+		if (Interaccion::ColisionMoneda(p, *(lista[i]))){
+			p->SumarMonedas(true);
+			Eliminar(lista[i]);
 			ETSIDI::play("sonidos/monedas.wav");
-			return lista[i];
 		}
 			
 	}

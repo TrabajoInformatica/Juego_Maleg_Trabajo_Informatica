@@ -49,3 +49,11 @@ Sirena
  92.0 20.0    						//Pajaro2
  7.0  8.0    						//Pajaro3
  128.0 8.0    						//Pajaro4
+Heroe
+PuntosReaparicion
+ 0.0   0.0						//PuntoInicio
+ 23.5  7.0						//Punto1
+ 50.0  7.0						//Punto2
+ 105.5 11.0						//Punto3
+ 133.0 14.0						//Punto4
+ 190.0 20.0						//Punto5Referencianuncareaparecera_en_este

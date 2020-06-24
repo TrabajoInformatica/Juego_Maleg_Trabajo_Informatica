@@ -1,6 +1,6 @@
 #include "Pajaro.h"
 
-Pajaro::Pajaro(): sprite("imagenes/Parrot.png",3,3){
+Pajaro::Pajaro(): sprite("imagenes/bird.png",3,3){
 }
 
 Pajaro::~Pajaro() {
@@ -8,7 +8,7 @@ Pajaro::~Pajaro() {
 
 
 }
-Pajaro::Pajaro(float px, float py): sprite("imagenes/Parrot.png", 3, 3) {
+Pajaro::Pajaro(float px, float py): sprite("imagenes/bird.png", 3, 3) {
 
 	posicion.x = px;
 	posicion.y = py;
@@ -19,9 +19,9 @@ Pajaro::Pajaro(float px, float py): sprite("imagenes/Parrot.png", 3, 3) {
 	altura = 0.5f;
 	velocidad.x = 1.0f;
 	lim_xi = posicion.x - 10.0f;
-	lim_yi = posicion.y + 7.0f;
+	//lim_yi = posicion.y + 7.0f;
 	lim_xd = posicion.x + 10.0f;
-	lim_yd = posicion.y - 7.0f;
+	//lim_yd = posicion.y - 7.0f;
 
 }
 
@@ -43,24 +43,18 @@ void Pajaro::Movimiento() {
 		velocidad.x = 2.5f;
 		aceleracion.x = 2.0f;
 	}
-
 }
 
 void Pajaro::Dibuja() {
 
 //Dimensiones del sprite
-	sprite.setCenter(1, 1);
-	sprite.setSize(2, 2);
+	sprite.setCenter(1.3, 1);
+	sprite.setSize(2.4, 2.4);
 //Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
-	glColor3f(1.0f, 1.0f, 1.0f);
 	if (velocidad.x > 0.01)sprite.flip(false, false);
 	if (velocidad.x < -0.01)sprite.flip(true, false);
-	if ((velocidad.x < 0.01) && (velocidad.x > -0.01))
-		sprite.setState(0);
-	else if (sprite.getState() == 0)
-		sprite.setState(1, false);
 	sprite.draw();
 	sprite.loop();
 	glPopMatrix();

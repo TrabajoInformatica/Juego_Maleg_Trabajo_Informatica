@@ -1,8 +1,10 @@
 #include "Lanza.h"
 #include "glut.h"
-Lanza::Lanza(float x,float y) {
+Lanza::Lanza(float x,float y,float v): spear("imagenes/lanza.png",1,1) {
 	posicion.x = x;
 	posicion.y = y;
+	velocidad.x = v;
+	aceleracion.y = -9.8;
 	rojo = 255;
 	verde = 45;
 	azul = 100;
@@ -14,10 +16,25 @@ Lanza::~Lanza() {
 }
 
 void Lanza::Dibuja() {
-	glColor3ub(rojo, verde, azul);
+	//Dimensiones del sprite
+	spear.setCenter(1.8, 0.2);
+	spear.setSize(2, 1);
+
+	//Dibujo
+	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0);
-	glutSolidCube(lado);
+	if (velocidad.x > 0.01)spear.flip(false, false);
+	if (velocidad.x < -0.01)spear.flip(true, false);
+	spear.setAngle(-20.0f);
+	spear.draw();
+	glPopMatrix();
+
+	//Hitbox
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 0);
+	glutWireCube(lado);
 	glTranslatef(-posicion.x, -posicion.y, 0);
+	glPopMatrix();
 }
 
 void Lanza::Mueve(float t) {

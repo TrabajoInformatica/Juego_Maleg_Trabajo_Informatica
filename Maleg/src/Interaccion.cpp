@@ -84,11 +84,26 @@ bool Interaccion::ColisionMoneda(Heroe* pers, Moneda m) {
      float distanciaesup = posicione.y + e.GetRadio();
      float distanciaeinf = posicione.y - e.GetRadio();
      if ((distanciaexi <= distanciapxd) && (distanciaexd >= distanciapxi) && ((distanciapysup >= distanciaeinf) && (distanciapyinf <= distanciaesup))) {
-
          return true;
      }
-
-
      return false;
 
 }
+
+ bool Interaccion::ColisionEnemigo(Arma a, Enemigo e) {
+     Vector2D posicion = a.GetPos();
+     float altura = a.GetLado() / 2;
+     Vector2D posicione = e.GetPos();
+     float distanciaexi = posicione.x - e.GetRadio();
+     float distanciaexd = posicione.x + e.GetRadio();
+     float distanciapxd = posicion.x + altura;
+     float distanciapxi = posicion.x - altura;
+     float distanciapysup = posicion.y + altura;
+     float distanciapyinf = posicion.y - altura;
+     float distanciaesup = posicione.y + e.GetRadio();
+     float distanciaeinf = posicione.y - e.GetRadio();
+     if ((distanciaexi <= distanciapxd) && (distanciaexd >= distanciapxi) && ((distanciapysup >= distanciaeinf) && (distanciapyinf <= distanciaesup))) {
+         return true;
+     }
+     return false;
+ }

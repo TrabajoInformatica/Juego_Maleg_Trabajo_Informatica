@@ -6,10 +6,10 @@
 #include "Personaje.h"
 
 class Mundo {
-	public:
-		int vidaHeroe;
-		Nivel1* nivel1 = new Nivel1();
-	Nivel2 nivel2;
+public:
+	Heroe heroe;
+	Nivel1* nivel1 = new Nivel1();
+	Nivel2 *nivel2=new Nivel2();
 	int nivel;
 		Mundo();
 virtual ~Mundo();

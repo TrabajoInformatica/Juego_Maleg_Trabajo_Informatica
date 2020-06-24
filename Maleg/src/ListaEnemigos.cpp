@@ -57,9 +57,9 @@ bool ListaEnemigos::Colision(Heroe* p) {
 	
 	for (int i = 0; i < nume;i++) {
 		if (Interaccion::ColisionEnemigo(p, *(Lista_e[i]))) {
-			cout << "impacto" << endl;
-			//p->SetPos(0.0f, 3.0f);
-			//p->SetVel(0.0f, 0.0f);
+			p->SetVida(p->GetVida() - 1);
+			p->SetVel(0.0f, 0.0f);
+			p->PuntoReaparicion();
 			return true;
 
 		}
@@ -68,18 +68,36 @@ bool ListaEnemigos::Colision(Heroe* p) {
 
 	return false;
 }
-void ListaEnemigos::Eliminar(Enemigo* e) {
 
-
-}
-
-void ListaEnemigos::Eliminar(int index) {
-
-
+Enemigo ListaEnemigos::GetListaEnem(int num) {
+	return *(Lista_e[num]);
 }
 
 void ListaEnemigos::ShowHitbox(bool e) {
 	for (int i = 0;i < nume;i++) {
 		Lista_e[i]->ShowHitbox(e);
+	}
+}
+
+int ListaEnemigos::GetNumeroE() {
+	return nume;
+}
+
+void ListaEnemigos::Eliminar(Enemigo* e) {//borrar esfera según su dirección de memoria
+	for (int i = 0;i < nume;i++) {
+		if (Lista_e[i] == e) {
+			Eliminar(i);
+			return;
+		}
+	}
+}
+void ListaEnemigos::Eliminar(int index) {//borrar una esfera segun su indice
+	if ((index < 0) || (index >= nume)) {//si el indice esta fuera de rango
+		return;
+	}
+	delete Lista_e[index];
+	nume--;
+	for (int i = index;i < nume;i++) {
+		Lista_e[i] = Lista_e[1 + i];
 	}
 }

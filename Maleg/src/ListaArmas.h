@@ -13,7 +13,10 @@ public:
 	void Dibuja();
 	void Mueve(float t);
 	bool AgregarA(Arma* a);
+
 	void DestruirContenido();
+	void Eliminar(Arma* a);
+	void Eliminar(int index);
 
 	Arma  GetLista(int num);
 	int GetNum();
