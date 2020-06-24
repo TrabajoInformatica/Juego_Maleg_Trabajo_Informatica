@@ -82,3 +82,14 @@ void Sirena::ShowHitbox(bool e) {
 	else
 		estado = Hide;
 }
+/*
+void Sirena::Colision(int t) {
+	if (t == 1) {
+		Lista_e[i]->SetVel(Lista_e[i]->GetVel().x, 0.0f);
+		Lista_e[i]->SetAce(Lista_e[i]->GetAce().x, 0.0f);
+	}
+	if (t == 2) {
+		Lista_e[i]->SetVel(0.0f, Lista_e[i]->GetVel().y);
+	}
+}
+*/

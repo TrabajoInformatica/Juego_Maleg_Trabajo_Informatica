@@ -107,3 +107,34 @@ bool Interaccion::ColisionMoneda(Heroe* pers, Moneda m) {
      }
      return false;
  }
+
+ bool Interaccion::ColisionSup(Enemigo *e, Plataforma pl) {
+     Vector2D posicion = e->GetPos();
+     float altura = (e->GetRadio()) ;
+     float diferencia = posicion.y - pl.Getlimite1().y;
+     if ((diferencia >= altura - 1.5f) && (diferencia <= altura) && (pl.Getlimite1().x < posicion.x + altura) && (posicion.x - altura < pl.Getlimite2().x)) {
+        // e->SetPos(e->GetPos().x, pl.Getlimite1().y + altura);
+         return true;
+     }
+     else
+         return false;
+}
+
+ bool Interaccion::ColisionLat(Enemigo* e, Plataforma pl) {
+     Vector2D posicion = e->GetPos();
+     float altura = e->GetRadio();
+     float diferencia1 = pl.Getlimite1().x - posicion.x;
+     float diferencia2 = posicion.x - pl.Getlimite2().x;
+     if ((e->GetVel().x >= 0) && (diferencia1 <= altura) && (diferencia1 > altura - 0.5f) && (((pl.Getlimite1().y - pl.GetGrosor() < e->GetPos().y + altura) && (e->GetPos().y + altura < pl.Getlimite1().y)) ||
+         ((pl.Getlimite1().y - pl.GetGrosor() < e->GetPos().y - altura) && (e->GetPos().y - altura < pl.Getlimite1().y)) || ((pl.Getlimite1().y < e->GetPos().y + altura) && (e->GetPos().y - altura < pl.Getlimite1().y - pl.GetGrosor())))) {
+         //e->SetPos(pl.Getlimite1().x - altura, e->GetPos().y);
+         return true;
+     }
+     if ((e->GetVel().x <= 0) && (diferencia2 <= altura) && (diferencia2 > altura - 0.5f) && (((pl.Getlimite1().y - pl.GetGrosor() < e->GetPos().y + altura) && (e->GetPos().y + altura < pl.Getlimite1().y)) || ((pl.Getlimite1().y - pl.GetGrosor() < e->GetPos().y - altura) && (e->GetPos().y - altura < pl.Getlimite1().y)) ||
+         ((pl.Getlimite1().y < e->GetPos().y + altura) && (e->GetPos().y - altura < pl.Getlimite1().y - pl.GetGrosor())))) {
+        // e->SetPos(pl.Getlimite2().x + altura, e->GetPos().y);
+         return true;
+     }
+
+     return false;
+ }

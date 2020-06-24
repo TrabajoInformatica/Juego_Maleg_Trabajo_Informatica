@@ -18,5 +18,7 @@ public:
 	static bool ColisionMoneda(Heroe* pers, Moneda m);
 	static bool ColisionEnemigo(Heroe* pers, Enemigo e);
 	static bool ColisionEnemigo(Arma a, Enemigo e);
+	static bool ColisionSup(Enemigo *e,Plataforma pl);
+	static bool ColisionLat(Enemigo* e, Plataforma pl);
 };
 

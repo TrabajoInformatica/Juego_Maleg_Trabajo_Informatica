@@ -36,7 +36,7 @@ void Nivel1::Inicializa(Heroe h) {
 
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
-	LecturaFichero(Fichero);
+	LecturaFichero(Fichero); 
 	/*Araña* ax0 = new Araña(10.0f,10.0f);
 	enemigos.AgregarE(ax0);*/
 }
@@ -117,7 +117,7 @@ void Nivel1::Dibuja() {
 
 void Nivel1::Mueve() {
 	// Enemigos
-	enemigos.Mueve(0.025f);	
+	enemigos.Mueve(0.025f);
 	monedas.Mueve(0.025f);
 	armas.Mueve(0.05f);
 	plataformas.Mueve(0.025f);
@@ -129,7 +129,7 @@ void Nivel1::Mueve() {
 	monedas.Colision(&heroe);
 	enemigos.Colision(&heroe);
 	/////////Provisional
-	
+
 	if (puerta.Colision(&heroe) == true) {
 		cout << "puerta" << endl;
 		fin = true;
@@ -144,6 +144,10 @@ void Nivel1::Mueve() {
 				enemigos.Eliminar(i);
 			}
 		}
+	}
+	
+	for (int i = 0;i < plataformas.GetNumPlat();i++) {
+		enemigos.Colision(plataformas.GetListaPlat(i));
 	}
 }
 

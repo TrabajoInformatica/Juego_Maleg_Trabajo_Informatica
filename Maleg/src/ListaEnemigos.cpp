@@ -101,3 +101,18 @@ void ListaEnemigos::Eliminar(int index) {//borrar una esfera segun su indice
 		Lista_e[i] = Lista_e[1 + i];
 	}
 }
+
+void ListaEnemigos::Colision(Plataforma pl) {
+	for (int i = 0; i < nume;i++) {
+		if (Interaccion::ColisionSup(Lista_e[i],pl)) {
+			Lista_e[i]->Colision(1);
+			break;
+		}
+	}
+	for (int i = 0; i < nume;i++) {
+		if (Interaccion::ColisionSup(Lista_e[i], pl)) {
+			Lista_e[i]->Colision(2);
+			break;
+		}
+	}
+}
