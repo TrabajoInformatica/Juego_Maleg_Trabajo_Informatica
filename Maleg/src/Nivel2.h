@@ -5,7 +5,6 @@
 #include "ListaMonedas.h"
 #include "ListaEnemigos.h"
 #include "ListaArmas.h"
-#include "Marcador.h"
 #include <string>
 #include "Heroe.h"
 #include "Sirena.h"
@@ -22,6 +21,10 @@ private:
 	string Fichero = "Nivel2.txt";
 	ListaMonedas monedas2;
 	ListaEnemigos enemigos2;
+	ListaArmas  armas2;
+	enum Estado { ShowHitbox, HideHitbox };
+	Estado estado = HideHitbox;
+	bool fin;
 public:
 	Nivel2();
 	virtual ~Nivel2();

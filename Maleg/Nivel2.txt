@@ -4,8 +4,7 @@ Plataforma
  10.0 7.5 14.0 7.5 0.5 155.0 155.0 155.0     //Primera_plataforma_flotante
  10.0 17.0 14.0 17.0 0.5 155.0 155.0 155.0     //Segunda_plataforma_flotante
  20.0 20.0 21.0 20.0 20.5 155.0 155.0 155.0      //Primer_pared_vertical
- 20.0 20.0 23.0 20.0 0.5 155.0 155.0 155.0     //Continuacion_despues_de_los_saltos
- 25.0 20.0 32.0 20.0 0.5 0.0 255.0 127.0       //Cavidad_en_el_suelo_Hoyo
+ 20.0 20.0 30.0 20.0 0.5 155.0 155.0 155.0     //Continuacion_despues_de_los_saltos
  27.5 23.0 32.5 23.0 0.5 155.0 155.0 155.0     //Plataforma_flotante
  52.0 29.0 57.0 29.0 0.5 155.0 155.0 155.0     //Zona_de_descanso_despues_de_los_saltos
  53.0 25.0 60.0 25.0 0.5 0.0 255.0 127.0       //Hoyo_debajo_de_la_plataforma
@@ -13,7 +12,7 @@ Plataforma
  85.0 25.0 88.0 25.0 0.5 0.0 255.0 127.0       //Hoyo_a_continuacion_del_rectangulo
  88.0 25.0 93.0 25.0 0.5 155.0 155.0 155.0     //Plataforma_horizontal
  95.0 28.0 100.0 28.0 0.5 155.0 155.0 155.0    //Plataforma_flotante
- 102.0 26.0 106.0 26.0 0.5 155.0 155.0 155.0   //Plataforma_flotante2
+ 102.0 25.0 106.0 25.0 0.5 155.0 155.0 155.0   //Plataforma_flotante2
  102.0 31.0 106.0 31.0 0.5 155.0 155.0 155.0   //Plataforma_flotante3
  17.0 3.0 20.0 3.0 3.0 155.0 155.0 155.0       //Primer_bloque_en_la_primera_pared_vertical
  17.0 12.5 20.0 12.5 3.0 155.0 155.0 155.0     //Segundo_bloque_pared_vertical
@@ -21,12 +20,27 @@ Plataforma
  41.0 31.0 44.0 31.0 2.0 155.0 155.0 155.0     //Bloque_flotante_2
  46.0 27.0 49.0 27.0 2.0 155.0 155.0 155.0     //Bloque_flotante_3
  65.0 27.0 77.0 27.0 2.5 155.0 155.0 155.0     //Peldano_1_escalera
- 67.0 29.0 77.0 29.0 2.0 155.0 155.0 155.0     //Peldano_2_escalera
- 69.0 31.0 77.0 31.0 2.0 155.0 155.0 155.0     //Peldano_3_escalera
- 71.0 33.0 77.0 33.0 2.0 155.0 155.0 155.0     //Peldano_4_escalera
- 73.0 35.0 77.0 35.0 2.0 155.0 155.0 155.0     //Peldano_5_escalera
- 75.0 37.0 77.0 37.0 2.0 155.0 155.0 155.0     //Peldano_6_escalera
- 80.0 37.0 86.0 37.0 12.5 155.0 155.0 155.0     //Rectangulo_grande
+ 67.0 29.5 77.0 29.5 2.5 155.0 155.0 155.0     //Peldano_2_escalera
+ 69.0 32.0 77.0 32.0 2.5 155.0 155.0 155.0     //Peldano_3_escalera
+ 71.0 34.5 77.0 34.5 2.5 155.0 155.0 155.0     //Peldano_4_escalera
+ 73.0 37.0 77.0 37.0 2.5 155.0 155.0 155.0     //Peldano_5_escalera
+ 75.0 39.5 77.0 39.5 2.5 155.0 155.0 155.0     //Peldano_6_escalera
+ 81.0 37.0 86.0 37.0 12.5 155.0 155.0 155.0     //Rectangulo_grande
  108.0 29.0 110.0 29.0 2.0 155.0 155.0 155.0   //Penultimo_bloque
  113.0 31.0 116.0 31.0 2.0 155.0 155.0 155.0	//Ultimo_bloque
- 127.0 26.0 134.0 26.0 0.5 155.0 155.0 155.0	//Plataforma_para_acceso_a_siguiente_nivel
+ 134.0 26.0 144.0 26.0 0.5 155.0 155.0 155.0	//Plataforma_para_acceso_a_siguiente_nivel
+ 125.0 25.0 128.0 25.0 1.0 155.0 155.0 155.0	//Bloque_entre_plataformas_moviles
+Plataforma_movil
+ 119.0 24.0 124.0 24.0 0.5 300 2.0 0.0 155.0 155.0 155.0	//Plataforma_movil
+ 129.0 26.0 134.0 26.0 0.5 300 2.0 0.0 155.0 155.0 155.0	//Plataforma_movil_2
+Monedas
+ 12.0 20.0 0.5 255.0 255.0 0.0		//Moneda1
+ 39.0 30.0 0.5 255.0 255.0 0.0		//Moneda2
+ 87.0 35.5 0.5 255.0 255.0 0.0		//Moneda3
+ 104.0 27.0 0.5 255.0 255.0 0.0		//moneda4
+ 19.0 3.5 0.5 255.0 255.0 0.0		//Moneda5
+PuntosReaparicion
+ 0.0 0.0 				//Reaparicion
+ 20.0 20.0				//Punto2
+ 115.0 32.0				//PuntoInfinito
+ 200.0 200.0				//PuntoInfinito

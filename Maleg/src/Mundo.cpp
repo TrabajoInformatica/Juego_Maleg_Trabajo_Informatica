@@ -110,13 +110,13 @@ bool Mundo::Muerte() {
 			return false;
 		}
 	}
-	/*else if (nivel == 2) {
-		if (nivel2->MuerteHeroe()) {
+	else if (nivel == 2) {
+		if (nivel2.MuerteHeroe()) {
 			return true;
 		}
-		else if (!nivel2->MuerteHeroe()) {
+		else if (!nivel2.MuerteHeroe()) {
 			return false;
 		}
 	}
-	*/
+	
 }
