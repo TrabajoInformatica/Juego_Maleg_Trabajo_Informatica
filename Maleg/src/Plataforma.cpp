@@ -123,4 +123,5 @@ void Plataforma::Mueve(float t) {
 void Plataforma::Reaccion(Heroe* pers) {
     pers->SetVel(pers->GetVel().x, 0.0f);
     pers->SetAce(pers->GetAce().x, 0.0f);
+    pers->SetPos(pers->GetPos().x, (limite1.y+pers->GetAltura()/2));
 }

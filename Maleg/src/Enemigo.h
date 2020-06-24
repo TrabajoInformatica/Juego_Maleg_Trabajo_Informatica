@@ -13,5 +13,6 @@ public:
 	virtual void Dibuja(){}
 	virtual void  Mueve(float t){}
 	virtual void ShowHitbox(bool e){}
+	virtual void Colision(int t){}
 };
 

@@ -27,7 +27,7 @@ void Nivel1::Inicializa(Heroe h) {
 	heroe = h;
 	/////////////////////////////////////Personaje
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(160.0f,10.0f);
+	heroe.SetPos(0.0f,1.0f);
 	heroe.SetVel(0.0f, 0.0f);
 	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
 	//puerta.SetColor(255, 0, 0);
@@ -38,7 +38,7 @@ void Nivel1::Inicializa(Heroe h) {
 
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
-	LecturaFichero(Fichero);
+	LecturaFichero(Fichero); 
 	/*Araña* ax0 = new Araña(10.0f,10.0f);
 	enemigos.AgregarE(ax0);*/
 }
@@ -120,7 +120,7 @@ void Nivel1::Dibuja() {
 
 void Nivel1::Mueve() {
 	// Enemigos
-	enemigos.Mueve(0.025f);	
+	enemigos.Mueve(0.025f);
 	monedas.Mueve(0.025f);
 	armas.Mueve(0.05f);
 	plataformas.Mueve(0.025f);
@@ -138,7 +138,6 @@ void Nivel1::Mueve() {
 		cout << "choque vida" << endl;
 		heroe.SetVida(heroe.GetVida() + 1);
 	}
-	
 	if (puerta.Colision(&heroe) == true) {
 		cout << "puerta" << endl;
 		fin = true;
@@ -153,6 +152,10 @@ void Nivel1::Mueve() {
 				enemigos.Eliminar(i);
 			}
 		}
+	}
+	
+	for (int i = 0;i < plataformas.GetNumPlat();i++) {
+		enemigos.Colision(plataformas.GetListaPlat(i));
 	}
 }
 
