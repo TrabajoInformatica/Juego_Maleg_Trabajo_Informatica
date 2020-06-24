@@ -52,5 +52,5 @@ void PlataformaMovil::Reaccion(Heroe* pers) {
 	if(velocidad.y<=0)
 		pers->SetPos(pers->GetPos().x, limite2.y + pers->GetAltura() / 2 + velocidad.y*tiempo);
 	if(velocidad.y>0)
-		pers->SetPos(pers->GetPos().x, limite2.y + pers->GetAltura() / 2);
+		pers->SetPos(pers->GetPos().x, limite2.y + pers->GetAltura() / 2); 
 }
