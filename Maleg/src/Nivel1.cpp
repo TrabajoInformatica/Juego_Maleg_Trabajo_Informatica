@@ -32,6 +32,7 @@ void Nivel1::Inicializa(int vidas) {
 	//puerta.SetColor(255, 0, 0);
  Puerta* puer = new Puerta(174.0f, 8.0f, 175.0f, 8.0f, -8.0f, 255, 0, 0);
  puerta.AgregarP(puer);
+ vidaextra.SetPos(170.0f,35.0f);
 
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
@@ -58,8 +59,9 @@ void Nivel1::Dibuja() {
 	armas.Dibuja();
 
 	puerta.DibujaP();
-	cout << "X" << heroe.GetPos().x << endl;
-	cout << "Y" << heroe.GetPos().y << endl;
+	//cout << "X" << heroe.GetPos().x << endl;
+	//cout << "Y" << heroe.GetPos().y << endl;
+	vidaextra.Dibuja();
 }
 
 void Nivel1::Mueve() {
@@ -75,6 +77,7 @@ void Nivel1::Mueve() {
 	plataformas.Colision(&heroe);
 	monedas.Colision(&heroe);
 	enemigos.Colision(&heroe);
+	vidaextra.Mueve(0.025f,9.5f);
 	/////////Provisional
 	
 	if (puerta.Colision(&heroe) == true) {

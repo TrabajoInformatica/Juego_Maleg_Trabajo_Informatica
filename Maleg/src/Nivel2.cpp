@@ -19,7 +19,7 @@ void Nivel2::Inicializa(int vidas) {
 	heroe2.SetVida(vidas); //si se hace con el mismo heroe no 
 	heroe2.SetPos(0.0f, 0.0f);
 	heroe2.SetVel(0.0f, 0.0f);
-	//heroe2.SetAlturaMuerte(-15.0f);
+	vidaextra2.SetPos(75.9, 41.5f);
 	////////////////////////////////////Plataformas
 
 
@@ -45,6 +45,8 @@ void Nivel2::Dibuja() {
 	monedas2.Dibuja();
 	armas2.Dibuja();
 
+	vidaextra2.Dibuja();
+
 	cout << "X" << heroe2.GetPos().x << endl;
 	cout << "Y" << heroe2.GetPos().y << endl;
 	///////////////////////////////////Enemigos
@@ -57,6 +59,7 @@ void Nivel2::Mueve() {
 	enemigos2.Mueve(0.25f);
 	plataformas2.Mueve(0.025f);
 	armas2.Mueve(0.025f);
+	vidaextra2.Mueve(0.025f,41.5f);
 
 	//////Colisiones
 	plataformas2.Colision(&heroe2);

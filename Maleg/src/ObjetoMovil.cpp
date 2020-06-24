@@ -22,6 +22,10 @@ void ObjetoMovil::SetAce(float ax, float ay) {
 	aceleracion.y = ay;
 }
 
+void ObjetoMovil::SetRadio(float r) {
+	radio=r;
+}
+
 // METODOS GET
 Vector2D ObjetoMovil::GetPos() {
 	return posicion;
@@ -32,3 +36,14 @@ Vector2D ObjetoMovil::GetVel() {
 Vector2D ObjetoMovil::GetAce() {
 	return aceleracion;
 }
+
+float ObjetoMovil::GetRadio() {
+	return radio;
+}
+
+void ObjetoMovil::SetColor(unsigned char r, unsigned char v, unsigned char a) {
+	rojo = r;
+	verde = v;
+	azul = a;
+}
+

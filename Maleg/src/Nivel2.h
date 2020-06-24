@@ -9,6 +9,7 @@
 #include "Heroe.h"
 #include "Sirena.h"
 #include "Lanza.h"
+#include "VidaExtra.h"
 #include "Puerta.h"
 #include "Interaccion.h"
 #include <string>
@@ -22,6 +23,7 @@ private:
 	ListaMonedas monedas2;
 	ListaEnemigos enemigos2;
 	ListaArmas  armas2;
+	VidaExtra vidaextra2;
 	enum Estado { ShowHitbox, HideHitbox };
 	Estado estado = HideHitbox;
 	bool fin;
