@@ -1,10 +1,10 @@
 #include "Araña.h"
 
-Araña::Araña() {
+Araña::Araña(): spyder("imagenes/araña(x).png", 3, 1){
 
 }
 
-Araña::Araña(float px, float py) {
+Araña::Araña(float px, float py): spyder("imagenes/araña(x).png", 3, 1){
 	
 	posicion.x = px;
 	posicion.y = py;
@@ -65,7 +65,19 @@ void Araña::Movimiento() {
 }
 
 void Araña::Dibuja() {
-	
+	//Dimensiones del sprite
+	spyder.setCenter(1, 1);
+	spyder.setSize(2, 2);
+	//Dibujo
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 0.5);
+	if (velocidad.x > 0.01 && velocidad.y == 0) spyder.flip(false, true);
+	else if (velocidad.x < 0.1) spyder.flip(true, false);
+	spyder.draw();
+	spyder.loop();
+	glPopMatrix(); 
+
+	//Hitbox
 	glPushMatrix();
 	glColor3ub(rojo, verde, azul);
 	glTranslatef(posicion.x, posicion.y, 0);
