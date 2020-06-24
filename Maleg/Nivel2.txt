@@ -5,11 +5,15 @@ Plataforma
  20.0 20.0 21.0 20.0 20.5 155.0 155.0 155.0      //Primer_pared_vertical
  20.0 20.0 30.0 20.0 0.5 155.0 155.0 155.0     //Continuacion_despues_de_los_saltos
  27.5 23.0 32.5 23.0 0.5 155.0 155.0 155.0     //Plataforma_flotante
+<<<<<<< Updated upstream
  52.0 29.0 57.0 29.0 0.5 155.0 155.0 155.0     //Zona_de_"descanso"_después_de_los_saltos
  53.0 25.0 60.0 25.0 0.5 0.0 255.0 127.0       //Hoyo_debajo_de_la_plataforma
 <<<<<<< Updated upstream
  60.0 25.0 65.0 25.0 0.5 155.0 155.0 155.0     //Plataforma 
  85.0 25.0 88.0 25.0 0.5 0.0 255.0 127.0       //Hoyo_a_continuación_del_rectángulo
+=======
+ 52.0 29.0 57.0 29.0 0.5 155.0 155.0 155.0     //Zona_de_descanso_despues_de_los_saltos
+>>>>>>> Stashed changes
  88.0 25.0 93.0 25.0 0.5 155.0 155.0 155.0     //Plataforma_horizontal
 =======
  60.0 25.0 65.0 25.0 0.5 155.0 155.0 155.0     //Plataforma_Puesta 
@@ -32,15 +36,14 @@ Plataforma
  81.0 37.0 86.0 37.0 0.5 155.0 155.0 155.0     //Rectangulo_grande_hor
  86.0 25.0 93.0 25.0 0.5 155.0 155.0 155.0     //Plataforma_horizontal
  108.0 29.0 110.0 29.0 2.0 155.0 155.0 155.0   //Bloque_plataforma_enemigo
- 110.0 27.5 115.0 27.5 0.5 155.0 155.0 155.0 	//plataforma_enemigo
- 115.0 29.0 117.0 29.0 2.0 155.0 155.0 155.0 	//bloque2_plataforma_enemigo
- 134.0 26.0 144.0 26.0 0.5 155.0 155.0 155.0	//Plataforma_para_acceso_a_siguiente_nivel
- 125.0 23.0 128.0 23.0 1.0 155.0 155.0 155.0	//Bloque_entre_plataformas_moviles
- 130.0 21.0 132.0 21.0 0.5 155.0 155.0 155.0 	//miniplataforma
- 140.0 27.0 143.0 27.0 1.0 155.0 155.0 155.0 	//escalon1_final
- 143.0 28.0 146.0 28.0 1.0 155.0 155.0 155.0 	//escalon2_final
- 146.0 28.5 152.0 28.5 0.5 155.0 155.0 155.0 	//platadorma_final
+ 110.0 27.5 123.0 27.5 0.5 155.0 155.0 155.0 	//plataforma_enemigo
+ 123.0 29.0 125.0 29.0 2.0 155.0 155.0 155.0 	//bloque2_plataforma_enemigo
+ 139.0 31.5 141.0 31.5 2.5 155.0 155.0 155.0	//bloque_entre_plataforma_movil
+ 157.0 27.5 160.0 27.5 1.0 155.0 155.0 155.0	//miniescalon1_final
+ 160.0 29.0 163.0 29.0 1.0 155.0 155.0 155.0	//miniescalon2_final
+ 163.0 30.0 170.0 30.0 0.5 155.0 155.0 155.0	//plataforma_finale
 Plataforma_movil
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
  119.0 24.0 124.0 24.0 0.5 300 2.0 0.0 155.0 155.0 155.0	//Plataforma_movil
  129.0 26.0 134.0 26.0 0.5 300 2.0 0.0 155.0 155.0 155.0	//Plataforma_movil_2
@@ -48,6 +51,13 @@ Plataforma_movil
  7.0 17.0 11.0 17.0 0.5 150 3.5 0.0 155.0 155.0 155.0          //Segunda_plataforma_flotante 
  112.0 23.0 122.5 23.0 0.5 200 2.0 0.0 155.0 155.0 155.0	//Plataforma_movil
  133.0 26.0 137.0 26.0 0.5 300 5.0 0.0 155.0 155.0 155.0	//Plataforma_movil_2
+=======
+ 8.0 17.0 11.0 17.0 0.5 70 3.5 0.0 155.0 155.0 155.0          //Segunda_plataforma_flotante
+ 53.0 25.0 56.0 25.0 0.5 100 3.5 0.0 155.0 155.0 155.0       //Hoyo_debajo_de_la_plataforma
+ 127.0 26.0 131.0 26.0 0.5 70 3.5 0.0 155.0 155.0 155.0 	//plataforma_movil_despues_enemigo
+ 143.0 21.0 145.0 21.0 0.5 80 0.0 3.5 155.0 155.0 155.0 	//plataforma_movil
+ 147.0 26.0 150.0 26.0 0.5 50 3.5 0.0 155.0 155.0 155.0		//plataforma_movil_final
+>>>>>>> Stashed changes
 Monedas
  12.0 20.0 0.5 255.0 255.0 0.0		//Moneda1
  39.0 30.0 0.5 255.0 255.0 0.0		//Moneda2
@@ -57,6 +67,7 @@ Monedas
 PuntosReaparicion
  0.0 0.0 				//Reaparicion
  20.0 25.0				//Punto2
+ 82.0 40.0 				//punto3
  115.0 32.0				//PuntoInfinito
  200.0 200.0				//PuntoInfinito
 >>>>>>> Stashed changes
