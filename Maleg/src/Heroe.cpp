@@ -98,10 +98,10 @@ void Heroe::Dibuja() {
 		//////////Dibuja el Hitbox de pajaro
 		glPushMatrix();
 		glColor3ub(rojo, verde, azul);
-		glTranslatef(posicion.x, posicion.y, 0);
+		glTranslatef(posicion.x, posicion.y, 1.0);
 		glColor3f(rojo, verde, azul);
 		glutWireCube(altura);
-		glTranslatef(-posicion.x, -posicion.y, 0);
+		glTranslatef(-posicion.x, -posicion.y, 1.0);
 		glPopMatrix();
 	}
 
