@@ -26,7 +26,7 @@ void Nivel1::Inicializa(int vidas) {
 	/////////////////////////////////////Personaje
 	heroe.SetVida(vidas);
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(165.0f,14.0f);
+	heroe.SetPos(0.0f,0.0f);
 	heroe.SetVel(0.0f, 0.0f);
 	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
 	//puerta.SetColor(255, 0, 0);
@@ -45,6 +45,58 @@ void Nivel1::Dibuja() {
 	gluLookAt(heroe.GetPos().x,heroe.GetPos().y+ 1, 3,  // posicion del ojo						//NUNCA MODIFICAR LA Z	No hace fala
 		heroe.GetPos().x, heroe.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)  
+
+	// Background
+	glEnable(GL_TEXTURE_2D);
+	//------------------------------------------------------------------------------------------
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/game_background_4.png").id);
+	glDisable(GL_LIGHTING);
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	glTexCoord2d(0, 1); glVertex3f(-40, 0, 0.6);
+	glTexCoord2d(1, 1); glVertex3f(40, 0, 0.6); 
+	glTexCoord2d(1, 0); glVertex3f(40, 40, 0.6);
+	glTexCoord2d(0, 0); glVertex3f(-40, 40, 0.6);
+	glEnd();
+	//------------------------------------------------------------------------------------------
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	glTexCoord2d(0, 1); glVertex3f(40, 0, 0.6);
+	glTexCoord2d(1, 1); glVertex3f(120, 0, 0.6);
+	glTexCoord2d(1, 0); glVertex3f(120, 40, 0.6);
+	glTexCoord2d(0, 0); glVertex3f(40, 40, 0.6);
+	glEnd();
+	//------------------------------------------------------------------------------------------
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	glTexCoord2d(0, 1); glVertex3f(120, 0, 0.6);
+	glTexCoord2d(1, 1); glVertex3f(200, 0, 0.6);
+	glTexCoord2d(1, 0); glVertex3f(200, 40, 0.6);
+	glTexCoord2d(0, 0); glVertex3f(120, 40, 0.6);
+	glEnd();
+	//------------------------------------------------------------------------------------------
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/bottom.png").id);
+	glDisable(GL_LIGHTING);
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	glTexCoord2d(0, 1); glVertex3f(-40, 0, 0.7);
+	glTexCoord2d(1, 1); glVertex3f(220, 0, 0.7);
+	glTexCoord2d(1, 0); glVertex3f(220, -60, 0.7);
+	glTexCoord2d(0, 0); glVertex3f(-40, -60, 0.7);
+	glEnd();
+	//------------------------------------------------------------------------------------------
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/top.png").id);
+	glDisable(GL_LIGHTING);
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	glTexCoord2d(0, 1); glVertex3f(-40, 40, 0.7);
+	glTexCoord2d(1, 1); glVertex3f(220, 40, 0.7);
+	glTexCoord2d(1, 0); glVertex3f(220, 100, 0.7);
+	glTexCoord2d(0, 0); glVertex3f(-40, 100, 0.7);
+	glEnd();
+	//------------------------------------------------------------------------------------------
+	glEnable(GL_LIGHTING);
+	glDisable(GL_TEXTURE_2D);
 
 	// Enemigos
 	enemigos.Dibuja();
@@ -66,7 +118,7 @@ void Nivel1::Mueve() {
 	// Enemigos
 	enemigos.Mueve(0.025f);	
 	monedas.Mueve(0.025f);
-	armas.Mueve(0.025f);
+	armas.Mueve(0.05f);
 	plataformas.Mueve(0.025f);
 	// Heroe
 	heroe.Mueve(0.1f);

@@ -56,7 +56,7 @@ void Nivel2::Mueve() {
 	heroe2.Mueve(0.1f);
 	enemigos2.Mueve(0.25f);
 	plataformas2.Mueve(0.025f);
-	armas2.Mueve(0.025f);
+	armas2.Mueve(0.05f);
 
 	//////Colisiones
 	plataformas2.Colision(&heroe2);

@@ -1,6 +1,6 @@
 #include "Pajaro.h"
 
-Pajaro::Pajaro(): sprite("imagenes/Parrot.png",3,3){
+Pajaro::Pajaro(): sprite("imagenes/bird.png",3,3){
 }
 
 Pajaro::~Pajaro() {
@@ -8,7 +8,7 @@ Pajaro::~Pajaro() {
 
 
 }
-Pajaro::Pajaro(float px, float py): sprite("imagenes/Parrot.png", 3, 3) {
+Pajaro::Pajaro(float px, float py): sprite("imagenes/bird.png", 3, 3) {
 
 	posicion.x = px;
 	posicion.y = py;
@@ -48,8 +48,8 @@ void Pajaro::Movimiento() {
 void Pajaro::Dibuja() {
 
 //Dimensiones del sprite
-	sprite.setCenter(1, 1);
-	sprite.setSize(2, 2);
+	sprite.setCenter(1.3, 1);
+	sprite.setSize(2.4, 2.4);
 //Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
