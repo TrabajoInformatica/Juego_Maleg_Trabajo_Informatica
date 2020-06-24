@@ -29,9 +29,11 @@ public:
 	Nivel2();
 	virtual ~Nivel2();
 	void Mueve();
-	void Inicializa(int vidas);
+	void Inicializa(Heroe h);
 	void Dibuja();
-
+	void DestruirContenido();
+	bool FinNivel2();
+	Heroe GetHeroe();
 	void Tecla(unsigned char);
 	void TeclaUp(unsigned char key);
 

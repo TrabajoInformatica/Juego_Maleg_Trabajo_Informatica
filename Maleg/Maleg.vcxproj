@@ -149,6 +149,7 @@
     <ClCompile Include="src\Arma.cpp" />
     <ClCompile Include="src\Lanza.cpp" />
     <ClCompile Include="src\ListasArmas.cpp" />
+    <ClCompile Include="src\Nivel3.cpp" />
     <ClCompile Include="src\PlataformaMovil.cpp" />
     <ClCompile Include="src\CoordinadorPang.cpp" />
     <ClCompile Include="src\Enemigo.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="src\Arma.h" />
     <ClInclude Include="src\Lanza.h" />
     <ClInclude Include="src\ListaArmas.h" />
+    <ClInclude Include="src\Nivel3.h" />
     <ClInclude Include="src\PlataformaMovil.h" />
     <ClInclude Include="src\CoordinadorPang.h" />
     <ClInclude Include="src\Enemigo.h" />

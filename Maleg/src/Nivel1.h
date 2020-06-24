@@ -30,9 +30,9 @@ public:
 	virtual~Nivel1();
 	int vida;
 	bool fin;
-	int getVidaHeroe();
+	Heroe GetHeroe();
 	/////Funciones
-	void Inicializa(int vidas);
+	void Inicializa(Heroe h);
 	bool FinNivel1();
 	void Dibuja();
 	void Mueve();

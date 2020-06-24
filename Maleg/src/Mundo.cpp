@@ -14,7 +14,7 @@ Mundo::~Mundo() {
 
 
 void Mundo::Inicializa() {
-	vidaHeroe = 3;
+	heroe.SetVida(3);
 	nivel =1;
 	CargarNivel();
 	cout << "inicializa" << endl;
@@ -26,11 +26,11 @@ void Mundo::CargarNivel() {
 	
 	if (nivel == 1) 
 	{		
-		nivel1->Inicializa(vidaHeroe);		
+		nivel1->Inicializa(heroe);		
 		cout << "Inicializamundonivel1" << endl;
 	}
 	else if (nivel == 2) {
-		nivel2.Inicializa(vidaHeroe);
+		nivel2->Inicializa(heroe);
 		cout << "Inicializamundonivel2" << endl;
 	}
 }
@@ -41,10 +41,8 @@ void Mundo::Dibuja() {
 	if (nivel == 1){
 		nivel1->Dibuja();
 	}else if (nivel == 2) {
-		nivel2.Dibuja();
+		nivel2->Dibuja();
 	}
-	if(nivel==1)
-		vidaHeroe = nivel1->getVidaHeroe();	
 }
 
 void Mundo::TeclaEspecial(unsigned char key){
@@ -70,6 +68,7 @@ void Mundo::Mover(){
 		if (nivel1->FinNivel1() == true) {
 			cout << "ha acabado el nivel 1" << endl;
 			nivel = nivel + 1;		
+			heroe = nivel1->GetHeroe();
 			nivel1->DestruirContenido();
 			delete nivel1;
 			cout << "Deletenivel1" << endl;
@@ -79,27 +78,46 @@ void Mundo::Mover(){
 			nivel1->Mueve();
 		}
 	}
-	
-	if(nivel==2)
-	nivel2.Mueve();
+
+	if (nivel == 2) {
+		if (nivel2->FinNivel2() == true) {
+			cout << "ha acabado el nivel 1" << endl;
+			nivel = nivel + 1;
+			heroe = nivel2->GetHeroe();
+			nivel2->DestruirContenido();
+			delete nivel2;
+			cout << "Deletenivel1" << endl;
+			CargarNivel();
+		}
+		else {
+			nivel2->Mueve();
+		}
+	}
+
 	
 }
 
 void Mundo::Tecla(unsigned char key)
 {	
 	if(nivel==1)
-	nivel1->Tecla(key);
+		nivel1->Tecla(key);
 	
 	if(nivel==2)
-	nivel2.Tecla(key);
+		nivel2->Tecla(key);
+
+	//if (nivel == 3)
+		//nivel3.Tecla(key);
 	
 }
 void Mundo::TeclaUp(unsigned char key) {
 	if(nivel==1)
-	nivel1->TeclaUp(key);
+		nivel1->TeclaUp(key);
 	
 	if(nivel==2)
-	nivel2.TeclaUp(key);
+		nivel2->TeclaUp(key);
+
+	//if (nivel == 3)
+		//nivel3.TeclaUp(key);
 }
 
 bool Mundo::Muerte() {
@@ -111,12 +129,20 @@ bool Mundo::Muerte() {
 		}
 	}
 	else if (nivel == 2) {
-		if (nivel2.MuerteHeroe()) {
+		if (nivel2->MuerteHeroe()) {
 			return true;
 		}
-		else if (!nivel2.MuerteHeroe()) {
+		else if (!nivel2->MuerteHeroe()) {
 			return false;
 		}
 	}
-	
+	/*else if (nivel == 3) {
+	//	if (nivel3.MuerteHeroe()) {
+			return true;
+		}
+		else if (!nivel3.MuerteHeroe()) {
+			return false;
+		}
+	}
+	*/
 }

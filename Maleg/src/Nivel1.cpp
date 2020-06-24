@@ -18,13 +18,14 @@ void Nivel1::DestruirContenido() {
 	plataformas.DestruirContenido();
 	puerta.DestruirContenido();
 }
-int Nivel1::getVidaHeroe() {
-	return heroe.GetVida();
+Heroe Nivel1::GetHeroe() {
+	heroe.DestruirContenido();
+	return heroe;
 }
 
-void Nivel1::Inicializa(int vidas) {
+void Nivel1::Inicializa(Heroe h) {
+	heroe = h;
 	/////////////////////////////////////Personaje
-	heroe.SetVida(vidas);
 	heroe.SetAlturaMuerte(-15.0f);
 	heroe.SetPos(0.0f,0.0f);
 	heroe.SetVel(0.0f, 0.0f);
@@ -151,7 +152,6 @@ bool Nivel1::FinNivel1() {
 		return true;
 		cout << "ha pasado" << endl;
 	}
-	
 	else
 		return false;
 }

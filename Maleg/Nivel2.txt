@@ -41,6 +41,6 @@ Monedas
  19.0 3.5 0.5 255.0 255.0 0.0		//Moneda5
 PuntosReaparicion
  0.0 0.0 				//Reaparicion
- 20.0 20.0				//Punto2
+ 20.0 25.0				//Punto2
  115.0 32.0				//PuntoInfinito
  200.0 200.0				//PuntoInfinito
