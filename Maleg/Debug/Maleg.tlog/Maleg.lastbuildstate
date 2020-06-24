@@ -1,2 +1,2 @@
-PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.25.28610:TargetPlatformVersion=10.0.18362.0:
-Debug|Win32|C:\Users\Gema\Documents\UNIVERSIDAD\TERCERO\6ºCUATRI\Informática Industrial\TRABAJO\Juego_Maleg_Trabajo_Informatica\Maleg\|
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v142:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0
+Debug|Win32|C:\Users\María\Desktop\Videojuego\Definitivo\Juego_Maleg_Trabajo_Informatica\Maleg\|

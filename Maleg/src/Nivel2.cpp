@@ -35,6 +35,18 @@ void Nivel2::Inicializa(Heroe h) {
 	enemigos2.AgregarE(ax1);
 	Araña* ax2 = new Araña(97.5f, 27.8f);
 	enemigos2.AgregarE(ax2);
+
+	Murcielago* mx0 = new Murcielago(16.0f, 25.0f);
+	enemigos2.AgregarE(mx0);
+	Murcielago* mx1 = new Murcielago(40.0f, 35.0f);
+	enemigos2.AgregarE(mx1);
+	Murcielago* mx2 = new Murcielago(82.0f, 47.0f);
+	enemigos2.AgregarE(mx2);
+	Murcielago* mx3 = new Murcielago(110.0f, 40.0f);
+	enemigos2.AgregarE(mx3);
+	Murcielago* mx4 = new Murcielago(162.0f, 36.5f);
+	enemigos2.AgregarE(mx4);
+
 }
 
 void Nivel2::Dibuja() {
@@ -110,7 +122,7 @@ void Nivel2::Mueve() {
 	//////Colisiones
 	plataformas2.Colision(&heroe2);
 	monedas2.Colision(&heroe2);	
-	enemigos2.Colision(&heroe2);
+	//enemigos2.Colision(&heroe2);
 
 	for (int i = 0;i < enemigos2.GetNumeroE();i++) {
 		for (int j = 0;j < armas2.GetNum();j++) {

@@ -4,7 +4,14 @@
 
 class Guerreros: public Enemigo{
 
+private:
+
+public:
 	Guerreros();
+	Guerreros(float px, float py);
 	~Guerreros();
+
+	void Mueve(float t);
+	void Dibuja();
 };
 

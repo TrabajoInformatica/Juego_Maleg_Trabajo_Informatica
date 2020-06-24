@@ -3,6 +3,7 @@
 #include "Pajaro.h"
 #include "Guerreros.h"
 #include "Araña.h"
+#include "Murcielago.h"
 #include "Enemigo.h"
 #include "Interaccion.h"
 class ListaEnemigos{

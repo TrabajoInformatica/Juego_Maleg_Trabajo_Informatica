@@ -41,6 +41,9 @@ void Nivel1::Inicializa(Heroe h) {
 	LecturaFichero(Fichero);
 	/*Araña* ax0 = new Araña(10.0f,10.0f);
 	enemigos.AgregarE(ax0);*/
+
+	/*Murcielago* aux = new Murcielago(10.0f, 10.0f);
+	enemigos.AgregarE(aux);*/
 }
 
 void Nivel1::Dibuja() {

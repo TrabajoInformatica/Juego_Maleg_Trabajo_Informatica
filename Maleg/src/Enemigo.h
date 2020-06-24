@@ -1,6 +1,6 @@
 #pragma once
 #include "Personaje.h"
-#define MAX_ENEM 20
+#define MAX_ENEM 50
 
 class Enemigo: public Personaje{
 
