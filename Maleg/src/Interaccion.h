@@ -4,6 +4,7 @@
 #include "Plataforma.h"
 #include "Moneda.h"
 #include "Arma.h"
+#include "VidaExtra.h"
 class Interaccion
 {
 private:
@@ -11,7 +12,7 @@ private:
 public:
 	Interaccion();
 	virtual ~Interaccion();
-
+	static bool ColisionVida(Heroe* pers, VidaExtra v);
 	static bool ColisionSup(Heroe* pers, Plataforma pl);
 	static bool ColisionLat(Heroe* pers, Plataforma pl);
 	static bool ColisionInf(Heroe* pers, Plataforma pl);

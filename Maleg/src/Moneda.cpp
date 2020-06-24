@@ -24,17 +24,6 @@ Moneda::Moneda(float px, float py, float rad, unsigned char r, unsigned char v, 
 Moneda::~Moneda() {
 
 }
-void Moneda::SetColor(unsigned char r, unsigned char v, unsigned char a) {
-	rojo = r;
-	verde = v;
-	azul = a;
-}
-void Moneda::SetRadio(float r) {
-	radio = r;
-}
-float Moneda::GetRadio() {
-	return radio;
-}
 
 
 void Moneda::Dibuja() {

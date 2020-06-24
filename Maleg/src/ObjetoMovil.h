@@ -8,6 +8,10 @@ protected:
 	Vector2D velocidad;
 	Vector2D aceleracion;
 
+	unsigned char rojo;
+	unsigned char verde;
+	unsigned char azul;
+	float radio;
 public:
 	virtual void Mueve(float t);
 
@@ -20,5 +24,9 @@ public:
 	Vector2D GetPos();
 	Vector2D GetVel();
 	Vector2D GetAce();
+
+	float GetRadio();
+	void SetRadio(float r);
+	void SetColor(unsigned char r, unsigned char v, unsigned char a);
 };
 

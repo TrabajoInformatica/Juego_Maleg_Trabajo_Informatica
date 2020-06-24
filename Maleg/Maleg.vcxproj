@@ -171,6 +171,7 @@
     <ClCompile Include="src\Puerta.cpp" />
     <ClCompile Include="src\Sirena.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
+    <ClCompile Include="src\VidaExtra.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Araña.h" />
@@ -198,6 +199,7 @@
     <ClInclude Include="src\Puerta.h" />
     <ClInclude Include="src\Sirena.h" />
     <ClInclude Include="src\Vector2D.h" />
+    <ClInclude Include="src\VidaExtra.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
