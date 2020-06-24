@@ -136,6 +136,7 @@ void Nivel1::Mueve() {
 
 	if (Interaccion::ColisionVida(&heroe, vidaextra) == true) {
 		cout << "choque vida" << endl;
+		heroe.SetVida(heroe.GetVida() + 1);
 	}
 	
 	if (puerta.Colision(&heroe) == true) {
