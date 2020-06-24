@@ -42,7 +42,7 @@ bool Interaccion::ColisionInf(Heroe* pers, Plataforma pl) {
    Vector2D posicion = pers->GetPos();
    float altura = pers->GetAltura() / 2;
    float diferencia = pl.Getlimite1().y-pl.GetGrosor() - posicion.y;
-   if ((diferencia <= altura) && (diferencia > altura-0.5f) && (pl.Getlimite1().x < pers->GetPos().x + altura) && (pers->GetPos().x - altura < pl.Getlimite2().x)) {
+   if ((diferencia <= altura) && (diferencia > altura-1.0f) && (pl.Getlimite1().x < pers->GetPos().x + altura) && (pers->GetPos().x - altura < pl.Getlimite2().x)) {
        pers->SetPos(pers->GetPos().x, pl.Getlimite2().y-pl.GetGrosor()-altura);
        return true;
    }
