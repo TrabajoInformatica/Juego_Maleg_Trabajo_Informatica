@@ -108,7 +108,7 @@ void Heroe::Dibuja() {
 	// DIBUJO VIDA
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
-	if (vida == 3)
+	if (vida >= 3)
 		vida3.draw();
 	else if (vida == 2)
 		vida2.draw();

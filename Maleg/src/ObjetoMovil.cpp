@@ -32,3 +32,14 @@ Vector2D ObjetoMovil::GetVel() {
 Vector2D ObjetoMovil::GetAce() {
 	return aceleracion;
 }
+void ObjetoMovil::SetColor(unsigned char r, unsigned char v, unsigned char a) {
+	rojo = r;
+	verde = v;
+	azul = a;
+}
+void ObjetoMovil::SetRadio(float r) {
+	radio = r;
+}
+float ObjetoMovil::GetRadio() {
+	return radio;
+}

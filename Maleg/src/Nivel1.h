@@ -9,6 +9,7 @@
 #include "Lanza.h"
 #include "Puerta.h"
 #include "Interaccion.h"
+#include "VidaExtra.h"
 
 using namespace std;
 
@@ -21,6 +22,7 @@ private:
 	ListaEnemigos enemigos;
 	ListaArmas armas;
 	Puerta puerta;
+	VidaExtra vidaextra;
 	enum Estado { ShowHitbox,HideHitbox};
 	Estado estado = HideHitbox;
 	

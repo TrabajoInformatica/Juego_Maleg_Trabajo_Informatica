@@ -34,6 +34,8 @@ void Nivel1::Inicializa(Heroe h) {
  Puerta* puer = new Puerta(174.0f, 8.0f, 175.0f, 8.0f, -8.0f, 255, 0, 0);
  puerta.AgregarP(puer);
 
+ vidaextra.SetPos(170.0f, 30.0f);
+
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero); 
@@ -109,6 +111,7 @@ void Nivel1::Dibuja() {
 	plataformas.Dibuja();
 	monedas.Dibuja();
 	armas.Dibuja();
+	vidaextra.Dibuja();
 
 	puerta.DibujaP();
 	cout << "X" << heroe.GetPos().x << endl;
@@ -121,6 +124,7 @@ void Nivel1::Mueve() {
 	monedas.Mueve(0.025f);
 	armas.Mueve(0.05f);
 	plataformas.Mueve(0.025f);
+	vidaextra.Mueve(0.025f, 9.5f);
 	// Heroe
 	heroe.Mueve(0.1f);
 
@@ -130,6 +134,10 @@ void Nivel1::Mueve() {
 	enemigos.Colision(&heroe);
 	/////////Provisional
 
+	if (Interaccion::ColisionVida(&heroe, vidaextra) == true) {
+		cout << "choque vida" << endl;
+		heroe.SetVida(heroe.GetVida() + 1);
+	}
 	if (puerta.Colision(&heroe) == true) {
 		cout << "puerta" << endl;
 		fin = true;

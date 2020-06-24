@@ -138,3 +138,25 @@ bool Interaccion::ColisionMoneda(Heroe* pers, Moneda m) {
 
      return false;
  }
+ bool Interaccion::ColisionVida(Heroe* pers, VidaExtra v) {
+     Vector2D posicion = pers->GetPos();
+     float altura = pers->GetAltura() / 2;
+     Vector2D posicionm = v.GetPos();
+
+     float distanciarxi = posicionm.x - v.GetRadio();
+     float distanciarxd = posicionm.x + v.GetRadio();
+     float distanciapxd = posicion.x + altura;
+     float distanciapxi = posicion.x - altura;
+     float distanciapysup = posicion.y + altura;
+     float distanciapyinf = posicion.y - altura;
+     float distanciamsup = posicionm.y + v.GetRadio();
+     float distanciaminf = posicionm.y - v.GetRadio();
+     if ((distanciarxi <= distanciapxd) && (distanciarxd >= distanciapxi) && ((distanciapysup >= distanciaminf) && (distanciapyinf <= distanciamsup))) {
+
+         return true;
+     }
+
+
+     return false;
+ }
+     
