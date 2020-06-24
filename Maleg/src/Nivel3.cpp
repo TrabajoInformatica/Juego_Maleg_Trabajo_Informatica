@@ -20,7 +20,7 @@ void Nivel3::DestruirContenido() {
 }
 Heroe Nivel3::GetHeroe() {
 	heroe3.DestruirContenido();
-	return heroe;
+	return heroe3;
 }
 
 void Nivel3::Inicializa(Heroe h) {
@@ -51,7 +51,7 @@ void Nivel3::Dibuja() {
 	enemigos3.Dibuja();
 
 	// Heroe
-	heroe.Dibuja();
+	heroe3.Dibuja();
 
 	//Plataformas, Monedas y otros.
 	plataformas3.Dibuja();
@@ -59,8 +59,8 @@ void Nivel3::Dibuja() {
 	armas3.Dibuja();
 
 	puerta.DibujaP();
-	cout << "X" << heroe.GetPos().x << endl;
-	cout << "Y" << heroe.GetPos().y << endl;
+	cout << "X" << heroe3.GetPos().x << endl;
+	cout << "Y" << heroe3.GetPos().y << endl;
 }
 
 void Nivel3::Mueve() {
@@ -87,9 +87,9 @@ void Nivel3::Mueve() {
 
 	for (int i = 0;i < enemigos3.GetNumeroE();i++) {
 		for (int j = 0;j < armas3.GetNum();j++) {
-			if (Interaccion::ColisionEnemigo(armas.GetLista(j), enemigos.GetListaEnem(i))) {
-				armas.Eliminar(j);
-				enemigos.Eliminar(i);
+			if (Interaccion::ColisionEnemigo(armas3.GetLista(j), enemigos3.GetListaEnem(i))) {
+				armas3.Eliminar(j);
+				enemigos3.Eliminar(i);
 			}
 		}
 	}
@@ -108,17 +108,17 @@ void Nivel3::Tecla(unsigned char key) {
 	if (key == 'w') {
 		for (int i = 0; i < plataformas3.GetNumPlat(); i++) {
 			if (Interaccion::ColisionSup(&heroe3, plataformas3.GetListaPlat(i))) {
-				heroe.SetVel(heroe.GetVel().x, 10.0f);
+				heroe3.SetVel(heroe3.GetVel().x, 10.0f);
 			}
 			else {
-				heroe.SetVel(heroe.GetVel().x, heroe.GetVel().y);
+				heroe3.SetVel(heroe3.GetVel().x, heroe3.GetVel().y);
 			}
 		}
 	}
 	if (key == 'a')
-		heroe.SetVel(-3.0f, heroe.GetVel().y);
+		heroe3.SetVel(-3.0f, heroe3.GetVel().y);
 	if (key == 'd')
-		heroe.SetVel(3.0f, heroe.GetVel().y);
+		heroe3.SetVel(3.0f, heroe3.GetVel().y);
 
 	////////Hitbox
 	if (key == '1' && estado == ShowHitbox) {
@@ -128,40 +128,40 @@ void Nivel3::Tecla(unsigned char key) {
 		estado = ShowHitbox;
 	}
 	if (estado == ShowHitbox) {
-		heroe.ShowHitbox(true);
-		enemigos.ShowHitbox(true);
+		heroe3.ShowHitbox(true);
+		enemigos3.ShowHitbox(true);
 	}
 	else {
-		heroe.ShowHitbox(false);
-		enemigos.ShowHitbox(false);
+		heroe3.ShowHitbox(false);
+		enemigos3.ShowHitbox(false);
 	}
 
 	if (key == ' ') {
-		if (heroe.ValidarDisparo()) {
+		if (heroe3.ValidarDisparo()) {
 			ETSIDI::play("sonidos/DisparoFlecha.mp3");
-			if (heroe.Disparo()) {
-				Lanza* aux = new Lanza(heroe.GetPos().x + heroe.GetAltura(), heroe.GetPos().y, 10);
-				armas.AgregarA(aux);
-				heroe.SumarMonedas(false);
+			if (heroe3.Disparo()) {
+				Lanza* aux = new Lanza(heroe3.GetPos().x + heroe3.GetAltura(), heroe3.GetPos().y, 10);
+				armas3.AgregarA(aux);
+				heroe3.SumarMonedas(false);
 			}
-			else if (!heroe.Disparo()) {
-				Lanza* aux = new Lanza(heroe.GetPos().x - heroe.GetAltura(), heroe.GetPos().y, -10);
-				armas.AgregarA(aux);
-				heroe.SumarMonedas(false);
+			else if (!heroe3.Disparo()) {
+				Lanza* aux = new Lanza(heroe3.GetPos().x - heroe3.GetAltura(), heroe3.GetPos().y, -10);
+				armas3.AgregarA(aux);
+				heroe3.SumarMonedas(false);
 			}
 		}
 	}
 }
 
-void Nivel1::TeclaUp(unsigned char key) {
+void Nivel3::TeclaUp(unsigned char key) {
 	if (key == 'a')
-		heroe.SetVel(0.0f, heroe.GetVel().y);
+		heroe3.SetVel(0.0f, heroe3.GetVel().y);
 	if (key == 'd')
-		heroe.SetVel(0.0f, heroe.GetVel().y);
+		heroe3.SetVel(0.0f, heroe3.GetVel().y);
 }
 
-bool Nivel1::MuerteHeroe() {
-	if (heroe.Muerte()) {
+bool Nivel3::MuerteHeroe() {
+	if (heroe3.Muerte()) {
 		cout << "Muerto" << endl;
 		//heroe.SetPos(0.0f, 3.0f);
 			//heroe.SetVel(0.0f, 0.0f);
@@ -171,7 +171,7 @@ bool Nivel1::MuerteHeroe() {
 		return false;
 }
 
-void Nivel1::LecturaFichero(string Fichero) {
+void Nivel3::LecturaFichero(string Fichero) {
 	float x1 = 0, x2 = 0, y1 = 0, y2 = 0, gr = 0;
 	float r = 0, v = 0, a = 0, vx = 0, vy = 0;
 	int b = 0, i = 1, longitud = 0, pos = 0, p, suma = 0;
@@ -190,32 +190,32 @@ void Nivel1::LecturaFichero(string Fichero) {
 		if (opcion == 1) {
 			archivo >> x1 >> y1 >> x2 >> y2 >> gr >> r >> v >> a >> comentario;
 			Plataforma* aux = new Plataforma(x1, y1, x2, y2, gr, (unsigned char)r, (unsigned char)v, (unsigned char)a);///////Creacion Plataformas
-			plataformas.AgregarP(aux);
+			plataformas3.AgregarP(aux);
 		}
 		if (opcion == 2) {
 			archivo >> x1 >> y1 >> x2 >> y2 >> gr >> p >> vx >> vy >> r >> v >> a >> comentario;
 			PlataformaMovil* aux = new PlataformaMovil(x1, y1, x2, y2, gr, p, vx, vy, (unsigned char)r, (unsigned char)v, (unsigned char)a);	///////Creacion Plataforma Movil
-			plataformas.AgregarP(aux);
+			plataformas3.AgregarP(aux);
 		}
 		if (opcion == 3) {
 			archivo >> x1 >> y1 >> gr >> r >> v >> a >> comentario;
 			Moneda* aux = new Moneda(x1, y1, gr, r, v, a);///////Creacion Monedas
-			monedas.AgregarM(aux);
+			monedas3.AgregarM(aux);
 		}
 		if (opcion == 4) {
 			archivo >> x1 >> y1 >> comentario;
 			Sirena* aux = new Sirena(x1, y1);
-			enemigos.AgregarE(aux);
+			enemigos3.AgregarE(aux);
 		}
 		if (opcion == 5) {
 			archivo >> x1 >> y1 >> comentario;
 			Pajaro* aux = new Pajaro(x1, y1);
-			enemigos.AgregarE(aux);
+			enemigos3.AgregarE(aux);
 		}
 		if (opcion == 6) {
 			archivo >> x1 >> y1 >> comentario;
 			Vector2D* aux = new Vector2D(x1, y1);
-			heroe.AgregarPuntosR(aux);
+			heroe3.AgregarPuntosR(aux);
 		}
 		archivo >> tipo;
 		if (tipo == "Plataforma")
