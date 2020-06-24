@@ -122,7 +122,7 @@ void Nivel2::Mueve() {
 	//////Colisiones
 	plataformas2.Colision(&heroe2);
 	monedas2.Colision(&heroe2);	
-	//enemigos2.Colision(&heroe2);
+	enemigos2.Colision(&heroe2);
 
 	for (int i = 0;i < enemigos2.GetNumeroE();i++) {
 		for (int j = 0;j < armas2.GetNum();j++) {
