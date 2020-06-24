@@ -72,9 +72,3 @@ void Pajaro::Dibuja() {
 	
 }
 
-void Pajaro::ShowHitbox(bool e) {
-	if (e == true)
-		estado = Show;
-	else
-		estado = Hide;
-}

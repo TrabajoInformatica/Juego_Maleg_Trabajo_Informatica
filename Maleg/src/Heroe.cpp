@@ -161,13 +161,6 @@ void Heroe::SumarMonedas(bool m) {
 		monedas--;
 }
 
-void Heroe::ShowHitbox(bool e) {
-	if (e == true)
-		estado = Show;
-	else
-		estado = Hide;
-}
-
 void Heroe::PuntoReaparicion() {
 	for (int i = 0;i < numeroRP;i++) {
 		if (posicion.x < 0.0f){

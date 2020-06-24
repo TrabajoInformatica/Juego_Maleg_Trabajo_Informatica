@@ -21,6 +21,5 @@ public:
 	void Dibuja();
     void Mueve(float t);
 
-	void ShowHitbox(bool e);
 };
 

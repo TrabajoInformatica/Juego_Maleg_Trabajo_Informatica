@@ -18,11 +18,10 @@ protected:
 	////Puntosreaparicion;
 	int numeroRP;
 	Vector2D *puntosR[Max_Size];
-	////Hitbox 
-	enum Estado { Show, Hide };
+
 	enum Sentido {Izquierda,Derecha};
-	Estado estado;
 	Sentido sentido;
+	
 	////Grafico
 	SpriteSequence 
 		run, jumpUP, jumpDOWN,
@@ -46,7 +45,6 @@ public:
 
 	//FUNCIONES
 	bool Muerte();
-	void ShowHitbox(bool e);
 	void SumarMonedas(bool m);
 	void PuntoReaparicion();
 	bool AgregarPuntosR(Vector2D* p);

@@ -89,9 +89,3 @@ void Araña::Dibuja() {
 	}
 }
 
-void Araña::ShowHitbox(bool e) {
-	if (e == true)
-		estado = Show;
-	else
-		estado = Hide;
-}

@@ -75,10 +75,3 @@ void Sirena::Dibuja() {
 		glPopMatrix();
 	}
 }
-
-void Sirena::ShowHitbox(bool e) {
-	if (e == true)
-		estado = Show;
-	else
-		estado = Hide;
-}

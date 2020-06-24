@@ -5,14 +5,12 @@
 class Enemigo: public Personaje{
 
 protected:
-	enum Estado { Show, Hide };
-	Estado estado = Hide;
+
 public: 
 	Enemigo();
 	virtual ~Enemigo();
 	float GetRadio();
 	virtual void Dibuja(){}
 	virtual void  Mueve(float t){}
-	virtual void ShowHitbox(bool e){}
 };
 
