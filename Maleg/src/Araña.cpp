@@ -71,13 +71,16 @@ void Araña::Dibuja() {
 	//Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
-	if (velocidad.x > 0.01 && velocidad.y == 0) spyder.flip(false, true);
-	else if (velocidad.x < 0.1) spyder.flip(true, false);
+	if (velocidad.y > 0) { spyder.setAngle(-90.0f); spyder.flip(false, true); }
+	else if (velocidad.x > 0.01) { spyder.setAngle(0.0f); spyder.flip(false, true); }
+	else if (velocidad.x < 0.01) { spyder.setAngle(0.0f); spyder.flip(true, false); }
+	if (velocidad.y < 0) { spyder.setAngle(90.0f); spyder.flip(false, true); }
 	spyder.draw();
 	spyder.loop();
 	glPopMatrix(); 
 
 	//Hitbox
+	/*
 	if (estado == Show) {
 		glPushMatrix();
 		glColor3ub(rojo, verde, azul);
@@ -87,5 +90,6 @@ void Araña::Dibuja() {
 		glTranslatef(-posicion.x, -posicion.y, 0);
 		glPopMatrix();
 	}
+	*/
 }
 
