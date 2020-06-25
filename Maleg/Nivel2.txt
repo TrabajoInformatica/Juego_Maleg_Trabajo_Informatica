@@ -40,16 +40,19 @@ Plataforma_movil
  127.0 26.0 131.0 26.0 0.5 70 3.5 0.0 155.0 155.0 155.0 	//plataforma_movil_despues_enemigo
  143.0 26.0 147.0 26.0 0.5 90 3.5 2.0 155.0 155.0 155.0		//plataforma_movil_diagonal
  177.0 30.0 180.0 30.0 0.5 90 3.5 -2.0 155.0 155.0 155.0 	//p_diagonal_final 
+ 75.0 25.0 78.0 25.0 0.5 100 3.5 2.0 155.0 155.0 155.0           //vida1
 Monedas
  12.0 20.0 0.5 255.0 255.0 0.0		//Moneda1
  39.0 30.0 0.5 255.0 255.0 0.0		//Moneda2
  87.0 35.5 0.5 255.0 255.0 0.0		//Moneda3
  104.0 27.0 0.5 255.0 255.0 0.0		//moneda4
- 19.0 3.5 0.5 255.0 255.0 0.0		//Moneda5
+ 19.0 4.5 0.5 255.0 255.0 0.0		//Moneda5
 PuntosReaparicion
  0.0 0.0 				//Reaparicion
  20.0 25.0				//Punto2
  82.0 40.0 				//punto3
  115.0 32.0				//PuntoInfinito
  200.0 200.0				//PuntoInfinito
+VidasExtra
+ 76.5 -40.0 26.0 0.5 3.0                 //Vida1
 

@@ -28,26 +28,18 @@ void Nivel1::Inicializa(Heroe h) {
 	heroe = h;
 	/////////////////////////////////////Personaje
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(0.0f,0.0f);//160 10
+	heroe.SetPos(160.0f,10.0f);//160 10
 	heroe.SetVel(0.0f, 0.0f);
 	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
 	//puerta.SetColor(255, 0, 0);
  Puerta* puer = new Puerta(174.0f, 8.0f, 175.0f, 8.0f, -8.0f, 255, 0, 0);
  puerta.AgregarP(puer);
 
- //VidaExtra* vid1 = new VidaExtra(61.5f, -30.0f, 0.0f, 0.5f, 3.0f);
- //corazones.AgregarC(vid1);
-// VidaExtra* vid2 = new VidaExtra(170.6f,70.0f,26.8f,0.5f,-3.0f);
- //corazones.AgregarC(vid2);
- 
 
-	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
+
+	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos, Vidas
 	LecturaFichero(Fichero);
-	/*Araña* ax0 = new Araña(10.0f,10.0f);
-	enemigos.AgregarE(ax0);*/
-
-	/*Murcielago* aux = new Murcielago(10.0f, 10.0f);
-	enemigos.AgregarE(aux);*/
+	
 }
 
 void Nivel1::Dibuja() {
