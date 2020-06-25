@@ -206,6 +206,7 @@ void Nivel2::TeclaUp(unsigned char key) {
 bool Nivel2::MuerteHeroe() {
 	if (heroe2.Muerte()) {
 		cout << "Muerto" << endl;
+		heroe2.DestruirContenido();
 		return true;
 	}
 	else

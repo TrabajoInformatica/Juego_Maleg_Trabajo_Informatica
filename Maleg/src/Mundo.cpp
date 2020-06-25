@@ -24,12 +24,13 @@ void Mundo::Inicializa() {
 
 void Mundo::CargarNivel() {
 	
-	if (nivel == 1) 
-	{		
+	if (nivel == 1) {
+		nivel1 = new Nivel1();
 		nivel1->Inicializa(heroe);		
 		cout << "Inicializamundonivel1" << endl;
 	}
 	else if (nivel == 2) {
+		nivel2 = new Nivel2();
 		nivel2->Inicializa(heroe);
 		cout << "Inicializamundonivel2" << endl;
 	}
@@ -123,6 +124,8 @@ void Mundo::TeclaUp(unsigned char key) {
 bool Mundo::Muerte() {
 	if (nivel == 1) {
 		if (nivel1->MuerteHeroe()) {
+			nivel1->DestruirContenido();
+			delete nivel1;
 			return true;
 		}else if(!nivel1->MuerteHeroe()) {
 			return false;
@@ -130,6 +133,8 @@ bool Mundo::Muerte() {
 	}
 	else if (nivel == 2) {
 		if (nivel2->MuerteHeroe()) {
+			nivel2->DestruirContenido();
+			delete nivel2;
 			return true;
 		}
 		else if (!nivel2->MuerteHeroe()) {
