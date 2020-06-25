@@ -3,13 +3,14 @@
 #include "ListaMonedas.h"
 #include "ListaEnemigos.h"
 #include "ListaArmas.h"
+#include "ListaCorazones.h"
 #include <string>
 #include "Heroe.h"
 #include "Sirena.h"
 #include "Lanza.h"
 #include "Puerta.h"
 #include "Interaccion.h"
-#include "VidaExtra.h"
+
 
 using namespace std;
 
@@ -21,8 +22,9 @@ private:
 	ListaMonedas monedas;
 	ListaEnemigos enemigos;
 	ListaArmas armas;
+	ListaCorazones corazones;
 	Puerta puerta;
-	VidaExtra vidaextra;
+	
 	enum Estado { ShowHitbox,HideHitbox};
 	Estado estado = HideHitbox;
 	

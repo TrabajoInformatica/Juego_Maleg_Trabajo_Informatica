@@ -5,6 +5,7 @@
 #include "ListaMonedas.h"
 #include "ListaEnemigos.h"
 #include "ListaArmas.h"
+#include "ListaCorazones.h"
 #include <string>
 #include "Heroe.h"
 #include "Sirena.h"
@@ -22,6 +23,7 @@ private:
 	ListaMonedas monedas2;
 	ListaEnemigos enemigos2;
 	ListaArmas  armas2;
+	ListaCorazones corazones2;
 	enum Estado { ShowHitbox, HideHitbox };
 	Estado estado = HideHitbox;
 	bool fin;
