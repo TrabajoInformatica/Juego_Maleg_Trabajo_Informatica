@@ -88,14 +88,22 @@ void Nivel2::Dibuja() {
 	glTexCoord2d(0, 0); glVertex3f(120, 50, 0.6);
 	glEnd();
 	//------------------------------------------------------------------------------------------
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	glTexCoord2d(0, 1); glVertex3f(200, 10, 0.6);
+	glTexCoord2d(1, 1); glVertex3f(280, 10, 0.6);
+	glTexCoord2d(1, 0); glVertex3f(280, 50, 0.6);
+	glTexCoord2d(0, 0); glVertex3f(200, 50, 0.6);
+	glEnd();
+	//------------------------------------------------------------------------------------------
 	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/bottom2.png").id);
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
 	glTexCoord2d(0, 1); glVertex3f(-40, 12, 0.5);
-	glTexCoord2d(1, 1); glVertex3f(220, 12, 0.5);
-	glTexCoord2d(1, 0); glVertex3f(220, -60, 0.5);
-	glTexCoord2d(0, 0); glVertex3f(-40, -60, 0.5);
+	glTexCoord2d(1, 1); glVertex3f(260, 12, 0.5);
+	glTexCoord2d(1, 0); glVertex3f(260, -40, 0.5);
+	glTexCoord2d(0, 0); glVertex3f(-40, -40, 0.5);
 	glEnd();
 	//------------------------------------------------------------------------------------------
 	glEnable(GL_LIGHTING);

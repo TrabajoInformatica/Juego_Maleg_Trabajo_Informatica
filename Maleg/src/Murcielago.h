@@ -1,5 +1,8 @@
 #pragma once
+#include <ETSIDI.h>
 #include "Enemigo.h"
+
+using ETSIDI::SpriteSequence;
 
 class Murcielago: public Enemigo{
 
@@ -10,6 +13,9 @@ private:
 	float lim_yb;
 
 public:
+
+	SpriteSequence bat;
+
 	Murcielago();
 	Murcielago(float px, float py);
 	~Murcielago();
