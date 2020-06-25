@@ -12,6 +12,7 @@ ListaCorazones::~ListaCorazones() {
 }
 bool ListaCorazones::AgregarC(VidaExtra* v) {
 	if (num < MAX_COR) {
+		cout << num << endl;
 		Lista_c[num] = v;
 		num++;
 	}
@@ -44,9 +45,10 @@ bool ListaCorazones::Colision(Heroe* p) {
 			Eliminar(Lista_c[i]);
 			return true;
 		}
-		else
-			return false;
+		
 	}
+	
+	return false;
 }
 
 void ListaCorazones::Eliminar(VidaExtra* v) {
@@ -66,6 +68,7 @@ void ListaCorazones::Eliminar(int index) {
 	for (int i = index;i < num;i++) {
 		Lista_c[i] = Lista_c[1 + i];
 	}
+	
 }
 
 void ListaCorazones::ShowHitbox(bool e) {
