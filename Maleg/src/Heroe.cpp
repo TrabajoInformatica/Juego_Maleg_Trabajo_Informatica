@@ -47,17 +47,17 @@ void Heroe::Dibuja() {
 	jumpDOWN.setCenter(1.8f, 1.0f);
 	jumpDOWN.setSize(3.0f, 3.0f);
 
-	vida1.setCenter(-17.0f, -19.0f);
-	vida1.setSize(3.0f, 2.0f);
+	vida1.setCenter(-15.0f, -18.0f);
+	vida1.setSize(4.5f, 2.0f);
 
-	vida2.setCenter(-17.0f, -19.0f);
-	vida2.setSize(3, 2);
+	vida2.setCenter(-15.0f, -18.0f);
+	vida2.setSize(4.5f, 2.0f);
 
-	vida3.setCenter(-17, -19);
-	vida3.setSize(3.0f, 2.0f);
+	vida3.setCenter(-15, -18);
+	vida3.setSize(4.5f, 2.0f);
 
-	spearavailable.setCenter(-17.0f, -18.0f);
-	spearavailable.setSize(2.0f, 1.0f);
+	spearavailable.setCenter(-14.5f, -16.0f);
+	spearavailable.setSize(5.0f, 2.0f);
 
 	//Dibujo
 	glPushMatrix();

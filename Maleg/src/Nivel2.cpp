@@ -27,7 +27,7 @@ void Nivel2::Inicializa(Heroe h) {
 	heroe2.SetVel(0.0f, 0.0f);
 	////////////////////////////////////Plataformas
 	LecturaFichero(Fichero);
-	Puerta* puer = new Puerta(200.0f, 30.0f, 200.5f, 30.0f, -8.0f, 255, 0, 0);
+	Puerta* puer = new Puerta(200.0f, 30.0f, 204.0f, 30.0f, -5.0f, 255, 0, 0);
 	puerta2.AgregarP(puer);
 	///////////////////////////////////Enemigos
 

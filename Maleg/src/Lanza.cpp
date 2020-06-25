@@ -17,8 +17,8 @@ Lanza::~Lanza() {
 
 void Lanza::Dibuja() {
 	//Dimensiones del sprite
-	spear.setCenter(1.8, 0.2);
-	spear.setSize(2, 1);
+	spear.setCenter(2.4, 0.2);
+	spear.setSize(3, 0.5);
 
 	//Dibujo
 	glPushMatrix();
@@ -30,11 +30,13 @@ void Lanza::Dibuja() {
 	glPopMatrix();
 
 	//Hitbox
+	/*
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0);
 	glutWireCube(lado);
 	glTranslatef(-posicion.x, -posicion.y, 0);
 	glPopMatrix();
+	*/
 }
 
 void Lanza::Mueve(float t) {

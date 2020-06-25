@@ -1,7 +1,7 @@
 #include "Moneda.h"
 #include "glut.h"
 
-Moneda::Moneda() {
+Moneda::Moneda(): coin("imagenes/coin.png", 6, 1) {
 	rojo = verde = 255;
 	azul = 0;
 	radio = 0.5;
@@ -9,7 +9,7 @@ Moneda::Moneda() {
 	radio_min = 0.35f;
 	pulso = 0.5f;
 }
-Moneda::Moneda(float px, float py, float rad, unsigned char r, unsigned char v, unsigned char a) {
+Moneda::Moneda(float px, float py, float rad, unsigned char r, unsigned char v, unsigned char a): coin("imagenes/coin.png", 6, 1) {
 	posicion.x = px;
 	posicion.y = py;
 	rojo = r;
@@ -21,16 +21,28 @@ Moneda::Moneda(float px, float py, float rad, unsigned char r, unsigned char v, 
 	pulso = 0.5f;
 }
 
-Moneda::~Moneda() {
+Moneda::~Moneda(){
 
 }
 
 
 void Moneda::Dibuja() {
+	//Dimensiones del sprite
+	coin.setCenter(0.5, 0.5);
+	coin.setSize(1, 1);
+
+	//Dibujo
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 0);
+	coin.draw();
+	coin.loop();
+	glPopMatrix();
+	/*
 	glColor3ub(rojo, verde, azul);
 	glTranslatef(posicion.x, posicion.y, 0);
 	glutSolidSphere(radio, 20, 20);
 	glTranslatef(-posicion.x, -posicion.y, 0);
+	*/
 }
 void Moneda::Mueve(float t) {
 

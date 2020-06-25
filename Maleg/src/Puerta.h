@@ -1,6 +1,9 @@
 #pragma once
 #include "Plataforma.h"
 #include "Interaccion.h"
+
+using ETSIDI::SpriteSequence;
+
 class Puerta :public Plataforma
 {
 public:

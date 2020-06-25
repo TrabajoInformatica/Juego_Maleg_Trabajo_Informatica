@@ -37,7 +37,7 @@ void Murcielago::Dibuja() {
 	glPopMatrix();
 
 	// Hitbox
-	
+	/*
 	glPushMatrix();
 	glColor3ub(rojo, verde, azul);
 	glTranslatef(posicion.x, posicion.y, 0);
@@ -45,7 +45,7 @@ void Murcielago::Dibuja() {
 	glutWireSphere(altura, 10, 10);
 	glTranslatef(-posicion.x, -posicion.y, 0);
 	glPopMatrix();
-	
+	*/
 }
 
 void Murcielago::Mueve(float t) {
