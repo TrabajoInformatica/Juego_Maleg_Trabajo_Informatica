@@ -35,10 +35,10 @@ void Nivel1::Inicializa(Heroe h) {
  Puerta* puer = new Puerta(174.0f, 8.0f, 175.0f, 8.0f, -8.0f, 255, 0, 0);
  puerta.AgregarP(puer);
 
- VidaExtra* vid1 = new VidaExtra(61.5f, -30.0f, 0.0f, 0.5f, 3.0f);
- corazones.AgregarC(vid1);
- VidaExtra* vid2 = new VidaExtra(170.6f,70.0f,26.8f,0.5f,-3.0f);
- corazones.AgregarC(vid2);
+ //VidaExtra* vid1 = new VidaExtra(61.5f, -30.0f, 0.0f, 0.5f, 3.0f);
+ //corazones.AgregarC(vid1);
+// VidaExtra* vid2 = new VidaExtra(170.6f,70.0f,26.8f,0.5f,-3.0f);
+ //corazones.AgregarC(vid2);
  
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
@@ -239,7 +239,7 @@ bool Nivel1::MuerteHeroe() {
 }
 
 void Nivel1::LecturaFichero(string Fichero) {
-	float x1 = 0, x2 = 0, y1 = 0, y2 = 0, gr = 0;
+	float x1 = 0, x2 = 0, y1 = 0, y2 = 0, gr = 0,pf=0;
 	float r = 0, v = 0, a = 0, vx = 0, vy = 0;
 	int b = 0, i = 1, longitud = 0, pos = 0, p, suma = 0;
 	int opcion = 999;
@@ -284,6 +284,11 @@ void Nivel1::LecturaFichero(string Fichero) {
 			Vector2D* aux = new Vector2D(x1, y1);
 			heroe.AgregarPuntosR(aux);
 		}
+		if (opcion == 7) {
+			archivo >> x1 >> y1 >> pf >> r >> vy  >> comentario;
+			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion Monedas
+			corazones.AgregarC(aux);
+		}
 		archivo >> tipo;
 		if (tipo == "Plataforma")
 			opcion = 1;
@@ -299,8 +304,10 @@ void Nivel1::LecturaFichero(string Fichero) {
 			opcion = 5;
 		if (tipo == "PuntosReaparicion")
 			opcion = 6;
+		if (tipo == "VidasExtra")
+			opcion = 7;
 		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&
-			tipo!="Enemigos" &&tipo !="Sirena" && tipo !="Pajaro" && tipo!="PuntosReaparicion" && tipo!="Heroe") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
+			tipo!="Enemigos" &&tipo !="Sirena" && tipo !="Pajaro" && tipo!="PuntosReaparicion" && tipo!="Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
 			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro

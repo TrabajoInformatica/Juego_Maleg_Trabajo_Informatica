@@ -59,3 +59,6 @@ PuntosReaparicion
  105.5 11.0						//Punto3
  133.0 14.0						//Punto4
  190.0 20.0						//Punto5Referencianuncareaparecera_en_este
+VidasExtra
+ 61.5 -30.0 0.0 0.5 3.0                             //Vida1
+ 170.6 70.0 26.8 0.5 -3.0                           //Vida2
