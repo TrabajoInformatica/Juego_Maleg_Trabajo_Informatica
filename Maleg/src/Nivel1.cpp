@@ -17,6 +17,7 @@ void Nivel1::DestruirContenido() {
 	enemigos.DestruirContenido();
 	plataformas.DestruirContenido();
 	puerta.DestruirContenido();
+	corazones.DestruirContenido();
 }
 Heroe Nivel1::GetHeroe() {
 	heroe.DestruirContenido();
@@ -27,15 +28,18 @@ void Nivel1::Inicializa(Heroe h) {
 	heroe = h;
 	/////////////////////////////////////Personaje
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(160.0f,10.0f);
+	heroe.SetPos(0.0f,0.0f);//160 10
 	heroe.SetVel(0.0f, 0.0f);
 	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
 	//puerta.SetColor(255, 0, 0);
  Puerta* puer = new Puerta(174.0f, 8.0f, 175.0f, 8.0f, -8.0f, 255, 0, 0);
  puerta.AgregarP(puer);
 
- vidaextra.SetPos(170.0f, 30.0f);
-
+ VidaExtra* vid1 = new VidaExtra(61.5f, -30.0f, 0.0f, 0.5f, 3.0f);
+ corazones.AgregarC(vid1);
+ VidaExtra* vid2 = new VidaExtra(170.6f,70.0f,26.8f,0.5f,-3.0f);
+ corazones.AgregarC(vid2);
+ 
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero);
@@ -114,11 +118,11 @@ void Nivel1::Dibuja() {
 	plataformas.Dibuja();
 	monedas.Dibuja();
 	armas.Dibuja();
-	vidaextra.Dibuja();
-
+	
+	corazones.Dibuja();
 	puerta.DibujaP();
-	cout << "X" << heroe.GetPos().x << endl;
-	cout << "Y" << heroe.GetPos().y << endl;
+	//cout << "X" << heroe.GetPos().x << endl;
+	//cout << "Y" << heroe.GetPos().y << endl;
 }
 
 void Nivel1::Mueve() {
@@ -127,7 +131,8 @@ void Nivel1::Mueve() {
 	monedas.Mueve(0.025f);
 	armas.Mueve(0.05f);
 	plataformas.Mueve(0.025f);
-	vidaextra.Mueve(0.025f, 9.5f);
+	
+	corazones.Mueve(0.025f);
 	// Heroe
 	heroe.Mueve(0.1f);
 
@@ -135,12 +140,11 @@ void Nivel1::Mueve() {
 	plataformas.Colision(&heroe);
 	monedas.Colision(&heroe);
 	enemigos.Colision(&heroe);
+	if(corazones.Colision(&heroe)==true)
+		heroe.SetVida(heroe.GetVida() + 1);
 	/////////Provisional
 
-	if (Interaccion::ColisionVida(&heroe, vidaextra) == true) {
-		cout << "choque vida" << endl;
-		heroe.SetVida(heroe.GetVida() + 1);
-	}
+	
 	
 	if (puerta.Colision(&heroe) == true) {
 		cout << "puerta" << endl;
