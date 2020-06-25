@@ -27,7 +27,8 @@ void Nivel2::Inicializa(Heroe h) {
 	heroe2.SetVel(0.0f, 0.0f);
 	////////////////////////////////////Plataformas
 	LecturaFichero(Fichero);
-
+	Puerta* puer = new Puerta(200.0f, 30.0f, 200.5f, 30.0f, -8.0f, 255, 0, 0);
+	puerta2.AgregarP(puer);
 	///////////////////////////////////Enemigos
 
 	Araña* ax0 = new Araña(30.0f, 22.8f);
@@ -55,7 +56,7 @@ void Nivel2::Dibuja() {
 		heroe2.GetPos().x, heroe2.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
 		0.0, 1.0, 0.0);
 	/////////////////////////////////////Personaje
-	cout << "estoy dibujado nivel 2" << endl;
+	//cout << "estoy dibujado nivel 2" << endl;
 
 
 	// Background
@@ -107,9 +108,10 @@ void Nivel2::Dibuja() {
 	monedas2.Dibuja();
 	armas2.Dibuja();
 	corazones2.Dibuja();
+	puerta2.DibujaP();
 
-	cout << "X" << heroe2.GetPos().x << endl;
-	cout << "Y" << heroe2.GetPos().y << endl;
+	//cout << "X" << heroe2.GetPos().x << endl;
+	//cout << "Y" << heroe2.GetPos().y << endl;
 	///////////////////////////////////Enemigos
 	enemigos2.Dibuja();
 }
@@ -129,6 +131,13 @@ void Nivel2::Mueve() {
 	if (corazones2.Colision(&heroe2) == true)
 		heroe2.SetVida(heroe2.GetVida() + 1);
 
+	if (puerta2.Colision(&heroe2) == true) {
+		cout << "puerta2" << endl;
+		fin = true;
+	}
+	else
+		fin = false;
+
 	for (int i = 0;i < enemigos2.GetNumeroE();i++) {
 		for (int j = 0;j < armas2.GetNum();j++) {
 			if (Interaccion::ColisionEnemigo(armas2.GetLista(j), enemigos2.GetListaEnem(i))) {
@@ -147,7 +156,7 @@ Heroe Nivel2::GetHeroe() {
 bool Nivel2::FinNivel2() {
 	if (fin == true) {
 		return true;
-		cout << "ha pasado" << endl;
+		cout << "ha pasado al nivel 3" << endl;
 	}
 	else
 		return false;

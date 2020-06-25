@@ -17,6 +17,7 @@ void Nivel3::DestruirContenido() {
 	enemigos3.DestruirContenido();
 	plataformas3.DestruirContenido();
 	puerta.DestruirContenido();
+	corazones3.DestruirContenido();
 }
 Heroe Nivel3::GetHeroe() {
 	heroe3.DestruirContenido();
@@ -29,11 +30,7 @@ void Nivel3::Inicializa(Heroe h) {
 	heroe3.SetAlturaMuerte(-15.0f);
 	heroe3.SetPos(165.0f, 14.0f);
 	heroe3.SetVel(0.0f, 0.0f);
-	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
-	//puerta.SetColor(255, 0, 0);
-	Puerta* puer = new Puerta(174.0f, 8.0f, 175.0f, 8.0f, -8.0f, 255, 0, 0);
-	puerta.AgregarP(puer);
-
+	
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero);
@@ -57,6 +54,7 @@ void Nivel3::Dibuja() {
 	plataformas3.Dibuja();
 	monedas3.Dibuja();
 	armas3.Dibuja();
+	corazones3.Dibuja();
 
 	puerta.DibujaP();
 	cout << "X" << heroe3.GetPos().x << endl;
@@ -69,6 +67,7 @@ void Nivel3::Mueve() {
 	monedas3.Mueve(0.025f);
 	armas3.Mueve(0.025f);
 	plataformas3.Mueve(0.025f);
+	corazones3.Mueve(0.025f);
 	// Heroe
 	heroe3.Mueve(0.1f);
 
@@ -76,14 +75,16 @@ void Nivel3::Mueve() {
 	plataformas3.Colision(&heroe3);
 	monedas3.Colision(&heroe3);
 	enemigos3.Colision(&heroe3);
+	if (corazones3.Colision(&heroe3) == true)
+		heroe3.SetVida(heroe3.GetVida() + 1);
 	/////////Provisional
 
-	if (puerta.Colision(&heroe3) == true) {
+	/*if (puerta.Colision(&heroe3) == true) {//Termina cuando mate o cuando pase la puerta?
 		cout << "puerta" << endl;
 		fin = true;
 	}
 	else
-		fin = false;
+		fin = false;*/
 
 	for (int i = 0;i < enemigos3.GetNumeroE();i++) {
 		for (int j = 0;j < armas3.GetNum();j++) {

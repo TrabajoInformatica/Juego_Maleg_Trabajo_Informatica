@@ -3,6 +3,7 @@
 #include "ETSIDI.h"
 #include <iostream>
 #include "glut.h"
+using namespace std;
 
 Mundo::Mundo() {
 }
@@ -34,6 +35,11 @@ void Mundo::CargarNivel() {
 		nivel2->Inicializa(heroe);
 		cout << "Inicializamundonivel2" << endl;
 	}
+	else if (nivel == 3) {
+	//	nivel3 = new Nivel3();
+		//nivel3->Inicializa(heroe);
+		cout << "Inicializamundonivel3" << endl;
+	}
 }
 
 
@@ -41,9 +47,13 @@ void Mundo::Dibuja() {
 	////////////////////////////////Dibujar aqui
 	if (nivel == 1){
 		nivel1->Dibuja();
-	}else if (nivel == 2) {
+	}
+	else if (nivel == 2) {
 		nivel2->Dibuja();
 	}
+	/*else if (nivel == 3) {
+		nivel3->Dibuja();
+	}*/
 }
 
 void Mundo::TeclaEspecial(unsigned char key){
@@ -82,12 +92,12 @@ void Mundo::Mover(){
 
 	if (nivel == 2) {
 		if (nivel2->FinNivel2() == true) {
-			cout << "ha acabado el nivel 1" << endl;
+			cout << "ha acabado el nivel 2" << endl;
 			nivel = nivel + 1;
 			heroe = nivel2->GetHeroe();
 			nivel2->DestruirContenido();
 			delete nivel2;
-			cout << "Deletenivel1" << endl;
+			cout << "Deletenivel2" << endl;
 			CargarNivel();
 		}
 		else {

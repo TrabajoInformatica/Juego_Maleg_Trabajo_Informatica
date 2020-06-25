@@ -39,7 +39,7 @@ void ListaCorazones::Mueve(float t) {
 }
 bool ListaCorazones::Colision(Heroe* p) {
 	for (int i = 0; i < num;i++) {
-		cout << num << endl  ;
+		
 		if (Interaccion::ColisionVida(p, *(Lista_c[i]))) {
 			cout << "choque corazon" << endl;
 			Eliminar(Lista_c[i]);
