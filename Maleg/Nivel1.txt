@@ -30,8 +30,6 @@ Plataforma
  167.0 8.0 175.0 8.0   0.5 128.0 64.0 0.0		//PLATAFORMA_FINALNIVEL
 Plataforma_movil
  137.0 2.0 142.0 2.0 0.5 300 2.0 0.0 128.0 64.0 0.0 		//Plataforma_movil
- 169.0 11.2 172.0 11.2 0.5 300 0.0 2.0 128.0 64.0 0.0           //Plataforma_movil_vida2
- 60.0 8.5 63.0 8.5 0.5 200 0.0 -2.0 128.0 64.0 0.0           //Plataforma_movil_vida1
 Monedas
  12.5 5.0 0.5 255.0 255.0 0.0				//Moneda1
  40.0 14.0 0.5 255.0 255.0 0.0				//Moneda2
@@ -59,6 +57,3 @@ PuntosReaparicion
  105.5 11.0						//Punto3
  133.0 14.0						//Punto4
  190.0 20.0						//Punto5Referencianuncareaparecera_en_este
-VidasExtra
- 61.5 -30.0 0.0 0.5 3.0                             //Vida1
- 170.6 70.0 26.8 0.5 -3.0                           //Vida2

@@ -148,7 +148,6 @@
     <ClCompile Include="src\Araña.cpp" />
     <ClCompile Include="src\Arma.cpp" />
     <ClCompile Include="src\Lanza.cpp" />
-    <ClCompile Include="src\ListaCorazones.cpp" />
     <ClCompile Include="src\ListasArmas.cpp" />
     <ClCompile Include="src\Murcielago.cpp" />
     <ClCompile Include="src\Nivel3.cpp" />
@@ -180,7 +179,6 @@
     <ClInclude Include="src\Arma.h" />
     <ClInclude Include="src\Lanza.h" />
     <ClInclude Include="src\ListaArmas.h" />
-    <ClInclude Include="src\ListaCorazones.h" />
     <ClInclude Include="src\Murcielago.h" />
     <ClInclude Include="src\Nivel3.h" />
     <ClInclude Include="src\PlataformaMovil.h" />

@@ -17,7 +17,6 @@ void Nivel1::DestruirContenido() {
 	enemigos.DestruirContenido();
 	plataformas.DestruirContenido();
 	puerta.DestruirContenido();
-	corazones.DestruirContenido();
 }
 Heroe Nivel1::GetHeroe() {
 	heroe.DestruirContenido();
@@ -28,18 +27,23 @@ void Nivel1::Inicializa(Heroe h) {
 	heroe = h;
 	/////////////////////////////////////Personaje
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(160.0f,10.0f);//160 10
+	heroe.SetPos(160.0f,10.0f);
 	heroe.SetVel(0.0f, 0.0f);
 	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
 	//puerta.SetColor(255, 0, 0);
  Puerta* puer = new Puerta(174.0f, 8.0f, 175.0f, 8.0f, -8.0f, 255, 0, 0);
  puerta.AgregarP(puer);
 
+ vidaextra.SetPos(170.0f, 30.0f);
 
 
-	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos, Vidas
+	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero);
-	
+	/*Araña* ax0 = new Araña(10.0f,10.0f);
+	enemigos.AgregarE(ax0);*/
+
+	/*Murcielago* aux = new Murcielago(10.0f, 10.0f);
+	enemigos.AgregarE(aux);*/
 }
 
 void Nivel1::Dibuja() {
@@ -110,11 +114,11 @@ void Nivel1::Dibuja() {
 	plataformas.Dibuja();
 	monedas.Dibuja();
 	armas.Dibuja();
-	
-	corazones.Dibuja();
+	vidaextra.Dibuja();
+
 	puerta.DibujaP();
-	//cout << "X" << heroe.GetPos().x << endl;
-	//cout << "Y" << heroe.GetPos().y << endl;
+	cout << "X" << heroe.GetPos().x << endl;
+	cout << "Y" << heroe.GetPos().y << endl;
 }
 
 void Nivel1::Mueve() {
@@ -123,8 +127,7 @@ void Nivel1::Mueve() {
 	monedas.Mueve(0.025f);
 	armas.Mueve(0.05f);
 	plataformas.Mueve(0.025f);
-	
-	corazones.Mueve(0.025f);
+	vidaextra.Mueve(0.025f, 9.5f);
 	// Heroe
 	heroe.Mueve(0.1f);
 
@@ -132,14 +135,13 @@ void Nivel1::Mueve() {
 	plataformas.Colision(&heroe);
 	monedas.Colision(&heroe);
 	enemigos.Colision(&heroe);
-	if(corazones.Colision(&heroe)==true)
-		heroe.SetVida(heroe.GetVida() + 1);
 	/////////Provisional
-
-
-	
-	
-
+/*
+	if (Interaccion::ColisionVida(&heroe, vidaextra) == true) {
+		cout << "choque vida" << endl;
+		heroe.SetVida(heroe.GetVida() + 1);
+	}
+	*/
 	if (puerta.Colision(&heroe) == true) {
 		cout << "puerta" << endl;
 		fin = true;
@@ -232,7 +234,7 @@ bool Nivel1::MuerteHeroe() {
 }
 
 void Nivel1::LecturaFichero(string Fichero) {
-	float x1 = 0, x2 = 0, y1 = 0, y2 = 0, gr = 0,pf=0;
+	float x1 = 0, x2 = 0, y1 = 0, y2 = 0, gr = 0;
 	float r = 0, v = 0, a = 0, vx = 0, vy = 0;
 	int b = 0, i = 1, longitud = 0, pos = 0, p, suma = 0;
 	int opcion = 999;
@@ -277,11 +279,6 @@ void Nivel1::LecturaFichero(string Fichero) {
 			Vector2D* aux = new Vector2D(x1, y1);
 			heroe.AgregarPuntosR(aux);
 		}
-		if (opcion == 7) {
-			archivo >> x1 >> y1 >> pf >> r >> vy  >> comentario;
-			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion Monedas
-			corazones.AgregarC(aux);
-		}
 		archivo >> tipo;
 		if (tipo == "Plataforma")
 			opcion = 1;
@@ -297,10 +294,8 @@ void Nivel1::LecturaFichero(string Fichero) {
 			opcion = 5;
 		if (tipo == "PuntosReaparicion")
 			opcion = 6;
-		if (tipo == "VidasExtra")
-			opcion = 7;
 		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&
-			tipo!="Enemigos" &&tipo !="Sirena" && tipo !="Pajaro" && tipo!="PuntosReaparicion" && tipo!="Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
+			tipo!="Enemigos" &&tipo !="Sirena" && tipo !="Pajaro" && tipo!="PuntosReaparicion" && tipo!="Heroe") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
 			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
