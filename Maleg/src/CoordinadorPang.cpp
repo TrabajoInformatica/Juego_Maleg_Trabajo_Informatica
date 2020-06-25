@@ -128,13 +128,13 @@ void CoordinadorPang::Mueve() //Falta destruir mundo cuando le damos a continuar
 	if (estado == JUEGO)
 	{
 		mundo.Mover();
-		/*if (mundo.Muerte() == true)
+		if (mundo.Muerte() == true)
 		{
 			estado = GAMEOVER;
 
 			ETSIDI::stopMusica();
 			ETSIDI::playMusica("sonidos/GameOver.wav");
-		}*/
+		}
 	}
 	if (estado == FIN)
 	{

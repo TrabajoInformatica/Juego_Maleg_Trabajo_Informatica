@@ -8,8 +8,8 @@
 class Mundo {
 public:
 	Heroe heroe;
-	Nivel1* nivel1 = new Nivel1();
-	Nivel2 *nivel2=new Nivel2();
+	Nivel1* nivel1;
+	Nivel2* nivel2;
 	int nivel;
 		Mundo();
 virtual ~Mundo();

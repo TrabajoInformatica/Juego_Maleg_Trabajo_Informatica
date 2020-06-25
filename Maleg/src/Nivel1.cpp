@@ -136,12 +136,12 @@ void Nivel1::Mueve() {
 	monedas.Colision(&heroe);
 	enemigos.Colision(&heroe);
 	/////////Provisional
-
+/*
 	if (Interaccion::ColisionVida(&heroe, vidaextra) == true) {
 		cout << "choque vida" << endl;
 		heroe.SetVida(heroe.GetVida() + 1);
 	}
-	
+	*/
 	if (puerta.Colision(&heroe) == true) {
 		cout << "puerta" << endl;
 		fin = true;
@@ -227,8 +227,7 @@ void Nivel1::TeclaUp(unsigned char key) {
 bool Nivel1::MuerteHeroe() {
 	if (heroe.Muerte()) {
 		cout << "Muerto" << endl;
-	//heroe.SetPos(0.0f, 3.0f);
-		//heroe.SetVel(0.0f, 0.0f);
+		heroe.DestruirContenido();
 		return true;
 	}else
 		return false;
