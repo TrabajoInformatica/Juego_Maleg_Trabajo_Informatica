@@ -19,6 +19,7 @@ public:
 
 	Araña();
 	Araña(float px, float py);
+	Araña(float px, float py, float limitex, float limitey);
 	~Araña();
 	void Mueve(float t);
 	void Movimiento();

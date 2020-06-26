@@ -36,8 +36,8 @@ void Mundo::CargarNivel() {
 		cout << "Inicializamundonivel2" << endl;
 	}
 	else if (nivel == 3) {
-	//	nivel3 = new Nivel3();
-		//nivel3->Inicializa(heroe);
+		nivel3 = new Nivel3();
+		nivel3->Inicializa(heroe);
 		cout << "Inicializamundonivel3" << endl;
 	}
 }
@@ -51,27 +51,13 @@ void Mundo::Dibuja() {
 	else if (nivel == 2) {
 		nivel2->Dibuja();
 	}
-	/*else if (nivel == 3) {
+	else if (nivel == 3) {
 		nivel3->Dibuja();
-	}*/
+	}
 }
 
 void Mundo::TeclaEspecial(unsigned char key){
-	/*switch (key)
-	{
-	case GLUT_KEY_LEFT:
-		x_ojo = x_ojo - 1;
-		break;
-	case GLUT_KEY_RIGHT:
-		x_ojo = x_ojo + 1;
-		break;
-	case GLUT_KEY_UP:
-		y_ojo = y_ojo + 1;
-		break;
-	case GLUT_KEY_DOWN:
-		y_ojo = y_ojo - 1;
-		break;
-	}*/
+
 }
 
 void Mundo::Mover(){
@@ -104,6 +90,17 @@ void Mundo::Mover(){
 			nivel2->Mueve();
 		}
 	}
+	if(nivel == 3)
+		if (nivel3->FinNivel3() == true) {
+			cout << "ha acabado el nivel3" << endl;
+			heroe = nivel3->GetHeroe();
+			nivel3->DestruirContenido();
+			delete nivel3;
+			cout << "Deletenivel3" << endl;
+		}
+		else {
+			nivel3->Mueve();
+		}
 
 	
 }
@@ -116,8 +113,8 @@ void Mundo::Tecla(unsigned char key)
 	if(nivel==2)
 		nivel2->Tecla(key);
 
-	//if (nivel == 3)
-		//nivel3.Tecla(key);
+	if (nivel == 3)
+		nivel3->Tecla(key);
 	
 }
 void Mundo::TeclaUp(unsigned char key) {
@@ -127,8 +124,8 @@ void Mundo::TeclaUp(unsigned char key) {
 	if(nivel==2)
 		nivel2->TeclaUp(key);
 
-	//if (nivel == 3)
-		//nivel3.TeclaUp(key);
+	if (nivel == 3)
+		nivel3->TeclaUp(key);
 }
 
 bool Mundo::Muerte() {
@@ -151,13 +148,15 @@ bool Mundo::Muerte() {
 			return false;
 		}
 	}
-	/*else if (nivel == 3) {
-	//	if (nivel3.MuerteHeroe()) {
+	else if (nivel == 3) {
+		if (nivel3->MuerteHeroe()) {
+			nivel3->DestruirContenido();
+			delete nivel3;
 			return true;
 		}
-		else if (!nivel3.MuerteHeroe()) {
+		else if (!nivel3->MuerteHeroe()) {
 			return false;
 		}
 	}
-	*/
+	
 }

@@ -136,8 +136,7 @@ void Nivel2::Mueve() {
 	plataformas2.Colision(&heroe2);
 	monedas2.Colision(&heroe2);	
 	enemigos2.Colision(&heroe2);
-	if (corazones2.Colision(&heroe2) == true)
-		heroe2.SetVida(heroe2.GetVida() + 1);
+	corazones2.Colision(&heroe2);
 
 	if (puerta2.Colision(&heroe2) == true) {
 		cout << "puerta2" << endl;

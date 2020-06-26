@@ -18,7 +18,7 @@ class Nivel3 {
 private:
 	Heroe heroe3;
 	ListaPlataformas plataformas3;        ///Objeto contiene todas las plataformas Nivel1
-	string Fichero = "Nivel1.txt";
+	string Fichero = "Nivel3.txt";
 	ListaMonedas monedas3;
 	ListaEnemigos enemigos3;
 	ListaArmas armas3;

@@ -13,10 +13,9 @@ Nivel3::~Nivel3() {
 
 }
 void Nivel3::DestruirContenido() {
-	monedas3.destruirContenido();
-	enemigos3.DestruirContenido();
 	plataformas3.DestruirContenido();
-	puerta.DestruirContenido();
+	armas3.DestruirContenido();
+	monedas3.destruirContenido();
 	corazones3.DestruirContenido();
 }
 Heroe Nivel3::GetHeroe() {
@@ -28,14 +27,25 @@ void Nivel3::Inicializa(Heroe h) {
 	heroe3 = h;
 	/////////////////////////////////////Personaje
 	heroe3.SetAlturaMuerte(-15.0f);
-	heroe3.SetPos(165.0f, 14.0f);
+	heroe3.SetPos(0.0f, 0.0f);
 	heroe3.SetVel(0.0f, 0.0f);
 	
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero);
-	/*Araña* ax0 = new Araña(10.0f,10.0f);
-	enemigos.AgregarE(ax0);*/
+		Araña* ax0 = new Araña(113.0f, 31.75f,3.5f,0.75f);
+	enemigos3.AgregarE(ax0);
+	Araña* ax1 = new Araña(120.5f, 24.75f, 3.0f, 0.75f);
+	enemigos3.AgregarE(ax1);
+	Araña* ax2 = new Araña(131.0f, 25.75f, 4.5f, 0.75f);
+	enemigos3.AgregarE(ax2);
+	Araña* ax3 = new Araña(47.5f, 2.75f, 3.0f, 0.75f);
+	enemigos3.AgregarE(ax3);
+	Araña* ax4 = new Araña(64.0f,-1.25f, 6.5f, 0.75f);
+	enemigos3.AgregarE(ax4);
+
+	Murcielago* mx0 = new Murcielago(96.0f, 39.0f);
+	enemigos3.AgregarE(mx0);
 }
 
 void Nivel3::Dibuja() {
@@ -63,7 +73,7 @@ void Nivel3::Dibuja() {
 
 void Nivel3::Mueve() {
 	// Enemigos
-	enemigos3.Mueve(0.025f);
+	enemigos3.Mueve(0.25f);
 	monedas3.Mueve(0.025f);
 	armas3.Mueve(0.025f);
 	plataformas3.Mueve(0.025f);
@@ -75,8 +85,8 @@ void Nivel3::Mueve() {
 	plataformas3.Colision(&heroe3);
 	monedas3.Colision(&heroe3);
 	enemigos3.Colision(&heroe3);
-	if (corazones3.Colision(&heroe3) == true)
-		heroe3.SetVida(heroe3.GetVida() + 1);
+	corazones3.Colision(&heroe3);
+
 	/////////Provisional
 
 	/*if (puerta.Colision(&heroe3) == true) {//Termina cuando mate o cuando pase la puerta?
@@ -163,9 +173,7 @@ void Nivel3::TeclaUp(unsigned char key) {
 
 bool Nivel3::MuerteHeroe() {
 	if (heroe3.Muerte()) {
-		cout << "Muerto" << endl;
-		//heroe.SetPos(0.0f, 3.0f);
-			//heroe.SetVel(0.0f, 0.0f);
+		heroe3.DestruirContenido();
 		return true;
 	}
 	else
@@ -173,7 +181,7 @@ bool Nivel3::MuerteHeroe() {
 }
 
 void Nivel3::LecturaFichero(string Fichero) {
-	float x1 = 0, x2 = 0, y1 = 0, y2 = 0, gr = 0;
+	float x1 = 0, x2 = 0, y1 = 0, y2 = 0, gr = 0, pf = 0;
 	float r = 0, v = 0, a = 0, vx = 0, vy = 0;
 	int b = 0, i = 1, longitud = 0, pos = 0, p, suma = 0;
 	int opcion = 999;
@@ -218,6 +226,11 @@ void Nivel3::LecturaFichero(string Fichero) {
 			Vector2D* aux = new Vector2D(x1, y1);
 			heroe3.AgregarPuntosR(aux);
 		}
+		if (opcion == 7) {
+			archivo >> x1 >> y1 >> pf >> r >> vy >> comentario;
+			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion Monedas
+			corazones3.AgregarC(aux);
+		}
 		archivo >> tipo;
 		if (tipo == "Plataforma")
 			opcion = 1;
@@ -233,8 +246,10 @@ void Nivel3::LecturaFichero(string Fichero) {
 			opcion = 5;
 		if (tipo == "PuntosReaparicion")
 			opcion = 6;
+		if (tipo == "VidasExtra")
+			opcion = 7;
 		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&
-			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
+			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
 			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro

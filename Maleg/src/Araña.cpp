@@ -20,6 +20,21 @@ Araña::Araña(float px, float py): spyder("imagenes/araña(x).png", 3, 1){
 	lim_yb = posicion.y - 0.75f;
 }
 
+Araña::Araña(float px, float py, float limitex ,float limitey) : spyder("imagenes/araña(x).png", 3, 1) {
+	posicion.x = px;
+	posicion.y = py;
+	aceleracion.x = 1.0;
+	verde = 0;
+	azul = 0;
+	rojo = 255;
+	altura = 0.4f;
+	velocidad.x = 1.0f;
+	lim_xi = posicion.x - limitex;
+	lim_ya = posicion.y + limitey;
+	lim_xd = posicion.x + limitex;
+	lim_yb = posicion.y - limitey;
+
+}
 Araña::~Araña() {
 
 }
