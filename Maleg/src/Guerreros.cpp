@@ -5,15 +5,15 @@ Guerreros::Guerreros() {
 
 }
 
-Guerreros::Guerreros(float px, float py) {
+Guerreros::Guerreros(float px, float py, float max, float v) {
 
 	posicion.x = px;
 	posicion.y = py;
-	altura = 2.0f;
-	velocidad.x = -3.0f;
-	velocidad.y = -3.0f;
+	altura = 1.0f;
+	velocidad.x = v;
 	aceleracion.x = -0.5f;
-	aceleracion.y = -0.5f;
+	lim_xd = posicion.x + max ;
+	lim_xi = posicion.x - max;
 	
 }
 
@@ -36,5 +36,19 @@ void Guerreros::Dibuja() {
 void Guerreros::Mueve(float t) {
 
 	ObjetoMovil::Mueve(t);
+	Movimiento();
+}
 
+void Guerreros::Movimiento() {
+
+	if (posicion.x > lim_xd) {
+		posicion.x = lim_xd;
+		velocidad.x = -2.5f;
+		aceleracion.x = 0.5f;
+	}
+	else if (posicion.x < lim_xi) {
+		posicion.x = lim_xi;
+		velocidad.x = 2.5f;
+		aceleracion.x = 0.5f;
+	}
 }

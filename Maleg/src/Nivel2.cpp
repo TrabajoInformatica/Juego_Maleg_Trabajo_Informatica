@@ -49,6 +49,10 @@ void Nivel2::Inicializa(Heroe h) {
 	Murcielago* mx4 = new Murcielago(167.0f, 39.5f);
 	enemigos2.AgregarE(mx4);
 
+	Guerreros* gx0 = new Guerreros(116.5f, 29.0f, 4.5f, 1.5f);
+	enemigos2.AgregarE(gx0);
+	Guerreros* gx1 = new Guerreros(164.0f, 32.0f, 3.0f, -2.0f);
+	enemigos2.AgregarE(gx1);
 }
 
 void Nivel2::Dibuja() {
@@ -135,7 +139,7 @@ void Nivel2::Mueve() {
 	//////Colisiones
 	plataformas2.Colision(&heroe2);
 	monedas2.Colision(&heroe2);	
-	enemigos2.Colision(&heroe2);
+	//enemigos2.Colision(&heroe2);
 	corazones2.Colision(&heroe2);
 
 	if (puerta2.Colision(&heroe2) == true) {
