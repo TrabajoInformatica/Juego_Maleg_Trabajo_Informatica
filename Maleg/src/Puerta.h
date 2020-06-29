@@ -14,8 +14,9 @@ public:
 	void DibujaP();
 	void DestruirContenido();
 	bool Colision(Heroe* p);
-	Puerta* lista[1];
+	
 	bool AgregarP(Puerta* p);
 	int num;
+	Puerta* lista[2];
 
 };

@@ -31,6 +31,9 @@ Plataforma
  178.0 11.5 180.0 11.5 2.5 155.0 155.0 155.0    //Borde1_plataforma3_guerrero
  185.0 13.0 190.0 13.0 0.5 155.0 155.0 155.0	//Ultima_plataforma_antes_de_Jefe_final
  195.0 12.0 240.0 12.0 0.5 155.0 155.0 155.0	//Plataforma_Boss_final
+ 92.0 100.0 110.0 100.0 0.5 155.0 155.0 155.0   //Plataforma_especial
+ 92.0 100.0 94.0 100.0 -4.0 155.0 155.0 155.0    //Borde1_plataforma_espe1
+ 95.0 108.0 97.0 108.0 -4.0 155.0 155.0 155.0    //Borde1_plataforma_espe2
 Plataforma_movil
  40.0 3.0 43.0 3.0 0.5 200 -4.0 0.0 155.0 155.0 155.0 	//Plataforma_movilInicio
  85.0 20.0 87.0 20.0 0.5 200 -3.5 -3.5 155.0 155.0 155.0   //Cruce_con_plataforma_Movil
