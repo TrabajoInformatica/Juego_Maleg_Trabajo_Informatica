@@ -48,17 +48,17 @@ void Nivel3::Inicializa(Heroe h) {
 	Murcielago* mx0 = new Murcielago(96.0f, 39.0f);
 	enemigos3.AgregarE(mx0);
 
-	Guerreros* gx0 = new Guerreros(132.5f, 15.5f, 12.5f, 3.0f);
+	Guerreros* gx0 = new Guerreros(132.5f, 16.0f, 9.5f, 3.0f);
 	enemigos3.AgregarE(gx0);
-	Guerreros* gx1 = new Guerreros(132.5f, 17.0f, 12.5f, -2.0f);
+	Guerreros* gx1 = new Guerreros(132.5f, 16.0f, 9.5f, -2.0f);
 	enemigos3.AgregarE(gx1);
-	Guerreros* gx2 = new Guerreros(170.0f, 11.0f, 10.0f, -2.5f);
+	Guerreros* gx2 = new Guerreros(133.0f, 8.5f, 10.0f, 0.5f);
 	enemigos3.AgregarE(gx2);
-	Guerreros* gx3 = new Guerreros(170.0f, 11.0f, 10.0f, 1.5f);
+	Guerreros* gx3 = new Guerreros(133.0f, 8.5f, 10.0f, 3.5f);
 	enemigos3.AgregarE(gx3);
-	Guerreros* gx4 = new Guerreros(133.0f, 8.0f, 13.0f, 0.5f);
+	Guerreros* gx4 = new Guerreros(170.0f, 10.0f, 7.0f, -1.5f);
 	enemigos3.AgregarE(gx4);
-	Guerreros* gx5 = new Guerreros(133.0f, 8.0f, 13.0f, 3.5f);
+	Guerreros* gx5 = new Guerreros(170.0f, 10.0f, 7.0f, 1.5f);
 	enemigos3.AgregarE(gx5);
 }
 

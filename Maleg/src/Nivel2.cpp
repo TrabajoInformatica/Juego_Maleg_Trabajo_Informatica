@@ -46,12 +46,12 @@ void Nivel2::Inicializa(Heroe h) {
 	enemigos2.AgregarE(mx2);
 	Murcielago* mx3 = new Murcielago(110.0f, 40.0f);
 	enemigos2.AgregarE(mx3);
-	Murcielago* mx4 = new Murcielago(167.0f, 39.5f);
+	Murcielago* mx4 = new Murcielago(165.0f, 41.5f);
 	enemigos2.AgregarE(mx4);
 
-	Guerreros* gx0 = new Guerreros(116.5f, 29.0f, 4.5f, 1.5f);
+	Guerreros* gx0 = new Guerreros(116.5f, 29.0f, 5.5f, 1.5f);
 	enemigos2.AgregarE(gx0);
-	Guerreros* gx1 = new Guerreros(164.0f, 32.0f, 3.0f, -2.0f);
+	Guerreros* gx1 = new Guerreros(164.0f, 32.0f, 4.0f, -2.0f);
 	enemigos2.AgregarE(gx1);
 }
 
