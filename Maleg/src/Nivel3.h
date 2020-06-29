@@ -23,7 +23,8 @@ private:
 	ListaEnemigos enemigos3;
 	ListaArmas armas3;
 	ListaCorazones corazones3;
-	Puerta puerta;
+	Puerta puerta3;
+	Puerta puertaextra;
 	enum Estado { ShowHitbox, HideHitbox };
 	Estado estado = HideHitbox;
 
