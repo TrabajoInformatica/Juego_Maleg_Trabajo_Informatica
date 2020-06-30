@@ -17,6 +17,8 @@ void Nivel3::DestruirContenido() {
 	armas3.DestruirContenido();
 	monedas3.destruirContenido();
 	corazones3.DestruirContenido();
+	puerta3.DestruirContenido();
+	puertaextra.DestruirContenido();
 }
 Heroe Nivel3::GetHeroe() {
 	heroe3.DestruirContenido();
@@ -27,7 +29,7 @@ void Nivel3::Inicializa(Heroe h) {
 	heroe3 = h;
 	/////////////////////////////////////Personaje
 	heroe3.SetAlturaMuerte(-15.0f);
-	heroe3.SetPos(100.0f, 101.0f);
+	heroe3.SetPos(0.0f, 0.0f);
 	heroe3.SetVel(0.0f, 0.0f);
 	
 	Puerta* puerfin = new Puerta(232.2f, 12.0f, 235.0f, 12.0f, -5.0f, 255, 0, 0);
@@ -40,6 +42,7 @@ void Nivel3::Inicializa(Heroe h) {
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero);
+	cout << "Nivel333333333333" << endl;
 
 	Araña* ax0 = new Araña(113.0f, 31.75f,3.5f,0.75f);
 	enemigos3.AgregarE(ax0);
@@ -202,6 +205,7 @@ void Nivel3::TeclaUp(unsigned char key) {
 
 bool Nivel3::MuerteHeroe() {
 	if (heroe3.Muerte()) {
+		cout << "Destruir lanzas 3" << endl;
 		heroe3.DestruirContenido();
 		return true;
 	}

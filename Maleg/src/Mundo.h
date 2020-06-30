@@ -3,6 +3,7 @@
 #include "Nivel1.h"
 #include "Nivel2.h"
 #include "Nivel3.h"
+#include "NivelFinal.h"
 #include "Interaccion.h"
 #include "Personaje.h"
 
@@ -12,6 +13,7 @@ public:
 	Nivel1* nivel1;
 	Nivel2* nivel2;
 	Nivel3* nivel3;
+	NivelFinal* nivelfinal;
 	int nivel;
 		Mundo();
 virtual ~Mundo();

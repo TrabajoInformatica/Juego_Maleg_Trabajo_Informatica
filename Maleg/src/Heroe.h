@@ -38,6 +38,7 @@ public:
 	//METODOS SET
 	void SetAlturaMuerte(float am);
 	void SetVida( float v);
+	void SetMonedas(int m);
 
 	//ANIMACIONES
 	virtual void Dibuja();

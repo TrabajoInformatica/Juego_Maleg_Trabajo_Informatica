@@ -152,6 +152,7 @@
     <ClCompile Include="src\ListasArmas.cpp" />
     <ClCompile Include="src\Murcielago.cpp" />
     <ClCompile Include="src\Nivel3.cpp" />
+    <ClCompile Include="src\NivelFinal.cpp" />
     <ClCompile Include="src\PlataformaMovil.cpp" />
     <ClCompile Include="src\CoordinadorPang.cpp" />
     <ClCompile Include="src\Enemigo.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="src\ListaCorazones.h" />
     <ClInclude Include="src\Murcielago.h" />
     <ClInclude Include="src\Nivel3.h" />
+    <ClInclude Include="src\NivelFinal.h" />
     <ClInclude Include="src\PlataformaMovil.h" />
     <ClInclude Include="src\CoordinadorPang.h" />
     <ClInclude Include="src\Enemigo.h" />

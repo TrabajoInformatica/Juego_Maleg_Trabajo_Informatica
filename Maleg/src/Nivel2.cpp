@@ -17,6 +17,7 @@ void Nivel2::DestruirContenido() {
 	armas2.DestruirContenido();
 	monedas2.destruirContenido();
 	corazones2.DestruirContenido();
+	puerta2.DestruirContenido();
 
 }
 void Nivel2::Inicializa(Heroe h) {

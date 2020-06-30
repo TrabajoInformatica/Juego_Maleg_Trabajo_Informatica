@@ -130,6 +130,10 @@ void Heroe::SetAlturaMuerte(float am) {
 void Heroe::SetVida(float v) {
 	vida = v;
 }
+
+void Heroe::SetMonedas(int m) {
+	monedas = m;
+}
 bool Heroe::Muerte() {
 	
 	if (alturamuerte >= posicion.y) {	
@@ -164,8 +168,7 @@ void Heroe::SumarMonedas(bool m) {
 void Heroe::PuntoReaparicion() {
 	for (int i = 0;i < numeroRP;i++) {
 		if (posicion.x < 0.0f){
-		posicion.x = 0.0f;
-		posicion.y = 0.0f;
+		posicion = (*puntosR[0]);
 		break;
 		}
 		else if (posicion.x < puntosR[i]->x) {

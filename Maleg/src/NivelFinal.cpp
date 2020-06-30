@@ -1,105 +1,53 @@
-#include "Nivel1.h"
+#include "NivelFinal.h"
 #include <iostream>
 #include <fstream>
 #include "glut.h"
 using namespace std;
 
-Nivel1::Nivel1() {
+NivelFinal::NivelFinal() {
 	fin = false;
 
 }
 
-Nivel1::~Nivel1() {
+NivelFinal::~NivelFinal() {
 
 }
-void Nivel1::DestruirContenido() {
+void NivelFinal::DestruirContenido() {
 	monedas.destruirContenido();
 	enemigos.DestruirContenido();
 	plataformas.DestruirContenido();
 	puerta.DestruirContenido();
 	corazones.DestruirContenido();
-	armas.DestruirContenido();
 }
-Heroe Nivel1::GetHeroe() {
+Heroe NivelFinal::GetHeroe() {
 	heroe.DestruirContenido();
 	return heroe;
 }
 
-void Nivel1::Inicializa(Heroe h) {
+void NivelFinal::Inicializa(Heroe h) {
 	heroe = h;
 	/////////////////////////////////////Personaje
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(0.0f,0.0f);//160 10
+	heroe.SetPos(0.0f, 10.0f);//160 10
 	heroe.SetVel(0.0f, 0.0f);
 	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
 	//puerta.SetColor(255, 0, 0);
- Puerta* puer = new Puerta(174.0f, 8.0f, 178.0f, 8.0f, -5.0f, 255, 0, 0);
- puerta.AgregarP(puer);
-
+	Puerta* puer = new Puerta(200.0f, 30.0f, 204.0f, 30.0f, -5.0f, 255, 0, 0);
+	puerta.AgregarP(puer);
 
 
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos, Vidas
 	LecturaFichero(Fichero);
-	
+
 }
 
-void Nivel1::Dibuja() {
+void NivelFinal::Dibuja() {
 	// Vista
-	gluLookAt(heroe.GetPos().x,heroe.GetPos().y+ 1, 3,  // posicion del ojo						//NUNCA MODIFICAR LA Z	No hace fala
+	gluLookAt(heroe.GetPos().x, heroe.GetPos().y + 1, 3,  // posicion del ojo						//NUNCA MODIFICAR LA Z	No hace fala
 		heroe.GetPos().x, heroe.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)  
 
-	// Background
-	glEnable(GL_TEXTURE_2D);
-	//------------------------------------------------------------------------------------------
-	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/game_background_4.png").id);
-	glDisable(GL_LIGHTING);
-	glBegin(GL_POLYGON);
-	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 1); glVertex3f(-40, 0, 0.6);
-	glTexCoord2d(1, 1); glVertex3f(40, 0, 0.6); 
-	glTexCoord2d(1, 0); glVertex3f(40, 40, 0.6);
-	glTexCoord2d(0, 0); glVertex3f(-40, 40, 0.6);
-	glEnd();
-	//------------------------------------------------------------------------------------------
-	glBegin(GL_POLYGON);
-	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 1); glVertex3f(40, 0, 0.6);
-	glTexCoord2d(1, 1); glVertex3f(120, 0, 0.6);
-	glTexCoord2d(1, 0); glVertex3f(120, 40, 0.6);
-	glTexCoord2d(0, 0); glVertex3f(40, 40, 0.6);
-	glEnd();
-	//------------------------------------------------------------------------------------------
-	glBegin(GL_POLYGON);
-	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 1); glVertex3f(120, 0, 0.6);
-	glTexCoord2d(1, 1); glVertex3f(200, 0, 0.6);
-	glTexCoord2d(1, 0); glVertex3f(200, 40, 0.6);
-	glTexCoord2d(0, 0); glVertex3f(120, 40, 0.6);
-	glEnd();
-	//------------------------------------------------------------------------------------------
-	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/bottom.png").id);
-	glDisable(GL_LIGHTING);
-	glBegin(GL_POLYGON);
-	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 1); glVertex3f(-40, 0, 0.7);
-	glTexCoord2d(1, 1); glVertex3f(220, 0, 0.7);
-	glTexCoord2d(1, 0); glVertex3f(220, -60, 0.7);
-	glTexCoord2d(0, 0); glVertex3f(-40, -60, 0.7);
-	glEnd();
-	//------------------------------------------------------------------------------------------
-	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/top.png").id);
-	glDisable(GL_LIGHTING);
-	glBegin(GL_POLYGON);
-	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 1); glVertex3f(-40, 40, 0.7);
-	glTexCoord2d(1, 1); glVertex3f(220, 40, 0.7);
-	glTexCoord2d(1, 0); glVertex3f(220, 100, 0.7);
-	glTexCoord2d(0, 0); glVertex3f(-40, 100, 0.7);
-	glEnd();
-	//------------------------------------------------------------------------------------------
-	glEnable(GL_LIGHTING);
-	glDisable(GL_TEXTURE_2D);
+
 
 	// Enemigos
 	enemigos.Dibuja();
@@ -107,24 +55,24 @@ void Nivel1::Dibuja() {
 	// Heroe
 	heroe.Dibuja();
 
-    //Plataformas, Monedas y otros.
+	//Plataformas, Monedas y otros.
 	plataformas.Dibuja();
 	monedas.Dibuja();
 	armas.Dibuja();
-	
+
 	corazones.Dibuja();
 	puerta.DibujaP();
 	//cout << "X" << heroe.GetPos().x << endl;
 	//cout << "Y" << heroe.GetPos().y << endl;
 }
 
-void Nivel1::Mueve() {
+void NivelFinal::Mueve() {
 	// Enemigos
-	enemigos.Mueve(0.025f);	
+	enemigos.Mueve(0.025f);
 	monedas.Mueve(0.025f);
 	armas.Mueve(0.05f);
 	plataformas.Mueve(0.025f);
-	
+
 	corazones.Mueve(0.025f);
 	// Heroe
 	heroe.Mueve(0.1f);
@@ -137,8 +85,8 @@ void Nivel1::Mueve() {
 	/////////Provisional
 
 
-	
-	
+
+
 
 	if (puerta.Colision(&heroe) == true) {
 		cout << "puerta" << endl;
@@ -157,7 +105,7 @@ void Nivel1::Mueve() {
 	}
 }
 
-bool Nivel1::FinNivel1() {
+bool NivelFinal::FinNivelFinal() {
 	if (fin == true) {
 		return true;
 		cout << "ha pasado" << endl;
@@ -166,7 +114,7 @@ bool Nivel1::FinNivel1() {
 		return false;
 }
 
-void Nivel1::Tecla(unsigned char key) {
+void NivelFinal::Tecla(unsigned char key) {
 	if (key == 'w') {
 		for (int i = 0; i < plataformas.GetNumPlat(); i++) {
 			if (Interaccion::ColisionSup(&heroe, plataformas.GetListaPlat(i))) {
@@ -202,7 +150,7 @@ void Nivel1::Tecla(unsigned char key) {
 		if (heroe.ValidarDisparo()) {
 			ETSIDI::play("sonidos/DisparoFlecha.mp3");
 			if (heroe.Disparo()) {
-				Lanza* aux = new Lanza(heroe.GetPos().x+heroe.GetAltura(), heroe.GetPos().y, 10);
+				Lanza* aux = new Lanza(heroe.GetPos().x + heroe.GetAltura(), heroe.GetPos().y, 10);
 				armas.AgregarA(aux);
 				heroe.SumarMonedas(false);
 			}
@@ -215,24 +163,25 @@ void Nivel1::Tecla(unsigned char key) {
 	}
 }
 
-void Nivel1::TeclaUp(unsigned char key) {
+void NivelFinal::TeclaUp(unsigned char key) {
 	if (key == 'a')
 		heroe.SetVel(0.0f, heroe.GetVel().y);
 	if (key == 'd')
 		heroe.SetVel(0.0f, heroe.GetVel().y);
 }
 
-bool Nivel1::MuerteHeroe() {
+bool NivelFinal::MuerteHeroe() {
 	if (heroe.Muerte()) {
 		cout << "Muerto" << endl;
 		heroe.DestruirContenido();
 		return true;
-	}else
+	}
+	else
 		return false;
 }
 
-void Nivel1::LecturaFichero(string Fichero) {
-	float x1 = 0, x2 = 0, y1 = 0, y2 = 0, gr = 0,pf=0;
+void NivelFinal::LecturaFichero(string Fichero) {
+	float x1 = 0, x2 = 0, y1 = 0, y2 = 0, gr = 0, pf = 0;
 	float r = 0, v = 0, a = 0, vx = 0, vy = 0;
 	int b = 0, i = 1, longitud = 0, pos = 0, p, suma = 0;
 	int opcion = 999;
@@ -278,7 +227,7 @@ void Nivel1::LecturaFichero(string Fichero) {
 			heroe.AgregarPuntosR(aux);
 		}
 		if (opcion == 7) {
-			archivo >> x1 >> y1 >> pf >> r >> vy  >> comentario;
+			archivo >> x1 >> y1 >> pf >> r >> vy >> comentario;
 			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion Monedas
 			corazones.AgregarC(aux);
 		}
@@ -289,7 +238,7 @@ void Nivel1::LecturaFichero(string Fichero) {
 			opcion = 2;
 		if (tipo == "Monedas")
 			opcion = 3;
-		if (tipo == "Enemigos" || tipo=="Heroe")
+		if (tipo == "Enemigos" || tipo == "Heroe")
 			opcion = 300;
 		if (tipo == "Sirena")
 			opcion = 4;
@@ -300,7 +249,7 @@ void Nivel1::LecturaFichero(string Fichero) {
 		if (tipo == "VidasExtra")
 			opcion = 7;
 		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&
-			tipo!="Enemigos" &&tipo !="Sirena" && tipo !="Pajaro" && tipo!="PuntosReaparicion" && tipo!="Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
+			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
 			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
@@ -310,5 +259,3 @@ void Nivel1::LecturaFichero(string Fichero) {
 	}
 	archivo.close();
 }
-
-

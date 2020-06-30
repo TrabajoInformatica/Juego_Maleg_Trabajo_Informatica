@@ -16,9 +16,9 @@ Mundo::~Mundo() {
 
 void Mundo::Inicializa() {
 	heroe.SetVida(3);
-	nivel =3;
+	nivel =1;
 	CargarNivel();
-	cout << "inicializa" << endl;
+	cout << "Inicializa" << endl;
 
 }
 
@@ -40,6 +40,11 @@ void Mundo::CargarNivel() {
 		nivel3->Inicializa(heroe);
 		cout << "Inicializamundonivel3" << endl;
 	}
+	else if (nivel == 4) {
+		nivelfinal = new NivelFinal();
+		nivelfinal->Inicializa(heroe);
+		cout << "InicializamundonivelFinal" << endl;
+	}
 }
 
 
@@ -53,6 +58,9 @@ void Mundo::Dibuja() {
 	}
 	else if (nivel == 3) {
 		nivel3->Dibuja();
+	}
+	else if (nivel == 4) {
+		nivelfinal->Dibuja();
 	}
 }
 
@@ -90,16 +98,30 @@ void Mundo::Mover(){
 			nivel2->Mueve();
 		}
 	}
-	if(nivel == 3)
+	if (nivel == 3) {
 		if (nivel3->FinNivel3() == true) {
-			cout << "ha acabado el nivel3" << endl;
+			cout << "ha acabado el nivel 3" << endl;
+			nivel = nivel + 1;
 			heroe = nivel3->GetHeroe();
 			nivel3->DestruirContenido();
 			delete nivel3;
 			cout << "Deletenivel3" << endl;
+			CargarNivel();
 		}
 		else {
 			nivel3->Mueve();
+		}
+	}
+	if(nivel == 4)
+		if (nivelfinal->FinNivelFinal() == true) {
+			cout << "ha acabado el nivelFinal" << endl;
+			heroe = nivelfinal->GetHeroe();
+			nivelfinal->DestruirContenido();
+			delete nivelfinal;
+			cout << "DeletenivelFinal" << endl;
+		}
+		else {
+			nivelfinal->Mueve();
 		}
 
 	
@@ -115,6 +137,9 @@ void Mundo::Tecla(unsigned char key)
 
 	if (nivel == 3)
 		nivel3->Tecla(key);
+
+	if (nivel == 4)
+		nivelfinal->Tecla(key);
 	
 }
 void Mundo::TeclaUp(unsigned char key) {
@@ -126,6 +151,9 @@ void Mundo::TeclaUp(unsigned char key) {
 
 	if (nivel == 3)
 		nivel3->TeclaUp(key);
+
+	if (nivel == 4)
+		nivelfinal->TeclaUp(key);
 }
 
 bool Mundo::Muerte() {
@@ -133,6 +161,7 @@ bool Mundo::Muerte() {
 		if (nivel1->MuerteHeroe()) {
 			nivel1->DestruirContenido();
 			delete nivel1;
+			heroe.SetMonedas(0);
 			return true;
 		}else if(!nivel1->MuerteHeroe()) {
 			return false;
@@ -142,6 +171,7 @@ bool Mundo::Muerte() {
 		if (nivel2->MuerteHeroe()) {
 			nivel2->DestruirContenido();
 			delete nivel2;
+			heroe.SetMonedas(0);
 			return true;
 		}
 		else if (!nivel2->MuerteHeroe()) {
@@ -152,9 +182,21 @@ bool Mundo::Muerte() {
 		if (nivel3->MuerteHeroe()) {
 			nivel3->DestruirContenido();
 			delete nivel3;
+			heroe.SetMonedas(0);
 			return true;
 		}
 		else if (!nivel3->MuerteHeroe()) {
+			return false;
+		}
+	}
+	else if (nivel == 4) {
+		if (nivelfinal->MuerteHeroe()) {
+			nivelfinal->DestruirContenido();
+			delete nivelfinal;
+			heroe.SetMonedas(0);
+			return true;
+		}
+		else if (!nivelfinal->MuerteHeroe()) {
 			return false;
 		}
 	}
