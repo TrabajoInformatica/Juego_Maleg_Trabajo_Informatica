@@ -21,6 +21,8 @@ void Nivel2::DestruirContenido() {
 
 }
 void Nivel2::Inicializa(Heroe h) {
+	ETSIDI::stopMusica();
+	ETSIDI::playMusica("sonidos/Ambiente.wav");
 	heroe2= h;
 	/////////////////////////////////////Personaje
 	heroe2.SetAlturaMuerte(-15.0);

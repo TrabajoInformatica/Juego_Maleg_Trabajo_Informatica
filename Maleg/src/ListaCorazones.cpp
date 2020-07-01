@@ -44,6 +44,7 @@ bool ListaCorazones::Colision(Heroe* h) {
 			if(h->GetVida()<3)
 				h->SetVida(h->GetVida() + 1);
 			Eliminar(Lista_c[i]);
+			ETSIDI::play("sonidos/vida.wav");
 			return true;
 		}
 		

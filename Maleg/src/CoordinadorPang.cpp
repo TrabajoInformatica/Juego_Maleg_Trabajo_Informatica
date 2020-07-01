@@ -56,7 +56,7 @@ void CoordinadorPang::Tecla(unsigned char key)
 			cout << "JUEGO" << endl;
 			ETSIDI::stopMusica();
 			//Probablemente se cambie porque me parece un poco tétrico
-			ETSIDI::playMusica("sonidos/Ambiente.wav", true);
+			ETSIDI::playMusica("sonidos/Ambiente2.wav", true);
 			
 		}
 	}
