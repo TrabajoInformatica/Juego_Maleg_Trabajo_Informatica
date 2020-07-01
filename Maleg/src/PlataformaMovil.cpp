@@ -2,22 +2,13 @@
 #include <iostream>
 #include "glut.h"
 using namespace std;
-PlataformaMovil::PlataformaMovil() {
 
-}
-
-PlataformaMovil::PlataformaMovil(float x1, float y1, float x2, float y2, float gr, float p, float vx, float vy, unsigned char r, unsigned char v, unsigned char a) {
-	limite1.x = x1;
-	limite1.y = y1;
-	limite2.x = x2;
-	limite2.y = y2;
-	grosor = gr;
-	rojo = r;
-	verde = v;
-	azul = a;
+PlataformaMovil::PlataformaMovil(float x1, float y1, float x2, float y2, float gr, float p, float vx, float vy, unsigned char r, unsigned char v, unsigned char a)
+	:Plataforma (x1,y1,x2,y2,gr,r,v,a){
 	velocidad.x = vx;
 	velocidad.y = vy;
 	contador = 0;
+	tiempo = 0;
 	paso = p;
 }
 

@@ -9,7 +9,6 @@ private:
 	float tiempo;
 	Vector2D velocidad;
 public:
-	PlataformaMovil();
 	PlataformaMovil(float x1, float y1, float x2, float y2, float gr,float p,float vx,float vy, unsigned char r, unsigned char v, unsigned char a);
 	virtual ~PlataformaMovil();
 	void Mueve(float t);
