@@ -26,7 +26,7 @@ void Nivel2::Inicializa(Heroe h) {
 	heroe2= h;
 	/////////////////////////////////////Personaje
 	heroe2.SetAlturaMuerte(-15.0);
-	heroe2.SetPos(0.0f, 0.0f);
+	heroe2.SetPos(190.0f, 30.0f);
 	heroe2.SetVel(0.0f, 0.0f);
 	////////////////////////////////////Plataformas
 	LecturaFichero(Fichero);
@@ -69,7 +69,7 @@ void Nivel2::Dibuja() {
 	// Background
 	glEnable(GL_TEXTURE_2D);
 	//------------------------------------------------------------------------------------------
-	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/doomforest.png").id);
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/lvl2&3background.png").id);
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
