@@ -52,7 +52,7 @@ void Nivel1::Dibuja() {
 	// Background
 	glEnable(GL_TEXTURE_2D);
 	//------------------------------------------------------------------------------------------
-	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/game_background_4.png").id);
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/lvl1background.png").id);
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
@@ -91,7 +91,7 @@ void Nivel1::Dibuja() {
 	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/top.png").id);
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
-	glColor3f(1, 1, 1);
+	glColor3f(1, 1, 1); 
 	glTexCoord2d(0, 1); glVertex3f(-40, 40, 0.7);
 	glTexCoord2d(1, 1); glVertex3f(220, 40, 0.7);
 	glTexCoord2d(1, 0); glVertex3f(220, 100, 0.7);

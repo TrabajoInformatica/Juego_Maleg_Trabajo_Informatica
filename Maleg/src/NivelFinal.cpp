@@ -47,7 +47,21 @@ void NivelFinal::Dibuja() {
 		heroe.GetPos().x, heroe.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)  
 
-
+	// Background
+	glEnable(GL_TEXTURE_2D);
+	//------------------------------------------------------------------------------------------
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/lvl4background.png").id);
+	glDisable(GL_LIGHTING);
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	glTexCoord2d(0, 1); glVertex3f(-60, -25, 0.6);
+	glTexCoord2d(1, 1); glVertex3f(60, -25, 0.6);
+	glTexCoord2d(1, 0); glVertex3f(60, 35, 0.6);
+	glTexCoord2d(0, 0); glVertex3f(-60, 35, 0.6);
+	glEnd();
+	//------------------------------------------------------------------------------------------
+	glEnable(GL_LIGHTING);
+	glDisable(GL_TEXTURE_2D);
 
 	// Enemigos
 	enemigos.Dibuja();
