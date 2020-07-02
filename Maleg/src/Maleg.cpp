@@ -1,8 +1,8 @@
 #include "Mundo.h"
 #include "glut.h"
-#include "CoordinadorPang.h"
+#include "Coordinador.h"
 
-CoordinadorPang juego;
+Coordinador juego;
 
 //Mundo mundo;
 //Nivel1 nivel;

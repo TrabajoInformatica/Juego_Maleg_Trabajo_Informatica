@@ -1,11 +1,11 @@
 #pragma once
 #include "Mundo.h"
 
-class CoordinadorPang
+class Coordinador
 {
 public:
-	CoordinadorPang();
-	virtual ~CoordinadorPang();
+	Coordinador();
+	virtual ~Coordinador();
 	void TeclaEspecial(unsigned char key);
 	void Tecla(unsigned char key);
 	void TeclaUp(unsigned char key);

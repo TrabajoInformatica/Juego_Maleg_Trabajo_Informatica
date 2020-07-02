@@ -23,4 +23,3 @@ public:
 	void Mueve(float t);
 	void Movimiento();
 };
-

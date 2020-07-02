@@ -1,4 +1,4 @@
-#include "CoordinadorPang.h"
+#include "Coordinador.h"
 #include "ETSIDI.h"
 #include "glut.h"
 //#include <locale.h>
@@ -7,22 +7,21 @@
 using namespace std;
 //char setlocale(LC_CTYPE, "spanish");
 
-CoordinadorPang::CoordinadorPang(){
+Coordinador::Coordinador(){
 	ETSIDI::stopMusica();
 	estado = INICIO;
 	ETSIDI::playMusica("sonidos/Intro.wav");
 }
 
-
-CoordinadorPang::~CoordinadorPang(){
+Coordinador::~Coordinador(){
 }
 
-void CoordinadorPang::TeclaEspecial(unsigned char key) {
+void Coordinador::TeclaEspecial(unsigned char key) {
 	if (estado == JUEGO)
 		mundo.TeclaEspecial(key);
 }
 
-void CoordinadorPang::Tecla(unsigned char key) 
+void Coordinador::Tecla(unsigned char key) 
 {
 
 	if (estado == INICIO)
@@ -117,13 +116,13 @@ void CoordinadorPang::Tecla(unsigned char key)
 	}
 }
 
-void CoordinadorPang::TeclaUp(unsigned char key) 
+void Coordinador::TeclaUp(unsigned char key) 
 {
 	if (estado == JUEGO) {
 		mundo.TeclaUp(key);
 	}
 }
-void CoordinadorPang::Mueve() //Falta destruir mundo cuando le damos a continuar en Game Over ya que si no, se duplica
+void Coordinador::Mueve() //Falta destruir mundo cuando le damos a continuar en Game Over ya que si no, se duplica
 {
 	if (estado == JUEGO)
 	{
@@ -144,7 +143,7 @@ void CoordinadorPang::Mueve() //Falta destruir mundo cuando le damos a continuar
 }
 	
 
-void CoordinadorPang::Dibuja() 
+void Coordinador::Dibuja() 
 {
 	
 	if (estado == INICIO)
