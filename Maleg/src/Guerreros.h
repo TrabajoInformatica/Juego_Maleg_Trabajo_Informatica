@@ -1,6 +1,9 @@
 #pragma once
+#include <ETSIDI.h>
 #include "Enemigo.h"
-#define MAX_GUERR 5
+
+using ETSIDI::SpriteSequence;
+
 
 class Guerreros: public Enemigo{
 
@@ -9,6 +12,8 @@ private:
 	float lim_xi;
 
 public:
+	SpriteSequence skeleton;
+
 	Guerreros();
 	Guerreros(float px, float py, float max, float v);
 	~Guerreros();
