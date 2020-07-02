@@ -26,8 +26,8 @@ Heroe::Heroe() :
 Heroe::~Heroe(){
 }
 void Heroe::Mueve(float t) {
-	if (velocidad.y > 10)
-		velocidad.y = 10;
+	if (velocidad.y < -10)
+		velocidad.y = -10;
 	
 	if (velocidad.x < 0)
 		sentido = Izquierda;
