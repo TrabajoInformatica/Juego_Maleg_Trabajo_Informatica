@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="src\Araña.cpp" />
     <ClCompile Include="src\Arma.cpp" />
+    <ClCompile Include="src\Boton.cpp" />
     <ClCompile Include="src\Lanza.cpp" />
     <ClCompile Include="src\ListaCorazones.cpp" />
     <ClCompile Include="src\ListasArmas.cpp" />
@@ -179,6 +180,7 @@
   <ItemGroup>
     <ClInclude Include="src\Araña.h" />
     <ClInclude Include="src\Arma.h" />
+    <ClInclude Include="src\Boton.h" />
     <ClInclude Include="src\Lanza.h" />
     <ClInclude Include="src\ListaArmas.h" />
     <ClInclude Include="src\ListaCorazones.h" />

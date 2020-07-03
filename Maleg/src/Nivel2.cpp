@@ -6,6 +6,9 @@ using namespace std;
 
 Nivel2::Nivel2() {
 	fin = false;
+	ETSIDI::stopMusica();
+	ETSIDI::playMusica("sonidos/Ambiente.wav");
+
 }
 
 Nivel2::~Nivel2() {
@@ -21,8 +24,6 @@ void Nivel2::DestruirContenido() {
 
 }
 void Nivel2::Inicializa(Heroe h) {
-	ETSIDI::stopMusica();
-	ETSIDI::playMusica("sonidos/Ambiente.wav");
 	/////////////////////////////////////Personaje
 	heroe2 = h;
 	heroe2.SetAlturaMuerte(-15.0);
