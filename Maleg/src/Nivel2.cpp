@@ -26,11 +26,11 @@ void Nivel2::Inicializa(Heroe h) {
 	/////////////////////////////////////Personaje
 	heroe2 = h;
 	heroe2.SetAlturaMuerte(-15.0);
-	heroe2.SetPos(190.0f, 30.0f);
+	heroe2.SetPos(0.0f, 0.0f); //203.0f, 29.0f
 	heroe2.SetVel(0.0f, 0.0f);
 
 	LecturaFichero(Fichero);
-	Puerta* puer = new Puerta(200.0f, 30.0f, 204.0f, 30.0f, -5.0f, 255, 0, 0);
+	Puerta* puer = new Puerta(204.0f, 29.0f, 208.0f, 29.0f, -5.0f, 255, 0, 0);
 	puerta2.AgregarP(puer);
 
 

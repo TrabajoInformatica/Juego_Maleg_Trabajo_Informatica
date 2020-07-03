@@ -1,44 +1,30 @@
 X1_Y1_X2_Y2_GROSOR_ROJO_VERDE_AZUL
 Plataforma
--10.0 -10.0 10.0 -10.0 2.0 128.0 64.0 0.0		//Suelo_Inicial
--10.0 0.0 -8.0 0.0 2.0 128.0 64.0 0.0                   //t000
--8.0 0.0 -6.0 0.0 2.0 128.0 64.0 0.0			//t001
--6 0.0 -4.0 0.0 2.0 128.0 64.0 0.0			//t002
--4.0 0.0 -2.0 0.0 2.0 128.0 64.0 0.0			//t003
--2.0 0.0 0.0 0.0 2.0 128.0 64.0 0.0			//t004
- 0.0 0.0 2.0 0.0 2.0 128.0 64.0 0.0                   	//t005
- 2.0 0.0 4.0 0.0 2.0 128.0 64.0 0.0			//t006
- 4.0 0.0 6.0 0.0 2.0 128.0 64.0 0.0			//t007
- 6.0 0.0 8.0 0.0 2.0 128.0 64.0 0.0			//t009
- 8.0 0.0 10.0 0.0 2.0 128.0 64.0 0.0			//t010
- 20.0 10.0 22.0 10.0 2.0 128.0 64.0 0.0                 //testeo
- 10.0 3.0 15.0 3.0 3.5 128.0 64.0 0.0			//Escalera1_Peldano1
- 15.0 6.0 18.0 6.0 3.5 128.0 64.0 0.0			//Escalera1_Peldano2
- 15.0 6.0 25.0 6.0 0.5 128.0 64.0 0.0			//Fin_de_la_escalera_comienzo_camino
- 24.5 5.5 25.0 5.5 20.0 128.0 64.0 0.0			//Muro1_Agujero1
- 30.0 5.5 30.5 5.5 20.0 128.0 64.0 0.0			//Muro2_Agujero1
- 30.0 6.0 35.0 6.0 0.5 128.0 64.0 0.0			//Suelo_de_tierra_entre_las_sirenas
- 34.5 5.5 35.0 5.5 20.0 128.0 64.0 0.0			//Muro1_Agujero2
- 45.0 5.5 45.5 5.5 20.0 128.0 64.0 0.0			//Muro2_Agujero2
- 35.0 11.0 45.0 11.0 0.5 128.0 64.0 0.0			//Suelo_elevada_encima_de_las_dos_sirenas
- 45.0 6.0 55.0 6.0 0.5 128.0 64.0 0.0			//Suelo_despues_de_las_2_sirenas
- 55.0 9.0 58.0 9.0 3.5 128.0 64.0 0.0			//SaltosCuadrados1_cuadrado1
+-10.0 0.0 9.0 0.0 2.1 128.0 64.0 0.0			//Suelo_Inicial
+ 9.0 2.0 12.0 2.0 3.0 128.0 64.0 0.0			//Escalera1_Peldano1
+ 12.0 4.0 15.0 4.0 3.0 128.0 64.0 0.0			//Escalera1_Peldano2
+ 15.0 6.0 18.0 6.0 3.0 128.0 64.0 0.0			//Escalera1_Peldano3
+ 15.0 6.0 25.0 6.0 2.0 128.0 64.0 0.0			//Fin_de_la_escalera_comienzo_camino
+ 30.0 6.0 40.0 6.0 2.0 128.0 64.0 0.0			//Suelo_de_tierra_entre_las_sirenas
+ 35.0 11.0 45.0 11.0 0.6 128.0 64.0 0.0			//Suelo_elevada_encima_de_las_dos_sirenas
+ 45.0 6.0 55.0 6.0 2.0 128.0 64.0 0.0			//Suelo_despues_de_las_2_sirenas
+ 55.0 8.5 58.0 8.5 3.0 128.0 64.0 0.0			//SaltosCuadrados1_cuadrado1
  50.0 15.0 53.0 15.0 3.0 128.0 64.0 0.0			//SaltosCuadrados1_cuadrado2
- 55.0 19.0 70.0 19.0 0.5 128.0 64.0 0.0			//Plataforma_despues_de_los_cuadrados_de_salto_con_pajaro_encima_y_agua_debajo
+ 55.0 19.0 70.0 19.0 0.6 128.0 64.0 0.0			//Plataforma_despues_de_los_cuadrados_de_salto_con_pajaro_encima_y_agua_debajo
  73.0 15.0 76.0 15.0 0.5 128.0 64.0 0.0			//Salto1_encima_del_agua_despues_de_plataforma_pajaros
  77.0 11.0 80.0 11.0 0.5 128.0 64.0 0.0			//Salto2
  84.0 14.0 86.0 14.0 0.5 128.0 64.0 0.0			//Salto3
  87.0 18.0 93.0 18.0 0.5 128.0 64.0 0.0			//Plataforma1_despues_de_saltos
  96.0 14.0 99.0 14.0 0.5 128.0 64.0 0.0			//Plataforma2
- 104.0 10.0 107.0 10.0 0.5 128.0 64.0 0.0		//Plataforma3
- 112.0 13.0 120.0 13.0 0.5 128.0 64.0 0.0		//Plataforma_antes_de_dificil
+ 104.0 10.0 107.0 10.0 0.6 128.0 64.0 0.0		//Plataforma3
+ 112.0 13.0 120.0 13.0 2.0 128.0 64.0 0.0		//Plataforma_antes_de_dificil
  123.0 13.0 124.0 13.0 0.5 128.0 64.0 0.0		//Plataforma_dificil
- 130.0 13.0 136.0 13.0 0.5 128.0 64.0 0.0		//Plataforma_despues_de_dificil
- 123.0 6.0 136.0 6.0 0.5 128.0 64.0 0.0			//Plataforma_debajo_de_dificiles
- 157.0 2.0 160.0 2.0   0.5 128.0 64.0 0.0		//Plataforma_InicioFinal1
- 160.0 4.5 163.0 4.5   3.0 128.0 64.0 0.0		//Plataforma_InicioFinal2
- 163.0 6.5 167.0 6.5   2.5 128.0 64.0 0.0 		//Plataforma_InicioFinal3
- 167.0 8.0 175.0 8.0   0.5 128.0 64.0 0.0		//PLATAFORMA_FINALNIVEL
+ 130.0 13.0 134.0 13.0 0.5 128.0 64.0 0.0		//Plataforma_despues_de_dificil
+ 124.0 6.0 134.0 6.0 2.0 128.0 64.0 0.0			//Plataforma_debajo_de_dificiles
+ 157.0 2.0 160.0 2.0 0.5 128.0 64.0 0.0			//Plataforma_InicioFinal1
+ 160.0 4.5 163.0 4.5 3.0 128.0 64.0 0.0			//Plataforma_InicioFinal2
+ 163.0 6.5 166.0 6.5 3.0 128.0 64.0 0.0 		//Plataforma_InicioFinal3
+ 166.0 7.5 185.0 7.5 2.1 128.0 64.0 0.0			//PLATAFORMA_FINALNIVEL
 Plataforma_movil
  137.0 2.0 142.0 2.0 0.5 300 2.0 0.0 128.0 64.0 0.0 		//Plataforma_movil
  169.0 11.2 172.0 11.2 0.5 300 0.0 2.0 128.0 64.0 0.0           //Plataforma_movil_vida2
