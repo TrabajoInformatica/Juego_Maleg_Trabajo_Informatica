@@ -6,7 +6,8 @@ using namespace std;
 
 NivelFinal::NivelFinal() {
 	fin = false;
-
+	ETSIDI::stopMusica();
+	ETSIDI::playMusica("sonidos/Ambiente3.wav");
 }
 
 NivelFinal::~NivelFinal() {
@@ -78,6 +79,9 @@ void NivelFinal::Dibuja() {
 	puerta.DibujaP();
 	//cout << "X" << heroe.GetPos().x << endl;
 	//cout << "Y" << heroe.GetPos().y << endl;
+	boton.Dibuja();
+	boton.SetPos(28.0, 11.0);
+
 }
 
 void NivelFinal::Mueve() {
@@ -96,6 +100,7 @@ void NivelFinal::Mueve() {
 	monedas.Colision(&heroe);
 	enemigos.Colision(&heroe);
 	corazones.Colision(&heroe);
+	boton.Colision(&heroe, boton);
 	/////////Provisional
 
 
