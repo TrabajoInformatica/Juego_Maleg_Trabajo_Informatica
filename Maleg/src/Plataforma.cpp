@@ -60,7 +60,7 @@ void Plataforma::Dibuja() {
     if (grosor <= 1) {
         glEnable(GL_LIGHTING);
         glEnable(GL_TEXTURE_2D);
-        glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/Plataformas2.png").id);
+        glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/plataforma_flotante.png").id);
         glDisable(GL_LIGHTING);
         glBegin(GL_POLYGON);
 
@@ -77,7 +77,7 @@ void Plataforma::Dibuja() {
     else  {
         glEnable(GL_LIGHTING);
         glEnable(GL_TEXTURE_2D);
-        glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/Plataformas1.png").id);
+        glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/suelo.png").id);
         glDisable(GL_LIGHTING);
         glBegin(GL_POLYGON);
 
