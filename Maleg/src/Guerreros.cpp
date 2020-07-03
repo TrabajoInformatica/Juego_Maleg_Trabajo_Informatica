@@ -57,12 +57,12 @@ void Guerreros::Movimiento() {
 
 	if (posicion.x > lim_xd) {
 		posicion.x = lim_xd;
-		velocidad.x = -0.8f;
+		velocidad.x = -0.6f;
 		aceleracion.x = -0.2f;
 	}
 	else if (posicion.x < lim_xi) {
 		posicion.x = lim_xi;
-		velocidad.x = 0.8f;
+		velocidad.x = 0.6f;
 		aceleracion.x = 0.2f;
 	}
 }
