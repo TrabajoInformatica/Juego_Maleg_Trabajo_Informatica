@@ -54,18 +54,18 @@ void Coordinador::Tecla(unsigned char key)
 			estado = JUEGO;
 			cout << "JUEGO" << endl;
 			ETSIDI::stopMusica();
-			//Probablemente se cambie porque me parece un poco tétrico
 			ETSIDI::playMusica("sonidos/Ambiente2.wav", true);
 			
 		}
 	}
 	else if (estado == JUEGO)
 	{
-		
+
 		mundo.Tecla(key);
-		
+
 		if (key == 'p' || key == 'P')
 			estado = PAUSA;
+
 	}
 
 	else if (estado == GAMEOVER)

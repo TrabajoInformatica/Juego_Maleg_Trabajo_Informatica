@@ -25,6 +25,8 @@ Heroe NivelFinal::GetHeroe() {
 }
 
 void NivelFinal::Inicializa(Heroe h) {
+	ETSIDI::stopMusica();
+	ETSIDI::playMusica("sonidos/Ambiente3.wav");
 	heroe = h;
 	/////////////////////////////////////Personaje
 	heroe.SetAlturaMuerte(-15.0f);
@@ -96,6 +98,7 @@ void NivelFinal::Mueve() {
 	monedas.Colision(&heroe);
 	enemigos.Colision(&heroe);
 	corazones.Colision(&heroe);
+	boton.Colision(&heroe);
 	/////////Provisional
 
 
@@ -245,6 +248,11 @@ void NivelFinal::LecturaFichero(string Fichero) {
 			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion Monedas
 			corazones.AgregarC(aux);
 		}
+		if (opcion == 8) {
+			archivo >> x1 >> y1 >> gr >> r >> v >> a >> comentario;
+			Boton* aux = new Boton(x1, y1, gr, r, v, a);///////Creacion Monedas
+		//	monedas.AgregarB(aux);
+		}
 		archivo >> tipo;
 		if (tipo == "Plataforma")
 			opcion = 1;
@@ -262,8 +270,10 @@ void NivelFinal::LecturaFichero(string Fichero) {
 			opcion = 6;
 		if (tipo == "VidasExtra")
 			opcion = 7;
+		if (tipo == "Boton")
+			opcion = 8;
 		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&
-			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
+			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra" && tipo != "Boton") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
 			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro

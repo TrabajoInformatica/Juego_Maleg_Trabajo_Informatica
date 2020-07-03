@@ -5,6 +5,7 @@
 #include "Moneda.h"
 #include "Arma.h"
 #include "VidaExtra.h"
+#include "Boton.h"
 class Interaccion
 {
 private:
@@ -19,5 +20,6 @@ public:
 	static bool ColisionMoneda(Heroe* pers, Moneda m);
 	static bool ColisionEnemigo(Heroe* pers, Enemigo e);
 	static bool ColisionEnemigo(Arma a, Enemigo e);
+	static bool ColisionBoton(Heroe* pers, Boton b);
 };
 

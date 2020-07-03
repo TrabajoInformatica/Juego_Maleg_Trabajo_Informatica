@@ -27,7 +27,7 @@ Heroe Nivel3::GetHeroe() {
 
 void Nivel3::Inicializa(Heroe h) {
 	ETSIDI::stopMusica();
-	ETSIDI::playMusica("sonidos/Ambiente3.wav");
+	ETSIDI::playMusica("sonidos/Ambiente.wav");
 	heroe3 = h;
 	/////////////////////////////////////Personaje
 	heroe3.SetAlturaMuerte(-15.0f);

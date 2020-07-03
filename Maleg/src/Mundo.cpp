@@ -29,7 +29,7 @@ void Mundo::CargarNivel() {
 		nivel1 = new Nivel1();
 		nivel1->Inicializa(heroe);		
 		cout << "Inicializamundonivel1" << endl;
-	}
+		}
 	else if (nivel == 2) {
 		nivel2 = new Nivel2();
 		nivel2->Inicializa(heroe);
@@ -44,6 +44,7 @@ void Mundo::CargarNivel() {
 		nivelfinal = new NivelFinal();
 		nivelfinal->Inicializa(heroe);
 		cout << "InicializamundonivelFinal" << endl;
+
 	}
 }
 
