@@ -28,6 +28,8 @@ private:
 	enum Estado { ShowHitbox, HideHitbox };
 	Estado estado = HideHitbox;
 
+	Vector2D spawn_enemigos;
+
 public:
 	Moneda moneda1;
 	NivelFinal();
