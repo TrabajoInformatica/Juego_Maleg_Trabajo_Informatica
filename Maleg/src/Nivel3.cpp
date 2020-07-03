@@ -39,6 +39,8 @@ void Nivel3::Inicializa(Heroe h) {
 	puerta3.AgregarP(puerfin);
 	Puerta* puerfin2 = new Puerta(111.2f, 100.0f, 115.0f, 100.0f, -5.0f, 255, 0, 0);
 	puerta3.AgregarP(puerfin2);
+	Puerta* puerfin3 = new Puerta(107.0f, 80.0f, 110.0f, 80.0f, -5.0f, 255, 0, 0);
+	puerta3.AgregarP(puerfin3);
 	
 	Puerta* puerex = new Puerta(88.0f, 30.0f, 91.0f, 30.0f, -5.0f, 255, 0, 0);
 	puertaextra.AgregarP(puerex);

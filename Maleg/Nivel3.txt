@@ -32,13 +32,12 @@ Plataforma
  185.0 13.0 190.0 13.0 0.5 155.0 155.0 155.0	//Ultima_plataforma_antes_de_Jefe_final
  195.0 12.0 240.0 12.0 0.5 155.0 155.0 155.0	//Plataforma_Boss_final
  92.0 100.0 95.0 100.0 0.5 155.0 155.0 155.0   //Plataforma_especial
+ 94.5 80.0 110.0 80.0 0.5 155.0 155.0 155.0   //Plataforma_especial_inf
  108.0 100.0 115.0 100.0 0.5 155.0 155.0 155.0   //Plataforma_especial_puer
  90.0 102.0 92.0 102.0 2.5 155.0 155.0 155.0    //Borde1_plataforma_espe1
  87.5 121.0 89.5 121.0 2.5 155.0 155.0 155.0    //Borde1_plataforma_espe2
  88.0 107.0 90.0 107.0 2.5 155.0 155.0 155.0    //Borde1_plataforma_espe3
- 94.5 109.0 96.5 109.0 2.5 155.0 155.0 155.0    //Borde1_plataforma_espe4
- 97.5 111.0 99.5 111.0 2.5 155.0 155.0 155.0    //Borde1_plataforma_espe5
- 96 113.0 98 113.0 2.5 155.0 155.0 155.0    //Borde1_plataforma_espe5
+ 96 113.0 98 113.0 2.5 155.0 155.0 155.0    //Borde1_plataforma_espe4
  83 118.0 85 118.0 2.5 155.0 155.0 155.0    //Borde1_plataforma_espe6
 Plataforma_movil
  40.0 3.0 43.0 3.0 0.5 200 -4.0 0.0 155.0 155.0 155.0 	//Plataforma_movilInicio
@@ -52,7 +51,7 @@ Monedas
  120.0 18.5 0.5 255.0 255.0 0.0 	//Moneda3
  134.0 27.5 0.5 255.0 255.0 0.0 	//Moneda4
  59.5 8.5 0.5 255.0 255.0 0.0		//Moneda5
- 95.5 110 0.5 255.0 255.0 0.0		//Moneda_extra_1
+ 79.2 120.0 0.5 255.0 255.0 0.0		//Moneda_extra_1
  97 115 0.5 255.0 255.0 0.0		//Moneda_extra_2
 PuntosReaparicion
  0.0 0.0 				//Reaparicion
