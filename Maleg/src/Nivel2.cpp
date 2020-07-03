@@ -26,38 +26,12 @@ void Nivel2::Inicializa(Heroe h) {
 	/////////////////////////////////////Personaje
 	heroe2 = h;
 	heroe2.SetAlturaMuerte(-15.0);
-	heroe2.SetPos(190.0f, 30.0f);
+	heroe2.SetPos(0.0f, 0.0f);
 	heroe2.SetVel(0.0f, 0.0f);
-
-	LecturaFichero(Fichero);
-	Puerta* puer = new Puerta(200.0f, 30.0f, 204.0f, 30.0f, -5.0f, 255, 0, 0);
+	Puerta* puer = new Puerta(204.0f, 29.0f, 208.0f, 29.0f, -5.0f, 255, 0, 0);
 	puerta2.AgregarP(puer);
-
-
+	
 	LecturaFichero(Fichero);
-
-	Araña* ax0 = new Araña(30.0f, 22.8f);
-	enemigos2.AgregarE(ax0);
-	Araña* ax1 = new Araña(54.5f, 28.8f);
-	enemigos2.AgregarE(ax1);
-	Araña* ax2 = new Araña(97.5f, 27.8f);
-	enemigos2.AgregarE(ax2);
-
-	Murcielago* mx0 = new Murcielago(16.0f, 25.0f);
-	enemigos2.AgregarE(mx0);
-	Murcielago* mx1 = new Murcielago(40.0f, 35.0f);
-	enemigos2.AgregarE(mx1);
-	Murcielago* mx2 = new Murcielago(82.0f, 47.0f);
-	enemigos2.AgregarE(mx2);
-	Murcielago* mx3 = new Murcielago(110.0f, 40.0f);
-	enemigos2.AgregarE(mx3);
-	Murcielago* mx4 = new Murcielago(165.0f, 41.5f);
-	enemigos2.AgregarE(mx4);
-
-	Guerreros* gx0 = new Guerreros(116.5f, 29.0f, 5.5f, 1.5f);
-	enemigos2.AgregarE(gx0);
-	Guerreros* gx1 = new Guerreros(164.0f, 32.0f, 4.0f, -2.0f);
-	enemigos2.AgregarE(gx1);
 }
 
 void Nivel2::Dibuja() {
@@ -278,12 +252,28 @@ void Nivel2::LecturaFichero(string Fichero) {
 			Pajaro* aux = new Pajaro(x1, y1);/////////Creacion Pajaro
 			enemigos2.AgregarE(aux);
 		}
+		
 		if (opcion == 6) {
+			archivo >> x1 >> y1 >> comentario;
+			Araña* aux = new Araña(x1, y1);///////Creacion Arana
+			enemigos2.AgregarE(aux);
+		}
+		if (opcion == 7) {
+			archivo >> x1 >> y1 >> comentario;
+			Murcielago* aux = new Murcielago(x1, y1);///////Creacion Murcielago
+			enemigos2.AgregarE(aux);
+		}
+		if (opcion == 8) {
+			archivo >> x1 >> y1 >>a >> vx>> comentario;
+			Guerreros* aux = new Guerreros(x1, y1,a,vx);///////Creacion Guerreros
+			enemigos2.AgregarE(aux);
+		}
+		if (opcion == 9) {
 			archivo >> x1 >> y1 >> comentario;
 			Vector2D* aux = new Vector2D(x1, y1);////////Creacion SetPoints Heroe
 			heroe2.AgregarPuntosR(aux);
 		}
-		if (opcion == 7) {
+		if (opcion == 10) {
 			archivo >> x1 >> y1 >> pf >> r >> vy >> comentario;
 			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion VidaExtra
 			corazones2.AgregarC(aux);
@@ -301,12 +291,19 @@ void Nivel2::LecturaFichero(string Fichero) {
 			opcion = 4;
 		if (tipo == "Pajaro")
 			opcion = 5;
-		if (tipo == "PuntosReaparicion")
+		if (tipo == "Arana")
 			opcion = 6;
-		if (tipo == "VidasExtra")
+		if (tipo == "Murcielago")
 			opcion = 7;
+		if (tipo == "Guerrero")
+			opcion = 8;
+		if (tipo == "PuntosReaparicion")
+			opcion = 9;
+		if (tipo == "VidasExtra")
+			opcion = 10;
 		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&
-			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un tipo string, tengo que retornar el carro al inicio
+			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra" 
+			&& tipo!="Murcielago"  && tipo !="Arana" && tipo!="Guerrero") {//Como leo todas las lineas con un tipo string, tengo que retornar el carro al inicio
 			longitud = tipo.size();									// de esa linea ,si no  leo  plataforma u otro objeto, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
