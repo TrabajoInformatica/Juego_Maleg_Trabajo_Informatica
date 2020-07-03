@@ -29,7 +29,7 @@ void Nivel1::Inicializa(Heroe h) {
 	heroe = h;
 	/////////////////////////////////////Personaje
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(0.0f,0.0f);//160 10
+	heroe.SetPos(0.0f, 0.0f);//180.0f, 7.5f
 	heroe.SetVel(0.0f, 0.0f);
 	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
 	//puerta.SetColor(255, 0, 0);
