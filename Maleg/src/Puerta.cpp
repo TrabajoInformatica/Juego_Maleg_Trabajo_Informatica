@@ -1,5 +1,8 @@
 #include "Puerta.h"
+#include <iostream>
 #include "glut.h"
+
+using namespace std;
 Puerta::Puerta(){
     rojo = 255;
     azul = 0;
@@ -10,7 +13,7 @@ Puerta::~Puerta() {
 
 }
 bool Puerta::AgregarP(Puerta* p) {
-    if (num < 2) {
+    if (num < MAX_PUER) {
         lista[num] = p;
 
         num++;
@@ -21,7 +24,7 @@ bool Puerta::AgregarP(Puerta* p) {
 
 }
 void Puerta::DestruirContenido() {
-    for (int i = 0;i < 1;i++) {
+    for (int i = 0;i < numPuertas();i++) {
 
         delete lista[i];
     }
@@ -74,10 +77,10 @@ bool Puerta::Colision(Heroe* p) {
     for (int i = 0; i < num;i++) {
         if (Interaccion::ColisionLat(p, *(lista[i])))
         {
+           
             return true;
         }
-        else
-            return false;
 
     }
+    return false;
 }

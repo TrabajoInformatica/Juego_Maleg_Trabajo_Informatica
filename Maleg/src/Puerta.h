@@ -1,6 +1,7 @@
 #pragma once
 #include "Plataforma.h"
 #include "Interaccion.h"
+#define MAX_PUER 3
 
 using ETSIDI::SpriteSequence;
 
@@ -14,9 +15,10 @@ public:
 	void DibujaP();
 	void DestruirContenido();
 	bool Colision(Heroe* p);
+	int numPuertas() { return num; }
 	
 	bool AgregarP(Puerta* p);
 	int num;
-	Puerta* lista[2];
+	Puerta* lista[MAX_PUER];
 
 };
