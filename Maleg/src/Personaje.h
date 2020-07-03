@@ -8,8 +8,6 @@ class Personaje:public ObjetoMovil
 protected:
 	float altura;
 	unsigned char rojo, verde, azul;
-	enum Estado { Show, Hide };
-	Estado estado = Hide;
 
 public:
 	Personaje();
@@ -18,6 +16,6 @@ public:
 	void SetAltura(float a);
 	float GetAltura();
 	void DestruirContenido();
-	void ShowHitbox(bool e);
+	virtual void ShowHitbox(bool e);
 };
 

@@ -95,7 +95,7 @@ void Araña::Dibuja() {
 	glPopMatrix(); 
 
 	//Hitbox
-	/*
+	
 	if (estado == Show) {
 		glPushMatrix();
 		glColor3ub(rojo, verde, azul);
@@ -105,6 +105,5 @@ void Araña::Dibuja() {
 		glTranslatef(-posicion.x, -posicion.y, 0);
 		glPopMatrix();
 	}
-	*/
 }
 

@@ -1,11 +1,16 @@
 #include "Murcielago.h"
 
 Murcielago::Murcielago(): bat("imagenes/bat.png", 3, 1) {
-
+	verde = 0;
+	azul = 0;
+	rojo = 255;
 }
 
 Murcielago::Murcielago(float px, float py): bat("imagenes/bat.png", 3, 1) {
 	
+	verde = 0;
+	azul = 0;
+	rojo = 255;
 	posicion.x = px;
 	posicion.y = py;
 	altura = 0.5;
@@ -36,16 +41,18 @@ void Murcielago::Dibuja() {
 	bat.loop();
 	glPopMatrix();
 
-	// Hitbox
-	/*
-	glPushMatrix();
-	glColor3ub(rojo, verde, azul);
-	glTranslatef(posicion.x, posicion.y, 0);
-	glColor3f(rojo, verde, azul);
-	glutWireSphere(altura, 10, 10);
-	glTranslatef(-posicion.x, -posicion.y, 0);
-	glPopMatrix();
-	*/
+	//Hitbox
+
+	if (estado == Show) {
+		glPushMatrix();
+		glColor3ub(rojo, verde, azul);
+		glTranslatef(posicion.x, posicion.y, 0);
+		glColor3f(rojo, verde, azul);
+		glutWireSphere(altura, 10, 10);
+		glTranslatef(-posicion.x, -posicion.y, 0);
+		glPopMatrix();
+	}
+	
 }
 
 void Murcielago::Mueve(float t) {

@@ -20,7 +20,6 @@ Heroe::Heroe() :
 	verde = 255;
 	monedas = 0;
 	numeroRP = 0;
-	estado = Hide;
 	sentido = Derecha;
 }
 Heroe::~Heroe(){

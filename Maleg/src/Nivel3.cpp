@@ -125,7 +125,7 @@ void Nivel3::Mueve() {
 	// Enemigos
 	enemigos3.Mueve(0.25f);
 	monedas3.Mueve(0.025f);
-	armas3.Mueve(0.025f);
+	armas3.Mueve(0.05f);
 	plataformas3.Mueve(0.025f);
 	corazones3.Mueve(0.025f);
 	// Heroe

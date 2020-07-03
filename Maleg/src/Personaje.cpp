@@ -1,7 +1,7 @@
 #include "Personaje.h"
 
 Personaje::Personaje(){
-
+	estado = Hide;
 }
 
 Personaje::~Personaje(){
