@@ -32,7 +32,7 @@ void Nivel3::Inicializa(Heroe h) {
 	/////////////////////////////////////Personaje
 	heroe3 = h;
 	heroe3.SetAlturaMuerte(-15.0f);
-	heroe3.SetPos(230.0f, 12.0f);
+	heroe3.SetPos(0.0f, 0.0f);
 	heroe3.SetVel(0.0f, 0.0f);
 	
 	Puerta* puerfin = new Puerta(232.2f, 12.0f, 236.0f, 12.0f, -5.0f, 255, 0, 0);
@@ -44,33 +44,6 @@ void Nivel3::Inicializa(Heroe h) {
 	
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero);
-
-	Araña* ax0 = new Araña(113.0f, 31.75f,3.5f,0.75f);
-	enemigos3.AgregarE(ax0);
-	Araña* ax1 = new Araña(120.5f, 24.75f, 3.0f, 0.75f);
-	enemigos3.AgregarE(ax1);
-	Araña* ax2 = new Araña(131.0f, 25.75f, 4.5f, 0.75f);
-	enemigos3.AgregarE(ax2);
-	Araña* ax3 = new Araña(47.5f, 2.75f, 3.0f, 0.75f);
-	enemigos3.AgregarE(ax3);
-	Araña* ax4 = new Araña(64.0f,-1.25f, 6.5f, 0.75f);
-	enemigos3.AgregarE(ax4);
-
-	Murcielago* mx0 = new Murcielago(96.0f, 39.0f);
-	enemigos3.AgregarE(mx0);
-
-	Guerreros* gx0 = new Guerreros(132.5f, 16.0f, 9.5f, 3.0f);
-	enemigos3.AgregarE(gx0);
-	Guerreros* gx1 = new Guerreros(132.5f, 16.0f, 9.5f, -2.0f);
-	enemigos3.AgregarE(gx1);
-	Guerreros* gx2 = new Guerreros(133.0f, 8.5f, 10.0f, 0.5f);
-	enemigos3.AgregarE(gx2);
-	Guerreros* gx3 = new Guerreros(133.0f, 8.5f, 10.0f, 3.5f);
-	enemigos3.AgregarE(gx3);
-	Guerreros* gx4 = new Guerreros(170.0f, 10.0f, 7.0f, -1.5f);
-	enemigos3.AgregarE(gx4);
-	Guerreros* gx5 = new Guerreros(170.0f, 10.0f, 7.0f, 1.5f);
-	enemigos3.AgregarE(gx5);
 }
 
 void Nivel3::Dibuja() {
@@ -269,7 +242,7 @@ void Nivel3::LecturaFichero(string Fichero) {
 		cout << suma << endl;
 		if (opcion == 1) {
 			archivo >> x1 >> y1 >> x2 >> y2 >> gr >> r >> v >> a >> comentario;
-			Plataforma* aux = new Plataforma(x1, y1, x2, y2, gr, (unsigned char)r, (unsigned char)v, (unsigned char)a);///////Creacion Plataformas
+			Plataforma* aux = new Plataforma(x1, y1, x2, y2, gr, (unsigned char)r, (unsigned char)v, (unsigned char)a);///////Creacion Plataforma
 			plataformas3.AgregarP(aux);
 		}
 		if (opcion == 2) {
@@ -284,22 +257,38 @@ void Nivel3::LecturaFichero(string Fichero) {
 		}
 		if (opcion == 4) {
 			archivo >> x1 >> y1 >> comentario;
-			Sirena* aux = new Sirena(x1, y1);			 /////Creacion Sirena
+			Sirena* aux = new Sirena(x1, y1);///////////Creacion Sirena
 			enemigos3.AgregarE(aux);
 		}
 		if (opcion == 5) {
 			archivo >> x1 >> y1 >> comentario;
-			Pajaro* aux = new Pajaro(x1, y1);		    /////Crecion Pajaro
+			Pajaro* aux = new Pajaro(x1, y1);/////////Creacion Pajaro
 			enemigos3.AgregarE(aux);
 		}
+
 		if (opcion == 6) {
-			archivo >> x1 >> y1 >> comentario;
-			Vector2D* aux = new Vector2D(x1, y1);		//////Crecion lanza
-			heroe3.AgregarPuntosR(aux);
+			archivo >> x1 >> y1 >> x2 >> y2 >> comentario;
+			Araña* aux = new Araña(x1, y1,x2,y2);///////Creacion Arana
+			enemigos3.AgregarE(aux);
 		}
 		if (opcion == 7) {
+			archivo >> x1 >> y1 >> comentario;
+			Murcielago* aux = new Murcielago(x1, y1);///////Creacion Murcielago
+			enemigos3.AgregarE(aux);
+		}
+		if (opcion == 8) {
+			archivo >> x1 >> y1 >> a >> vx >> comentario;
+			Guerreros* aux = new Guerreros(x1, y1, a, vx);///////Creacion Guerreros
+			enemigos3.AgregarE(aux);
+		}
+		if (opcion == 9) {
+			archivo >> x1 >> y1 >> comentario;
+			Vector2D* aux = new Vector2D(x1, y1);////////Creacion SetPoints Heroe
+			heroe3.AgregarPuntosR(aux);
+		}
+		if (opcion == 10) {
 			archivo >> x1 >> y1 >> pf >> r >> vy >> comentario;
-			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion Monedas
+			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion VidaExtra
 			corazones3.AgregarC(aux);
 		}
 		archivo >> tipo;
@@ -315,13 +304,20 @@ void Nivel3::LecturaFichero(string Fichero) {
 			opcion = 4;
 		if (tipo == "Pajaro")
 			opcion = 5;
-		if (tipo == "PuntosReaparicion")
+		if (tipo == "Arana")
 			opcion = 6;
-		if (tipo == "VidasExtra")
+		if (tipo == "Murcielago")
 			opcion = 7;
+		if (tipo == "Guerrero")
+			opcion = 8;
+		if (tipo == "PuntosReaparicion")
+			opcion = 9;
+		if (tipo == "VidasExtra")
+			opcion = 10;
 		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&
-			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un tipo string, tengo que retornar el carro al inicio
-			longitud = tipo.size();									// de esa linea si,  no  leo  plataforma o bloque, ya que estoy leyendo datos.
+			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra"
+			&& tipo != "Murcielago" && tipo != "Arana" && tipo != "Guerrero") {//Como leo todas las lineas con un tipo string, tengo que retornar el carro al inicio
+			longitud = tipo.size();									// de esa linea ,si no  leo  plataforma u otro objeto, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
 			archivo.seekg(pos);

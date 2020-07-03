@@ -47,6 +47,21 @@ Monedas
  87.0 35.5 0.5 255.0 255.0 0.0		//Moneda3
  104.0 27.0 0.5 255.0 255.0 0.0		//moneda4
  19.0 4.5 0.5 255.0 255.0 0.0		//Moneda5
+Enemigos
+Arana
+ 30.0 22.8				//Arana1
+ 54.5 28.8				//Arana2
+ 97.5 27.8				//Arana3
+Murcielago
+ 16.0 25.0				//Murcielago1
+ 40.0 35.0				//Murcielago2
+ 82.0 47.0				//Murcielago3
+ 110.0 40.0				//Murcielago4
+ 165.0 41.5				//Murcielago5
+Guerrero
+ 116.5 29.0 5.5 1.5			//Guerrero1
+ 164.0 32.0 4.0 -2.0			//Guerrero2
+Heroe
 PuntosReaparicion
  0.0 0.0 				//Reaparicion
  20.0 25.0				//Punto2
