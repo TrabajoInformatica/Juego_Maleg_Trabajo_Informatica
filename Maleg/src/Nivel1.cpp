@@ -33,7 +33,7 @@ void Nivel1::Inicializa(Heroe h) {
 	heroe.SetVel(0.0f, 0.0f);
 	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
 	//puerta.SetColor(255, 0, 0);
- Puerta* puer = new Puerta(174.0f, 8.0f, 178.0f, 8.0f, -5.0f, 255, 0, 0);
+ Puerta* puer = new Puerta(181.0f, 7.5f, 185.0f, 7.5f, -5.0f, 255, 0, 0);
  puerta.AgregarP(puer);
 
 
