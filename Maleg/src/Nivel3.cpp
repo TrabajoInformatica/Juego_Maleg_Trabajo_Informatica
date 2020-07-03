@@ -6,12 +6,12 @@ using namespace std;
 
 Nivel3::Nivel3() {
 	fin = false;
-
 }
 
 Nivel3::~Nivel3() {
 
 }
+
 void Nivel3::DestruirContenido() {
 	plataformas3.DestruirContenido();
 	armas3.DestruirContenido();
@@ -20,6 +20,7 @@ void Nivel3::DestruirContenido() {
 	puerta3.DestruirContenido();
 	puertaextra.DestruirContenido();
 }
+
 Heroe Nivel3::GetHeroe() {
 	heroe3.DestruirContenido();
 	return heroe3;
@@ -30,21 +31,23 @@ void Nivel3::Inicializa(Heroe h) {
 	ETSIDI::playMusica("sonidos/Ambiente.wav");
 	heroe3 = h;
 	/////////////////////////////////////Personaje
+	heroe3 = h;
 	heroe3.SetAlturaMuerte(-15.0f);
-	heroe3.SetPos(230.0f, 12.0f);
+	heroe3.SetPos(93.5f, 101.0f);
 	heroe3.SetVel(0.0f, 0.0f);
 	
 	Puerta* puerfin = new Puerta(232.2f, 12.0f, 236.0f, 12.0f, -5.0f, 255, 0, 0);
 	puerta3.AgregarP(puerfin);
-	Puerta* puerfin2 = new Puerta(108.2f, 100.0f, 112.0f, 100.0f, -5.0f, 255, 0, 0);
+	Puerta* puerfin2 = new Puerta(111.2f, 100.0f, 115.0f, 100.0f, -5.0f, 255, 0, 0);
 	puerta3.AgregarP(puerfin2);
-	Puerta* puerex = new Puerta(88.0f, 30.0f, 92.0f, 30.0f, -5.0f, 255, 0, 0);
+	Puerta* puerfin3 = new Puerta(107.0f, 80.0f, 110.0f, 80.0f, -5.0f, 255, 0, 0);
+	puerta3.AgregarP(puerfin3);
+	
+	Puerta* puerex = new Puerta(88.0f, 30.0f, 91.0f, 30.0f, -5.0f, 255, 0, 0);
 	puertaextra.AgregarP(puerex);
 	
-
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
 	LecturaFichero(Fichero);
-	cout << "Nivel333333333333" << endl;
 
 	Araña* ax0 = new Araña(113.0f, 31.75f,3.5f,0.75f);
 	enemigos3.AgregarE(ax0);
@@ -76,7 +79,7 @@ void Nivel3::Inicializa(Heroe h) {
 
 void Nivel3::Dibuja() {
 	// Vista
-	gluLookAt(heroe3.GetPos().x, heroe3.GetPos().y + 1, 3,  // posicion del ojo						//NUNCA MODIFICAR LA Z	No hace fala
+	gluLookAt(heroe3.GetPos().x, heroe3.GetPos().y + 1, 3,  // posicion del ojo						//Posicion camara en posicion del centro
 		heroe3.GetPos().x, heroe3.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)  
 
@@ -130,43 +133,32 @@ void Nivel3::Dibuja() {
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
 
-
-	// Enemigos
 	enemigos3.Dibuja();
-
-	// Heroe
 	heroe3.Dibuja();
-
-	//Plataformas, Monedas y otros.
 	plataformas3.Dibuja();
 	monedas3.Dibuja();
 	armas3.Dibuja();
 	corazones3.Dibuja();
-
 	puerta3.DibujaP();
 	puertaextra.DibujaP();
-	
-	//cout << "X" << heroe3.GetPos().x << endl;
-	//cout << "Y" << heroe3.GetPos().y << endl;
 }
 
 void Nivel3::Mueve() {
-	// Enemigos
+	//Mueve
 	enemigos3.Mueve(0.25f);
 	monedas3.Mueve(0.025f);
 	armas3.Mueve(0.025f);
 	plataformas3.Mueve(0.025f);
 	corazones3.Mueve(0.025f);
-	// Heroe
+	// Heroe Mueve
 	heroe3.Mueve(0.1f);
 
-	// Plataforma, Monedas y otros.
+	// Colision 
 	plataformas3.Colision(&heroe3);
 	monedas3.Colision(&heroe3);
-	//enemigos3.Colision(&heroe3);
+	enemigos3.Colision(&heroe3);
 	corazones3.Colision(&heroe3);
 
-	/////////Provisional
 	if (puerta3.Colision(&heroe3) == true) {
 		cout << "puerta3" << endl;
 		fin = true;
@@ -176,10 +168,8 @@ void Nivel3::Mueve() {
 	if (puertaextra.Colision(&heroe3) == true) {
 		cout << "puertaespecial" << endl;
 		//	fin = true;
-		heroe3.SetPos(97.5f, 101.0f);
+		heroe3.SetPos(93.5f, 101.0f);
 	}
-
-	
 
 	for (int i = 0;i < enemigos3.GetNumeroE();i++) {
 		for (int j = 0;j < armas3.GetNum();j++) {
@@ -194,13 +184,13 @@ void Nivel3::Mueve() {
 bool Nivel3::FinNivel3() {
 	if (fin == true) {
 		return true;
-		cout << "ha pasado" << endl;
 	}
 	else
 		return false;
 }
 
 void Nivel3::Tecla(unsigned char key) {
+	/////Tecla avanzar y salto heroe
 	if (key == 'w') {
 		for (int i = 0; i < plataformas3.GetNumPlat(); i++) {
 			if (Interaccion::ColisionSup(&heroe3, plataformas3.GetListaPlat(i))) {
@@ -258,7 +248,6 @@ void Nivel3::TeclaUp(unsigned char key) {
 
 bool Nivel3::MuerteHeroe() {
 	if (heroe3.Muerte()) {
-		cout << "Destruir lanzas 3" << endl;
 		heroe3.DestruirContenido();
 		return true;
 	}
@@ -299,17 +288,17 @@ void Nivel3::LecturaFichero(string Fichero) {
 		}
 		if (opcion == 4) {
 			archivo >> x1 >> y1 >> comentario;
-			Sirena* aux = new Sirena(x1, y1);
+			Sirena* aux = new Sirena(x1, y1);			 /////Creacion Sirena
 			enemigos3.AgregarE(aux);
 		}
 		if (opcion == 5) {
 			archivo >> x1 >> y1 >> comentario;
-			Pajaro* aux = new Pajaro(x1, y1);
+			Pajaro* aux = new Pajaro(x1, y1);		    /////Crecion Pajaro
 			enemigos3.AgregarE(aux);
 		}
 		if (opcion == 6) {
 			archivo >> x1 >> y1 >> comentario;
-			Vector2D* aux = new Vector2D(x1, y1);
+			Vector2D* aux = new Vector2D(x1, y1);		//////Crecion lanza
 			heroe3.AgregarPuntosR(aux);
 		}
 		if (opcion == 7) {
@@ -335,8 +324,8 @@ void Nivel3::LecturaFichero(string Fichero) {
 		if (tipo == "VidasExtra")
 			opcion = 7;
 		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&
-			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
-			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
+			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un tipo string, tengo que retornar el carro al inicio
+			longitud = tipo.size();									// de esa linea si,  no  leo  plataforma o bloque, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
 			archivo.seekg(pos);

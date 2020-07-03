@@ -4,7 +4,7 @@
 #include "Interaccion.h"
 #include <string>
 using namespace std;
-#define MAX_MON 10
+#define MAX_MON 20
 class ListaMonedas
 {
 public:

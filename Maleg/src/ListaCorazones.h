@@ -2,7 +2,7 @@
 #include "VidaExtra.h"
 #include "Interaccion.h"
 
-#define MAX_COR 3
+#define MAX_COR 6
 class ListaCorazones
 {
 public:

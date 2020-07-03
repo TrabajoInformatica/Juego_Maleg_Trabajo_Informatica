@@ -23,16 +23,18 @@ void Nivel2::DestruirContenido() {
 void Nivel2::Inicializa(Heroe h) {
 	ETSIDI::stopMusica();
 	ETSIDI::playMusica("sonidos/Ambiente.wav");
-	heroe2= h;
 	/////////////////////////////////////Personaje
+	heroe2 = h;
 	heroe2.SetAlturaMuerte(-15.0);
 	heroe2.SetPos(190.0f, 30.0f);
 	heroe2.SetVel(0.0f, 0.0f);
-	////////////////////////////////////Plataformas
+
 	LecturaFichero(Fichero);
 	Puerta* puer = new Puerta(200.0f, 30.0f, 204.0f, 30.0f, -5.0f, 255, 0, 0);
 	puerta2.AgregarP(puer);
-	///////////////////////////////////Enemigos
+
+
+	LecturaFichero(Fichero);
 
 	Araña* ax0 = new Araña(30.0f, 22.8f);
 	enemigos2.AgregarE(ax0);
@@ -59,13 +61,10 @@ void Nivel2::Inicializa(Heroe h) {
 }
 
 void Nivel2::Dibuja() {
-	gluLookAt(heroe2.GetPos().x, heroe2.GetPos().y + 1, 3,  // posicion del ojo						//NUNCA MODIFICAR LA Z	No hace fala
-		heroe2.GetPos().x, heroe2.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
+	gluLookAt(heroe2.GetPos().x, heroe2.GetPos().y + 1, 3,  // posicion del ojo			//Posicion camara sigue posicioon del personaje
+		heroe2.GetPos().x, heroe2.GetPos().y + 1, 0.0,									//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
 		0.0, 1.0, 0.0);
-	/////////////////////////////////////Personaje
-	//cout << "estoy dibujado nivel 2" << endl;
-
-
+	
 	// Background
 	glEnable(GL_TEXTURE_2D);
 	//------------------------------------------------------------------------------------------
@@ -116,33 +115,30 @@ void Nivel2::Dibuja() {
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
 
-
-////////////////////////////////////Plataformas
 	heroe2.Dibuja();
 	plataformas2.Dibuja();
 	monedas2.Dibuja();
 	armas2.Dibuja();
 	corazones2.Dibuja();
 	puerta2.DibujaP();
-
-	//cout << "X" << heroe2.GetPos().x << endl;
-	//cout << "Y" << heroe2.GetPos().y << endl;
-	///////////////////////////////////Enemigos
 	enemigos2.Dibuja();
 }
+
 void Nivel2::Mueve() {
-	///////Movimiento
+	///////Mueve
 	monedas2.Mueve(0.025f);
-	heroe2.Mueve(0.1f);
 	enemigos2.Mueve(0.25f);
 	plataformas2.Mueve(0.025f);
 	armas2.Mueve(0.05f);
 	corazones2.Mueve(0.025f);
 
+	////////Heroe Mueve
+	heroe2.Mueve(0.1f);
+
 	//////Colisiones
 	plataformas2.Colision(&heroe2);
 	monedas2.Colision(&heroe2);	
-	//enemigos2.Colision(&heroe2);
+	enemigos2.Colision(&heroe2);
 	corazones2.Colision(&heroe2);
 
 	if (puerta2.Colision(&heroe2) == true) {
@@ -170,13 +166,13 @@ Heroe Nivel2::GetHeroe() {
 bool Nivel2::FinNivel2() {
 	if (fin == true) {
 		return true;
-		cout << "ha pasado al nivel 3" << endl;
 	}
 	else
 		return false;
 }
 
 void Nivel2::Tecla(unsigned char key) {
+	///////Teclas de avance y salto heroe
 	if (key == 'w') {
 		for (int i = 0; i < plataformas2.GetNumPlat(); i++) {
 			if (Interaccion::ColisionSup(&heroe2, plataformas2.GetListaPlat(i))) {
@@ -259,7 +255,7 @@ void Nivel2::LecturaFichero(string Fichero) {
 		cout << suma << endl;
 		if (opcion == 1) {
 			archivo >> x1 >> y1 >> x2 >> y2 >> gr >> r >> v >> a >> comentario;
-			Plataforma* aux = new Plataforma(x1, y1, x2, y2, gr, (unsigned char)r, (unsigned char)v, (unsigned char)a);///////Creacion Plataformas
+			Plataforma* aux = new Plataforma(x1, y1, x2, y2, gr, (unsigned char)r, (unsigned char)v, (unsigned char)a);///////Creacion Plataforma
 			plataformas2.AgregarP(aux);
 		}
 		if (opcion == 2) {
@@ -274,22 +270,22 @@ void Nivel2::LecturaFichero(string Fichero) {
 		}
 		if (opcion == 4) {
 			archivo >> x1 >> y1 >> comentario;
-			Sirena* aux = new Sirena(x1, y1);
+			Sirena* aux = new Sirena(x1, y1);///////////Creacion Sirena
 			enemigos2.AgregarE(aux);
 		}
 		if (opcion == 5) {
 			archivo >> x1 >> y1 >> comentario;
-			Pajaro* aux = new Pajaro(x1, y1);
+			Pajaro* aux = new Pajaro(x1, y1);/////////Creacion Pajaro
 			enemigos2.AgregarE(aux);
 		}
 		if (opcion == 6) {
 			archivo >> x1 >> y1 >> comentario;
-			Vector2D* aux = new Vector2D(x1, y1);
+			Vector2D* aux = new Vector2D(x1, y1);////////Creacion SetPoints Heroe
 			heroe2.AgregarPuntosR(aux);
 		}
 		if (opcion == 7) {
 			archivo >> x1 >> y1 >> pf >> r >> vy >> comentario;
-			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion Monedas
+			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion VidaExtra
 			corazones2.AgregarC(aux);
 		}
 		archivo >> tipo;
@@ -310,8 +306,8 @@ void Nivel2::LecturaFichero(string Fichero) {
 		if (tipo == "VidasExtra")
 			opcion = 7;
 		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&
-			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
-			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
+			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un tipo string, tengo que retornar el carro al inicio
+			longitud = tipo.size();									// de esa linea ,si no  leo  plataforma u otro objeto, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
 			archivo.seekg(pos);

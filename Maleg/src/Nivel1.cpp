@@ -6,12 +6,12 @@ using namespace std;
 
 Nivel1::Nivel1() {
 	fin = false;
-
 }
 
 Nivel1::~Nivel1() {
 
 }
+
 void Nivel1::DestruirContenido() {
 	monedas.destruirContenido();
 	enemigos.DestruirContenido();
@@ -20,33 +20,29 @@ void Nivel1::DestruirContenido() {
 	corazones.DestruirContenido();
 	armas.DestruirContenido();
 }
+
 Heroe Nivel1::GetHeroe() {
 	heroe.DestruirContenido();
 	return heroe;
 }
 
 void Nivel1::Inicializa(Heroe h) {
-	heroe = h;
 	/////////////////////////////////////Personaje
+	heroe = h;
 	heroe.SetAlturaMuerte(-15.0f);
 	heroe.SetPos(0.0f,0.0f);//160 10
 	heroe.SetVel(0.0f, 0.0f);
-	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
-	//puerta.SetColor(255, 0, 0);
- Puerta* puer = new Puerta(174.0f, 8.0f, 178.0f, 8.0f, -5.0f, 255, 0, 0);
- puerta.AgregarP(puer);
-
-
-
-	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos, Vidas
+	////////////////////////////////////Puerta Final
+	 Puerta* puer = new Puerta(174.0f, 8.0f, 178.0f, 8.0f, -5.0f, 255, 0, 0);
+	 puerta.AgregarP(puer);
+	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos, Vidas,SetPoints
 	LecturaFichero(Fichero);
-	
 }
 
 void Nivel1::Dibuja() {
 	// Vista
-	gluLookAt(heroe.GetPos().x,heroe.GetPos().y+ 1, 3,  // posicion del ojo						//NUNCA MODIFICAR LA Z	No hace fala
-		heroe.GetPos().x, heroe.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)			//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
+	gluLookAt(heroe.GetPos().x,heroe.GetPos().y+ 1, 3,  // posicion del ojo						//EL centro de la camara sigue la posicion del heroe
+		heroe.GetPos().x, heroe.GetPos().y + 1, 0.0,      // hacia que punto mira  (0,0,0)		//la posicion x e y del ojo deben ser iguales al punto x e y al que mira el ojo
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)  
 
 	// Background
@@ -114,34 +110,27 @@ void Nivel1::Dibuja() {
 	
 	corazones.Dibuja();
 	puerta.DibujaP();
-	//cout << "X" << heroe.GetPos().x << endl;
-	//cout << "Y" << heroe.GetPos().y << endl;
+
 }
 
 void Nivel1::Mueve() {
-	// Enemigos
+	// Mueve
 	enemigos.Mueve(0.025f);	
 	monedas.Mueve(0.025f);
 	armas.Mueve(0.05f);
 	plataformas.Mueve(0.025f);
-	
 	corazones.Mueve(0.025f);
-	// Heroe
+	
+	// Heroe Mueve
 	heroe.Mueve(0.1f);
 
-	// Plataforma, Monedas y otros.
+	// Colisiones Plataforma, Monedas y otros.
 	plataformas.Colision(&heroe);
 	monedas.Colision(&heroe);
 	enemigos.Colision(&heroe);
 	corazones.Colision(&heroe);
-	/////////Provisional
-
-
-	
-	
 
 	if (puerta.Colision(&heroe) == true) {
-		cout << "puerta" << endl;
 		fin = true;
 	}
 	else
@@ -160,13 +149,13 @@ void Nivel1::Mueve() {
 bool Nivel1::FinNivel1() {
 	if (fin == true) {
 		return true;
-		cout << "ha pasado" << endl;
 	}
 	else
 		return false;
 }
 
 void Nivel1::Tecla(unsigned char key) {
+	////////Teclas control avance lateral y salto heroe
 	if (key == 'w') {
 		for (int i = 0; i < plataformas.GetNumPlat(); i++) {
 			if (Interaccion::ColisionSup(&heroe, plataformas.GetListaPlat(i))) {
@@ -197,7 +186,7 @@ void Nivel1::Tecla(unsigned char key) {
 		heroe.ShowHitbox(false);
 		enemigos.ShowHitbox(false);
 	}
-
+	////////////Disparo lanza heroe
 	if (key == ' ') {
 		if (heroe.ValidarDisparo()) {
 			ETSIDI::play("sonidos/DisparoFlecha.mp3");
@@ -264,22 +253,22 @@ void Nivel1::LecturaFichero(string Fichero) {
 		}
 		if (opcion == 4) {
 			archivo >> x1 >> y1 >> comentario;
-			Sirena* aux = new Sirena(x1, y1);
+			Sirena* aux = new Sirena(x1, y1);//////////Creacion Sirenas
 			enemigos.AgregarE(aux);
 		}
 		if (opcion == 5) {
 			archivo >> x1 >> y1 >> comentario;
-			Pajaro* aux = new Pajaro(x1, y1);
+			Pajaro* aux = new Pajaro(x1, y1);//////////Creacion Pajaro
 			enemigos.AgregarE(aux);
 		}
 		if (opcion == 6) {
 			archivo >> x1 >> y1 >> comentario;
-			Vector2D* aux = new Vector2D(x1, y1);
+			Vector2D* aux = new Vector2D(x1, y1);//////////Creacion Setpoints Heroe
 			heroe.AgregarPuntosR(aux);
 		}
 		if (opcion == 7) {
 			archivo >> x1 >> y1 >> pf >> r >> vy  >> comentario;
-			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion Monedas
+			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion VidaExtra
 			corazones.AgregarC(aux);
 		}
 		archivo >> tipo;
@@ -300,9 +289,9 @@ void Nivel1::LecturaFichero(string Fichero) {
 		if (tipo == "VidasExtra")
 			opcion = 7;
 		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&
-			tipo!="Enemigos" &&tipo !="Sirena" && tipo !="Pajaro" && tipo!="PuntosReaparicion" && tipo!="Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
-			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
-			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
+			tipo!="Enemigos" &&tipo !="Sirena" && tipo !="Pajaro" && tipo!="PuntosReaparicion" && tipo!="Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un string tipo , tengo que retornar el carro al inicio 
+			longitud = tipo.size();									// de esa linea si no leo  plataforma u otro objeto, ya que estoy leyendo datos.
+			pos = archivo.tellg();									//hay que indicar tambien que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
 			archivo.seekg(pos);
 		}

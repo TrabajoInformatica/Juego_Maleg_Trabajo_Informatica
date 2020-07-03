@@ -34,6 +34,7 @@ void Heroe::Mueve(float t) {
 	else if (velocidad.x > 0)
 		sentido = Derecha;
 	ObjetoMovil::Mueve(t);
+	cout << "X: " << posicion.x << " Y: " << posicion.y << endl;;
 }
 
 void Heroe::Dibuja() {
