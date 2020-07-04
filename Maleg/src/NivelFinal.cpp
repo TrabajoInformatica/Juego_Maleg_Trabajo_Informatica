@@ -80,7 +80,7 @@ void NivelFinal::Dibuja() {
 	// Enemigos
 //	if (heroe.GetPos() > spawn_enemigos){
 
-		enemigos.Dibuja();
+	enemigos.Dibuja();
 	// Heroe
 	heroe.Dibuja();
 

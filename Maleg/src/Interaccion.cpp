@@ -147,7 +147,7 @@ bool Interaccion::ColisionMoneda(Heroe* pers, Moneda m) {
      return false;
  }
 
- bool Interaccion::ColisionEnemigo(Arma a, Boss *b) {
+ /*bool Interaccion::ColisionEnemigo(Arma a, Boss *b) {
      Vector2D posicion = a.GetPos();
      float altura = a.GetLado() / 2;
      Vector2D posicione = b->GetPos();
@@ -163,5 +163,5 @@ bool Interaccion::ColisionMoneda(Heroe* pers, Moneda m) {
          return true;
      }
      return false;
- }
+ }*/
      

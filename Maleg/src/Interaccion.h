@@ -23,6 +23,6 @@ public:
 	static bool ColisionEnemigo(Heroe* pers, Enemigo e);
 	static bool ColisionEnemigo(Arma a, Enemigo e);
 	static bool ColisionBoton(Heroe* pers, Boton b);
-	static bool ColisionEnemigo(Arma a, Boss *b);
+	//static bool ColisionEnemigo(Arma a, Boss *b);
 };
 
