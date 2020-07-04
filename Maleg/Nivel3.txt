@@ -35,23 +35,28 @@ Plataforma
  185.0 13.0 190.0 13.0 0.5 155.0 155.0 155.0	//Ultima_plataforma_antes_de_Jefe_final
  195.0 15.0 200.0 15.0 0.5 155.0 155.0 155.0	//Plataforma_Boss_final_1
  210.0 -5.0 225.0 -5.0 2.1 155.0 155.0 155.0	//Plataforma_Boss_final_2
- 60 70.0 105.0 70.0 0.6 155.0 155.0 155.0     //Plataforma_puerta_inferior
+ 60.0 90.0 75.0 90.0 2.1 155.0 155.0 155.0    	//Plataforma_puerta_inferior01
+ 75.0 90.0 90.0 90.0 2.1 155.0 155.0 155.0    	//Plataforma_puerta_inferior02
+ 90.0 90.0 105.0 90.0 2.1 155.0 155.0 155.0     //Plataforma_puerta_inferior03
+ 105.0 100.0 106.0 100.0 20.0 155.0 155.0 155.0 //PAREDVERTICAL_ANTISALTO_dchaABAJO
+ 112.0 180.0 113.0 180.0 80.0 155.0 155.0 155.0 //PAREDVERTICAL_ANTISALTO_dchaARRIBA
+ 59.0 180.0 60.0 180.0 90.0 155.0 155.0 155.0   //PAREDVERTICAL_ANTISALTO_izqda
  103.0 100.0 112.0 100.0 0.6 155.0 155.0 155.0  //Plataforma_especial_puerta_superior
  93.5 100.0 97.5 100.0 0.5 155.0 155.0 155.0    //Plataforma_especial_izq_primera_puerta
- 89.0 103.0 91.0 103.0 2.0 155.0 155.0 155.0    //Bloque1_puerta_especial
- 87.5 121.0 89.5 121.0 2.0 155.0 155.0 155.0    //Borde1_plataforma_espe2
- 96 113.0 98 113.0 2.0 155.0 155.0 155.0    	//Borde1_plataforma_espe4
- 83 118.0 85 118.0 2.0 155.0 155.0 155.0    	//Borde1_plataforma_espe6
- 86.5 113.5 88.5 113.5 2.0 155.0 155.0 155.0 	//Bloque_centro_con_moneda
- 74.0 115.0 76.0 115.0 2.0 155.0 155.0 155.0 	//Bloque_izq_plataforma_movil_vertical_izq
- 81.0 130.0 83.0 130.0 2.0 155.0 155.0 155.0 	//Bloque1_mas_alto
- 85.0 131.5 87.0 131.5 2.0 155.0 155.0 155.0 	//Bloque2_a_la_dcha_anterior
- 89.0 133.0 91.0 133.0 2.0 155.0 155.0 155.0 	//Bloque3_altos
+ 89.0 103.0 91.0 103.0 1.9 155.0 155.0 155.0    //Bloque1_puerta_especial
+ 87.5 121.0 89.5 121.0 1.9 155.0 155.0 155.0    //Borde1_plataforma_espe2
+ 96 113.0 98 113.0 1.9 155.0 155.0 155.0    	//Borde1_plataforma_espe4
+ 83 118.0 85 118.0 1.9 155.0 155.0 155.0    	//Borde1_plataforma_espe6
+ 86.5 113.5 88.5 113.5 1.9 155.0 155.0 155.0 	//Bloque_centro_con_moneda
+ 74.0 115.0 76.0 115.0 1.9 155.0 155.0 155.0 	//Bloque_izq_plataforma_movil_vertical_izq
+ 81.0 130.0 83.0 130.0 1.9 155.0 155.0 155.0 	//Bloque1_mas_alto
+ 85.0 131.5 87.0 131.5 1.9 155.0 155.0 155.0 	//Bloque2_a_la_dcha_anterior
+ 89.0 133.0 91.0 133.0 1.9 155.0 155.0 155.0 	//Bloque3_altos
  93.0 134.5 94.0 134.5 0.5 155.0 155.0 155.0 	//miniplataforma_altos 
- 92.0 127.0 94.0 127.0 2.0 155.0 155.0 155.0 	//bloque_debajo_miniplataforma 
+ 92.0 127.0 94.0 127.0 1.9 155.0 155.0 155.0 	//bloque_debajo_miniplataforma 
  96.0 128.0 97.0 128.0 0.5 155.0 155.0 155.0 	//miniplataforma_dcha_bloque_anterior
- 68.0 127.0 70.0 127.0 2.0 155.0 155.0 155.0	//Bloque_superior_izq_del_todo
- 68.0 103.0 70.0 103.0 2.0 155.0 155.0 155.0 	//Bloque_inferior_izq_del_todo
+ 68.0 127.0 70.0 127.0 1.9 155.0 155.0 155.0	//Bloque_superior_izq_del_todo
+ 68.0 103.0 70.0 103.0 1.9 155.0 155.0 155.0 	//Bloque_inferior_izq_del_todo
 Plataforma_movil
  40.0 3.0 43.0 3.0 0.5 200 -4.0 0.0 155.0 155.0 155.0 	//Plataforma_movilInicio
  85.0 20.0 87.0 20.0 0.5 200 -3.5 -3.5 155.0 155.0 155.0   //Cruce_con_plataforma_Movil
