@@ -30,12 +30,14 @@ void Nivel1::Inicializa(Heroe h) {
 	/////////////////////////////////////Personaje
 	heroe = h;
 	heroe.SetAlturaMuerte(-15.0f);
-	heroe.SetPos(0.0f,0.0f);//160 10
+	heroe.SetPos(0.0f, 0.0f);//180.0f, 7.5f
 	heroe.SetVel(0.0f, 0.0f);
-	////////////////////////////////////Puerta Final
-	 Puerta* puer = new Puerta(174.0f, 8.0f, 178.0f, 8.0f, -5.0f, 255, 0, 0);
-	 puerta.AgregarP(puer);
-	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos, Vidas,SetPoints
+
+	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
+	//puerta.SetColor(255, 0, 0);
+	Puerta* puer = new Puerta(181.0f, 7.5f, 185.0f, 7.5f, -5.0f, 255, 0, 0);
+	puerta.AgregarP(puer);
+	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos, Vidas
 	LecturaFichero(Fichero);
 }
 

@@ -57,41 +57,113 @@ void Plataforma::Dibuja() {
     glVertex3d(limite1.x, limite1.y - grosor, 0);
     glEnd();
     */
-    if (grosor <= 1) {
-        glEnable(GL_LIGHTING);
-        glEnable(GL_TEXTURE_2D);
-        glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/plataforma_flotante.png").id);
-        glDisable(GL_LIGHTING);
-        glBegin(GL_POLYGON);
 
-        glColor3f(1, 1, 1);
-        glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
-        glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
-        glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
-        glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
-        glEnd();
+    //PLATAFORMAS FLOTANTES
+        if (grosor == 0.6f) {
+            glEnable(GL_LIGHTING);
+            glEnable(GL_TEXTURE_2D);
+            glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/10pixels_tie.png").id);
+            glDisable(GL_LIGHTING);
+            glBegin(GL_POLYGON);
 
-        glEnable(GL_LIGHTING);
-        glDisable(GL_TEXTURE_2D);
+            glColor3f(1, 1, 1);
+            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
+            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
+            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
+            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+            glEnd();
+
+            glEnable(GL_LIGHTING);
+            glDisable(GL_TEXTURE_2D);
+        }
+        else if (grosor == 0.5f) {
+            glEnable(GL_LIGHTING);
+            glEnable(GL_TEXTURE_2D);
+            glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/3pixels_tie.png").id);
+            glDisable(GL_LIGHTING);
+            glBegin(GL_POLYGON);
+
+            glColor3f(1, 1, 1);
+            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
+            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
+            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
+            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+            glEnd();
+
+            glEnable(GL_LIGHTING);
+            glDisable(GL_TEXTURE_2D);
+        }
+        else if (grosor == 2.0f) {
+            glEnable(GL_LIGHTING);
+            glEnable(GL_TEXTURE_2D);
+            glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/10pixels_bot.png").id);
+            glDisable(GL_LIGHTING);
+            glBegin(GL_POLYGON);
+
+            glColor3f(1, 1, 1);
+            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
+            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
+            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
+            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+            glEnd();
+
+            glEnable(GL_LIGHTING);
+            glDisable(GL_TEXTURE_2D);
+        }
+        else if (grosor == 2.1f) {
+            glEnable(GL_LIGHTING);
+            glEnable(GL_TEXTURE_2D);
+            glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/20pixels_bot.png").id);
+            glDisable(GL_LIGHTING);
+            glBegin(GL_POLYGON);
+
+            glColor3f(1, 1, 1);
+            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
+            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
+            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
+            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+            glEnd();
+
+            glEnable(GL_LIGHTING);
+            glDisable(GL_TEXTURE_2D);
+        }
+        else if (grosor == 3.0f) {
+            glEnable(GL_LIGHTING);
+            glEnable(GL_TEXTURE_2D);
+            glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/block.png").id);
+            glDisable(GL_LIGHTING);
+            glBegin(GL_POLYGON);
+
+            glColor3f(1, 1, 1);
+            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
+            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
+            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
+            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+            glEnd();
+
+            glEnable(GL_LIGHTING);
+            glDisable(GL_TEXTURE_2D);
+        }
+    //SUELO
+        /*
+    else {
+    glEnable(GL_LIGHTING);
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/suelo.png").id);
+    glDisable(GL_LIGHTING);
+    glBegin(GL_POLYGON);
+
+    glColor3f(1, 1, 1);
+    glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
+    glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
+    glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
+    glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+    glEnd();
+
+    glEnable(GL_LIGHTING);
+    glDisable(GL_TEXTURE_2D);
     }
-    else  {
-        glEnable(GL_LIGHTING);
-        glEnable(GL_TEXTURE_2D);
-        glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/suelo.png").id);
-        glDisable(GL_LIGHTING);
-        glBegin(GL_POLYGON);
-
-        glColor3f(1, 1, 1);
-        glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
-        glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
-        glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
-        glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
-        glEnd();
-
-        glEnable(GL_LIGHTING);
-        glDisable(GL_TEXTURE_2D);
-    }
-
+    */
 }
 
 float Plataforma::distancia(Vector2D punto, Vector2D* direccion){

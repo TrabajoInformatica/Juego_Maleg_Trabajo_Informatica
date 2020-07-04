@@ -28,15 +28,6 @@ void Lanza::Dibuja() {
 	spear.setAngle(-20.0f);
 	spear.draw();
 	glPopMatrix();
-
-	//Hitbox
-	/*
-	glPushMatrix();
-	glTranslatef(posicion.x, posicion.y, 0);
-	glutWireCube(lado);
-	glTranslatef(-posicion.x, -posicion.y, 0);
-	glPopMatrix();
-	*/
 }
 
 void Lanza::Mueve(float t) {

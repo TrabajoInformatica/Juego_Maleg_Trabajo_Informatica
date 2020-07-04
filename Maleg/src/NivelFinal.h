@@ -10,6 +10,7 @@
 #include "Lanza.h"
 #include "Puerta.h"
 #include "Interaccion.h"
+#include "Boton.h"
 
 
 using namespace std;
@@ -24,6 +25,7 @@ private:
 	ListaArmas armas;
 	ListaCorazones corazones;
 	Puerta puerta;
+	Boton boton;
 
 	enum Estado { ShowHitbox, HideHitbox };
 	Estado estado = HideHitbox;

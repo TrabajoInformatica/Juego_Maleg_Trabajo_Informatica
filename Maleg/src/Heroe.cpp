@@ -20,7 +20,6 @@ Heroe::Heroe() :
 	verde = 255;
 	monedas = 0;
 	numeroRP = 0;
-	estado = Hide;
 	sentido = Derecha;
 }
 Heroe::~Heroe(){
@@ -34,6 +33,7 @@ void Heroe::Mueve(float t) {
 	else if (velocidad.x > 0)
 		sentido = Derecha;
 	ObjetoMovil::Mueve(t);
+	cout << "X: " << posicion.x << " Y: " << posicion.y << endl;;
 }
 
 void Heroe::Dibuja() {

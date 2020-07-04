@@ -6,7 +6,9 @@ Guerreros::Guerreros() : skeleton("imagenes/skeletonmove.png", 5, 1) {
 }
 
 Guerreros::Guerreros(float px, float py, float max, float v) : skeleton("imagenes/skeletonmove.png", 5, 1) {
-
+	verde = 0;
+	azul = 0;
+	rojo = 255;
 	posicion.x = px;
 	posicion.y = py;
 	altura = 1.0f;
@@ -35,16 +37,17 @@ void Guerreros::Dibuja() {
 	skeleton.loop();
 	glPopMatrix();
 
-	// HITBOX
-	/*
-	glPushMatrix();
-	glColor3ub(rojo, verde, azul);
-	glTranslatef(posicion.x, posicion.y, 0);
-	glColor3f(rojo, verde, azul);
-	glutWireSphere(altura, 10, 10);
-	glTranslatef(-posicion.x, -posicion.y, 0);
-	glPopMatrix();
-	*/
+	//Hitbox
+
+	if (estado == Show) {
+		glPushMatrix();
+		glColor3ub(rojo, verde, azul);
+		glTranslatef(posicion.x, posicion.y, 0);
+		glColor3f(rojo, verde, azul);
+		glutWireSphere(altura, 10, 10);
+		glTranslatef(-posicion.x, -posicion.y, 0);
+		glPopMatrix();
+	}
 }
 
 void Guerreros::Mueve(float t) {

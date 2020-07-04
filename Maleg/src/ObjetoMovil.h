@@ -12,6 +12,8 @@ protected:
 	unsigned char verde;
 	unsigned char azul;
 	float radio;
+	enum Estado { Show, Hide };
+	Estado estado;
 public:
 	virtual void Mueve(float t);
 

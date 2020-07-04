@@ -2,7 +2,7 @@
 #include "glut.h"
 
 Arma::Arma() {
-
+	estado = Hide;
 }
 
 Arma::~Arma() {
@@ -22,5 +22,4 @@ void Arma::SetLado(float r) {
 float Arma::GetLado() {
 	return lado;
 }
-
 

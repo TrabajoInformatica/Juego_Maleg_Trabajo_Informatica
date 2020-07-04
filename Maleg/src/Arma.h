@@ -5,9 +5,6 @@ class Arma :public ObjetoMovil
 {
 protected:
 	float lado;
-	unsigned char rojo;
-	unsigned char verde;
-	unsigned char azul;
 public:
 	Arma();
 	~Arma();
