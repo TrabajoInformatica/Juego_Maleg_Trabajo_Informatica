@@ -6,9 +6,12 @@ using namespace std;
 
 NivelFinal::NivelFinal() {
 	fin = false;
-	
+
+	spawn_enemigos = (10.0f, 10.0f);
+
 	ETSIDI::stopMusica();
 	ETSIDI::playMusica("sonidos/Ambiente3.wav");
+
 }
 
 NivelFinal::~NivelFinal() {
@@ -42,7 +45,12 @@ void NivelFinal::Inicializa(Heroe h) {
 	boton.SetPos(28.0, 5.0);
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos, Vidas
 	LecturaFichero(Fichero);
-
+	Guerreros* gx0 = new Guerreros(15.0f, 3.5f, 5.0f, 2.0f);
+	enemigos.AgregarE(gx0);
+	Guerreros* gx1 = new Guerreros(20.0f, 3.5f, 6.5f, -2.0f);
+	enemigos.AgregarE(gx1);
+	Boss* bx0 = new Boss(51.0f, 22.0f);
+	enemigos.AgregarE(bx0);
 }
 
 void NivelFinal::Dibuja() {
@@ -68,8 +76,9 @@ void NivelFinal::Dibuja() {
 	glDisable(GL_TEXTURE_2D);
 
 	// Enemigos
-	enemigos.Dibuja();
+//	if (heroe.GetPos() > spawn_enemigos){
 
+		enemigos.Dibuja();
 	// Heroe
 	heroe.Dibuja();
 
