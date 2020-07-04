@@ -11,6 +11,7 @@
 #include "Puerta.h"
 #include "Interaccion.h"
 #include "Boton.h"
+#include "Boss.h"
 
 
 using namespace std;
@@ -26,6 +27,7 @@ private:
 	ListaCorazones corazones;
 	Puerta puerta;
 	Boton boton;
+	Boss boss;
 
 	enum Estado { ShowHitbox, HideHitbox };
 	Estado estado = HideHitbox;

@@ -1,5 +1,9 @@
 #include "Boss.h"
 
+Boss::Boss() {
+
+}
+
 Boss::Boss(float x, float y) {
 
 	posicion.x = x;
@@ -27,4 +31,15 @@ void Boss::Dibuja() {
 	glutWireSphere(altura, 10, 10);
 	glTranslatef(-posicion.x, -posicion.y, 0);
 	glPopMatrix();
+}
+
+bool Boss::AgregarB(Boss* b) {
+
+	if (num < MAX_BOSS) {
+		lista[num] = b;
+
+		num++;
+
+	}
+	else return false;
 }
