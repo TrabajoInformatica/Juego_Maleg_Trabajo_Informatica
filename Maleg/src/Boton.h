@@ -3,7 +3,8 @@
 #include "Vector2D.h"
 #include "ObjetoMovil.h"
 #include "Heroe.h"
-//using ETSIDI::SpriteSequence;
+
+using ETSIDI::SpriteSequence;
 
 class Boton :public ObjetoMovil
 {
@@ -13,7 +14,7 @@ private:
 
 public:
 
-	//SpriteSequence button;
+	SpriteSequence button;
 	Boton();
 	Boton(float px, float py, float radio, unsigned char r, unsigned char v, unsigned char a);//para inicializarlas
 	~Boton();

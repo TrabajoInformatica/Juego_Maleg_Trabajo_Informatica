@@ -5,13 +5,12 @@
 
 using namespace std;
 
-Boton::Boton()  {//button("imagenes/boton.png", 6, 1) {
+Boton::Boton(): button("imagenes/button.png", 1, 1) {
 	rojo = 255;
 	verde = azul = 0;
 	radio = 1.0f;
 }
-Boton::Boton(float px, float py, float rad, unsigned char r, unsigned char v, unsigned char a) { //: button("imagenes/boton.png", 6, 1) 
-
+Boton::Boton(float px, float py, float rad, unsigned char r, unsigned char v, unsigned char a) : button("imagenes/button.png", 1, 1){
 	posicion.x = px;
 	posicion.y = py;
 	rojo = r;
@@ -26,21 +25,23 @@ Boton::~Boton() {
 
 void Boton::Dibuja() {
 	//Dimensiones del sprite
-	/*button.setCenter(0.5, 0.5);
-	button.setSize(1, 1);
+	button.setCenter(1.2, 1.2);
+	button.setSize(2.4, 2.4);
 
 	//Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0);
 	button.draw();
-	button.loop();
-	glPopMatrix();*/
+	//button.loop();
+	glPopMatrix();
 
+	//HITBOX
+	glPushMatrix();
 	glColor3ub(255, 0, 0);
 	glTranslatef(posicion.x, posicion.y, 1);
 	glutSolidSphere(radio, 20, 20);
 	glTranslatef(-posicion.x, -posicion.y, 1);
-	//glPushMatrix();
+	glPopMatrix();
 
 
 
