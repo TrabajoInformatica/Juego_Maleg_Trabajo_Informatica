@@ -30,19 +30,21 @@ void Boton::Dibuja() {
 
 	//Dibujo
 	glPushMatrix();
-	glTranslatef(posicion.x, posicion.y, 0);
+	glTranslatef(posicion.x, posicion.y, 0.5);
 	button.draw();
 	//button.loop();
+	glTranslatef(-posicion.x,- posicion.y,- 0.5);
 	glPopMatrix();
 
-	//HITBOX
+	//HITBOX 
+	/*
 	glPushMatrix();
 	glColor3ub(255, 0, 0);
-	glTranslatef(posicion.x, posicion.y, 1);
+	glTranslatef(posicion.x, posicion.y, 0.6);
 	glutSolidSphere(radio, 20, 20);
-	glTranslatef(-posicion.x, -posicion.y, 1);
+	glTranslatef(-posicion.x, -posicion.y, 0);
 	glPopMatrix();
-
+	*/
 
 
 
@@ -50,10 +52,7 @@ void Boton::Dibuja() {
 bool Boton::Colision(Heroe* p, Boton b) {
 	if (Interaccion::ColisionBoton(p, b))
 	{
-		cout << "colision boton" << endl;
-		p->SetPos(25.0, 4.0);
 		return true;
-		ETSIDI::play("sonidos/estruendo.wav");
 	}
 
 	return false;

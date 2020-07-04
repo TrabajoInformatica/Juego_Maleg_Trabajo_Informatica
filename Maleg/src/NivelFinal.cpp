@@ -42,17 +42,15 @@ void NivelFinal::Inicializa(Heroe h) {
 	Puerta* puer = new Puerta(200.0f, 30.0f, 204.0f, 30.0f, -5.0f, 255, 0, 0);
 	puerta.AgregarP(puer);
 
-	boton.SetPos(28.0, 5.0);
+	boton.SetPos(51.0, 5.0);
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos, Vidas
 	LecturaFichero(Fichero);
 	Guerreros* gx0 = new Guerreros(15.0f, 4.0f, 5.0f, 2.0f);
 	enemigos.AgregarE(gx0);
 	Guerreros* gx1 = new Guerreros(20.0f, 4.0f, 6.5f, -2.0f);
 	enemigos.AgregarE(gx1);
-	Boss* bx0 = new Boss(51.0f, 22.5f);
-	enemigos.AgregarE(bx0);
-
-	//boss.SetPos(51.0f, 20.0f);
+	boss.SetPos(51.0f, 22.5f);
+	boss.SetVida(3);
 }
 
 void NivelFinal::Dibuja() {
@@ -77,6 +75,10 @@ void NivelFinal::Dibuja() {
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
 
+	//Boton Texto F
+	ETSIDI::setTextColor(0.0f, 0.0f, 0.0f); //r g b
+	ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
+	ETSIDI::printxy("F", 50.0, 6.0);
 	// Enemigos
 //	if (heroe.GetPos() > spawn_enemigos){
 
@@ -94,7 +96,7 @@ void NivelFinal::Dibuja() {
 	//cout << "X" << heroe.GetPos().x << endl;
 	//cout << "Y" << heroe.GetPos().y << endl;
 	boton.Dibuja();
-	//boss.Dibuja();
+	boss.Dibuja();
 
 }
 
@@ -112,9 +114,9 @@ void NivelFinal::Mueve() {
 	// Plataforma, Monedas y otros.
 	plataformas.Colision(&heroe);
 	monedas.Colision(&heroe);
-	enemigos.Colision(&heroe);
+	//enemigos.Colision(&heroe);
 	corazones.Colision(&heroe);
-	boss.Colision(&heroe, boss);
+	//armas.Colision(&heroe, boss);
 	//boss.Colision(armas, boss);
 	/////////Provisional
 
@@ -125,27 +127,6 @@ void NivelFinal::Mueve() {
 			enemigos.Eliminar(i);
 		}
 	}*/
-
-	if (boton.Colision(&heroe, boton) == true && OFFboton==false) {
-		ONboton = true;
-		OFFboton = true;
-	}
-	else {
-		ONboton = false;
-	
-	}
-
-	if (ONboton == true && OFFboton==true) {
-		PlataformaMovil* auxi = new PlataformaMovil(21.0, 7.0, 25.0, 7.0, 0.5, 180,3.5,2.0,128.0, 64.0, 0.0);	///////Creacion Plataforma Movil
-		plataformas.AgregarP(auxi);
-		ONboton = false;
-		OFFboton = true;
-		
-		cout << "plataforma creada" << endl;
-	}
-
-
-
 
 	if (puerta.Colision(&heroe) == true) {
 		cout << "puerta" << endl;
@@ -164,7 +145,18 @@ void NivelFinal::Mueve() {
 			}
 		}
 	}
+	for (int j = 0;j < armas.GetNum();j++) {
+		if (Interaccion::ColisionEnemigo(armas.GetLista(j), boss)) {
+			armas.Eliminar(j);
+			if (boss.GetVida() > 0)
+				boss.SetVida(boss.GetVida() - 1);
+		/*	else {
+				cout << "VidaBoss" << boss.GetVida() << endl;		//////FINNNNNNNN
+			}*/
+		}
+	}
 }
+
 
 bool NivelFinal::FinNivelFinal() {
 	if (fin == true) {
@@ -221,6 +213,16 @@ void NivelFinal::Tecla(unsigned char key) {
 				heroe.SumarMonedas(false);
 			}
 		}
+	}
+	if ((key=='F'||key=='f')&&boton.Colision(&heroe, boton) == true && OFFboton == false && enemigos.GetNumeroE()==0) {
+		PlataformaMovil* auxi = new PlataformaMovil(21.0, 7.0, 25.0, 7.0, 0.5, 180, 3.5, 2.1, 128.0, 64.0, 0.0);	///////Creacion Plataforma Movil
+		plataformas.AgregarP(auxi);
+		ONboton = true;
+		OFFboton = true;
+	}
+	else {
+		ONboton = false;
+
 	}
 }
 

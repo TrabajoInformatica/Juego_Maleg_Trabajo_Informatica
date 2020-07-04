@@ -1,7 +1,10 @@
 Plataforma
--10.0 10.0 10.0 10.0 0.5 128.0 64.0 0.0			//Suelo_Inicial
- 10.0 3.0 30.0 3.0 0.5 128.0 64.0 0.0			//PlataformaFinal
+-10.0 10.0 6.0 10.0 0.5 128.0 64.0 0.0			//Suelo_Inicial
+ 6.0 9.0 6.0 9.0 7.0 128.0 64.0 0.0			//Pared_Invisible
+ 16.0 10.0 18.0 10.0 0.5 128.0 64.0 0.0			//Plataforma_Punto1
+ 6.0 3.0 60.0 3.0 0.5 128.0 64.0 0.0			//PlataformaFinal
  42.0 18.0 60.0 18.0 0.5 128.0 64.0 0.0			//Plataforma_Boss
 PuntosReaparicion
-0.0 10.0							//Inicio
-999.0 999.0							//Referencia_punto_lejano
+ 0.0 10.0							//Inicio
+ 17.5 	10.0							//Punto_1
+ 999.0 999.0							//Referencia_punto_lejano

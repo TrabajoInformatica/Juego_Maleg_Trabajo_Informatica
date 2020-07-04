@@ -2,7 +2,9 @@
 #include "ObjetoMovil.h"
 
 Boss::Boss():boss("imagenes/minotauro.png", 9, 5) {
-
+	altura = 4.0f;
+	velocidad = 0;
+	aceleracion = 0;
 }
 
 Boss::Boss(float x, float y) : boss("imagenes/minotauro.png", 9, 5) {
@@ -43,7 +45,7 @@ void Boss::Dibuja() {
 	glColor3ub(rojo, verde, azul);
 	glTranslatef(posicion.x, posicion.y, 0);
 	glColor3f(rojo, verde, azul);
-	glutWireSphere(altura, 10, 10);
+	glutWireSphere(altura, 40, 40);
 	glTranslatef(-posicion.x, -posicion.y, 0);
 	glPopMatrix();
 	

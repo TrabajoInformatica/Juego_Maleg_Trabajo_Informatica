@@ -18,7 +18,7 @@ Heroe::Heroe() :
 	altura = 2.0f;
 	rojo = azul = 0;
 	verde = 255;
-	monedas = 0;
+	monedas = 10;
 	numeroRP = 0;
 	sentido = Derecha;
 }
