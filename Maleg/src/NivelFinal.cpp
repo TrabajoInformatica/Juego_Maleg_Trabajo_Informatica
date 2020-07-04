@@ -6,6 +6,7 @@ using namespace std;
 
 NivelFinal::NivelFinal() {
 	fin = false;
+	invocar = false;
 
 	spawn_enemigos = (10.0f, 10.0f);
 
@@ -114,27 +115,46 @@ void NivelFinal::Mueve() {
 	// Plataforma, Monedas y otros.
 	plataformas.Colision(&heroe);
 	monedas.Colision(&heroe);
-	//enemigos.Colision(&heroe);
+	enemigos.Colision(&heroe);
 	corazones.Colision(&heroe);
-	//armas.Colision(&heroe, boss);
-	//boss.Colision(armas, boss);
 	/////////Provisional
 
-	/*for (int i = 0;i < enemigos.GetNumeroE();i++) {
-
-		if ((enemigos.GetListaEnem(i).Muerte())== true) {
-			cout << "me he muerto" << endl;
-			enemigos.Eliminar(i);
-		}
-	}*/
-
+	/*
 	if (puerta.Colision(&heroe) == true) {
 		cout << "puerta" << endl;
 		fin = true;
 	}
 	else
 		fin = false;
-
+		*/
+	if (enemigos.GetNumeroE() == 0 && invocar==true) {
+		cout << "Hola" << endl;
+		BolaFuego* b0 =new BolaFuego(13.0,33.0);
+		enemigos.AgregarE(b0);
+		BolaFuego* b1 =new BolaFuego(17.0, 35.0);
+		enemigos.AgregarE(b1);
+		BolaFuego* b2 =new BolaFuego(21.0, 33.0);
+		enemigos.AgregarE(b2);
+		BolaFuego* b3 =new BolaFuego(25.0, 35.0);
+		enemigos.AgregarE(b3);
+		BolaFuego* b4 =new BolaFuego(29.0, 33.0);
+		enemigos.AgregarE(b4);
+		BolaFuego* b5 =new BolaFuego(33.0, 35.0);
+		enemigos.AgregarE(b5);
+		BolaFuego* b6 =new BolaFuego(36.0, 33.0);
+		enemigos.AgregarE(b6);
+		BolaFuego* b7 = new BolaFuego(40.0, 35.0);
+		enemigos.AgregarE(b7);
+		BolaFuego* b8 = new BolaFuego(44.0, 35.0);
+		enemigos.AgregarE(b8);
+		BolaFuego* b9 = new BolaFuego(9.0, 33.0);
+		enemigos.AgregarE(b9);
+		 invocar = false;
+	}
+	if (enemigos.GetListaEnem(0).GetPos().y < -5.0f) {
+		cout << "Hola" << endl;
+		enemigos.DestruirContenido();
+	}
 	for (int i = 0;i < enemigos.GetNumeroE();i++) {
 		for (int j = 0;j < armas.GetNum();j++) {
 			if (Interaccion::ColisionEnemigo(armas.GetLista(j), enemigos.GetListaEnem(i))) {
@@ -148,8 +168,11 @@ void NivelFinal::Mueve() {
 	for (int j = 0;j < armas.GetNum();j++) {
 		if (Interaccion::ColisionEnemigo(armas.GetLista(j), boss)) {
 			armas.Eliminar(j);
-			if (boss.GetVida() > 0)
+			if (boss.GetVida() > 0) {
 				boss.SetVida(boss.GetVida() - 1);
+				invocar = true;
+				heroe.SetPos(17.0f, 4.0f);
+			}
 		/*	else {
 				cout << "VidaBoss" << boss.GetVida() << endl;		//////FINNNNNNNN
 			}*/
