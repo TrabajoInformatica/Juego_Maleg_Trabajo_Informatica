@@ -11,6 +11,7 @@
 #include "Puerta.h"
 #include "Interaccion.h"
 #include "Boton.h"
+#include "BolaFuego.h"
 #include "Boss.h"
 
 
@@ -33,6 +34,7 @@ private:
 	Vector2D spawn_enemigos;
 	int vida;
 	bool fin;
+	bool invocar;
 	bool ONboton;
 	bool OFFboton;
 public:

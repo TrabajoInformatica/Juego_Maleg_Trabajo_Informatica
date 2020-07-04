@@ -6,6 +6,7 @@ using namespace std;
 
 NivelFinal::NivelFinal() {
 	fin = false;
+	invocar = true;
 
 	spawn_enemigos = (10.0f, 10.0f);
 
@@ -116,25 +117,41 @@ void NivelFinal::Mueve() {
 	monedas.Colision(&heroe);
 	//enemigos.Colision(&heroe);
 	corazones.Colision(&heroe);
-	//armas.Colision(&heroe, boss);
-	//boss.Colision(armas, boss);
 	/////////Provisional
 
-	/*for (int i = 0;i < enemigos.GetNumeroE();i++) {
-
-		if ((enemigos.GetListaEnem(i).Muerte())== true) {
-			cout << "me he muerto" << endl;
-			enemigos.Eliminar(i);
-		}
-	}*/
-
+	/*
 	if (puerta.Colision(&heroe) == true) {
 		cout << "puerta" << endl;
 		fin = true;
 	}
 	else
 		fin = false;
-
+		*/
+	if (enemigos.GetNumeroE() == 0 && invocar==true) {
+		cout << "Hola" << endl;
+		BolaFuego* b0 =new BolaFuego(13.0,23.0);
+		enemigos.AgregarE(b0);
+		BolaFuego* b1 =new BolaFuego(15.0, 23.0);
+		enemigos.AgregarE(b1);
+		BolaFuego* b2 =new BolaFuego(17.0, 23.0);
+		enemigos.AgregarE(b2);
+		BolaFuego* b3 =new BolaFuego(20.0, 23.0);
+		enemigos.AgregarE(b3);
+		BolaFuego* b4 =new BolaFuego(23.0, 23.0);
+		enemigos.AgregarE(b4);
+		BolaFuego* b5 =new BolaFuego(26.0, 23.0);
+		enemigos.AgregarE(b5);
+		BolaFuego* b6 =new BolaFuego(27.0, 23.0);
+		enemigos.AgregarE(b6);
+		cout << "Hola" << endl;
+		 invocar = false;
+	}
+	cout << enemigos.GetListaEnem(0).GetPos().y << endl;
+	if (enemigos.GetListaEnem(0).GetPos().y < -5.0f) {
+		cout << "Hola" << endl;
+		cout << enemigos.GetListaEnem(0).GetPos().y << endl;
+		enemigos.DestruirContenido();
+	}
 	for (int i = 0;i < enemigos.GetNumeroE();i++) {
 		for (int j = 0;j < armas.GetNum();j++) {
 			if (Interaccion::ColisionEnemigo(armas.GetLista(j), enemigos.GetListaEnem(i))) {
