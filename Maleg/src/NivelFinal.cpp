@@ -6,6 +6,7 @@ using namespace std;
 
 NivelFinal::NivelFinal() {
 	fin = false;
+	
 	ETSIDI::stopMusica();
 	ETSIDI::playMusica("sonidos/Ambiente3.wav");
 }
@@ -27,6 +28,8 @@ Heroe NivelFinal::GetHeroe() {
 
 void NivelFinal::Inicializa(Heroe h) {
 	heroe = h;
+	ONboton = false;
+	OFFboton = false;
 	/////////////////////////////////////Personaje
 	heroe.SetAlturaMuerte(-15.0f);
 	heroe.SetPos(0.0f, 10.0f);//160 10
@@ -36,7 +39,7 @@ void NivelFinal::Inicializa(Heroe h) {
 	Puerta* puer = new Puerta(200.0f, 30.0f, 204.0f, 30.0f, -5.0f, 255, 0, 0);
 	puerta.AgregarP(puer);
 
-
+	boton.SetPos(28.0, 5.0);
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos, Vidas
 	LecturaFichero(Fichero);
 
@@ -80,7 +83,7 @@ void NivelFinal::Dibuja() {
 	//cout << "X" << heroe.GetPos().x << endl;
 	//cout << "Y" << heroe.GetPos().y << endl;
 	boton.Dibuja();
-	boton.SetPos(28.0, 11.0);
+	
 
 }
 
@@ -100,9 +103,27 @@ void NivelFinal::Mueve() {
 	monedas.Colision(&heroe);
 	enemigos.Colision(&heroe);
 	corazones.Colision(&heroe);
-	boton.Colision(&heroe, boton);
+	
 	/////////Provisional
 
+
+	if (boton.Colision(&heroe, boton) == true && OFFboton==false) {
+		ONboton = true;
+		OFFboton = true;
+	}
+	else {
+		ONboton = false;
+	
+	}
+
+	if (ONboton == true && OFFboton==true) {
+		PlataformaMovil* auxi = new PlataformaMovil(21.0, 7.0, 25.0, 7.0, 0.5, 180,3.5,2.0,128.0, 64.0, 0.0);	///////Creacion Plataforma Movil
+		plataformas.AgregarP(auxi);
+		ONboton = false;
+		OFFboton = true;
+		
+		cout << "plataforma creada" << endl;
+	}
 
 
 

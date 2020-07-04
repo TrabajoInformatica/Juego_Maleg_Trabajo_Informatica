@@ -36,6 +36,8 @@ public:
 	virtual~NivelFinal();
 	int vida;
 	bool fin;
+	bool ONboton;
+	bool OFFboton;
 	Heroe GetHeroe();
 	/////Funciones
 	void Inicializa(Heroe h);
