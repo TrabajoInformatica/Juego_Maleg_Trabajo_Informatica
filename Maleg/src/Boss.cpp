@@ -44,3 +44,42 @@ bool Boss::AgregarB(Boss* b) {
 	}
 	else return false;
 }
+
+void Boss::DestruirContenido(Boss* b) {
+
+	delete b;
+	/*for (int i = 0;i < num;i++)
+		delete lista[i];*/
+}
+/*void Boss::SetVida(int v){
+
+	vida = v;
+}
+
+int Boss::GetVida() {
+	return vida;
+}*/
+
+bool Boss::Colision(Heroe* p, Boss b) {
+	if (Interaccion::ColisionEnemigo(p, b))
+	{
+		cout << "colision Boss" << endl;
+		//p->SetPos(25.0, 4.0);
+		return true;
+		//ETSIDI::play("sonidos/estruendo.wav");
+	}
+
+	return false;
+}
+
+bool Boss::Colision(ListaArmas a, Boss b) {
+	for (int i = 0;i < a.GetNum();i++)
+	{
+		if (Interaccion::ColisionEnemigo(a.GetLista(i), b))
+		{
+			cout << "colision Arma" << endl;
+			return true;
+		}
+	}
+	return false;
+}

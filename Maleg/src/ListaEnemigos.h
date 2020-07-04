@@ -17,7 +17,7 @@ public:
 	int GetNumeroE();
 	void Dibuja();
     void Mueve(float t);
-	bool Colision(Heroe* p);
+	virtual bool Colision(Heroe* p);
 
 	void Eliminar(Enemigo* e);
 	void Eliminar(int index);

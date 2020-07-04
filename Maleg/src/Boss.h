@@ -1,6 +1,12 @@
 #pragma once
+#include <iostream>
 #include "Enemigo.h"
 #include "ObjetoMovil.h"
+#include "Heroe.h"
+#include "Interaccion.h"
+#include "ListaArmas.h"
+
+using namespace std;
 
 #define MAX_BOSS 1
 
@@ -15,6 +21,14 @@ public:
 	void Dibuja();
 
 	bool AgregarB(Boss* b);
+	void DestruirContenido(Boss* b);
+
+	//void SetVida(int v);
+	//int GetVida();
+	int vida;
+
+	bool Colision(Heroe* p, Boss b);
+	bool Colision(ListaArmas a, Boss b);
 
 	int num;
 	Boss* lista[MAX_BOSS];

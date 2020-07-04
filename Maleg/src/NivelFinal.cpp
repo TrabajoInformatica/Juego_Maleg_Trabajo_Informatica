@@ -112,7 +112,8 @@ void NivelFinal::Mueve() {
 	monedas.Colision(&heroe);
 	enemigos.Colision(&heroe);
 	corazones.Colision(&heroe);
-	
+	boss.Colision(&heroe, boss);
+	boss.Colision(armas, boss);
 	/////////Provisional
 
 
