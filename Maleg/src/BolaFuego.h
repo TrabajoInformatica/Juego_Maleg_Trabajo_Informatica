@@ -4,7 +4,7 @@ class BolaFuego:public Enemigo {
 protected:
 
 public:
-	BolaFuego(float px, float py);
+	BolaFuego(float px, float py,float a);
 	virtual ~BolaFuego();
 	void Mueve(float t);
 	void Dibuja();

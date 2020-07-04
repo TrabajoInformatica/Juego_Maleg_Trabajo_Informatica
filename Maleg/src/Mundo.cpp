@@ -132,9 +132,12 @@ void Mundo::Mover(){
 	
 }
 
-bool Mundo::GetFin()
-{
+bool Mundo::GetFin(){
 	return fin;
+}
+
+void Mundo::SetFin(bool f) {
+	fin = f;
 }
 
 void Mundo::Tecla(unsigned char key)

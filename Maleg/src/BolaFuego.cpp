@@ -1,13 +1,14 @@
 #include "BolaFuego.h"
 
-BolaFuego::BolaFuego(float px,float py) {
+BolaFuego::BolaFuego(float px,float py,float a) {
 	posicion.x = px;
 	posicion.y = py;
 	rojo = 255;
 	verde = 0;
 	azul = 0;
-	aceleracion.y = -15.0;
+	aceleracion.y = a;
 	altura = 0.4;
+
 }
 
 BolaFuego::~BolaFuego() {

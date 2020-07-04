@@ -37,6 +37,7 @@ private:
 	bool invocar;
 	bool ONboton;
 	bool OFFboton;
+	int sumac = 0;
 public:
 	Moneda moneda1;
 	NivelFinal();

@@ -15,11 +15,5 @@ public:
 	float GetRadio();
 	virtual void Dibuja(){}
 	virtual void  Mueve(float t){}
-
-	/*void SetVida(int v);
-	int GetVida();*/
-	int vida;
-
-	bool Muerte();
 };
 

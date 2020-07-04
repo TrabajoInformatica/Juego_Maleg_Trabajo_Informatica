@@ -31,6 +31,8 @@ void Tecla(unsigned char key);
 void TeclaUp(unsigned char key);
 
 bool Muerte();
+
 bool GetFin();
+void SetFin(bool f);
 
 };
