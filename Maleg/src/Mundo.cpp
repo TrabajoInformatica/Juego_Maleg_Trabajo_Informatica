@@ -5,11 +5,14 @@
 #include "glut.h"
 using namespace std;
 
-Mundo::Mundo() {
+Mundo::Mundo()
+{
+	fin = false;
 }
 
 
-Mundo::~Mundo() {
+Mundo::~Mundo() 
+{
 	
 }
 
@@ -119,16 +122,24 @@ void Mundo::Mover(){
 			nivelfinal->DestruirContenido();
 			delete nivelfinal;
 			cout << "DeletenivelFinal" << endl;
+			fin = true;
 		}
-		else {
+		else 
+		{
 			nivelfinal->Mueve();
 		}
 
 	
 }
 
+bool Mundo::GetFin()
+{
+	return fin;
+}
+
 void Mundo::Tecla(unsigned char key)
 {	
+	
 	if(nivel==1)
 		nivel1->Tecla(key);
 	
@@ -139,8 +150,9 @@ void Mundo::Tecla(unsigned char key)
 		nivel3->Tecla(key);
 
 	if (nivel == 4)
-		nivelfinal->Tecla(key);
 	
+		nivelfinal->Tecla(key);
+		
 }
 void Mundo::TeclaUp(unsigned char key) {
 	if(nivel==1)

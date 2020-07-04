@@ -15,6 +15,7 @@ public:
 	Nivel3* nivel3;
 	NivelFinal* nivelfinal;
 	int nivel;
+	bool fin;
 		Mundo();
 virtual ~Mundo();
 
@@ -30,6 +31,6 @@ void Tecla(unsigned char key);
 void TeclaUp(unsigned char key);
 
 bool Muerte();
-
+bool GetFin();
 
 };

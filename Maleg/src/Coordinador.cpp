@@ -9,7 +9,7 @@ using namespace std;
 
 Coordinador::Coordinador(){
 	ETSIDI::stopMusica();
-	estado = INICIO;
+	estado == INICIO;
 	ETSIDI::playMusica("sonidos/Intro.wav");
 }
 
@@ -17,7 +17,7 @@ Coordinador::~Coordinador(){
 }
 
 void Coordinador::TeclaEspecial(unsigned char key) {
-	if (estado == JUEGO)
+	if (estado = JUEGO)
 		mundo.TeclaEspecial(key);
 }
 
@@ -122,8 +122,7 @@ void Coordinador::TeclaUp(unsigned char key)
 		mundo.TeclaUp(key);
 	}
 }
-void Coordinador::Mueve() //Falta destruir mundo cuando le damos a continuar en Game Over ya que si no, se duplica
-{
+void Coordinador::Mueve() {
 	if (estado == JUEGO)
 	{
 		mundo.Mover();
@@ -134,11 +133,15 @@ void Coordinador::Mueve() //Falta destruir mundo cuando le damos a continuar en 
 			ETSIDI::stopMusica();
 			ETSIDI::playMusica("sonidos/GameOver.wav");
 		}
-	}
-	if (estado == FIN)
-	{
-		ETSIDI::stopMusica();
-		ETSIDI::playMusica("sonidos/victory.wav");
+
+		if (mundo.GetFin() == true)
+		{
+			estado = FIN;
+
+			ETSIDI::stopMusica();
+			ETSIDI::playMusica("sonidos/victory.wav");
+		}
+
 	}
 }
 	
@@ -206,7 +209,7 @@ void Coordinador::Dibuja()
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
 		ETSIDI::printxy("1250 a.c. La guerra de Troya llega a su fin. Ulises decide poner rumbo a Itaca, su hogar.", -19, 25);
 		ETSIDI::printxy("Para acortar el camino decide ir por la isla de los ciclopes. Avistando a lo lejos Itaca,", -19, 24);
-		ETSIDI::printxy("Polifemo, el mas grande y cruel de los ciclopes se interpone en su camino.", -19, 23);
+		ETSIDI::printxy("Polifemo, el mas grande y cruel de los monstruos se interpone en su camino.", -19, 23);
 
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 18);
 		ETSIDI::printxy("Ulises luchara por escapar y sobrevivir, ¿estas list@ para luchar? ", -19, 21);
@@ -308,21 +311,36 @@ void Coordinador::Dibuja()
 		//Ponemos fondo a la pantalla de incicio
 
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/victoria.png").id);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/win.png").id);
 		glDisable(GL_LIGHTING);
 		glBegin(GL_POLYGON);
 		glColor3f(1, 1, 1);
-		glTexCoord2d(0, 1); glVertex3f(-20, -3, 0);
-		glTexCoord2d(1, 1); glVertex3f(20, -3, 0); //se elige donde poner la imagen de fondo. ponemos -0.1 en z para que esté de fondo
+		glTexCoord2d(0, 1); glVertex3f(-20, -15, 0);
+		glTexCoord2d(1, 1); glVertex3f(20, -15, 0); //se elige donde poner la imagen de fondo. ponemos -0.1 en z para que esté de fondo
 		glTexCoord2d(1, 0); glVertex3f(20, 28, 0);
 		glTexCoord2d(0, 0); glVertex3f(-20, 28, 0);
 		glEnd();
 		glEnable(GL_LIGHTING);
 		glDisable(GL_TEXTURE_2D);
-
-		ETSIDI::setTextColor(255.0f, 255.0f, 255.0f);
+		
+		//Parte inferior
+		ETSIDI::setTextColor(0.0f, 0.0f, 0.0f);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 25);
-		ETSIDI::printxy("PRESS C TO START A NEW GAME", -15, -3);
-		ETSIDI::printxy("PRESS E TO EXIT", -8, -6);
+		ETSIDI::printxy("PRESS C TO START A NEW GAME", -15, -9);
+		ETSIDI::printxy("PRESS E TO EXIT", -8, -12);
+		
+		//Texto parte superior
+		ETSIDI::setTextColor(0.0f, 0.0f, 0.0f);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 19);
+		ETSIDI::printxy("Tras derrotar a los monstruos de la isla de los ciclopes, Ulises ", -19, 25);
+		ETSIDI::printxy("libera a sus amigos y por fin ponen rumbo a Itaca", -15, 23);
+
+		//Texto has ganado
+		ETSIDI::setTextColor(0.0f, 0.0f, 0.0f);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 18);
+		ETSIDI::printxy("Gracias a tu ayuda ", 7, 15);
+		ETSIDI::printxy("Ulises ha conseguido ", 7, 13);
+		ETSIDI::printxy("escapar y volver ", 7, 11);
+		ETSIDI::printxy("a casa ", 10, 9);
 	}
 }
