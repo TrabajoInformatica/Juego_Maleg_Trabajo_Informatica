@@ -9,32 +9,23 @@
 
 using namespace std;
 
-#define MAX_BOSS 1
 using ETSIDI::SpriteSequence;
 
-class Boss : public Enemigo
-{
+class Boss : public Enemigo{
+protected:
+	int vida;
 public:
 	SpriteSequence boss;
-
 	Boss();
-	Boss(float x, float y);
 	~Boss();
 
 	void Mueve(float t);
 	void Dibuja();
 
-	bool AgregarB(Boss* b);
-	void DestruirContenido(Boss* b);
-
 	void SetVida(int v);
 	int GetVida();
-	int vida;
 
 	bool Colision(Heroe* p, Boss b);
 	bool Colision(ListaArmas a, Boss b);
-
-	int num;
-	Boss* lista[MAX_BOSS];
 };
 

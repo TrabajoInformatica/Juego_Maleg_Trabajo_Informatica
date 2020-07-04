@@ -5,7 +5,6 @@ Enemigo::Enemigo()
 	verde = 255;
 	rojo = 100;
 	azul = 100;
-	vida = 1;
 }
 
 Enemigo::~Enemigo()
@@ -26,12 +25,4 @@ int Enemigo::GetVida() {
 	return vida;
 }*/
 
-bool Enemigo::Muerte() {
-
-	if (vida == 0) {
-		return true;
-	}
-	else
-		return false;
-}
 

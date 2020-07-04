@@ -7,16 +7,6 @@ Boss::Boss():boss("imagenes/minotauro.png", 9, 5) {
 	aceleracion = 0;
 }
 
-Boss::Boss(float x, float y) : boss("imagenes/minotauro.png", 9, 5) {
-
-	posicion.x = x;
-	posicion.y = y;
-	altura = 4.0f;
-	velocidad = 0;
-	aceleracion = 0;
-	vida = 3;
-}
-
 Boss::~Boss() {
 
 }
@@ -51,29 +41,11 @@ void Boss::Dibuja() {
 	
 }
 
-bool Boss::AgregarB(Boss* b) {
-
-	if (num < MAX_BOSS) {
-		lista[num] = b;
-
-		num++;
-
-	}
-	else return false;
-}
-
-void Boss::DestruirContenido(Boss* b) {
-
-	delete b;
-	
-}
-
 void Boss::SetVida(int v) {
 	vida = v;
 }
 
 int Boss::GetVida() {
-
 	return vida;
 }
 
@@ -81,7 +53,6 @@ bool Boss::Colision(Heroe* p, Boss b) {
 	if (Interaccion::ColisionEnemigo(p, b))
 	{
 		cout << "colision Boss" << endl;
-		//p->SetPos(25.0, 4.0);
 		return true;
 		//ETSIDI::play("sonidos/estruendo.wav");
 	}

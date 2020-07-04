@@ -51,7 +51,7 @@ void NivelFinal::Inicializa(Heroe h) {
 	Guerreros* gx1 = new Guerreros(20.0f, 4.0f, 6.5f, -2.0f);
 	enemigos.AgregarE(gx1);
 	boss.SetPos(51.0f, 22.5f);
-	boss.SetVida(3);
+	boss.SetVida(5);
 }
 
 void NivelFinal::Dibuja() {
@@ -128,31 +128,38 @@ void NivelFinal::Mueve() {
 		fin = false;
 		*/
 	if (enemigos.GetNumeroE() == 0 && invocar==true) {
-		cout << "Hola" << endl;
-		BolaFuego* b0 =new BolaFuego(13.0,33.0);
+		BolaFuego* b0 =new BolaFuego(13.0,33.0,-15.0+sumac);
 		enemigos.AgregarE(b0);
-		BolaFuego* b1 =new BolaFuego(17.0, 35.0);
+		BolaFuego* b1 =new BolaFuego(17.0, 35.0, -15.0 + sumac);
 		enemigos.AgregarE(b1);
-		BolaFuego* b2 =new BolaFuego(21.0, 33.0);
+		BolaFuego* b2 =new BolaFuego(21.0, 33.0, -15.0 + sumac);
 		enemigos.AgregarE(b2);
-		BolaFuego* b3 =new BolaFuego(25.0, 35.0);
+		BolaFuego* b3 =new BolaFuego(25.0, 35.0, -15.0 + sumac);
 		enemigos.AgregarE(b3);
-		BolaFuego* b4 =new BolaFuego(29.0, 33.0);
+		BolaFuego* b4 =new BolaFuego(29.0, 33.0, -15.0 + sumac);
 		enemigos.AgregarE(b4);
-		BolaFuego* b5 =new BolaFuego(33.0, 35.0);
+		BolaFuego* b5 =new BolaFuego(33.0, 35.0, -15.0 + sumac);
 		enemigos.AgregarE(b5);
-		BolaFuego* b6 =new BolaFuego(36.0, 33.0);
+		BolaFuego* b6 =new BolaFuego(36.0, 33.0, -15.0 + sumac);
 		enemigos.AgregarE(b6);
-		BolaFuego* b7 = new BolaFuego(40.0, 35.0);
+		BolaFuego* b7 = new BolaFuego(40.0, 35.0, -15.0 + sumac);
 		enemigos.AgregarE(b7);
-		BolaFuego* b8 = new BolaFuego(44.0, 35.0);
+		BolaFuego* b8 = new BolaFuego(44.0, 35.0, -15.0 + sumac);
 		enemigos.AgregarE(b8);
-		BolaFuego* b9 = new BolaFuego(9.0, 33.0);
+		BolaFuego* b9 = new BolaFuego(48.0, 33.0, -15.0 + sumac);
 		enemigos.AgregarE(b9);
+		BolaFuego* b10 = new BolaFuego(23.0, 35.0, -15.0 + sumac);
+		enemigos.AgregarE(b10);
+		BolaFuego* b11 = new BolaFuego(37.0, 33.0, -15.0 + sumac);
+		enemigos.AgregarE(b11);
+		BolaFuego* b12 = new BolaFuego(50.0, 35.0, -15.0 + sumac);
+		enemigos.AgregarE(b12);
+		BolaFuego* b13 = new BolaFuego(11.0, 35.0, -15.0 + sumac);
+		enemigos.AgregarE(b13);
 		 invocar = false;
+		 sumac -= 9;
 	}
 	if (enemigos.GetListaEnem(0).GetPos().y < -5.0f) {
-		cout << "Hola" << endl;
 		enemigos.DestruirContenido();
 	}
 	for (int i = 0;i < enemigos.GetNumeroE();i++) {
@@ -160,22 +167,19 @@ void NivelFinal::Mueve() {
 			if (Interaccion::ColisionEnemigo(armas.GetLista(j), enemigos.GetListaEnem(i))) {
 				armas.Eliminar(j);
 				enemigos.Eliminar(i);
-				/*enemigos.GetListaEnem(i).SetVida( enemigos.GetListaEnem(i).GetVida() - 1); 
-				cout << "me estan quitando vida" << endl;*/
 			}
 		}
 	}
 	for (int j = 0;j < armas.GetNum();j++) {
 		if (Interaccion::ColisionEnemigo(armas.GetLista(j), boss)) {
 			armas.Eliminar(j);
+			boss.SetVida(boss.GetVida() - 1);
+			cout << "Vida boss" << boss.GetVida() << endl;
 			if (boss.GetVida() > 0) {
-				boss.SetVida(boss.GetVida() - 1);
 				invocar = true;
 				heroe.SetPos(17.0f, 4.0f);
 			}
-		/*	else {
-				cout << "VidaBoss" << boss.GetVida() << endl;		//////FINNNNNNNN
-			}*/
+			else if (boss.GetVida() == 0) fin = true;
 		}
 	}
 }
@@ -183,8 +187,9 @@ void NivelFinal::Mueve() {
 
 bool NivelFinal::FinNivelFinal() {
 	if (fin == true) {
+		heroe.DestruirContenido();
+		heroe.SetMonedas(0);
 		return true;
-		cout << "ha pasado" << endl;
 	}
 	else
 		return false;
@@ -238,7 +243,7 @@ void NivelFinal::Tecla(unsigned char key) {
 		}
 	}
 	if ((key=='F'||key=='f')&&boton.Colision(&heroe, boton) == true && OFFboton == false && enemigos.GetNumeroE()==0) {
-		PlataformaMovil* auxi = new PlataformaMovil(21.0, 7.0, 25.0, 7.0, 0.5, 180, 3.5, 2.1, 128.0, 64.0, 0.0);	///////Creacion Plataforma Movil
+		PlataformaMovil* auxi = new PlataformaMovil(21.0, 7.0, 25.0, 7.0, 0.5, 120, 5.1, 3.6, 128.0, 64.0, 0.0);	///////Creacion Plataforma Movil
 		plataformas.AgregarP(auxi);
 		ONboton = true;
 		OFFboton = true;

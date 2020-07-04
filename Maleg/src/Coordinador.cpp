@@ -137,7 +137,7 @@ void Coordinador::Mueve() {
 		if (mundo.GetFin() == true)
 		{
 			estado = FIN;
-
+			mundo.SetFin(false);
 			ETSIDI::stopMusica();
 			ETSIDI::playMusica("sonidos/victory.wav");
 		}
