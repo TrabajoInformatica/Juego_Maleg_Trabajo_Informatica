@@ -77,9 +77,28 @@ void NivelFinal::Dibuja() {
 	glDisable(GL_TEXTURE_2D);
 
 	//Boton Texto F
-	ETSIDI::setTextColor(0.0f, 0.0f, 0.0f); //r g b
+	ETSIDI::setTextColor(255.0f, 255.0f, 255.0f); //r g b
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
 	ETSIDI::printxy("F", 50.0, 6.0);
+	//Texto intro nivel 4
+	ETSIDI::setTextColor(255.0f, 255.0f, 255.0f); //r g b
+	ETSIDI::setFont("fuentes/Bitwise.ttf", 12.5);
+	ETSIDI::printxy("Acaba con los enemigos", -10.0, 14.0);
+	ETSIDI::printxy("y busca una manera de", -10.0, 13.0);
+	ETSIDI::printxy("llegar hasata el BOSS", -10.0, 12.0);
+	//Texto pulsar boton
+	if (OFFboton == false) {
+		ETSIDI::setTextColor(255.0f, 255.0f, 255.0f); //r g b
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 10);
+		ETSIDI::printxy("Pulsa F para activar", 52.0, 6.0);
+		ETSIDI::printxy("la plataforma", 53.0, 5.0);
+	}
+	else 
+	{
+		ETSIDI::setTextColor(255.0f, 255.0f, 255.0f); //r g b
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 12.5);
+		ETSIDI::printxy("             ", -10.0, 14.0);
+	}
 	// Enemigos
 //	if (heroe.GetPos() > spawn_enemigos){
 
