@@ -1,11 +1,11 @@
 #include "Guerreros.h"
 
-Guerreros::Guerreros() : skeleton("imagenes/skeletonmove.png", 5, 1) {
+Guerreros::Guerreros() : skeleton("imagenes/ciclopemove.png", 7, 1) {
 
 
 }
 
-Guerreros::Guerreros(float px, float py, float max, float v) : skeleton("imagenes/skeletonmove.png", 5, 1) {
+Guerreros::Guerreros(float px, float py, float max, float v) : skeleton("imagenes/ciclopemove.png", 7, 1) {
 	verde = 0;
 	azul = 0;
 	rojo = 255;
@@ -60,12 +60,12 @@ void Guerreros::Movimiento() {
 
 	if (posicion.x > lim_xd) {
 		posicion.x = lim_xd;
-		velocidad.x = -0.6f;
-		aceleracion.x = -0.2f;
+		velocidad.x = -6.0f;
+		aceleracion.x = -2.0f;
 	}
 	else if (posicion.x < lim_xi) {
 		posicion.x = lim_xi;
-		velocidad.x = 0.6f;
-		aceleracion.x = 0.2f;
+		velocidad.x = 6.0f;
+		aceleracion.x = 2.0f;
 	}
 }

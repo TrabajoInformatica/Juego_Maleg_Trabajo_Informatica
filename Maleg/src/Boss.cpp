@@ -1,11 +1,11 @@
 #include "Boss.h"
 #include "ObjetoMovil.h"
 
-Boss::Boss() {
+Boss::Boss():boss("imagenes/minotauro.png", 9, 5) {
 
 }
 
-Boss::Boss(float x, float y) {
+Boss::Boss(float x, float y) : boss("imagenes/minotauro.png", 9, 5) {
 
 	posicion.x = x;
 	posicion.y = y;
@@ -24,7 +24,20 @@ void Boss::Mueve(float t) {
 }
 
 void Boss::Dibuja() {
+	//Dimensiones del sprite
+	boss.setCenter(5, 5);
+	boss.setSize(10, 10);
+	//Dibujo
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 0.5);
+	//if (velocidad.x > 0.01)boss.flip(false, false);
+	//if (velocidad.x < -0.01)boss.flip(true, false);
+	boss.flip(true, false);
+	boss.draw();
+	boss.loop();
+	glPopMatrix();
 
+	
 	glPushMatrix();
 	glColor3ub(rojo, verde, azul);
 	glTranslatef(posicion.x, posicion.y, 0);
@@ -32,6 +45,7 @@ void Boss::Dibuja() {
 	glutWireSphere(altura, 10, 10);
 	glTranslatef(-posicion.x, -posicion.y, 0);
 	glPopMatrix();
+	
 }
 
 bool Boss::AgregarB(Boss* b) {

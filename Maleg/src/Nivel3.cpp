@@ -37,7 +37,7 @@ void Nivel3::Inicializa(Heroe h) {
 	puerta3.AgregarP(puerfin);
 	Puerta* puerfin2 = new Puerta(108.2f, 100.0f, 112.0f, 100.0f, -5.0f, 255, 0, 0);
 	puerta3.AgregarP(puerfin2);
-	Puerta* puerfin3 = new Puerta(107.0f, 80.0f, 110.0f, 80.0f, -5.0f, 255, 0, 0);
+	Puerta* puerfin3 = new Puerta(60.0f, 90.0f, 64.0f, 90.0f, -5.0f, 255, 0, 0);
 	puerta3.AgregarP(puerfin3);
 	Puerta* puerex = new Puerta(88.0f, 30.0f, 92.0f, 30.0f, -5.0f, 255, 0, 0);
 	puertaextra.AgregarP(puerex);
@@ -99,6 +99,16 @@ void Nivel3::Dibuja() {
 	glTexCoord2d(0, 0); glVertex3f(-40, -40, 0.6);
 	glEnd();
 	//------------------------------------------------------------------------------------------
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/salamonedas.png").id);
+	glDisable(GL_LIGHTING);
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	glTexCoord2d(0, 1); glVertex3f(20, 70, 0.6);
+	glTexCoord2d(1, 1); glVertex3f(160, 70, 0.6);
+	glTexCoord2d(1, 0); glVertex3f(160, 170, 0.6);
+	glTexCoord2d(0, 0); glVertex3f(20, 170, 0.6);
+	glEnd();
+	//------------------------------------------------------------------------------------------
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
 
@@ -124,7 +134,7 @@ void Nivel3::Dibuja() {
 
 void Nivel3::Mueve() {
 	// Enemigos
-	enemigos3.Mueve(0.25f);
+	enemigos3.Mueve(0.025f);
 	monedas3.Mueve(0.025f);
 	armas3.Mueve(0.05f);
 	plataformas3.Mueve(0.025f);

@@ -14,10 +14,10 @@ Murcielago::Murcielago(float px, float py): bat("imagenes/bat.png", 3, 1) {
 	posicion.x = px;
 	posicion.y = py;
 	altura = 0.5;
-	velocidad.x = -0.8f;
-	velocidad.y = -0.8f;
-	aceleracion.x = -0.4f;
-	aceleracion.y = -0.4f;
+	velocidad.x = -8.0f;
+	velocidad.y = -8.0f;
+	aceleracion.x = -4.0f;
+	aceleracion.y = -4.0f;
 	lim_xd = posicion.x; //+ 3.0f;
 	lim_xi = posicion.x - 8.0f;
 	lim_ya = posicion.y; //+ 3.0f;
@@ -65,10 +65,10 @@ void Murcielago::Movimiento() {
 
 	if (posicion.y < lim_yb) {
 		posicion.y = lim_yb;
-		velocidad.x = -0.8f;
-		velocidad.y = 0.8f;
-		aceleracion.x = -0.4f;
-		aceleracion.y = 0.4f;
+		velocidad.x = -8.0f;
+		velocidad.y = 8.0f;
+		aceleracion.x = -4.0f;
+		aceleracion.y = 4.0f;
 
 	}
 	
@@ -76,19 +76,19 @@ void Murcielago::Movimiento() {
 
 		posicion.y = lim_ya;
 		posicion.x = lim_xi;
-		velocidad.x = 0.8f;
-		velocidad.y = 0;
-		aceleracion.x = 0.4f;
-		aceleracion.y = 0;
+		velocidad.x = 8.0f;
+		velocidad.y = 0.0f;
+		aceleracion.x = 4.0f;
+		aceleracion.y = 0.0f;
 
 	}
 	
 	else if (posicion.x > lim_xd) {
 
 		posicion.x = lim_xd;
-		velocidad.x = -0.8f;
-		velocidad.y = -0.8f;
-		aceleracion.x = -0.4f;
-		aceleracion.y = -0.4f;
+		velocidad.x = -8.0f;
+		velocidad.y = -8.0f;
+		aceleracion.x = -4.0f;
+		aceleracion.y = -4.0f;
 	}
 }

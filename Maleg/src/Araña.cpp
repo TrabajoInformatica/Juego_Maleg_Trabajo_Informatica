@@ -8,12 +8,12 @@ Araña::Araña(float px, float py): spyder("imagenes/araña(x).png", 3, 1){
 	
 	posicion.x = px;
 	posicion.y = py;
-	aceleracion.x = 1.0;
+	aceleracion.x = 10.0f;
 	verde = 0;
 	azul = 0;
 	rojo = 255;
 	altura = 0.4f;
-	velocidad.x = 1.0f;
+	velocidad.x = 10.0f;
 	lim_xi = posicion.x - 3.0f;
 	lim_ya = posicion.y + 0.75f;
 	lim_xd = posicion.x + 3.0f;
@@ -23,12 +23,12 @@ Araña::Araña(float px, float py): spyder("imagenes/araña(x).png", 3, 1){
 Araña::Araña(float px, float py, float limitex ,float limitey) : spyder("imagenes/araña(x).png", 3, 1) {
 	posicion.x = px;
 	posicion.y = py;
-	aceleracion.x = 1.0;
+	aceleracion.x = 10.0f;
 	verde = 0;
 	azul = 0;
 	rojo = 255;
 	altura = 0.4f;
-	velocidad.x = 1.0f;
+	velocidad.x = 10.0f;
 	lim_xi = posicion.x - limitex;
 	lim_ya = posicion.y + limitey;
 	lim_xd = posicion.x + limitex;
@@ -49,13 +49,13 @@ void Araña::Movimiento() {
 
 	if (posicion.x > lim_xd) {
 		posicion.x = lim_xd;
-		velocidad.y = 0.5f;
-		aceleracion.y = 0.05f;
+		velocidad.y = 5.0f;
+		aceleracion.y = 0.5f;
 	}
 		if (posicion.y > lim_ya) {
 			posicion.y = lim_ya;
-			velocidad.x = -0.5f;
-			aceleracion.x = -0.05f;
+			velocidad.x = -5.0f;
+			aceleracion.x = -0.5f;
 			velocidad.y = 0;
 			aceleracion.y = 0;
 
@@ -63,16 +63,16 @@ void Araña::Movimiento() {
 	
 	else if (posicion.x < lim_xi) {
 		posicion.x = lim_xi;
-		velocidad.y = -0.5f;
-		aceleracion.y = -0.05f;
+		velocidad.y = -5.0f;
+		aceleracion.y = -0.5f;
 		velocidad.x = 0;
 		aceleracion.x = 0;
 		}
 
 	else if (posicion.y < lim_yb) {
 		posicion.y = lim_yb;
-		velocidad.x = 0.5f;
-		aceleracion.x = 0.05f;
+		velocidad.x = 5.0f;
+		aceleracion.x = 0.5f;
 		velocidad.y = 0;
 		aceleracion.y = 0;
 		}

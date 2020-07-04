@@ -102,7 +102,7 @@ void Nivel2::Dibuja() {
 void Nivel2::Mueve() {
 	///////Mueve
 	monedas2.Mueve(0.025f);
-	enemigos2.Mueve(0.25f);
+	enemigos2.Mueve(0.025f);
 	plataformas2.Mueve(0.025f);
 	armas2.Mueve(0.05f);
 	corazones2.Mueve(0.025f);
