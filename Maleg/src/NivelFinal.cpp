@@ -50,6 +50,23 @@ void NivelFinal::Inicializa(Heroe h) {
 	enemigos.AgregarE(gx0);
 	Guerreros* gx1 = new Guerreros(20.0f, 4.0f, 6.5f, -2.0f);
 	enemigos.AgregarE(gx1);
+	Guerreros* gx2 = new Guerreros(17.0f, 4.0f, 4.0f, 3.0f);
+	enemigos.AgregarE(gx2);
+	Guerreros* gx3 = new Guerreros(22.0f, 4.0f, 3.0f, -3.0f);
+	enemigos.AgregarE(gx3);
+	Guerreros* gx4 = new Guerreros(32.0f, 4.0f, 10.0f, 2.5f);
+	enemigos.AgregarE(gx4);
+	Guerreros* gx5 = new Guerreros(40.0f, 4.0f, 12.0f, -3.0f);
+	enemigos.AgregarE(gx5);
+	Guerreros* gx6 = new Guerreros(48.0f, 4.0f, 7.0f, 2.5f);
+	enemigos.AgregarE(gx6);
+	Guerreros* gx7 = new Guerreros(27.0f, 4.0f, 7.0f, -2.0f);
+	enemigos.AgregarE(gx7);
+	Guerreros* gx8 = new Guerreros(30.0f, 4.0f, 15.0f, 3.5f);
+	enemigos.AgregarE(gx8);
+	Guerreros* gx9 = new Guerreros(33.0f, 4.0f, 8.0f, -2.5f);
+	enemigos.AgregarE(gx9);
+
 	boss.SetPos(51.0f, 22.5f);
 	boss.SetVida(3);
 }
@@ -134,7 +151,7 @@ void NivelFinal::Mueve() {
 	// Plataforma, Monedas y otros.
 	plataformas.Colision(&heroe);
 	monedas.Colision(&heroe);
-	enemigos.Colision(&heroe);
+	//enemigos.Colision(&heroe);
 	corazones.Colision(&heroe);
 	/////////Provisional
 
