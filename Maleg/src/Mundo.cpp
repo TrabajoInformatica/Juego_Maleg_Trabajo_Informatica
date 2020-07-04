@@ -16,7 +16,7 @@ Mundo::~Mundo() {
 
 void Mundo::Inicializa() {
 	heroe.SetVida(3);
-	nivel =4;
+	nivel =3;
 	CargarNivel();
 	cout << "Inicializa" << endl;
 

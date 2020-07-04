@@ -30,13 +30,15 @@ void Nivel3::Inicializa(Heroe h) {
 	heroe3 = h;
 	/////////////////////////////////////Personaje
 	heroe3.SetAlturaMuerte(-15.0f);
-	heroe3.SetPos(0.0f, 0.0f); //195.0f, 15.0f
+	heroe3.SetPos(100.0f, 15.0f); //195.0f, 15.0f
 	heroe3.SetVel(0.0f, 0.0f);
 	
 	Puerta* puerfin = new Puerta(221.2f, -5.0f, 225.0f, -5.0f, -5.0f, 255, 0, 0);
 	puerta3.AgregarP(puerfin);
 	Puerta* puerfin2 = new Puerta(108.2f, 100.0f, 112.0f, 100.0f, -5.0f, 255, 0, 0);
 	puerta3.AgregarP(puerfin2);
+	Puerta* puerfin3 = new Puerta(107.0f, 80.0f, 110.0f, 80.0f, -5.0f, 255, 0, 0);
+	puerta3.AgregarP(puerfin3);
 	Puerta* puerex = new Puerta(88.0f, 30.0f, 92.0f, 30.0f, -5.0f, 255, 0, 0);
 	puertaextra.AgregarP(puerex);
 	
