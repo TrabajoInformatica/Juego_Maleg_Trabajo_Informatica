@@ -282,7 +282,7 @@ void NivelFinal::Tecla(unsigned char key) {
 	}
 	if ((key=='F'||key=='f')&&boton.Colision(&heroe, boton) == true && OFFboton == false && enemigos.GetNumeroE()==0) {
 		ETSIDI::playMusica("sonidos/Estruendo.wav");
-		PlataformaMovil* auxi = new PlataformaMovil(21.0, 7.0, 25.0, 7.0, 0.5, 180, 3.5, 2.1, 128.0, 64.0, 0.0);	///////Creacion Plataforma Movil
+		PlataformaMovil* auxi = new PlataformaMovil(21.0, 7.0, 25.0, 7.0, 0.5, 120, 5.1, 3.6, 128.0, 64.0, 0.0);	///////Creacion Plataforma Movil
 		plataformas.AgregarP(auxi);
 		ONboton = true;
 		OFFboton = true;
