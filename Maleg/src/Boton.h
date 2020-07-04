@@ -9,7 +9,7 @@ class Boton :public ObjetoMovil
 {
 private:
 
-	float radio;
+	//float radio;
 
 public:
 
@@ -18,7 +18,7 @@ public:
 	Boton(float px, float py, float radio, unsigned char r, unsigned char v, unsigned char a);//para inicializarlas
 	~Boton();
 
-	bool Colision(Heroe* p, Boton& b);
+	bool Colision(Heroe* p, Boton b);
 	void Dibuja();
 	void DestruirContenido(Boton* b);
 };

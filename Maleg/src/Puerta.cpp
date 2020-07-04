@@ -75,12 +75,24 @@ void Puerta::DibujaP() {
 }
 bool Puerta::Colision(Heroe* p) {
     for (int i = 0; i < num;i++) {
-        if (Interaccion::ColisionLat(p, *(lista[i])))
-        {
-           
+        if (Interaccion::ColisionLat(p, *(lista[i]))){
             return true;
         }
 
     }
+    for (int i = 0;i < num;i++) {
+        if (Interaccion::ColisionInf(p, *(lista[i]))) {
+            return true;
+        }
+    }
+
+    for (int i = 0;i < num; i++) {
+        if (Interaccion::ColisionSup(p, *(lista[i]))) {
+            return true;
+        }
+        
+    }
     return false;
+
+    
 }
