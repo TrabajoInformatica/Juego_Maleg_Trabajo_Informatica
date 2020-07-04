@@ -6,8 +6,8 @@ BolaFuego::BolaFuego(float px,float py) {
 	rojo = 255;
 	verde = 0;
 	azul = 0;
-	aceleracion.y = -10.0;
-	altura = 0.5;
+	aceleracion.y = -15.0;
+	altura = 0.4;
 }
 
 BolaFuego::~BolaFuego() {

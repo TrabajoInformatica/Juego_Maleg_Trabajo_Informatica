@@ -166,6 +166,9 @@ void Heroe::SumarMonedas(bool m) {
 }
 
 void Heroe::PuntoReaparicion() {
+	velocidad.x = 0;
+	velocidad.y = 0;
+	aceleracion.y = 0;
 	for (int i = 0;i < numeroRP;i++) {
 		if (posicion.x < 0.0f){
 		posicion = (*puntosR[0]);
