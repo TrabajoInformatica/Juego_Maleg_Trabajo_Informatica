@@ -188,6 +188,7 @@ void NivelFinal::Mueve() {
 		if (Interaccion::ColisionEnemigo(armas.GetLista(j), boss)) {
 			armas.Eliminar(j);
 			if (boss.GetVida() > 0) {
+				ETSIDI::playMusica("sonidos/Atacado.wav");
 				boss.SetVida(boss.GetVida() - 1);
 				invocar = true;
 				heroe.SetPos(17.0f, 4.0f);
