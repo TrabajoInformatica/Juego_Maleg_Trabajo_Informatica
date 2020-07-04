@@ -12,6 +12,7 @@ Boss::Boss(float x, float y) {
 	altura = 4.0f;
 	velocidad = 0;
 	aceleracion = 0;
+	vida = 3;
 }
 
 Boss::~Boss() {
@@ -48,17 +49,17 @@ bool Boss::AgregarB(Boss* b) {
 void Boss::DestruirContenido(Boss* b) {
 
 	delete b;
-	/*for (int i = 0;i < num;i++)
-		delete lista[i];*/
+	
 }
-/*void Boss::SetVida(int v){
 
+void Boss::SetVida(int v) {
 	vida = v;
 }
 
 int Boss::GetVida() {
+
 	return vida;
-}*/
+}
 
 bool Boss::Colision(Heroe* p, Boss b) {
 	if (Interaccion::ColisionEnemigo(p, b))

@@ -23,8 +23,8 @@ public:
 	bool AgregarB(Boss* b);
 	void DestruirContenido(Boss* b);
 
-	//void SetVida(int v);
-	//int GetVida();
+	void SetVida(int v);
+	int GetVida();
 	int vida;
 
 	bool Colision(Heroe* p, Boss b);

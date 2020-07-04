@@ -6,6 +6,7 @@
 #include "Arma.h"
 #include "VidaExtra.h"
 #include "Boton.h"
+#include "Boss.h"
 
 class Interaccion
 {
@@ -22,5 +23,6 @@ public:
 	static bool ColisionEnemigo(Heroe* pers, Enemigo e);
 	static bool ColisionEnemigo(Arma a, Enemigo e);
 	static bool ColisionBoton(Heroe* pers, Boton b);
+	static bool ColisionEnemigo(Arma a, Boss *b);
 };
 

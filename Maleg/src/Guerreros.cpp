@@ -16,6 +16,7 @@ Guerreros::Guerreros(float px, float py, float max, float v) : skeleton("imagene
 	//aceleracion.x = -0.5f;
 	lim_xd = posicion.x + max ;
 	lim_xi = posicion.x - max;
+	vida = 1;
 	
 }
 

@@ -51,6 +51,8 @@ void NivelFinal::Inicializa(Heroe h) {
 	enemigos.AgregarE(gx1);
 	Boss* bx0 = new Boss(51.0f, 22.0f);
 	enemigos.AgregarE(bx0);
+
+	//boss.SetPos(51.0f, 20.0f);
 }
 
 void NivelFinal::Dibuja() {
@@ -92,7 +94,7 @@ void NivelFinal::Dibuja() {
 	//cout << "X" << heroe.GetPos().x << endl;
 	//cout << "Y" << heroe.GetPos().y << endl;
 	boton.Dibuja();
-	
+	//boss.Dibuja();
 
 }
 
@@ -113,9 +115,16 @@ void NivelFinal::Mueve() {
 	enemigos.Colision(&heroe);
 	corazones.Colision(&heroe);
 	boss.Colision(&heroe, boss);
-	boss.Colision(armas, boss);
+	//boss.Colision(armas, boss);
 	/////////Provisional
 
+	/*for (int i = 0;i < enemigos.GetNumeroE();i++) {
+
+		if ((enemigos.GetListaEnem(i).Muerte())== true) {
+			cout << "me he muerto" << endl;
+			enemigos.Eliminar(i);
+		}
+	}*/
 
 	if (boton.Colision(&heroe, boton) == true && OFFboton==false) {
 		ONboton = true;
@@ -150,6 +159,8 @@ void NivelFinal::Mueve() {
 			if (Interaccion::ColisionEnemigo(armas.GetLista(j), enemigos.GetListaEnem(i))) {
 				armas.Eliminar(j);
 				enemigos.Eliminar(i);
+				/*enemigos.GetListaEnem(i).SetVida( enemigos.GetListaEnem(i).GetVida() - 1); 
+				cout << "me estan quitando vida" << endl;*/
 			}
 		}
 	}
