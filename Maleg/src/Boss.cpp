@@ -1,4 +1,5 @@
 #include "Boss.h"
+#include "ObjetoMovil.h"
 
 Boss::Boss() {
 

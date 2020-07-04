@@ -1,5 +1,7 @@
 #pragma once
 #include "Enemigo.h"
+#include "ObjetoMovil.h"
+
 #define MAX_BOSS 1
 
 class Boss : public Enemigo

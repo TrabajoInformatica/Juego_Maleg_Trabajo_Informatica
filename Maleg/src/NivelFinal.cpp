@@ -49,8 +49,8 @@ void NivelFinal::Inicializa(Heroe h) {
 	enemigos.AgregarE(gx0);
 	Guerreros* gx1 = new Guerreros(20.0f, 3.5f, 6.5f, -2.0f);
 	enemigos.AgregarE(gx1);
-	Boss* bx0 = new Boss(45.0f, 18.5f);
-	boss.AgregarB(bx0);
+	Boss* bx0 = new Boss(51.0f, 22.0f);
+	enemigos.AgregarE(bx0);
 }
 
 void NivelFinal::Dibuja() {
