@@ -51,6 +51,7 @@ bool Boss::Colision(Heroe* p, Boss b) {
 	if (Interaccion::ColisionEnemigo(p, b))
 	{
 		cout << "colision Boss" << endl;
+		p->PuntoReaparicion();
 		return true;
 		//ETSIDI::play("sonidos/estruendo.wav");
 	}

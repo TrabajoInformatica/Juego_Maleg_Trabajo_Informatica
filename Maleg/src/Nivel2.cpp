@@ -8,7 +8,6 @@ Nivel2::Nivel2() {
 	fin = false;
 	ETSIDI::stopMusica();
 	ETSIDI::playMusica("sonidos/Ambiente.wav");
-
 }
 
 Nivel2::~Nivel2() {
@@ -21,7 +20,6 @@ void Nivel2::DestruirContenido() {
 	monedas2.destruirContenido();
 	corazones2.DestruirContenido();
 	puerta2.DestruirContenido();
-
 }
 void Nivel2::Inicializa(Heroe h) {
 	/////////////////////////////////////Personaje

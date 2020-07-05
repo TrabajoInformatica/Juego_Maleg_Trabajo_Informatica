@@ -189,9 +189,6 @@ void NivelFinal::Dibuja() {
 	//cout << "Y" << heroe.GetPos().y << endl;
 	boton.Dibuja();
 	boss.Dibuja();
-
-	cout << "X" << heroe.GetPos().x << endl;
-	cout << "Y" << heroe.GetPos().y << endl;
 }
 
 void NivelFinal::Mueve() {
@@ -204,13 +201,14 @@ void NivelFinal::Mueve() {
 
 	corazones.Mueve(0.025f);
 	// Heroe
-	heroe.Mueve(0.1f);
+	heroe.Mueve(0.12f);
 
 	// Plataforma, Monedas y otros.
 	plataformas.Colision(&heroe);
 	monedas.Colision(&heroe);
 	ciclopes.Colision(&heroe);
-	bolasdefuego.Colision(&heroe);
+	boss.Colision(&heroe, boss);
+	//bolasdefuego.Colision(&heroe);
 	corazones.Colision(&heroe);
 	/////////Provisional
 
@@ -293,6 +291,7 @@ void NivelFinal::Mueve() {
 			if (boss.GetVida() > 0) {
 				ETSIDI::playMusica("sonidos/Atacado.wav");
 				heroe.SetPos(17.0f, 4.0f);
+				heroe.PuntoReaparicion();
 				armas.DestruirContenido();
 			}
 			else if (boss.GetVida() == 0) fin = true;
