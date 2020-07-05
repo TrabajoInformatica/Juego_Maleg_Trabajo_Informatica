@@ -155,12 +155,14 @@ void Nivel2::Tecla(unsigned char key) {
 			}
 		}
 	}
-	if (key == 'a')
+	if (key == 'a') {
 		heroe2.SetVel(-3.0f, heroe2.GetVel().y);
-
-	if (key == 'd')
+		heroe2.SetSentido(false);
+	}
+	if (key == 'd') {
 		heroe2.SetVel(3.0f, heroe2.GetVel().y);
-
+		heroe2.SetSentido(true);
+	}
 	////////Hitbox
 	if (key == '1' && estado == ShowHitbox) {
 		estado = HideHitbox;

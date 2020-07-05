@@ -34,6 +34,7 @@ public:
 	void SetAlturaMuerte(float am);
 	void SetVida( float v);
 	void SetMonedas(int m);
+	void SetSentido(bool e);
 
 	//ANIMACIONES
 	virtual void Dibuja();

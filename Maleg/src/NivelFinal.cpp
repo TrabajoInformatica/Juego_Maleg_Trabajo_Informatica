@@ -184,7 +184,7 @@ void NivelFinal::Mueve() {
 	monedas.Colision(&heroe);
 	ciclopes.Colision(&heroe);
 	boss.Colision(&heroe, boss);
-	bolasdefuego.Colision(&heroe);
+	//bolasdefuego.Colision(&heroe);
 	corazones.Colision(&heroe);
 
 	if (bolasdefuego.GetNumeroE() == 0 && invocar==true) {
@@ -302,11 +302,14 @@ void NivelFinal::Tecla(unsigned char key) {
 			}
 		}
 	}
-	if (key == 'a')
+	if (key == 'a') {
 		heroe.SetVel(-3.0f, heroe.GetVel().y);
-	if (key == 'd')
+		heroe.SetSentido(false);
+	}
+	if (key == 'd') {
 		heroe.SetVel(3.0f, heroe.GetVel().y);
-
+		heroe.SetSentido(true);
+	}
 	////////Hitbox
 	if (key == '1' && estado == ShowHitbox) {
 		estado = HideHitbox;
