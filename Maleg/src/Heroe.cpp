@@ -158,6 +158,10 @@ int Heroe::GetVida() {
 	return vida;
 }
 
+int Heroe::GetMonedas() {
+	return monedas;
+}
+
 void Heroe::SumarMonedas(bool m) {
 	if(m == true)
 		monedas ++;

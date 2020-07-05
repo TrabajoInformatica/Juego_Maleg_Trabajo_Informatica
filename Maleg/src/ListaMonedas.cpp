@@ -75,3 +75,7 @@ void ListaMonedas::Eliminar(int index) {//borrar una esfera segun su indice
 		lista[i] = lista[1 + i];
 	}
 }
+
+int ListaMonedas::GetNumeroM() {
+	return numero;
+}

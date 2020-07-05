@@ -17,6 +17,7 @@ public:
 	void Colision(Heroe* p);
 	void Eliminar(Moneda* e);
 	void Eliminar(int index);
+	int GetNumeroM();
 
 private:
 	Moneda* lista[MAX_MON];//puntero a monedaa

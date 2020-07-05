@@ -207,8 +207,8 @@ void NivelFinal::Mueve() {
 	// Plataforma, Monedas y otros.
 	plataformas.Colision(&heroe);
 	monedas.Colision(&heroe);
-	//ciclopes.Colision(&heroe);
-	//bolasdefuego.Colision(&heroe);
+	ciclopes.Colision(&heroe);
+	bolasdefuego.Colision(&heroe);
 	corazones.Colision(&heroe);
 	/////////Provisional
 
@@ -296,6 +296,12 @@ void NivelFinal::Mueve() {
 			}
 			else if (boss.GetVida() == 0) fin = true;
 		}
+	}
+	if (heroe.GetMonedas() == 0 && monedas.GetNumeroM()==0) {
+		Moneda* m0 = new Moneda(7.0, 4.0, 0.5, 255, 255, 255);
+		monedas.AgregarM(m0);
+		Moneda* m1= new Moneda(9.0, 4.0, 0.5, 255, 255, 255);
+		monedas.AgregarM(m1);
 	}
 }
 

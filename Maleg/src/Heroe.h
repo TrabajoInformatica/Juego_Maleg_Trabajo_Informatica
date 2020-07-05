@@ -34,6 +34,7 @@ public:
 
 	//METODOS GET
 	int GetVida();
+	int GetMonedas();
 
 	//METODOS SET
 	void SetAlturaMuerte(float am);
