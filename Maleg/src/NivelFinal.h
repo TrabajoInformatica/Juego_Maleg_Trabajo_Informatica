@@ -23,7 +23,8 @@ private:
 	ListaPlataformas plataformas;        ///Objeto contiene todas las plataformas Nivel1
 	string Fichero = "NivelFinal.txt";
 	ListaMonedas monedas;
-	ListaEnemigos enemigos;
+	ListaEnemigos ciclopes;
+	ListaEnemigos bolasdefuego;
 	ListaArmas armas;
 	ListaCorazones corazones;
 	Puerta puerta;

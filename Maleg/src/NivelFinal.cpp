@@ -20,7 +20,8 @@ NivelFinal::~NivelFinal() {
 }
 void NivelFinal::DestruirContenido() {
 	monedas.destruirContenido();
-	enemigos.DestruirContenido();
+	ciclopes.DestruirContenido();
+	bolasdefuego.DestruirContenido();
 	plataformas.DestruirContenido();
 	puerta.DestruirContenido();
 	corazones.DestruirContenido();
@@ -47,78 +48,78 @@ void NivelFinal::Inicializa(Heroe h) {
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos, Vidas
 	LecturaFichero(Fichero);
 	Guerreros* gx0 = new Guerreros(15.0f, 4.0f, 5.0f, 2.0f);
-	enemigos.AgregarE(gx0);
+	ciclopes.AgregarE(gx0);
 	Guerreros* gx1 = new Guerreros(20.0f, 4.0f, 6.5f, -2.0f);
-	enemigos.AgregarE(gx1);
+	ciclopes.AgregarE(gx1);
 	Guerreros* gx2 = new Guerreros(17.0f, 4.0f, 4.0f, 3.0f);
-	enemigos.AgregarE(gx2);
+	ciclopes.AgregarE(gx2);
 	Guerreros* gx3 = new Guerreros(22.0f, 4.0f, 3.0f, -3.0f);
-	enemigos.AgregarE(gx3);
+	ciclopes.AgregarE(gx3);
 	Guerreros* gx4 = new Guerreros(32.0f, 4.0f, 10.0f, 2.5f);
-	enemigos.AgregarE(gx4);
+	ciclopes.AgregarE(gx4);
 	Guerreros* gx5 = new Guerreros(40.0f, 4.0f, 12.0f, -3.0f);
-	enemigos.AgregarE(gx5);
+	ciclopes.AgregarE(gx5);
 	Guerreros* gx6 = new Guerreros(48.0f, 4.0f, 7.0f, 2.5f);
-	enemigos.AgregarE(gx6);
+	ciclopes.AgregarE(gx6);
 	Guerreros* gx7 = new Guerreros(27.0f, 4.0f, 7.0f, -2.0f);
-	enemigos.AgregarE(gx7);
+	ciclopes.AgregarE(gx7);
 	Guerreros* gx8 = new Guerreros(30.0f, 4.0f, 15.0f, 3.5f);
-	enemigos.AgregarE(gx8);
+	ciclopes.AgregarE(gx8);
 	Guerreros* gx9 = new Guerreros(33.0f, 4.0f, 8.0f, -2.5f);
-	enemigos.AgregarE(gx9);
+	ciclopes.AgregarE(gx9);
 
 	BolaFuego* b0 = new BolaFuego(13.0, 63.0, -1.0);
-	enemigos.AgregarE(b0);
+	bolasdefuego.AgregarE(b0);
 	BolaFuego* b1 = new BolaFuego(20.0, 69.0, -1.0);
-	enemigos.AgregarE(b1);
+	bolasdefuego.AgregarE(b1);
 	BolaFuego* b2 = new BolaFuego(9.0, 76.0, -1.5);
-	enemigos.AgregarE(b2);
+	bolasdefuego.AgregarE(b2);
 	BolaFuego* b3 = new BolaFuego(25.0, 83.0, -1.5);
-	enemigos.AgregarE(b3);
+	bolasdefuego.AgregarE(b3);
 	BolaFuego* b4 = new BolaFuego(29.0, 85.0, -1.0);
-	enemigos.AgregarE(b4);
+	bolasdefuego.AgregarE(b4);
 	BolaFuego* b5 = new BolaFuego(33.0, 90.0, -1.0);
-	enemigos.AgregarE(b5);
+	bolasdefuego.AgregarE(b5);
 	BolaFuego* b6 = new BolaFuego(15.0, 90.0, -1.0);
-	enemigos.AgregarE(b6);
+	bolasdefuego.AgregarE(b6);
 	BolaFuego* b7 = new BolaFuego(40.0, 97.0, -1.0);
-	enemigos.AgregarE(b7);
+	bolasdefuego.AgregarE(b7);
 	BolaFuego* b8 = new BolaFuego(44.0, 102.0, -0.6);
-	enemigos.AgregarE(b8);
+	bolasdefuego.AgregarE(b8);
 	BolaFuego* b9 = new BolaFuego(16.0, 104.0, -1.0);
-	enemigos.AgregarE(b9);
+	bolasdefuego.AgregarE(b9);
 	BolaFuego* b10 = new BolaFuego(26.0, 105.0, -1.0);
-	enemigos.AgregarE(b10);
+	bolasdefuego.AgregarE(b10);
 	BolaFuego* b11 = new BolaFuego(37.0, 105.0, -1.0);
-	enemigos.AgregarE(b11);
+	bolasdefuego.AgregarE(b11);
 	BolaFuego* b12 = new BolaFuego(45.0, 107.0, -1.5);
-	enemigos.AgregarE(b12);
+	bolasdefuego.AgregarE(b12);
 	BolaFuego* b13 = new BolaFuego(40.0, 109.0, -1.0);
-	enemigos.AgregarE(b13);
+	bolasdefuego.AgregarE(b13);
 	BolaFuego* b14 = new BolaFuego(20.0, 119.0, -1.0);
-	enemigos.AgregarE(b14);
+	bolasdefuego.AgregarE(b14);
 	BolaFuego* b15 = new BolaFuego(10.0, 119.0, -1.0);
-	enemigos.AgregarE(b15);
+	bolasdefuego.AgregarE(b15);
 	BolaFuego* b16 = new BolaFuego(33.0, 124.0, -1.0);
-	enemigos.AgregarE(b16);
+	bolasdefuego.AgregarE(b16);
 	BolaFuego* b17 = new BolaFuego(37.0, 129.0, -1.5);
-	enemigos.AgregarE(b17);
+	bolasdefuego.AgregarE(b17);
 	BolaFuego* b18 = new BolaFuego(25.0, 132.0, -1.0);
-	enemigos.AgregarE(b18);
+	bolasdefuego.AgregarE(b18);
 	BolaFuego* b19 = new BolaFuego(40.0, 133.0, -1.5);
-	enemigos.AgregarE(b19);
+	bolasdefuego.AgregarE(b19);
 	BolaFuego* b20 = new BolaFuego(18.0, 140.0, -1.0);
-	enemigos.AgregarE(b20);
+	bolasdefuego.AgregarE(b20);
 	BolaFuego* b21 = new BolaFuego(25.0, 142.0, -1.0);
-	enemigos.AgregarE(b21);
+	bolasdefuego.AgregarE(b21);
 	BolaFuego* b22 = new BolaFuego(42.0, 145.0, -1.0);
-	enemigos.AgregarE(b22);
+	bolasdefuego.AgregarE(b22);
 	BolaFuego* b23 = new BolaFuego(33.0, 145.0, -1.0);
-	enemigos.AgregarE(b23);
+	bolasdefuego.AgregarE(b23);
 	BolaFuego* b24 = new BolaFuego(37.0, 149.0, -1.0);
-	enemigos.AgregarE(b24);
+	bolasdefuego.AgregarE(b24);
 	BolaFuego* b25 = new BolaFuego(25.0, 150.0, -1.0);
-	enemigos.AgregarE(b25);
+	bolasdefuego.AgregarE(b25);
 
 	boss.SetPos(51.0f, 22.5f);
 	boss.SetVida(5);
@@ -172,7 +173,8 @@ void NivelFinal::Dibuja() {
 	// Enemigos
 //	if (heroe.GetPos() > spawn_enemigos){
 
-	enemigos.Dibuja();
+	ciclopes.Dibuja();
+	bolasdefuego.Dibuja();
 	// Heroe
 	heroe.Dibuja();
 
@@ -192,7 +194,8 @@ void NivelFinal::Dibuja() {
 
 void NivelFinal::Mueve() {
 	// Enemigos
-	enemigos.Mueve(0.025f);
+	ciclopes.Mueve(0.025f);
+	bolasdefuego.Mueve(0.025f);
 	monedas.Mueve(0.025f);
 	armas.Mueve(0.05f);
 	plataformas.Mueve(0.025f);
@@ -208,83 +211,78 @@ void NivelFinal::Mueve() {
 	corazones.Colision(&heroe);
 	/////////Provisional
 
-	/*
-	if (puerta.Colision(&heroe) == true) {
-		cout << "puerta" << endl;
-		fin = true;
-	}
-	else
-		fin = false;
-		*/
-	/*
-	if (enemigos.GetNumeroE() == 0 && invocar==true) {
+	if (bolasdefuego.GetNumeroE() == 0 && invocar==true) {
 		BolaFuego* b0 = new BolaFuego(13.0, 63.0, -1.0);
-		enemigos.AgregarE(b0);
+		bolasdefuego.AgregarE(b0);
 		BolaFuego* b1 = new BolaFuego(20.0, 69.0, -1.0);
-		enemigos.AgregarE(b1);
+		bolasdefuego.AgregarE(b1);
 		BolaFuego* b2 = new BolaFuego(9.0, 76.0, -1.5);
-		enemigos.AgregarE(b2);
+		bolasdefuego.AgregarE(b2);
 		BolaFuego* b3 = new BolaFuego(25.0, 83.0, -1.5);
-		enemigos.AgregarE(b3);
+		bolasdefuego.AgregarE(b3);
 		BolaFuego* b4 = new BolaFuego(29.0, 85.0, -1.0);
-		enemigos.AgregarE(b4);
+		bolasdefuego.AgregarE(b4);
 		BolaFuego* b5 = new BolaFuego(33.0, 90.0, -1.0);
-		enemigos.AgregarE(b5);
+		bolasdefuego.AgregarE(b5);
 		BolaFuego* b6 = new BolaFuego(15.0, 90.0, -1.0);
-		enemigos.AgregarE(b6);
+		bolasdefuego.AgregarE(b6);
 		BolaFuego* b7 = new BolaFuego(40.0, 97.0, -1.0);
-		enemigos.AgregarE(b7);
+		bolasdefuego.AgregarE(b7);
 		BolaFuego* b8 = new BolaFuego(44.0, 102.0, -0.6);
-		enemigos.AgregarE(b8);
+		bolasdefuego.AgregarE(b8);
 		BolaFuego* b9 = new BolaFuego(16.0, 104.0, -1.0);
-		enemigos.AgregarE(b9);
+		bolasdefuego.AgregarE(b9);
 		BolaFuego* b10 = new BolaFuego(26.0, 105.0, -1.0);
-		enemigos.AgregarE(b10);
+		bolasdefuego.AgregarE(b10);
 		BolaFuego* b11 = new BolaFuego(37.0, 105.0, -1.0);
-		enemigos.AgregarE(b11);
+		bolasdefuego.AgregarE(b11);
 		BolaFuego* b12 = new BolaFuego(45.0, 107.0, -1.5);
-		enemigos.AgregarE(b12);
+		bolasdefuego.AgregarE(b12);
 		BolaFuego* b13 = new BolaFuego(40.0, 109.0, -1.0);
-		enemigos.AgregarE(b13);
+		bolasdefuego.AgregarE(b13);
 		BolaFuego* b14 = new BolaFuego(20.0, 119.0, -1.0);
-		enemigos.AgregarE(b14);
+		bolasdefuego.AgregarE(b14);
 		BolaFuego* b15 = new BolaFuego(10.0, 119.0, -1.0);
-		enemigos.AgregarE(b15);
+		bolasdefuego.AgregarE(b15);
 		BolaFuego* b16 = new BolaFuego(33.0, 124.0, -1.0);
-		enemigos.AgregarE(b16);
+		bolasdefuego.AgregarE(b16);
 		BolaFuego* b17 = new BolaFuego(37.0, 129.0, -1.5);
-		enemigos.AgregarE(b17);
+		bolasdefuego.AgregarE(b17);
 		BolaFuego* b18 = new BolaFuego(25.0, 132.0, -1.0);
-		enemigos.AgregarE(b18);
+		bolasdefuego.AgregarE(b18);
 		BolaFuego* b19 = new BolaFuego(40.0, 133.0, -1.5);
-		enemigos.AgregarE(b19);
+		bolasdefuego.AgregarE(b19);
 		BolaFuego* b20 = new BolaFuego(18.0, 140.0, -1.0);
-		enemigos.AgregarE(b20);
+		bolasdefuego.AgregarE(b20);
 		BolaFuego* b21 = new BolaFuego(25.0, 142.0, -1.0);
-		enemigos.AgregarE(b21);
+		bolasdefuego.AgregarE(b21);
 		BolaFuego* b22 = new BolaFuego(42.0, 145.0, -1.0);
-		enemigos.AgregarE(b22);
+		bolasdefuego.AgregarE(b22);
 		BolaFuego* b23 = new BolaFuego(33.0, 145.0, -1.0);
-		enemigos.AgregarE(b23);
+		bolasdefuego.AgregarE(b23);
 		BolaFuego* b24 = new BolaFuego(37.0, 149.0, -1.0);
-		enemigos.AgregarE(b24);
+		bolasdefuego.AgregarE(b24);
 		BolaFuego* b25 = new BolaFuego(25.0, 150.0, -1.0);
-		enemigos.AgregarE(b25);
+		bolasdefuego.AgregarE(b25);
 		 invocar = false;
-		 sumac -= 9;
-		 
-	}*/
-	if (enemigos.GetListaEnem(0).GetPos().y < -5.0f) {
-		enemigos.DestruirContenido();
+		 sumac -= 5;
 	}
-	for (int i = 0;i < enemigos.GetNumeroE();i++) {
-		for (int j = 0;j < armas.GetNum();j++) {
-			if (Interaccion::ColisionEnemigo(armas.GetLista(j), enemigos.GetListaEnem(i))) {
-				armas.Eliminar(j);
-				enemigos.Eliminar(i);
-			}
+	if (bolasdefuego.GetNumeroE()==0) {
+		invocar = true;
+	}
+	for (int i = 0;i < bolasdefuego.GetNumeroE();i++) {
+		if (bolasdefuego.GetListaEnem(0).GetPos().y < -5.0f) {
+			bolasdefuego.Eliminar(i);
 		}
 	}
+		for (int i = 0;i < ciclopes.GetNumeroE();i++) {
+			for (int j = 0;j < armas.GetNum();j++) {
+				if (Interaccion::ColisionEnemigo(armas.GetLista(j), ciclopes.GetListaEnem(i))) {
+					armas.Eliminar(j);
+					ciclopes.Eliminar(i);
+				}
+			}
+		}
 	for (int j = 0;j < armas.GetNum();j++) {
 		if (Interaccion::ColisionEnemigo(armas.GetLista(j), boss)) {
 			armas.Eliminar(j);
@@ -337,11 +335,13 @@ void NivelFinal::Tecla(unsigned char key) {
 	}
 	if (estado == ShowHitbox) {
 		heroe.ShowHitbox(true);
-		enemigos.ShowHitbox(true);
+		ciclopes.ShowHitbox(true);
+		bolasdefuego.ShowHitbox(true);
 	}
 	else {
 		heroe.ShowHitbox(false);
-		enemigos.ShowHitbox(false);
+		ciclopes.ShowHitbox(false);
+		bolasdefuego.ShowHitbox(false);
 	}
 
 	if (key == ' ') {
@@ -359,7 +359,7 @@ void NivelFinal::Tecla(unsigned char key) {
 			}
 		}
 	}
-	if ((key=='F'||key=='f')&&boton.Colision(&heroe, boton) == true && OFFboton == false && enemigos.GetNumeroE()==0) {
+	if ((key=='F'||key=='f')&&boton.Colision(&heroe, boton) == true && OFFboton == false) {
 		ETSIDI::playMusica("sonidos/Estruendo.wav");
 		PlataformaMovil* auxi = new PlataformaMovil(21.0, 7.0, 25.0, 7.0, 0.5, 120, 5.1, 3.6, 128.0, 64.0, 0.0);	///////Creacion Plataforma Movil
 		plataformas.AgregarP(auxi);
@@ -423,12 +423,12 @@ void NivelFinal::LecturaFichero(string Fichero) {
 		if (opcion == 4) {
 			archivo >> x1 >> y1 >> comentario;
 			Sirena* aux = new Sirena(x1, y1);
-			enemigos.AgregarE(aux);
+			ciclopes.AgregarE(aux);
 		}
 		if (opcion == 5) {
 			archivo >> x1 >> y1 >> comentario;
 			Pajaro* aux = new Pajaro(x1, y1);
-			enemigos.AgregarE(aux);
+			ciclopes.AgregarE(aux);
 		}
 		if (opcion == 6) {
 			archivo >> x1 >> y1 >> comentario;
