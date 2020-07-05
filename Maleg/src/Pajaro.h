@@ -9,8 +9,6 @@ class Pajaro: public Enemigo{
 private:
 	float lim_xi;
 	float lim_xd;
-	float lim_yi;
-	float lim_yd;
 
 public:
 

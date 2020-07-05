@@ -49,7 +49,6 @@ void ListaEnemigos::Mueve(float t) {
 
 	for (int i = 0;i < nume;i++) {
 		Lista_e[i]->Mueve(t);
-		//lista_e[i]->Bucle();
 	}
 }
 

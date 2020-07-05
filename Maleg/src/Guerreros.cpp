@@ -12,7 +12,6 @@ Guerreros::Guerreros(float px, float py, float max, float v) : skeleton("imagene
 	posicion.y = py;
 	altura = 1.0f;
 	velocidad.x = v;
-	//aceleracion.x = -0.5f;
 	lim_xd = posicion.x + max ;
 	lim_xi = posicion.x - max;
 	vida = 1;

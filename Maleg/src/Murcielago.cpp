@@ -18,9 +18,9 @@ Murcielago::Murcielago(float px, float py): bat("imagenes/bat.png", 3, 1) {
 	velocidad.y = -8.0f;
 	aceleracion.x = -4.0f;
 	aceleracion.y = -4.0f;
-	lim_xd = posicion.x; //+ 3.0f;
+	lim_xd = posicion.x; 
 	lim_xi = posicion.x - 8.0f;
-	lim_ya = posicion.y; //+ 3.0f;
+	lim_ya = posicion.y; 
 	lim_yb = posicion.y - 4.0f;
 }
 

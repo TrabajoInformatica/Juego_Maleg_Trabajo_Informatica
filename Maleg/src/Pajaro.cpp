@@ -19,9 +19,8 @@ Pajaro::Pajaro(float px, float py): sprite("imagenes/bird.png", 3, 3) {
 	altura = 0.5f;
 	velocidad.x = 1.0f;
 	lim_xi = posicion.x - 10.0f;
-	//lim_yi = posicion.y + 7.0f;
 	lim_xd = posicion.x + 10.0f;
-	//lim_yd = posicion.y - 7.0f;
+	
 
 }
 
