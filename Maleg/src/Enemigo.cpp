@@ -15,14 +15,5 @@ float Enemigo::GetRadio() {
 	return altura;
 }
 
-/*void Enemigo::SetVida(int v) {
-	vida = v;
-}
-
-int Enemigo::GetVida() {
-	
-	cout << "vida:" << vida << endl;
-	return vida;
-}*/
 
 

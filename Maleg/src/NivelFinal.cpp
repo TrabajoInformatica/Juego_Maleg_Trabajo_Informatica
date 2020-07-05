@@ -206,7 +206,8 @@ void NivelFinal::Mueve() {
 	// Plataforma, Monedas y otros.
 	plataformas.Colision(&heroe);
 	monedas.Colision(&heroe);
-	//enemigos.Colision(&heroe);
+	//ciclopes.Colision(&heroe);
+	//bolasdefuego.Colision(&heroe);
 	corazones.Colision(&heroe);
 	/////////Provisional
 
@@ -231,13 +232,13 @@ void NivelFinal::Mueve() {
 		bolasdefuego.AgregarE(b4);
 		BolaFuego* b5 = new BolaFuego(33.0, 90.0, -1.0);
 		bolasdefuego.AgregarE(b5);
-		BolaFuego* b6 = new BolaFuego(15.0, 90.0, -1.0);
+		BolaFuego* b6 = new BolaFuego(12.5, 90.0, -1.0);
 		bolasdefuego.AgregarE(b6);
 		BolaFuego* b7 = new BolaFuego(40.0, 97.0, -1.0);
 		bolasdefuego.AgregarE(b7);
 		BolaFuego* b8 = new BolaFuego(44.0, 102.0, -0.6);
 		bolasdefuego.AgregarE(b8);
-		BolaFuego* b9 = new BolaFuego(16.0, 104.0, -1.0);
+		BolaFuego* b9 = new BolaFuego(17.0, 104.0, -1.0);
 		bolasdefuego.AgregarE(b9);
 		BolaFuego* b10 = new BolaFuego(26.0, 105.0, -1.0);
 		bolasdefuego.AgregarE(b10);
@@ -278,7 +279,7 @@ void NivelFinal::Mueve() {
 		invocar = true;
 	}
 	for (int i = 0;i < bolasdefuego.GetNumeroE();i++) {
-		if (bolasdefuego.GetListaEnem(0).GetPos().y < -5.0f) {
+		if (bolasdefuego.GetListaEnem(i).GetPos().y < -5.0f) {
 			bolasdefuego.Eliminar(i);
 		}
 	}
@@ -297,9 +298,8 @@ void NivelFinal::Mueve() {
 			cout << "Vida boss" << boss.GetVida() << endl;
 			if (boss.GetVida() > 0) {
 				ETSIDI::playMusica("sonidos/Atacado.wav");
-				boss.SetVida(boss.GetVida() - 1);
-				invocar = true;
 				heroe.SetPos(17.0f, 4.0f);
+				armas.DestruirContenido();
 			}
 			else if (boss.GetVida() == 0) fin = true;
 		}
@@ -344,11 +344,13 @@ void NivelFinal::Tecla(unsigned char key) {
 		heroe.ShowHitbox(true);
 		ciclopes.ShowHitbox(true);
 		bolasdefuego.ShowHitbox(true);
+		boss.ShowHitbox(true);
 	}
 	else {
 		heroe.ShowHitbox(false);
 		ciclopes.ShowHitbox(false);
 		bolasdefuego.ShowHitbox(false);
+		boss.ShowHitbox(false);
 	}
 
 	if (key == ' ') {
