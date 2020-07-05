@@ -12,7 +12,6 @@ private:
 	float radio_min;
 	float radio_max;
 	float pulso;
-
 	
 public:
 
@@ -20,7 +19,6 @@ public:
 	Moneda();
 	Moneda(float px, float py,float radio,unsigned char r,unsigned char v,unsigned char a);//para inicializarlas
 	~Moneda();
-
 
 	void Dibuja();
 	void Mueve(float t);

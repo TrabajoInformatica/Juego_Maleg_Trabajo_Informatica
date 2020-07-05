@@ -41,17 +41,6 @@ Puerta::Puerta(float x1, float y1, float x2, float y2, float gr, unsigned char r
 }
 
 void Puerta::Dibuja() {
-    /*
-    glDisable(GL_LIGHTING);
-    glColor3ub(rojo, verde, azul);
-    glBegin(GL_POLYGON);
-    glVertex3d(limite1.x, limite1.y, 0);
-    glVertex3d(limite2.x, limite2.y, 0);
-    glVertex3d(limite2.x, limite2.y - grosor, 0);
-    glVertex3d(limite1.x, limite1.y - grosor, 0);
-    glEnd();
-    */
-
 
     glEnable(GL_TEXTURE_2D);
 

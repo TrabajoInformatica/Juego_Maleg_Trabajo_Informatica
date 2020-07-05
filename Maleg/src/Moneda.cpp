@@ -37,15 +37,9 @@ void Moneda::Dibuja() {
 	coin.draw();
 	coin.loop();
 	glPopMatrix();
-	/*
-	glColor3ub(rojo, verde, azul);
-	glTranslatef(posicion.x, posicion.y, 0);
-	glutSolidSphere(radio, 20, 20);
-	glTranslatef(-posicion.x, -posicion.y, 0);
-	*/
 }
-void Moneda::Mueve(float t) {
 
+void Moneda::Mueve(float t) {
 	if (radio > radio_max)
 		pulso = -pulso;
 

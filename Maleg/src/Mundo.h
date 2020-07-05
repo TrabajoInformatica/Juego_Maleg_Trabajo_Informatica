@@ -8,7 +8,8 @@
 #include "Personaje.h"
 
 class Mundo {
-public:
+
+private:
 	Heroe heroe;
 	Nivel1* nivel1;
 	Nivel2* nivel2;
@@ -16,23 +17,25 @@ public:
 	NivelFinal* nivelfinal;
 	int nivel;
 	bool fin;
-		Mundo();
-virtual ~Mundo();
+public:
+	Mundo();
+	void Inicializa();
+	
+	virtual ~Mundo();
 
-void Inicializa();
-void Dibuja();
-void TeclaEspecial(unsigned char key);
-void Mover();
 
-void CargarNivel();
-void resetNiv() { nivel = 0; }
+	void Dibuja();
+	void Mover();
 
-void Tecla(unsigned char key);
-void TeclaUp(unsigned char key);
+	void CargarNivel();
+	void resetNiv() { nivel = 0; }
 
-bool Muerte();
+	void Tecla(unsigned char key);
+	void TeclaUp(unsigned char key);
+	void TeclaEspecial(unsigned char key);
 
-bool GetFin();
-void SetFin(bool f);
+	bool Muerte();
+	bool GetFin();
+	void SetFin(bool f);
 
 };

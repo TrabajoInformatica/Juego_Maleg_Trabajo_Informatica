@@ -26,5 +26,4 @@ virtual void Mueve(float t);
 
 virtual void Reaccion(Heroe* pers);
 
-float distancia(Vector2D punto, Vector2D* direccion);
 };

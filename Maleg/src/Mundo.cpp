@@ -16,15 +16,12 @@ Mundo::~Mundo()
 	
 }
 
-
 void Mundo::Inicializa() {
 	heroe.SetVida(3);
-	nivel = 4;
+	nivel = 1;
 	CargarNivel();
-	cout << "Inicializa" << endl;
 
 }
-
 
 void Mundo::CargarNivel() {
 	
@@ -50,7 +47,6 @@ void Mundo::CargarNivel() {
 	}
 }
 
-
 void Mundo::Dibuja() {
 	////////////////////////////////Dibujar aqui
 	if (nivel == 1){
@@ -74,7 +70,6 @@ void Mundo::TeclaEspecial(unsigned char key){
 void Mundo::Mover(){
 	if (nivel == 1) {
 		if (nivel1->FinNivel1() == true) {
-			cout << "ha acabado el nivel 1" << endl;
 			nivel = nivel + 1;		
 			heroe = nivel1->GetHeroe();
 			nivel1->DestruirContenido();
@@ -89,7 +84,6 @@ void Mundo::Mover(){
 
 	if (nivel == 2) {
 		if (nivel2->FinNivel2() == true) {
-			cout << "ha acabado el nivel 2" << endl;
 			nivel = nivel + 1;
 			heroe = nivel2->GetHeroe();
 			nivel2->DestruirContenido();
@@ -103,7 +97,6 @@ void Mundo::Mover(){
 	}
 	if (nivel == 3) {
 		if (nivel3->FinNivel3() == true) {
-			cout << "ha acabado el nivel 3" << endl;
 			nivel = nivel + 1;
 			heroe = nivel3->GetHeroe();
 			nivel3->DestruirContenido();
@@ -117,7 +110,6 @@ void Mundo::Mover(){
 	}
 	if(nivel == 4)
 		if (nivelfinal->FinNivelFinal() == true) {
-			cout << "ha acabado el nivelFinal" << endl;
 			heroe = nivelfinal->GetHeroe();
 			nivelfinal->DestruirContenido();
 			delete nivelfinal;
@@ -157,6 +149,7 @@ void Mundo::Tecla(unsigned char key)
 		nivelfinal->Tecla(key);
 		
 }
+
 void Mundo::TeclaUp(unsigned char key) {
 	if(nivel==1)
 		nivel1->TeclaUp(key);

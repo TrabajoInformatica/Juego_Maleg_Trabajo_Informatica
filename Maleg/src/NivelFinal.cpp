@@ -12,12 +12,12 @@ NivelFinal::NivelFinal() {
 
 	ETSIDI::stopMusica();
 	ETSIDI::playMusica("sonidos/Ambiente3.wav");
-
 }
 
 NivelFinal::~NivelFinal() {
 
 }
+
 void NivelFinal::DestruirContenido() {
 	monedas.destruirContenido();
 	ciclopes.DestruirContenido();
@@ -26,6 +26,7 @@ void NivelFinal::DestruirContenido() {
 	puerta.DestruirContenido();
 	corazones.DestruirContenido();
 }
+
 Heroe NivelFinal::GetHeroe() {
 	heroe.DestruirContenido();
 	return heroe;
@@ -39,34 +40,12 @@ void NivelFinal::Inicializa(Heroe h) {
 	heroe.SetAlturaMuerte(-15.0f);
 	heroe.SetPos(0.0f, 10.0f);//160 10
 	heroe.SetVel(0.0f, 0.0f);
-	//puerta.SetPos(174.0f,8.0f,175.0f,8.0f,-8.0f);
-	//puerta.SetColor(255, 0, 0);
 	Puerta* puer = new Puerta(200.0f, 30.0f, 204.0f, 30.0f, -5.0f, 255, 0, 0);
 	puerta.AgregarP(puer);
 
 	boton.SetPos(51.0, 5.0);
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos, Vidas
 	LecturaFichero(Fichero);
-	Guerreros* gx0 = new Guerreros(15.0f, 4.0f, 5.0f, 2.0f);
-	ciclopes.AgregarE(gx0);
-	Guerreros* gx1 = new Guerreros(20.0f, 4.0f, 6.5f, -2.0f);
-	ciclopes.AgregarE(gx1);
-	Guerreros* gx2 = new Guerreros(17.0f, 4.0f, 4.0f, 3.0f);
-	ciclopes.AgregarE(gx2);
-	Guerreros* gx3 = new Guerreros(22.0f, 4.0f, 3.0f, -3.0f);
-	ciclopes.AgregarE(gx3);
-	Guerreros* gx4 = new Guerreros(32.0f, 4.0f, 10.0f, 2.5f);
-	ciclopes.AgregarE(gx4);
-	Guerreros* gx5 = new Guerreros(40.0f, 4.0f, 12.0f, -3.0f);
-	ciclopes.AgregarE(gx5);
-	Guerreros* gx6 = new Guerreros(48.0f, 4.0f, 7.0f, 2.5f);
-	ciclopes.AgregarE(gx6);
-	Guerreros* gx7 = new Guerreros(27.0f, 4.0f, 7.0f, -2.0f);
-	ciclopes.AgregarE(gx7);
-	Guerreros* gx8 = new Guerreros(30.0f, 4.0f, 15.0f, 3.5f);
-	ciclopes.AgregarE(gx8);
-	Guerreros* gx9 = new Guerreros(33.0f, 4.0f, 8.0f, -2.5f);
-	ciclopes.AgregarE(gx9);
 
 	BolaFuego* b0 = new BolaFuego(13.0, 63.0, -3.0);
 	bolasdefuego.AgregarE(b0);
@@ -170,8 +149,6 @@ void NivelFinal::Dibuja() {
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 12.5);
 		ETSIDI::printxy("             ", -10.0, 14.0);
 	}
-	// Enemigos
-//	if (heroe.GetPos() > spawn_enemigos){
 
 	ciclopes.Dibuja();
 	bolasdefuego.Dibuja();
@@ -185,8 +162,7 @@ void NivelFinal::Dibuja() {
 
 	corazones.Dibuja();
 	puerta.DibujaP();
-	//cout << "X" << heroe.GetPos().x << endl;
-	//cout << "Y" << heroe.GetPos().y << endl;
+
 	boton.Dibuja();
 	boss.Dibuja();
 }
@@ -208,9 +184,8 @@ void NivelFinal::Mueve() {
 	monedas.Colision(&heroe);
 	ciclopes.Colision(&heroe);
 	boss.Colision(&heroe, boss);
-	//bolasdefuego.Colision(&heroe);
+	bolasdefuego.Colision(&heroe);
 	corazones.Colision(&heroe);
-	/////////Provisional
 
 	if (bolasdefuego.GetNumeroE() == 0 && invocar==true) {
 		BolaFuego* b0 = new BolaFuego(13.0, 63.0, -3.0);
@@ -270,6 +245,7 @@ void NivelFinal::Mueve() {
 	if (bolasdefuego.GetNumeroE()==0) {
 		invocar = true;
 	}
+
 	for (int i = 0;i < bolasdefuego.GetNumeroE();i++) {
 		if (bolasdefuego.GetListaEnem(i).GetPos().y < -5.0f) {
 			bolasdefuego.Eliminar(i);
@@ -415,7 +391,7 @@ void NivelFinal::LecturaFichero(string Fichero) {
 		cout << suma << endl;
 		if (opcion == 1) {
 			archivo >> x1 >> y1 >> x2 >> y2 >> gr >> r >> v >> a >> comentario;
-			Plataforma* aux = new Plataforma(x1, y1, x2, y2, gr, (unsigned char)r, (unsigned char)v, (unsigned char)a);///////Creacion Plataformas
+			Plataforma* aux = new Plataforma(x1, y1, x2, y2, gr, (unsigned char)r, (unsigned char)v, (unsigned char)a);///////Creacion Plataforma
 			plataformas.AgregarP(aux);
 		}
 		if (opcion == 2) {
@@ -430,22 +406,38 @@ void NivelFinal::LecturaFichero(string Fichero) {
 		}
 		if (opcion == 4) {
 			archivo >> x1 >> y1 >> comentario;
-			Sirena* aux = new Sirena(x1, y1);
-			ciclopes.AgregarE(aux);
+			Sirena* aux = new Sirena(x1, y1);///////////Creacion Sirena
+			enemigos.AgregarE(aux);
 		}
 		if (opcion == 5) {
 			archivo >> x1 >> y1 >> comentario;
-			Pajaro* aux = new Pajaro(x1, y1);
-			ciclopes.AgregarE(aux);
+			Pajaro* aux = new Pajaro(x1, y1);/////////Creacion Pajaro
+			enemigos.AgregarE(aux);
 		}
+
 		if (opcion == 6) {
-			archivo >> x1 >> y1 >> comentario;
-			Vector2D* aux = new Vector2D(x1, y1);
-			heroe.AgregarPuntosR(aux);
+			archivo >> x1 >> y1 >> x2 >> y2 >> comentario;
+			Araña* aux = new Araña(x1, y1, x2, y2);///////Creacion Arana
+			enemigos.AgregarE(aux);
 		}
 		if (opcion == 7) {
+			archivo >> x1 >> y1 >> comentario;
+			Murcielago* aux = new Murcielago(x1, y1);///////Creacion Murcielago
+			enemigos.AgregarE(aux);
+		}
+		if (opcion == 8) {
+			archivo >> x1 >> y1 >> a >> vx >> comentario;
+			Guerreros* aux = new Guerreros(x1, y1, a, vx);///////Creacion Guerreros
+			ciclopes.AgregarE(aux);
+		}
+		if (opcion == 9) {
+			archivo >> x1 >> y1 >> comentario;
+			Vector2D* aux = new Vector2D(x1, y1);////////Creacion SetPoints Heroe
+			heroe.AgregarPuntosR(aux);
+		}
+		if (opcion == 10) {
 			archivo >> x1 >> y1 >> pf >> r >> vy >> comentario;
-			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion Monedas
+			VidaExtra* aux = new VidaExtra(x1, y1, pf, r, vy);///////Creacion VidaExtra
 			corazones.AgregarC(aux);
 		}
 		archivo >> tipo;
@@ -461,13 +453,20 @@ void NivelFinal::LecturaFichero(string Fichero) {
 			opcion = 4;
 		if (tipo == "Pajaro")
 			opcion = 5;
-		if (tipo == "PuntosReaparicion")
+		if (tipo == "Arana")
 			opcion = 6;
-		if (tipo == "VidasExtra")
+		if (tipo == "Murcielago")
 			opcion = 7;
+		if (tipo == "Guerrero")
+			opcion = 8;
+		if (tipo == "PuntosReaparicion")
+			opcion = 9;
+		if (tipo == "VidasExtra")
+			opcion = 10;
 		if (tipo != "Plataforma" && tipo != "Plataforma_movil" && !archivo.eof() && tipo != introduccion && tipo != "Monedas" &&
-			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra") {//Como leo todas las lineas con un string, tengo que retornar el carro al inicio
-			longitud = tipo.size();									// de esa linea si no  leo  plataforma o bloque, ya que estoy leyendo datos.
+			tipo != "Enemigos" && tipo != "Sirena" && tipo != "Pajaro" && tipo != "PuntosReaparicion" && tipo != "Heroe" && tipo != "VidasExtra"
+			&& tipo != "Murcielago" && tipo != "Arana" && tipo != "Guerrero") {//Como leo todas las lineas con un tipo string, tengo que retornar el carro al inicio
+			longitud = tipo.size();									// de esa linea ,si no  leo  plataforma u otro objeto, ya que estoy leyendo datos.
 			pos = archivo.tellg();									//hay que indicar tmb que no retorne carro en la ultima linea de coordenadas con !eof sino se 
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
 			archivo.seekg(pos);

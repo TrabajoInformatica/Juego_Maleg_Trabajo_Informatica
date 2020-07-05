@@ -12,3 +12,15 @@ Plataforma
 PuntosReaparicion
  0.0 10.0							//Inicio
  999.0 999.0							//Referencia_punto_lejano
+Guerrero
+ 15.0 4.0 5.0 2.0					//Guerrero1
+ 20.0 4.0 6.5 -2.0					//Guerrero2
+ 17.0 4.0 4.0 3.0					//Guerrero3
+ 22.0 4.0 3.0 -3.0					//Guerrero4
+ 32.0 4.0 10.0 2.5					//Guerrero5
+ 40.0 4.0 12.0 -3.0					//Guerrero6
+ 48.0 4.0 7.0 2.5					//Guerrero7
+ 27.0 4.0 7.0 -2.0					//Guerrero8
+ 30.0 4.0 15.0 3.5					//Guerrero9
+ 33.0 4.0 8.0 -2.5					//Guerrero10
+

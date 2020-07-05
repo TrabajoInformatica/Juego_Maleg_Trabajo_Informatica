@@ -4,13 +4,6 @@
 
 Coordinador juego;
 
-//Mundo mundo;
-//Nivel1 nivel;
-
-//los callback, funciones que seran llamadas automaticamente por la glut
-//cuando sucedan eventos//////////////////////////////////////////////////////////////////
-//NO HACE FALTA LLAMARLAS EXPLICITAMENTE
-
 void OnDraw(void); //esta funcion sera llamada para dibujar
 void OnTimer(int value); //esta funcion sera llamada cuando transcurra una temporizacion
 void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla	
@@ -33,7 +26,6 @@ int main(int argc, char* argv[]) {
 	glEnable(GL_COLOR_MATERIAL);
 	glMatrixMode(GL_PROJECTION);
 	glOrtho(-20, 20,-20,20, 3, -10);						// Esto es lo que le da la perspectiva2D glOrtho(x_min, x_max, y_min, y_max, z_min, z_max);
-	//gluPerspective(40.0, 800 / 600.0f, 0.1, 150);
 
 	//Registrar los callbacks
 	glutDisplayFunc(OnDraw);
@@ -42,8 +34,6 @@ int main(int argc, char* argv[]) {
 	glutKeyboardUpFunc(OnKeyboardUp);
 	glutSpecialFunc(onSpecialKeyboardDown); //gestion de los cursores
 	
-	//Aqui iria mundo
-	//mundo.Inicializa();
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
 
@@ -57,7 +47,6 @@ void OnDraw(void) {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	juego.Dibuja();
-	//mundo.Dibuja();
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
 }
@@ -65,10 +54,9 @@ void OnDraw(void) {
 void OnKeyboardDown(unsigned char key, int x_t, int y_t) {
 	
 	juego.Tecla(key);
-	//mundo.Tecla(key);
-	//poner aqui el código de teclado
 	glutPostRedisplay();
 }
+
 void OnKeyboardUp(unsigned char key, int x, int y) {
 	juego.TeclaUp(key);
 }
@@ -76,7 +64,6 @@ void OnKeyboardUp(unsigned char key, int x, int y) {
 void OnTimer(int value) {
 	//poner aqui el código de animacion
 	juego.Mueve();
-	//mundo.Mover();
 	//no borrar estas lineas
 	glutTimerFunc(25, OnTimer, 0);
 	glutPostRedisplay();
@@ -85,5 +72,4 @@ void OnTimer(int value) {
 void onSpecialKeyboardDown(int key, int x, int y)
 {
 	juego.TeclaEspecial(key);
-//	mundo.TeclaEspecial(key);
 }
