@@ -27,11 +27,6 @@ Heroe::~Heroe(){
 void Heroe::Mueve(float t) {
 	if (velocidad.y < -10)
 		velocidad.y = -10;
-	
-	if (velocidad.x < 0)
-		sentido = Izquierda;
-	else if (velocidad.x > 0)
-		sentido = Derecha;
 	ObjetoMovil::Mueve(t);
 }
 
@@ -216,4 +211,12 @@ bool Heroe::ValidarDisparo() {
 		return true;
 	else if(monedas ==0)
 		return false;
+}
+
+void Heroe::SetSentido(bool e) {
+	if (e == true)
+		sentido = Derecha;
+
+	else if (e == false)
+		sentido = Izquierda;
 }

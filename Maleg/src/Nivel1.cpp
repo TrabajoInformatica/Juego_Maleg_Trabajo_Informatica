@@ -168,11 +168,14 @@ void Nivel1::Tecla(unsigned char key) {
 			}
 		}
 	}
-	if (key == 'a')
+	if (key == 'a') {
 		heroe.SetVel(-3.0f, heroe.GetVel().y);
-	if (key == 'd')
+		heroe.SetSentido(false);
+	}
+	if (key == 'd') {
 		heroe.SetVel(3.0f, heroe.GetVel().y);
-
+		heroe.SetSentido(true);
+	}
 	////////Hitbox
 	if (key == '1' && estado == ShowHitbox) {
 		estado = HideHitbox;

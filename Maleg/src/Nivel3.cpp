@@ -187,11 +187,14 @@ void Nivel3::Tecla(unsigned char key) {
 			}
 		}
 	}
-	if (key == 'a')
+	if (key == 'a') {
 		heroe3.SetVel(-3.0f, heroe3.GetVel().y);
-	if (key == 'd')
+		heroe3.SetSentido(false);
+	}
+	if (key == 'd') {
 		heroe3.SetVel(3.0f, heroe3.GetVel().y);
-
+		heroe3.SetSentido(true);
+	}
 	////////Hitbox
 	if (key == '1' && estado == ShowHitbox) {
 		estado = HideHitbox;
