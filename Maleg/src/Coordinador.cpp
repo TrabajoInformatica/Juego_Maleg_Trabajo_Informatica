@@ -32,8 +32,6 @@ void Coordinador::Tecla(unsigned char key)
 		}
 		else if (key == 'e' || key == 'E') 
 			exit(0);
-		else if (key == '1')
-			estado = FIN;
 	}
 	else if (estado == INTRO) 
 	{
