@@ -24,7 +24,7 @@ private:
 	ListaEnemigos enemigos2;			  ///Objeto contiene todos los enemigos Nivel2
 	ListaArmas  armas2;					  ///Objeto contiene todas las lanzas
 	ListaCorazones corazones2;			  ///Objeto contiene todos los corazones Nivel2
-	Puerta puerta2;
+	Puerta puerta2;						  
 
 	enum Estado { ShowHitbox, HideHitbox };
 	Estado estado = HideHitbox;

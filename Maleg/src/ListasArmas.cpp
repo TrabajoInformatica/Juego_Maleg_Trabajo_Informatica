@@ -5,7 +5,6 @@
 #include "Interaccion.h"
 using namespace std;
 
-
 ListaArmas::ListaArmas() {
 	numeroA = 0;
 	for (int i = 0;i < MAX_SIZE;i++)
@@ -62,6 +61,7 @@ void ListaArmas::Eliminar(Arma* a) {//borrar esfera según su dirección de memori
 		}
 	}
 }
+
 void ListaArmas::Eliminar(int index) {//borrar una esfera segun su indice
 	if ((index < 0) || (index >= numeroA)) {//si el indice esta fuera de rango
 		return;

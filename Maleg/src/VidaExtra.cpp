@@ -8,6 +8,7 @@ VidaExtra::VidaExtra(): apple("imagenes/apple.png", 1, 1) {
 	velocidad.x = 0;
 	velocidad.y = -3.0f;
 }
+
 VidaExtra::VidaExtra(float px, float py, float posfin,float r, float vy): apple("imagenes/extralife.png", 3, 1) {
 	posicion.x = px;
 	posicion.y = py;
@@ -19,6 +20,7 @@ VidaExtra::VidaExtra(float px, float py, float posfin,float r, float vy): apple(
 	velocidad.y = vy;
 
 }
+
 VidaExtra::~VidaExtra() {
 
 }
@@ -34,18 +36,10 @@ void VidaExtra::Dibuja() {
 	apple.loop();
 	glPopMatrix();
 
-	//Hitbox
-	/*
-	glColor3ub(rojo, verde, azul);
-	glTranslatef(posicion.x, posicion.y, 0);
-	glutSolidSphere(radio, 20, 20);
-	glTranslatef(-posicion.x, -posicion.y, 0);
-	*/
 }
 void VidaExtra::Mueve(float t) {
 	ObjetoMovil::Mueve(t);
 	if (posicion.y = posicionfin)
 		velocidad.y = 0.0;
-
 }
 

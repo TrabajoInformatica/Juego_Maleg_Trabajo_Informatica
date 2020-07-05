@@ -263,7 +263,6 @@ void Nivel3::LecturaFichero(string Fichero) {
 		exit(1);
 	}
 	while (!archivo.eof()) {
-		cout << suma << endl;
 		if (opcion == 1) {
 			archivo >> x1 >> y1 >> x2 >> y2 >> gr >> r >> v >> a >> comentario;
 			Plataforma* aux = new Plataforma(x1, y1, x2, y2, gr, (unsigned char)r, (unsigned char)v, (unsigned char)a);///////Creacion Plataforma
@@ -346,7 +345,6 @@ void Nivel3::LecturaFichero(string Fichero) {
 			pos = pos - longitud;									//se genera un bucle infinito de retorno de carro
 			archivo.seekg(pos);
 		}
-		suma++;
 	}
 	archivo.close();
 }

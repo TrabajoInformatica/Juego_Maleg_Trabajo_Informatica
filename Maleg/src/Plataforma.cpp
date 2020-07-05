@@ -48,15 +48,6 @@ float Plataforma::GetGrosor() {
 }
 
 void Plataforma::Dibuja() {
-   /* glDisable(GL_LIGHTING);
-    glColor3ub(rojo,verde,azul);
-    glBegin(GL_POLYGON);
-    glVertex3d(limite1.x, limite1.y, 0);       
-    glVertex3d(limite2.x, limite2.y, 0);
-    glVertex3d(limite2.x, limite2.y - grosor, 0);
-    glVertex3d(limite1.x, limite1.y - grosor, 0);
-    glEnd();
-    */
 
     //PLATAFORMAS FLOTANTES
         if (grosor == 0.6f) {
@@ -178,48 +169,7 @@ void Plataforma::Dibuja() {
             glEnable(GL_LIGHTING);
             glDisable(GL_TEXTURE_2D);
         }
-    //SUELO
-        /*
-    else {
-    glEnable(GL_LIGHTING);
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/suelo.png").id);
-    glDisable(GL_LIGHTING);
-    glBegin(GL_POLYGON);
-
-    glColor3f(1, 1, 1);
-    glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
-    glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
-    glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
-    glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
-    glEnd();
-
-    glEnable(GL_LIGHTING);
-    glDisable(GL_TEXTURE_2D);
-    }
-    */
-}
-
-float Plataforma::distancia(Vector2D punto, Vector2D* direccion){
-    Vector2D u = (punto - limite1);
-    Vector2D v = (limite2 - limite1).unitario();
-    float longitud = (limite1 - limite2).modulo();
-    Vector2D dir;
-    float valor = u * v;
-    float distancia = 0;
-    if (valor < 0)
-        dir = u;
-    else if (valor > longitud)
-        dir = (punto - limite2);
-    else {
-        Vector2D s;
-        s = v * valor;
-        dir = u - s;
-    }
-    distancia = dir.modulo();
-    if (direccion != 0) //si nos dan un vector…
-        *direccion = dir.unitario();
-    return distancia;
+ 
 }
 
 void Plataforma::Mueve(float t) {
