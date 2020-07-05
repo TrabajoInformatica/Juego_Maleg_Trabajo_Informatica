@@ -29,7 +29,6 @@ void Boss::Dibuja() {
 	glPopMatrix();
 	//HITBOX
 	if (estado == Show) {
-		cout << "SHoevbbb" << endl;
 		glPushMatrix();
 		glColor3ub(255, 0, 0);
 		glTranslatef(posicion.x, posicion.y, 0);
@@ -50,7 +49,6 @@ int Boss::GetVida() {
 bool Boss::Colision(Heroe* p, Boss b) {
 	if (Interaccion::ColisionEnemigo(p, b))
 	{
-		cout << "colision Boss" << endl;
 		p->PuntoReaparicion();
 		return true;
 		//ETSIDI::play("sonidos/estruendo.wav");
@@ -64,7 +62,6 @@ bool Boss::Colision(ListaArmas a, Boss b) {
 	{
 		if (Interaccion::ColisionEnemigo(a.GetLista(i), b))
 		{
-			cout << "colision Arma" << endl;
 			return true;
 		}
 	}
