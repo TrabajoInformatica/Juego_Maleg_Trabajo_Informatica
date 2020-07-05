@@ -67,10 +67,10 @@ void Plataforma::Dibuja() {
             glBegin(GL_POLYGON);
 
             glColor3f(1, 1, 1);
-            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
-            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
-            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
-            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.5);
+            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.5);
+            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.5);
+            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.5);
             glEnd();
 
             glEnable(GL_LIGHTING);
@@ -84,10 +84,10 @@ void Plataforma::Dibuja() {
             glBegin(GL_POLYGON);
 
             glColor3f(1, 1, 1);
-            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
-            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
-            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
-            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.5);
+            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.5);
+            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.5);
+            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.5);
             glEnd();
 
             glEnable(GL_LIGHTING);
@@ -101,10 +101,10 @@ void Plataforma::Dibuja() {
             glBegin(GL_POLYGON);
 
             glColor3f(1, 1, 1);
-            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
-            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
-            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
-            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.5);
+            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.5);
+            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.5);
+            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.5);
             glEnd();
 
             glEnable(GL_LIGHTING);
@@ -118,10 +118,10 @@ void Plataforma::Dibuja() {
             glBegin(GL_POLYGON);
 
             glColor3f(1, 1, 1);
-            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
-            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
-            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
-            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.5);
+            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.5);
+            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.5);
+            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.5);
             glEnd();
 
             glEnable(GL_LIGHTING);
@@ -135,10 +135,10 @@ void Plataforma::Dibuja() {
             glBegin(GL_POLYGON);
 
             glColor3f(1, 1, 1);
-            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
-            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
-            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
-            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.5);
+            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.5);
+            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.5);
+            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.5);
             glEnd();
 
             glEnable(GL_LIGHTING);
@@ -152,10 +152,10 @@ void Plataforma::Dibuja() {
             glBegin(GL_POLYGON);
 
             glColor3f(1, 1, 1);
-            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
-            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
-            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
-            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.5);
+            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.5);
+            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.5);
+            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.5);
             glEnd();
 
             glEnable(GL_LIGHTING);
@@ -169,10 +169,10 @@ void Plataforma::Dibuja() {
             glBegin(GL_POLYGON);
 
             glColor3f(1, 1, 1);
-            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.0);
-            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.0);
-            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.0);
-            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.0);
+            glTexCoord2d(0, 1);		glVertex3f(limite1.x, limite1.y - grosor, 0.5);
+            glTexCoord2d(1, 1);		glVertex3f(limite2.x, limite2.y - grosor, 0.5);
+            glTexCoord2d(1, 0);		glVertex3f(limite2.x, limite2.y, 0.5);
+            glTexCoord2d(0, 0);		glVertex3f(limite1.x, limite1.y, 0.5);
             glEnd();
 
             glEnable(GL_LIGHTING);

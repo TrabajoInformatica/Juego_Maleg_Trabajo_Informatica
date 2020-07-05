@@ -39,7 +39,7 @@ void Nivel3::Inicializa(Heroe h) {
 	puerta3.AgregarP(puerfin2);
 	Puerta* puerfin3 = new Puerta(60.0f, 90.0f, 64.0f, 90.0f, -5.0f, 255, 0, 0);
 	puerta3.AgregarP(puerfin3);
-	Puerta* puerex = new Puerta(88.0f, 30.0f, 92.0f, 30.0f, -5.0f, 255, 0, 0);
+	Puerta* puerex = new Puerta(87.0f, 30.0f, 91.0f, 30.0f, -5.0f, 255, 0, 0);
 	puertaextra.AgregarP(puerex);
 	
 	////////////////////////////////////Inicializa Plataformas, Monedas , Enemigos
@@ -145,7 +145,7 @@ void Nivel3::Mueve() {
 	// Plataforma, Monedas y otros.
 	plataformas3.Colision(&heroe3);
 	monedas3.Colision(&heroe3);
-	//enemigos3.Colision(&heroe3);
+	enemigos3.Colision(&heroe3);
 	corazones3.Colision(&heroe3);
 
 	/////////Provisional
