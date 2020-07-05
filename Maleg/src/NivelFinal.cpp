@@ -67,6 +67,59 @@ void NivelFinal::Inicializa(Heroe h) {
 	Guerreros* gx9 = new Guerreros(33.0f, 4.0f, 8.0f, -2.5f);
 	enemigos.AgregarE(gx9);
 
+	BolaFuego* b0 = new BolaFuego(13.0, 63.0, -1.0);
+	enemigos.AgregarE(b0);
+	BolaFuego* b1 = new BolaFuego(20.0, 69.0, -1.0);
+	enemigos.AgregarE(b1);
+	BolaFuego* b2 = new BolaFuego(9.0, 76.0, -1.5);
+	enemigos.AgregarE(b2);
+	BolaFuego* b3 = new BolaFuego(25.0, 83.0, -1.5);
+	enemigos.AgregarE(b3);
+	BolaFuego* b4 = new BolaFuego(29.0, 85.0, -1.0);
+	enemigos.AgregarE(b4);
+	BolaFuego* b5 = new BolaFuego(33.0, 90.0, -1.0);
+	enemigos.AgregarE(b5);
+	BolaFuego* b6 = new BolaFuego(15.0, 90.0, -1.0);
+	enemigos.AgregarE(b6);
+	BolaFuego* b7 = new BolaFuego(40.0, 97.0, -1.0);
+	enemigos.AgregarE(b7);
+	BolaFuego* b8 = new BolaFuego(44.0, 102.0, -0.6);
+	enemigos.AgregarE(b8);
+	BolaFuego* b9 = new BolaFuego(16.0, 104.0, -1.0);
+	enemigos.AgregarE(b9);
+	BolaFuego* b10 = new BolaFuego(26.0, 105.0, -1.0);
+	enemigos.AgregarE(b10);
+	BolaFuego* b11 = new BolaFuego(37.0, 105.0, -1.0);
+	enemigos.AgregarE(b11);
+	BolaFuego* b12 = new BolaFuego(45.0, 107.0, -1.5);
+	enemigos.AgregarE(b12);
+	BolaFuego* b13 = new BolaFuego(40.0, 109.0, -1.0);
+	enemigos.AgregarE(b13);
+	BolaFuego* b14 = new BolaFuego(20.0, 119.0, -1.0);
+	enemigos.AgregarE(b14);
+	BolaFuego* b15 = new BolaFuego(10.0, 119.0, -1.0);
+	enemigos.AgregarE(b15);
+	BolaFuego* b16 = new BolaFuego(33.0, 124.0, -1.0);
+	enemigos.AgregarE(b16);
+	BolaFuego* b17 = new BolaFuego(37.0, 129.0, -1.5);
+	enemigos.AgregarE(b17);
+	BolaFuego* b18 = new BolaFuego(25.0, 132.0, -1.0);
+	enemigos.AgregarE(b18);
+	BolaFuego* b19 = new BolaFuego(40.0, 133.0, -1.5);
+	enemigos.AgregarE(b19);
+	BolaFuego* b20 = new BolaFuego(18.0, 140.0, -1.0);
+	enemigos.AgregarE(b20);
+	BolaFuego* b21 = new BolaFuego(25.0, 142.0, -1.0);
+	enemigos.AgregarE(b21);
+	BolaFuego* b22 = new BolaFuego(42.0, 145.0, -1.0);
+	enemigos.AgregarE(b22);
+	BolaFuego* b23 = new BolaFuego(33.0, 145.0, -1.0);
+	enemigos.AgregarE(b23);
+	BolaFuego* b24 = new BolaFuego(37.0, 149.0, -1.0);
+	enemigos.AgregarE(b24);
+	BolaFuego* b25 = new BolaFuego(25.0, 150.0, -1.0);
+	enemigos.AgregarE(b25);
+
 	boss.SetPos(51.0f, 22.5f);
 	boss.SetVida(5);
 }
@@ -163,38 +216,64 @@ void NivelFinal::Mueve() {
 	else
 		fin = false;
 		*/
+	/*
 	if (enemigos.GetNumeroE() == 0 && invocar==true) {
-		BolaFuego* b0 =new BolaFuego(13.0,33.0,-15.0+sumac);
+		BolaFuego* b0 = new BolaFuego(13.0, 63.0, -1.0);
 		enemigos.AgregarE(b0);
-		BolaFuego* b1 =new BolaFuego(17.0, 35.0, -15.0 + sumac);
+		BolaFuego* b1 = new BolaFuego(20.0, 69.0, -1.0);
 		enemigos.AgregarE(b1);
-		BolaFuego* b2 =new BolaFuego(21.0, 33.0, -15.0 + sumac);
+		BolaFuego* b2 = new BolaFuego(9.0, 76.0, -1.5);
 		enemigos.AgregarE(b2);
-		BolaFuego* b3 =new BolaFuego(25.0, 35.0, -15.0 + sumac);
+		BolaFuego* b3 = new BolaFuego(25.0, 83.0, -1.5);
 		enemigos.AgregarE(b3);
-		BolaFuego* b4 =new BolaFuego(29.0, 33.0, -15.0 + sumac);
+		BolaFuego* b4 = new BolaFuego(29.0, 85.0, -1.0);
 		enemigos.AgregarE(b4);
-		BolaFuego* b5 =new BolaFuego(33.0, 35.0, -15.0 + sumac);
+		BolaFuego* b5 = new BolaFuego(33.0, 90.0, -1.0);
 		enemigos.AgregarE(b5);
-		BolaFuego* b6 =new BolaFuego(36.0, 33.0, -15.0 + sumac);
+		BolaFuego* b6 = new BolaFuego(15.0, 90.0, -1.0);
 		enemigos.AgregarE(b6);
-		BolaFuego* b7 = new BolaFuego(40.0, 35.0, -15.0 + sumac);
+		BolaFuego* b7 = new BolaFuego(40.0, 97.0, -1.0);
 		enemigos.AgregarE(b7);
-		BolaFuego* b8 = new BolaFuego(44.0, 35.0, -15.0 + sumac);
+		BolaFuego* b8 = new BolaFuego(44.0, 102.0, -0.6);
 		enemigos.AgregarE(b8);
-		BolaFuego* b9 = new BolaFuego(48.0, 33.0, -15.0 + sumac);
+		BolaFuego* b9 = new BolaFuego(16.0, 104.0, -1.0);
 		enemigos.AgregarE(b9);
-		BolaFuego* b10 = new BolaFuego(23.0, 35.0, -15.0 + sumac);
+		BolaFuego* b10 = new BolaFuego(26.0, 105.0, -1.0);
 		enemigos.AgregarE(b10);
-		BolaFuego* b11 = new BolaFuego(37.0, 33.0, -15.0 + sumac);
+		BolaFuego* b11 = new BolaFuego(37.0, 105.0, -1.0);
 		enemigos.AgregarE(b11);
-		BolaFuego* b12 = new BolaFuego(50.0, 35.0, -15.0 + sumac);
+		BolaFuego* b12 = new BolaFuego(45.0, 107.0, -1.5);
 		enemigos.AgregarE(b12);
-		BolaFuego* b13 = new BolaFuego(11.0, 35.0, -15.0 + sumac);
+		BolaFuego* b13 = new BolaFuego(40.0, 109.0, -1.0);
 		enemigos.AgregarE(b13);
+		BolaFuego* b14 = new BolaFuego(20.0, 119.0, -1.0);
+		enemigos.AgregarE(b14);
+		BolaFuego* b15 = new BolaFuego(10.0, 119.0, -1.0);
+		enemigos.AgregarE(b15);
+		BolaFuego* b16 = new BolaFuego(33.0, 124.0, -1.0);
+		enemigos.AgregarE(b16);
+		BolaFuego* b17 = new BolaFuego(37.0, 129.0, -1.5);
+		enemigos.AgregarE(b17);
+		BolaFuego* b18 = new BolaFuego(25.0, 132.0, -1.0);
+		enemigos.AgregarE(b18);
+		BolaFuego* b19 = new BolaFuego(40.0, 133.0, -1.5);
+		enemigos.AgregarE(b19);
+		BolaFuego* b20 = new BolaFuego(18.0, 140.0, -1.0);
+		enemigos.AgregarE(b20);
+		BolaFuego* b21 = new BolaFuego(25.0, 142.0, -1.0);
+		enemigos.AgregarE(b21);
+		BolaFuego* b22 = new BolaFuego(42.0, 145.0, -1.0);
+		enemigos.AgregarE(b22);
+		BolaFuego* b23 = new BolaFuego(33.0, 145.0, -1.0);
+		enemigos.AgregarE(b23);
+		BolaFuego* b24 = new BolaFuego(37.0, 149.0, -1.0);
+		enemigos.AgregarE(b24);
+		BolaFuego* b25 = new BolaFuego(25.0, 150.0, -1.0);
+		enemigos.AgregarE(b25);
 		 invocar = false;
 		 sumac -= 9;
-	}
+		 
+	}*/
 	if (enemigos.GetListaEnem(0).GetPos().y < -5.0f) {
 		enemigos.DestruirContenido();
 	}
