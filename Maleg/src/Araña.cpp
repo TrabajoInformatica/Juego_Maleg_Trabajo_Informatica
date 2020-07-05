@@ -1,7 +1,6 @@
 #include "Araña.h"
 
 Araña::Araña(): spyder("imagenes/araña(x).png", 3, 1){
-
 }
 
 Araña::Araña(float px, float py): spyder("imagenes/araña(x).png", 3, 1){
@@ -35,6 +34,7 @@ Araña::Araña(float px, float py, float limitex ,float limitey) : spyder("imagene
 	lim_yb = posicion.y - limitey;
 
 }
+
 Araña::~Araña() {
 
 }
@@ -46,7 +46,6 @@ void Araña::Mueve(float t) {
 }
 
 void Araña::Movimiento() {
-
 	if (posicion.x > lim_xd) {
 		posicion.x = lim_xd;
 		velocidad.y = 5.0f;
@@ -60,7 +59,6 @@ void Araña::Movimiento() {
 			aceleracion.y = 0;
 
 		}
-	
 	else if (posicion.x < lim_xi) {
 		posicion.x = lim_xi;
 		velocidad.y = -5.0f;
@@ -68,7 +66,6 @@ void Araña::Movimiento() {
 		velocidad.x = 0;
 		aceleracion.x = 0;
 		}
-
 	else if (posicion.y < lim_yb) {
 		posicion.y = lim_yb;
 		velocidad.x = 5.0f;
@@ -76,7 +73,6 @@ void Araña::Movimiento() {
 		velocidad.y = 0;
 		aceleracion.y = 0;
 		}
-	
 }
 
 void Araña::Dibuja() {
@@ -93,9 +89,7 @@ void Araña::Dibuja() {
 	spyder.draw();
 	spyder.loop();
 	glPopMatrix(); 
-
 	//Hitbox
-	
 	if (estado == Show) {
 		glPushMatrix();
 		glColor3ub(rojo, verde, azul);
@@ -106,4 +100,3 @@ void Araña::Dibuja() {
 		glPopMatrix();
 	}
 }
-

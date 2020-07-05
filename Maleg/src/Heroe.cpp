@@ -18,7 +18,7 @@ Heroe::Heroe() :
 	altura = 2.0f;
 	rojo = azul = 0;
 	verde = 255;
-	monedas = 20;
+	monedas = 0;
 	numeroRP = 0;
 	sentido = Derecha;
 }
@@ -33,7 +33,6 @@ void Heroe::Mueve(float t) {
 	else if (velocidad.x > 0)
 		sentido = Derecha;
 	ObjetoMovil::Mueve(t);
-	//cout << "X: " << posicion.x << " Y: " << posicion.y << endl;;
 }
 
 void Heroe::Dibuja() {
@@ -135,7 +134,6 @@ void Heroe::SetMonedas(int m) {
 	monedas = m;
 }
 bool Heroe::Muerte() {
-	
 	if (alturamuerte >= posicion.y) {	
 		vida -= 1;
 		if(vida==0)
@@ -151,7 +149,6 @@ bool Heroe::Muerte() {
 	}
 	else
 		return false;
-	
 }
 
 int Heroe::GetVida() {
@@ -182,7 +179,6 @@ void Heroe::PuntoReaparicion() {
 			posicion = (*(puntosR[i-1]));
 			break;
 		}
-		
 	}
 }
 

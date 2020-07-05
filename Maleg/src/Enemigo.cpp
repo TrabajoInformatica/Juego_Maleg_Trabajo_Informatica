@@ -9,11 +9,8 @@ Enemigo::Enemigo()
 
 Enemigo::~Enemigo()
 {
-
 }
+
 float Enemigo::GetRadio() {
 	return altura;
 }
-
-
-

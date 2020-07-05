@@ -4,13 +4,15 @@
 #include "Guerreros.h"
 #include "Araña.h"
 #include "Murcielago.h"
-//#include "Enemigo.h"
 #include "Interaccion.h"
 class ListaEnemigos{
-
+private:
+	Enemigo* Lista_e[MAX_ENEM];
+	int nume;
 public:
 	ListaEnemigos();
 	~ListaEnemigos();
+
 	bool AgregarE(Enemigo* e);
 	Enemigo GetListaEnem(int num);
 	void DestruirContenido();
@@ -23,9 +25,5 @@ public:
 	void Eliminar(int index);
 
 	void ShowHitbox(bool e);
-
-private:
-	Enemigo* Lista_e[MAX_ENEM];
-	int nume;
 };
 

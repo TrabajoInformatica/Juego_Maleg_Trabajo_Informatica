@@ -41,4 +41,3 @@ void BolaFuego::Dibuja() {
 void BolaFuego::Mueve(float t) {
 	ObjetoMovil::Mueve(t);
 }
-

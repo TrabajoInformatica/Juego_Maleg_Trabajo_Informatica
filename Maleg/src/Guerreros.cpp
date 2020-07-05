@@ -2,7 +2,6 @@
 
 Guerreros::Guerreros() : skeleton("imagenes/ciclopemove.png", 7, 1) {
 
-
 }
 
 Guerreros::Guerreros(float px, float py, float max, float v) : skeleton("imagenes/ciclopemove.png", 7, 1) {
@@ -17,11 +16,9 @@ Guerreros::Guerreros(float px, float py, float max, float v) : skeleton("imagene
 	lim_xd = posicion.x + max ;
 	lim_xi = posicion.x - max;
 	vida = 1;
-	
 }
 
 Guerreros::~Guerreros() {
-
 
 }
 
@@ -37,9 +34,7 @@ void Guerreros::Dibuja() {
 	skeleton.draw();
 	skeleton.loop();
 	glPopMatrix();
-
 	//Hitbox
-
 	if (estado == Show) {
 		glPushMatrix();
 		glColor3ub(rojo, verde, azul);
@@ -58,7 +53,6 @@ void Guerreros::Mueve(float t) {
 }
 
 void Guerreros::Movimiento() {
-
 	if (posicion.x > lim_xd) {
 		posicion.x = lim_xd;
 		velocidad.x = -6.0f;

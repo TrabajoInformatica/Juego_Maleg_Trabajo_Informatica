@@ -63,9 +63,7 @@ bool ListaEnemigos::Colision(Heroe* p) {
 			return true;
 
 		}
-
 	}
-
 	return false;
 }
 

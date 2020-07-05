@@ -27,7 +27,7 @@ void Boss::Dibuja() {
 	boss.draw();
 	boss.loop();
 	glPopMatrix();
-
+	//HITBOX
 	if (estado == Show) {
 		cout << "SHoevbbb" << endl;
 		glPushMatrix();

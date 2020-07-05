@@ -5,8 +5,6 @@
 using ETSIDI::SpriteSequence;
 
 class Lanza : public Arma {
-protected:
-
 public:
 	SpriteSequence spear;
 

@@ -8,13 +8,9 @@ using ETSIDI::SpriteSequence;
 
 class Boton :public ObjetoMovil
 {
-private:
-
-	//float radio;
-
 public:
-
 	SpriteSequence button;
+
 	Boton();
 	Boton(float px, float py, float radio, unsigned char r, unsigned char v, unsigned char a);//para inicializarlas
 	~Boton();

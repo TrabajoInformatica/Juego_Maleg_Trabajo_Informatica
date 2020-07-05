@@ -4,11 +4,7 @@
 #define MAX_ENEM 50
 
 using namespace std;
-
 class Enemigo: public Personaje{
-
-protected:
-
 public: 
 	Enemigo();
 	virtual ~Enemigo();

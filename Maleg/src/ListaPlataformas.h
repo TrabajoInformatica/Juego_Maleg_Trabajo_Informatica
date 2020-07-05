@@ -3,8 +3,10 @@
 #include "PlataformaMovil.h"
 #include <string>
 #include "Heroe.h"
+
 using namespace std;
 #define MAX_SIZE 100
+
 class ListaPlataformas {
 private:
 	int numerop;
@@ -21,5 +23,4 @@ public:
 	int GetNumPlat();
 
 	void Colision(Heroe* p);
-
 };

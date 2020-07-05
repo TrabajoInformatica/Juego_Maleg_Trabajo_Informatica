@@ -3,10 +3,7 @@
 #include "Enemigo.h"
 
 using ETSIDI::SpriteSequence;
-
-
 class Guerreros: public Enemigo{
-
 private:
 	float lim_xd;
 	float lim_xi;

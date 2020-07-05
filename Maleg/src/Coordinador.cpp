@@ -23,7 +23,6 @@ void Coordinador::TeclaEspecial(unsigned char key) {
 
 void Coordinador::Tecla(unsigned char key) 
 {
-
 	if (estado == INICIO)
 	{
 		if (key == 's' || key == 'S')
@@ -41,7 +40,6 @@ void Coordinador::Tecla(unsigned char key)
 		if (key == ' ')
 		{
 			estado = CARGA;
-		
 			cout << "CARGA" << endl;
 		}
 	}
@@ -50,27 +48,20 @@ void Coordinador::Tecla(unsigned char key)
 		if (key == 'c' || key == 'C')
 		{
 			mundo.Inicializa();
-		
 			estado = JUEGO;
 			cout << "JUEGO" << endl;
 			ETSIDI::stopMusica();
-			//Probablemente se cambie porque me parece un poco tétrico
 			ETSIDI::playMusica("sonidos/Ambiente2.wav", true);
-			
 		}
 	}
 	else if (estado == JUEGO)
 	{
-		
 		mundo.Tecla(key);
-		
 		if (key == 'p' || key == 'P')
 			estado = PAUSA;
 	}
-
 	else if (estado == GAMEOVER)
 	{
-		
 		if (key == 'c' || key == 'C') {
 			mundo.resetNiv();
 
@@ -78,7 +69,6 @@ void Coordinador::Tecla(unsigned char key)
 			ETSIDI::playMusica("sonidos/Intro.wav");
 
 			estado = INICIO;
-			
 		}
 		else if (key == 'e' || key == 'E')
 			exit(0);
@@ -86,7 +76,6 @@ void Coordinador::Tecla(unsigned char key)
 	else if (estado == FIN)
 	{
 		if (key == 'c' || key == 'C') {
-
 			mundo.resetNiv();
 			
 			ETSIDI::stopMusica();
@@ -103,7 +92,6 @@ void Coordinador::Tecla(unsigned char key)
 	{
 		if (key == 'c' || key == 'C')
 			estado = JUEGO;
-
 		else if (key == 'e' || key == 'E')
 		{
 			mundo.resetNiv();
@@ -122,6 +110,7 @@ void Coordinador::TeclaUp(unsigned char key)
 		mundo.TeclaUp(key);
 	}
 }
+
 void Coordinador::Mueve() {
 	if (estado == JUEGO)
 	{
@@ -141,21 +130,18 @@ void Coordinador::Mueve() {
 			ETSIDI::stopMusica();
 			ETSIDI::playMusica("sonidos/victory.wav");
 		}
-
 	}
 }
-	
 
 void Coordinador::Dibuja() 
 {
-	
 	if (estado == INICIO)
 	{
 		gluLookAt(0, 7.5, 3, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
 			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
+
 		//Ponemos fondo a la pantalla de incicio
-		
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/portada.png").id);
 		glDisable(GL_LIGHTING);
@@ -274,9 +260,7 @@ void Coordinador::Dibuja()
 		ETSIDI::setTextColor(255.0f, 255.0f, 255.0f); //r g b
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 25);
 		ETSIDI::printxy("PRESS  C  T0 C0NTINUE", -11, -4);
-
 	}
-
 	else if (estado == GAMEOVER) 
 	{
 		gluLookAt(0, 7.5, 3, // posicion del ojo
@@ -302,7 +286,6 @@ void Coordinador::Dibuja()
 		ETSIDI::printxy("PRESS C TO START A NEW GAME", -16, -3);
 		ETSIDI::printxy("PRESS E TO EXIT", -8, -6);
 	}
-
 	else if (estado == FIN)
 	{
 		gluLookAt(0, 7.5, 3, // posicion del ojo

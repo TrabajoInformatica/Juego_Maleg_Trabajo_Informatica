@@ -18,7 +18,6 @@ public:
 	void Eliminar(int index);
 
 	void ShowHitbox(bool e);//no esta implementada
-
 private:
 	VidaExtra* Lista_c[MAX_COR];
 	int num;

@@ -20,5 +20,4 @@ public:
 
 	Arma  GetLista(int num);
 	int GetNum();
-
 };

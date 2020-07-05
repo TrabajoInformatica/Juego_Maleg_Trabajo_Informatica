@@ -11,23 +11,17 @@ class Heroe: public Personaje{
 protected:
 	float vida;
 	float alturamuerte;
-
-
-	/////Monedas= NumroDisparos
 	int monedas;
-	////Puntosreaparicion;
 	int numeroRP;
-	Vector2D *puntosR[Max_Size];
 
+	Vector2D *puntosR[Max_Size];
 	enum Sentido {Izquierda,Derecha};
 	Sentido sentido;
 	
-	////Grafico
 	SpriteSequence 
 		run, jumpUP, jumpDOWN,
 		vida1, vida2, vida3,
 		spearavailable;
-
 public:
 	Heroe();
 	virtual ~Heroe();

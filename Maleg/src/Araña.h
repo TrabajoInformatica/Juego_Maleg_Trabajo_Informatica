@@ -5,7 +5,6 @@
 using ETSIDI::SpriteSequence;
 
 class Araña: public Enemigo{
-
 private:
 	float lim_xi;
 	float lim_xd;
@@ -14,7 +13,6 @@ private:
 
 
 public:
-
 	SpriteSequence spyder;
 
 	Araña();
