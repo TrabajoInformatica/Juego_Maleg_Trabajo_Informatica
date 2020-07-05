@@ -115,7 +115,6 @@ void Nivel2::Mueve() {
 	corazones2.Colision(&heroe2);
 
 	if (puerta2.Colision(&heroe2) == true) {
-		cout << "puerta2" << endl;
 		fin = true;
 	}
 	else
@@ -202,7 +201,6 @@ void Nivel2::TeclaUp(unsigned char key) {
 }
 bool Nivel2::MuerteHeroe() {
 	if (heroe2.Muerte()) {
-		cout << "Muerto" << endl;
 		heroe2.DestruirContenido();
 		return true;
 	}

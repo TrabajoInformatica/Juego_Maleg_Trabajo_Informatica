@@ -150,14 +150,11 @@ void Nivel3::Mueve() {
 
 	/////////Provisional
 	if (puerta3.Colision(&heroe3) == true) {
-		cout << "puerta3" << endl;
 		fin = true;
 	}
 	else
 		fin = false;
 	if (puertaextra.Colision(&heroe3) == true) {
-		cout << "puertaespecial" << endl;
-		//	fin = true;
 		heroe3.SetPos(97.5f, 101.0f);
 	}
 
@@ -176,7 +173,6 @@ void Nivel3::Mueve() {
 bool Nivel3::FinNivel3() {
 	if (fin == true) {
 		return true;
-		cout << "ha pasado" << endl;
 	}
 	else
 		return false;
@@ -240,7 +236,6 @@ void Nivel3::TeclaUp(unsigned char key) {
 
 bool Nivel3::MuerteHeroe() {
 	if (heroe3.Muerte()) {
-		cout << "Destruir lanzas 3" << endl;
 		heroe3.DestruirContenido();
 		return true;
 	}

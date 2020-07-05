@@ -263,7 +263,6 @@ void NivelFinal::Mueve() {
 		if (Interaccion::ColisionEnemigo(armas.GetLista(j), boss)) {
 			armas.Eliminar(j);
 			boss.SetVida(boss.GetVida() - 1);
-			cout << "Vida boss" << boss.GetVida() << endl;
 			if (boss.GetVida() > 0) {
 				ETSIDI::playMusica("sonidos/Atacado.wav");
 				heroe.SetPos(17.0f, 4.0f);
@@ -365,7 +364,6 @@ void NivelFinal::TeclaUp(unsigned char key) {
 
 bool NivelFinal::MuerteHeroe() {
 	if (heroe.Muerte()) {
-		cout << "Muerto" << endl;
 		heroe.DestruirContenido();
 		return true;
 	}

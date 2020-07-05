@@ -15,9 +15,7 @@ Puerta::~Puerta() {
 bool Puerta::AgregarP(Puerta* p) {
     if (num < MAX_PUER) {
         lista[num] = p;
-
         num++;
-
     }
     else return false;
 
