@@ -267,6 +267,7 @@ void NivelFinal::Mueve() {
 		bolasdefuego.AgregarE(b24);
 		BolaFuego* b25 = new BolaFuego(30.0, 150.0, -3.0);
 		bolasdefuego.AgregarE(b25);
+		invocar = false;
 	}
 	if (bolasdefuego.GetNumeroE()==0) {
 		invocar = true;
@@ -291,12 +292,17 @@ void NivelFinal::Mueve() {
 			cout << "Vida boss" << boss.GetVida() << endl;
 			if (boss.GetVida() > 0) {
 				ETSIDI::playMusica("sonidos/Atacado.wav");
-				boss.SetVida(boss.GetVida() - 1);
-				invocar = true;
 				heroe.SetPos(17.0f, 4.0f);
+				armas.DestruirContenido();
 			}
 			else if (boss.GetVida() == 0) fin = true;
 		}
+	}
+	if (heroe.GetMonedas() == 0 && monedas.GetNumeroM() == 0) {
+		Moneda* m0 = new Moneda(7.0, 4.0, 0.5, 255, 255, 255);
+		monedas.AgregarM(m0);
+		Moneda* m1 = new Moneda(9.0, 4.0, 0.5, 255, 255, 255);
+		monedas.AgregarM(m1);
 	}
 }
 
@@ -338,11 +344,13 @@ void NivelFinal::Tecla(unsigned char key) {
 		heroe.ShowHitbox(true);
 		ciclopes.ShowHitbox(true);
 		bolasdefuego.ShowHitbox(true);
+		boss.ShowHitbox(true);
 	}
 	else {
 		heroe.ShowHitbox(false);
 		ciclopes.ShowHitbox(false);
 		bolasdefuego.ShowHitbox(false);
+		boss.ShowHitbox(false);
 	}
 
 	if (key == ' ') {
