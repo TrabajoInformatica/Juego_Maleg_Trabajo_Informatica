@@ -72,6 +72,3 @@ void ListaCorazones::Eliminar(int index) {
 	
 }
 
-void ListaCorazones::ShowHitbox(bool e) {
-
-}

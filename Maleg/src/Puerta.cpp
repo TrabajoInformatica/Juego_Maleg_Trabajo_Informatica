@@ -57,10 +57,10 @@ void Puerta::Dibuja() {
 }
 void Puerta::DibujaP() {
     for (int i = 0;i < num;i++) {
-        lista[i]->Dibuja();//direccion de memoria del elemento(moneda)
+        lista[i]->Dibuja();//direccion de memoria del elemento(puerta)
     }                       //recorre una a una la lista de monedas que tenemos y las dibuja
 }
-bool Puerta::Colision(Heroe* p) {
+bool Puerta::Colision(Heroe* p) {//Devuelve el true cada vez que el hombre "Atraviesa" una puerta
     for (int i = 0; i < num;i++) {
         if (Interaccion::ColisionLat(p, *(lista[i]))){
             return true;

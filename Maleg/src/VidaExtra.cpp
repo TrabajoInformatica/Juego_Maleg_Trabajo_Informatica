@@ -39,7 +39,7 @@ void VidaExtra::Dibuja() {
 }
 void VidaExtra::Mueve(float t) {
 	ObjetoMovil::Mueve(t);
-	if (posicion.y = posicionfin)
+	if (posicion.y = posicionfin)//las vidas caen del cielo
 		velocidad.y = 0.0;
 }
 

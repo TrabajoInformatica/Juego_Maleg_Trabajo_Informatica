@@ -57,7 +57,7 @@ void ListaMonedas::Colision(Heroe* p){
 			
 	}
 }
-void ListaMonedas::Eliminar(Moneda* e) {//borrar esfera según su dirección de memoria
+void ListaMonedas::Eliminar(Moneda* e) {//borra moneda según su dirección de memoria
 	for (int i = 0;i < numero;i++) {
 		if (lista[i] == e) {
 			Eliminar(i);
@@ -65,7 +65,7 @@ void ListaMonedas::Eliminar(Moneda* e) {//borrar esfera según su dirección de me
 		}
 	}
 }
-void ListaMonedas::Eliminar(int index) {//borrar una esfera segun su indice
+void ListaMonedas::Eliminar(int index) {//borrar una moneda segun su indice
 	if ((index < 0) || (index >= numero)) {//si el indice esta fuera de rango
 		return;
 	}
