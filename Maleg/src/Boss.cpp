@@ -23,22 +23,20 @@ void Boss::Dibuja() {
 	//Dibujo
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0.5);
-	//if (velocidad.x > 0.01)boss.flip(false, false);
-	//if (velocidad.x < -0.01)boss.flip(true, false);
 	boss.flip(true, false);
 	boss.draw();
 	boss.loop();
 	glPopMatrix();
 
-	
-	glPushMatrix();
-	glColor3ub(rojo, verde, azul);
-	glTranslatef(posicion.x, posicion.y, 0);
-	glColor3f(rojo, verde, azul);
-	glutWireSphere(altura, 40, 40);
-	glTranslatef(-posicion.x, -posicion.y, 0);
-	glPopMatrix();
-	
+	if (estado == Show) {
+		cout << "SHoevbbb" << endl;
+		glPushMatrix();
+		glColor3ub(255, 0, 0);
+		glTranslatef(posicion.x, posicion.y, 0);
+		glutWireSphere(altura, 40, 40);
+		glTranslatef(-posicion.x, -posicion.y, 0);
+		glPopMatrix();
+	}
 }
 
 void Boss::SetVida(int v) {

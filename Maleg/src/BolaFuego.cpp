@@ -27,7 +27,7 @@ void BolaFuego::Dibuja() {
 	fireball.loop();
 	glPopMatrix();
 
-	//if (estado == Show) {
+	if (estado == Show) {
 		glPushMatrix();
 		glColor3ub(rojo, verde, azul);
 		glTranslatef(posicion.x, posicion.y, 0.5);
@@ -35,7 +35,7 @@ void BolaFuego::Dibuja() {
 		glutWireSphere(altura, 40, 40);
 		glTranslatef(-posicion.x, -posicion.y, 0.5);
 		glPopMatrix();
-//	}
+	}
 }
 
 void BolaFuego::Mueve(float t) {
