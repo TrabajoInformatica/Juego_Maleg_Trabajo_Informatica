@@ -16,7 +16,7 @@ Plataforma
  84.0 14.0 86.0 14.0 0.5 128.0 64.0 0.0			//Salto3
  87.0 18.0 93.0 18.0 0.5 128.0 64.0 0.0			//Plataforma1_despues_de_saltos
  96.0 14.0 99.0 14.0 0.5 128.0 64.0 0.0			//Plataforma2
- 104.0 10.0 107.0 10.0 0.6 128.0 64.0 0.0		//Plataforma3
+ 104.0 10.0 107.0 10.0 0.5 128.0 64.0 0.0		//Plataforma3
  112.0 13.0 120.0 13.0 2.0 128.0 64.0 0.0		//Plataforma_antes_de_dificil
  123.0 13.0 124.0 13.0 0.5 128.0 64.0 0.0		//Plataforma_dificil
  130.0 13.0 134.0 13.0 0.5 128.0 64.0 0.0		//Plataforma_despues_de_dificil

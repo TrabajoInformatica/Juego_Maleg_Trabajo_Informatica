@@ -20,7 +20,6 @@ void Mundo::Inicializa() {
 	heroe.SetVida(3);
 	nivel = 1;
 	CargarNivel();
-
 }
 
 void Mundo::CargarNivel() {
