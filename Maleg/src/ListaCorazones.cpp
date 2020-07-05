@@ -12,7 +12,6 @@ ListaCorazones::~ListaCorazones() {
 }
 bool ListaCorazones::AgregarC(VidaExtra* v) {
 	if (num < MAX_COR) {
-		cout << num << endl;
 		Lista_c[num] = v;
 		num++;
 	}

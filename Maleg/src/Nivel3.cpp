@@ -127,9 +127,7 @@ void Nivel3::Dibuja() {
 
 	puerta3.DibujaP();
 	puertaextra.DibujaP();
-	
-	//cout << "X" << heroe3.GetPos().x << endl;
-	//cout << "Y" << heroe3.GetPos().y << endl;
+
 }
 
 void Nivel3::Mueve() {
