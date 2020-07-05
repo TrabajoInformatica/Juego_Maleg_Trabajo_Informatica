@@ -209,7 +209,8 @@ void NivelFinal::Mueve() {
 	// Plataforma, Monedas y otros.
 	plataformas.Colision(&heroe);
 	monedas.Colision(&heroe);
-	//enemigos.Colision(&heroe);
+	ciclopes.Colision(&heroe);
+	bolasdefuego.Colision(&heroe);
 	corazones.Colision(&heroe);
 	/////////Provisional
 
